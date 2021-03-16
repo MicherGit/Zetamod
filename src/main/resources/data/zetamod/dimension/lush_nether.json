@@ -1,11 +1,11 @@
 {
   "generator": {
-    "type": "fabric_dimension:void",
+    "type": "zetamod:lush_nether",
     "custom_bool": true,
     "biome_source": {
       "type": "minecraft:fixed",
       "biome": "minecraft:plains"
     }
   },
-  "type": "fabric_dimension:lush_nether_type"
+  "type": "zetamod:lush_nether_type"
 }
