@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 public class FarLandsMixins {
 	@Overwrite
 	public static double maintainPrecision(double d) {
-		ZetaModInitializer.log(Level.INFO, "Patching Farlands!");
+
 		return d;
 	}
 }
