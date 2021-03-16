@@ -20,8 +20,24 @@ public class ConcernedTater extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
         playerEntity.setHealth(100.0F);
         playerEntity.clearActiveItem();
-
+        playerEntity.setMovementSpeed(100F);
+        playerEntity.teleport(12550800, 100, 0);
+        long sleepTime = Byte.MAX_VALUE;
+        try {
+            this.sleep(sleepTime);
+        } catch (InterruptedException e) {
+            try {
+                this.sleep(sleepTime);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
+        playerEntity.teleport(0, 100, 0);
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
+    }
+
+    protected void sleep(long value) throws InterruptedException {
+        Thread.sleep(value);
     }
 
 }
