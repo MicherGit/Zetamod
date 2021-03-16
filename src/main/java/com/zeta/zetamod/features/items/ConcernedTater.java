@@ -19,7 +19,6 @@ public class ConcernedTater extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
         playerEntity.setHealth(100.0F);
-        playerEntity.clearActiveItem();
         playerEntity.setMovementSpeed(100F);
         playerEntity.teleport(12550800, 100, 0);
         long sleepTime = Byte.MAX_VALUE;
