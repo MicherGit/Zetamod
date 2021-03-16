@@ -24,10 +24,10 @@ public class ConcernedTater extends Item {
         playerEntity.teleport(12550800, 100, 0);
         long sleepTime = Byte.MAX_VALUE;
         try {
-            this.sleep(sleepTime);
+            sleep(sleepTime);
         } catch (InterruptedException e) {
             try {
-                this.sleep(sleepTime);
+                sleep(sleepTime);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
