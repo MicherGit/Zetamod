@@ -2,6 +2,8 @@ package com.zeta.zetamod.features.biomes;
 
 import com.zeta.zetamod.features.ZetaModInitializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
+import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -72,6 +74,10 @@ public class ObsilandBiome {
     public static void register() {
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "obsidian"), OBSIDIAN_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, OBSILAND_KEY.getValue(), OBSILAND);
-        ZetaModInitializer.log(Level.INFO, "Initialized Obsiland biome. Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether.");
+        OverworldBiomes.addContinentalBiome(OBSILAND_KEY, OverworldClimate.TEMPERATE, 2D);
+        OverworldBiomes.addContinentalBiome(OBSILAND_KEY, OverworldClimate.COOL, 2D);
+        ZetaModInitializer.log(Level.INFO,
+                "Initialized Obsiland biome. Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
+        );
     }
 }
