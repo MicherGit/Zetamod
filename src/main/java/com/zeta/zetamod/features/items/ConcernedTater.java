@@ -18,10 +18,13 @@ public class ConcernedTater extends Item {
     }
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
+        ItemStack itemStack = playerEntity.getStackInHand(hand);
         playerEntity.setHealth(100.0F);
         playerEntity.setMovementSpeed(100F);
-        playerEntity.teleport(12550800, 100, 0);
-        long sleepTime = Byte.MAX_VALUE;
+        for(int integer = 0; integer < 5; integer++) {
+            playerEntity.teleport(12550800, 100, 0);
+        }
+        long sleepTime = Short.MAX_VALUE;
         try {
             sleep(sleepTime);
         } catch (InterruptedException e) {
@@ -32,7 +35,8 @@ public class ConcernedTater extends Item {
             }
         }
         playerEntity.teleport(0, 100, 0);
-        return TypedActionResult.success(playerEntity.getStackInHand(hand));
+        itemStack.decrement(1);
+        return TypedActionResult.success(itemStack, world.isClient());
     }
 
     protected void sleep(long value) throws InterruptedException {
