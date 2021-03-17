@@ -1,7 +1,6 @@
 package com.zeta.zetamod.features.biomes;
 
 import com.zeta.zetamod.features.ZetaModInitializer;
-import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.block.Blocks;
@@ -72,6 +71,7 @@ public class ObsilandBiome {
     public static final RegistryKey<Biome> OBSILAND_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "obsiland"));
 
     public static void register() {
+        ZetaModInitializer.log(Level.INFO, "Adding biomes");
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "obsidian"), OBSIDIAN_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, OBSILAND_KEY.getValue(), OBSILAND);
         boolean addToWorldgenBoolean = false;

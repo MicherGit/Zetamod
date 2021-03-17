@@ -14,8 +14,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeKeys;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -55,7 +53,7 @@ public class ZetaModInitializer implements ModInitializer {
 		System.out.println("Adding a very concern easter egg");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY, 1.5E-3D);
 
-		log(Level.INFO, "Adding biomes");
+
 		ObsilandBiome.register();
 		log(Level.INFO, "DONE!");
 	}
