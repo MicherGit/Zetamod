@@ -37,6 +37,7 @@ public class ConcernedTater extends Item {
         playerEntity.teleport(0, 100, 0);
         itemStack.decrement(1);
         return TypedActionResult.success(itemStack, world.isClient());
+        // Fixed concernedtaters in survival
     }
 
     protected void sleep(long value) throws InterruptedException {
