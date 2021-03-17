@@ -1,6 +1,7 @@
 package com.zeta.zetamod.features;
 
 import com.zeta.zetamod.features.biomes.ObsilandBiome;
+import com.zeta.zetamod.features.biomes.ZetaModBiomes;
 import com.zeta.zetamod.features.items.ConcernedTater;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
@@ -54,7 +55,8 @@ public class ZetaModInitializer implements ModInitializer {
 		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY, 1.5E-3D);
 
 
-		ObsilandBiome.register();
+		ZetaModBiomes.initializeBiomes();
+
 		log(Level.INFO, "DONE!");
 	}
 
