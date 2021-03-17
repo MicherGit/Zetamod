@@ -51,7 +51,7 @@ public class ZetaModInitializer implements ModInitializer {
 		ZetaModInitializer.log(Level.INFO, "Patching Farlands!");
 
 		System.out.println("Adding a very concern easter egg");
-		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY, 1.5E-6D);
+		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY, 1.5E-3D);
 		log(Level.INFO, "DONE!");
 	}
 
