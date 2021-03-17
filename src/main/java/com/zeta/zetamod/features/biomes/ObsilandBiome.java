@@ -69,7 +69,7 @@ public class ObsilandBiome {
     private static final String MOD_ID = ZetaModInitializer.MOD_ID;
     public static final RegistryKey<Biome> OBSILAND_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "obsiland"));
 
-    public void register() {
+    public static void register() {
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "obsidian"), OBSIDIAN_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, OBSILAND_KEY.getValue(), OBSILAND);
         ZetaModInitializer.log(Level.INFO, "Initialized Obsiland biome. Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether.");
