@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.zeta.zetamod.features.mixin",
+  "package": "com.zeta.zetamod.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
   ],
