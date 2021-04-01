@@ -1,6 +1,6 @@
 package com.zeta.zetamod.features.biomes;
 
-public class ZetaModBiomes {
+public class BiomesInitializer {
     public static void initializeBiomes() {
         // Register Biomes
         ObsilandBiome.register();
