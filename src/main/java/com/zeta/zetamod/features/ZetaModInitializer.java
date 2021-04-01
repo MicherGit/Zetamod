@@ -26,10 +26,10 @@ public class ZetaModInitializer implements ModInitializer {
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 0;
-	public static final Integer MOD_MINOR = 2;
-	public static final Integer MOD_BF = 2;
-	public static boolean MOD_DEV = false;
-	public static final Integer MOD_DEV_V = 0;
+	public static final Integer MOD_MINOR = 3;
+	public static final Integer MOD_BF = 0;
+	public static boolean MOD_DEV = true;
+	public static final Integer MOD_DEV_V = 1;
 	public static final byte V_TYPE = 0;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = new Error("Something broke!");
