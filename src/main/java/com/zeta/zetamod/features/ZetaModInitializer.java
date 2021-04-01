@@ -26,7 +26,12 @@ public class ZetaModInitializer implements ModInitializer {
 
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
-
+	public static final Integer MOD_MAJOR = 0;
+	public static final Integer MOD_MINOR = 2;
+	public static final Integer MOD_BF = 1;
+	public static final boolean MOD_DEV = true;
+	public static final Integer MOD_DEV_V = 6;
+	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + Integer.toString(MOD_MINOR) + Integer.toString(MOD_BF);
 
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
@@ -38,6 +43,11 @@ public class ZetaModInitializer implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		log(Level.INFO, "Initializing");
+		if(MOD_DEV) {
+			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
+		} else {
+			log(Level.INFO, "Mod version is " + MOD_VERSION);
+		}
 		System.out.println("Hello Fabric world!");
 		log(Level.INFO, "Adding biomes");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
