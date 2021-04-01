@@ -83,8 +83,9 @@ public class ConcerningBiome {
                         //"Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
         );
     }
+    public static double conc = ZetaModInitializer.concerning_weight;
     public static void addToWorldgen() {
-        OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.TEMPERATE, 2D);
-        OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, 2D);
+        OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.TEMPERATE, conc);
+        OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
     }
 }

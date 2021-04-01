@@ -30,8 +30,8 @@ public class ZetaModInitializer implements ModInitializer {
 	public static final Integer MOD_MINOR = 2;
 	public static final Integer MOD_BF = 1;
 	public static boolean MOD_DEV = true;
-	public static final Integer MOD_DEV_V = 9;
-	public static final byte V_TYPE = 1;
+	public static final Integer MOD_DEV_V = 1;
+	public static final byte V_TYPE = 2;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = new Error("Something broke!");
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
@@ -39,6 +39,8 @@ public class ZetaModInitializer implements ModInitializer {
 	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ItemGroup.MISC));
 
 	public static final Level LV = Level.INFO;
+
+	public static double concerning_weight = (double) (1 / 2048);
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
