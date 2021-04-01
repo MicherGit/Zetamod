@@ -30,24 +30,23 @@ public class ZetaModInitializer implements ModInitializer {
 	public static final Integer MOD_MINOR = 2;
 	public static final Integer MOD_BF = 1;
 	public static final boolean MOD_DEV = true;
-	public static final Integer MOD_DEV_V = 6;
+	public static final Integer MOD_DEV_V = 7;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + Integer.toString(MOD_MINOR) + Integer.toString(MOD_BF);
 
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ItemGroup.MISC));
 
+	public static final Level LG = Level.INFO;
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		log(Level.INFO, "Initializing");
-		if(MOD_DEV) {
-			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
-		} else {
-			log(Level.INFO, "Mod version is " + MOD_VERSION);
-		}
+		log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
+		log(LG, "Development version is " + MOD_DEV);
+		log(LG, "Development build " + MOD_DEV_V);
 		System.out.println("Hello Fabric world!");
 		log(Level.INFO, "Adding biomes");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);

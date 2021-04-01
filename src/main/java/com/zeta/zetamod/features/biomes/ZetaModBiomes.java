@@ -4,5 +4,6 @@ public class ZetaModBiomes {
     public static void initializeBiomes() {
         // Register Biomes
         ObsilandBiome.register();
+        ConcerningBiome.register();
     }
 }
