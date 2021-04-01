@@ -18,17 +18,16 @@ import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import org.apache.logging.log4j.Level;
 
-public class ConclandBiome {
-    private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CONCERN_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
+public class ConcerningBiome {
+    private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CONCERNING_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
             .withConfig(new TernarySurfaceConfig(
-                    ZetaModInitializer.HYPERCONCERN_BLOCK.getDefaultState(),
                     ZetaModInitializer.CONCERN_BLOCK.getDefaultState(),
-                    Blocks.GRAVEL.getDefaultState())
-            );
+                    ZetaModInitializer.HYPERCONCERN_BLOCK.getDefaultState(),
+                    Blocks.OBSIDIAN.getDefaultState()));
 
-    private static final Biome CONCLAND = createCONCLAND();
+    private static final Biome CONCERNINGS = createConcernings();
 
-    private static Biome createCONCLAND() {
+    private static Biome createConcernings() {
         // We specify what entities spawn and what features generate in the biome.
         // Aside from some structures, trees, rocks, plants and
         //   custom entities, these are mostly the same for each biome.
@@ -39,7 +38,7 @@ public class ConclandBiome {
         DefaultBiomeFeatures.addMonsters(spawnSettings, 95, 5, 100);
 
         GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
-        generationSettings.surfaceBuilder(CONCERN_SURFACE_BUILDER);
+        generationSettings.surfaceBuilder(CONCERNING_SURFACE_BUILDER);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(generationSettings);
         DefaultBiomeFeatures.addLandCarvers(generationSettings);
         DefaultBiomeFeatures.addDefaultLakes(generationSettings);
@@ -69,23 +68,24 @@ public class ConclandBiome {
     }
 
     private static final String MOD_ID = ZetaModInitializer.MOD_ID;
-    public static final RegistryKey<Biome> CONCLAND_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "CONCLAND"));
+    public static final RegistryKey<Biome> CONCERNING_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "concerning"));
 
     public static void register() {
         ZetaModInitializer.log(Level.INFO, "Adding biomes");
-        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "concern"), CONCERN_SURFACE_BUILDER);
-        Registry.register(BuiltinRegistries.BIOME, CONCLAND_KEY.getValue(), CONCLAND);
-        boolean addToWorldgenBoolean;
-        addToWorldgenBoolean = true;
+        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "concerning"), CONCERNING_SURFACE_BUILDER);
+        Registry.register(BuiltinRegistries.BIOME, CONCERNING_KEY.getValue(), CONCERNINGS);
+        boolean addToWorldgenBoolean = true;
         if (addToWorldgenBoolean) {
             addToWorldgen();
         }
         ZetaModInitializer.log(Level.INFO,
-                "Initialized CONCLAND biome. Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
+                "Initialized easter egg biome, hehe."
+                        //"Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
         );
     }
+    public static double conc = ZetaModInitializer.concerning_weight;
     public static void addToWorldgen() {
-        OverworldBiomes.addContinentalBiome(CONCLAND_KEY, OverworldClimate.TEMPERATE, 2D);
-        OverworldBiomes.addContinentalBiome(CONCLAND_KEY, OverworldClimate.COOL, 2D);
+        OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.TEMPERATE, conc);
+        OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
     }
 }
