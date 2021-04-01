@@ -29,11 +29,11 @@ public class ZetaModInitializer implements ModInitializer {
 	public static final Integer MOD_MAJOR = 0;
 	public static final Integer MOD_MINOR = 2;
 	public static final Integer MOD_BF = 1;
-	public static final boolean MOD_DEV = true;
-	public static final Integer MOD_DEV_V = 8;
-	public static final int V_TYPE = 1;
+	public static boolean MOD_DEV = true;
+	public static final Integer MOD_DEV_V = 9;
+	public static final byte V_TYPE = 1;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
-	public static final Error error = new Error("something broke!");
+	public static final Error error = new Error("Something broke!");
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ItemGroup.MISC));
@@ -48,6 +48,9 @@ public class ZetaModInitializer implements ModInitializer {
 		//log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
 		log(LV, "Mod version is " + MOD_VERSION);
 		log(LV, "Development release is " + MOD_DEV);
+		if(V_TYPE == 0) {
+			MOD_DEV = false;
+		}
 		if(V_TYPE == 1) {
 			log(LV, "Development build " + MOD_DEV_V);
 		} else if (V_TYPE == 2) {
