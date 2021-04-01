@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 public class FarLandsMixins {
 	/**
 	 * @author ZetaTheEliatrope
-	 * @description Adds back the farlands.
+	 * @reason Adds back the farlands.
 	 */
 	@Overwrite
 	public static double maintainPrecision(double d) {
