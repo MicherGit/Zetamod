@@ -1,7 +1,6 @@
 package com.zeta.zetamod.features;
 
-import com.zeta.zetamod.features.biomes.ObsilandBiome;
-import com.zeta.zetamod.features.biomes.ZetaModBiomes;
+import com.zeta.zetamod.features.biomes.BiomesInitializer;
 import com.zeta.zetamod.features.items.ConcernedTater;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
@@ -28,10 +27,10 @@ public class ZetaModInitializer implements ModInitializer {
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 0;
 	public static final Integer MOD_MINOR = 2;
-	public static final Integer MOD_BF = 1;
+	public static final Integer MOD_BF = 2;
 	public static boolean MOD_DEV = false;
-	public static final Integer MOD_DEV_V = 0;
-	public static final byte V_TYPE = 0;
+	public static final Integer MOD_DEV_V = 1;
+	public static final byte V_TYPE = 1;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = new Error("Something broke!");
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
@@ -40,7 +39,7 @@ public class ZetaModInitializer implements ModInitializer {
 
 	public static final Level LV = Level.INFO;
 
-	public static double concerning_weight = (double) (1D / 2048D);
+	public static double concerning_weight = Math.pow(2, -4);
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -52,6 +51,8 @@ public class ZetaModInitializer implements ModInitializer {
 		log(LV, "Development release is " + MOD_DEV);
 		if(V_TYPE == 0) {
 			MOD_DEV = false;
+		} else {
+			MOD_DEV = true;
 		}
 		if(V_TYPE == 1) {
 			log(LV, "Development build " + MOD_DEV_V);
@@ -74,13 +75,13 @@ public class ZetaModInitializer implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hyperconcern_block"), new BlockItem(HYPERCONCERN_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
 
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"concerned_tater"), CONCERNED_TATER);
-		ZetaModInitializer.log(Level.INFO, "Patching Farlands!");
+		//ZetaModInitializer.log(Level.INFO, "Patching Farlands!");
 
 		System.out.println("Adding a very concern easter egg");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY, 1.5E-3D);
 
 
-		ZetaModBiomes.initializeBiomes();
+		BiomesInitializer.initializeBiomes();
 
 		log(Level.INFO, "DONE!");
 	}
