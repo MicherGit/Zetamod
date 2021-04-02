@@ -1,11 +1,11 @@
 {
+  "type": "zetamod:lush_nether_type",
   "generator": {
-    "type": "zetamod:lush_nether",
-    "custom_bool": true,
+    "type": "minecraft:noise",
     "biome_source": {
       "type": "minecraft:fixed",
       "biome": "minecraft:lush_caves"
-    }
-  },
-  "type": "zetamod:lush_nether_type"
+    },
+    "settings": "minecraft:caves"
+  }
 }

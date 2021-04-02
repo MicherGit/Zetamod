@@ -8,6 +8,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import com.zeta.zetamod.features.dimensions.LushNether;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.render.SkyProperties;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.Heightmap;
@@ -17,10 +18,14 @@ import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.StructuresConfig;
 import net.minecraft.world.gen.chunk.VerticalBlockSample;
+import net.minecraft.world.gen.surfacebuilder.NetherSurfaceBuilder;
 
-public class LushNetherGenerator extends ChunkGenerator{
+public abstract class LushNetherGenerator extends ChunkGenerator{
+    public LushNetherGenerator(BiomeSource biomeSource, StructuresConfig structuresConfig) {
+        super(biomeSource, structuresConfig);
+    }
     // Just an example of adding a custom boolean
-    protected final boolean customBool;
+    /*protected final boolean customBool;
 
     public static final Codec<LushNetherGenerator> CODEC = RecordCodecBuilder.create((instance) ->
             instance.group(
@@ -64,6 +69,6 @@ public class LushNetherGenerator extends ChunkGenerator{
     @Override
     public VerticalBlockSample getColumnSample(int x, int z, HeightLimitView heightLimitView) {
         return new VerticalBlockSample(0, new BlockState[0]);
-    }
+    }*/
 
 }
