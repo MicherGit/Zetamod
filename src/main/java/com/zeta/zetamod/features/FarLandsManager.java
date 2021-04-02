@@ -8,9 +8,9 @@ public class FarLandsManager {
     public static Boolean FARLANDS_INTIALIZED = false;
     public static double maintainPrecisionManageable(double d) {
         if(farlands) {
-            if (FARLANDS_INTIALIZED) {
+            if (!FARLANDS_INTIALIZED) {
+                FARLANDS_INTIALIZED = !FARLANDS_INTIALIZED;
                 ZetaModInitializer.log(Level.INFO, "FarLands intialized!");
-                FARLANDS_INTIALIZED = true;
             }
             return d;
         }
