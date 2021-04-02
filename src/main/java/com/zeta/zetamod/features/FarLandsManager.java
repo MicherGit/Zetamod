@@ -18,5 +18,5 @@ public class FarLandsManager {
             return d - (double) MathHelper.lfloor(d / 3.3554432E7D + 0.5D) * 3.3554432E7D;
         }
     }
-    //public static void init() {}
+
 }
