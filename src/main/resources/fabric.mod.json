@@ -19,7 +19,8 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.zeta.zetamod.features.ZetaModInitializer"
+      "com.zeta.zetamod.features.ZetaModInitializer",
+      "com.zeta.zetamod.features.dimensions.LushNether"
     ]
   },
   "mixins": [

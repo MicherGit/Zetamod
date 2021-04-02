@@ -4,7 +4,7 @@ import net.minecraft.util.math.MathHelper;
 import org.apache.logging.log4j.Level;
 
 public class FarLandsManager {
-    public static boolean farlands = false;
+    public static final boolean farlands = true;
     public static Boolean FARLANDS_INTIALIZED = false;
     public static double maintainPrecisionManageable(double d) {
         if(farlands) {
@@ -18,5 +18,5 @@ public class FarLandsManager {
             return d - (double) MathHelper.lfloor(d / 3.3554432E7D + 0.5D) * 3.3554432E7D;
         }
     }
-    public static void init() {}
+    //public static void init() {}
 }

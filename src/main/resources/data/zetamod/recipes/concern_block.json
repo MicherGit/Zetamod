@@ -2,15 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "###",
-    " I ",
+    "###",
     "###"
   ],
   "key": {
     "#": {
-      "item": "minecraft:potato"
-    },
-    "I": {
-      "item": "minecraft:iron_block"
+      "item": "zetamod:concerned_tater"
     }
   },
   "result": {
