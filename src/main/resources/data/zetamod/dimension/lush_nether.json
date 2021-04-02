@@ -7,6 +7,5 @@
       "biome": "minecraft:lush_caves"
     }
   },
-  "type": "zetamod:lush_nether_type",
-  "settings": "minecraft:nether"
+  "type": "zetamod:lush_nether_type"
 }
