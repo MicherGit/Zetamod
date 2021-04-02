@@ -47,7 +47,8 @@ public class ZetaModInitializer implements ModInitializer {
 		// Proceed with mild caution.
 		log(Level.INFO, "Initializing");
 		//log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
-		String PHASE = " beta ";
+		//String PHASE = " beta ";
+        String PHASE = " alpha ";
 		log(LV, "Mod version is " + PHASE + MOD_VERSION);
 		log(LV, "Development release is " + MOD_DEV);
 		MOD_DEV_V = 2;
