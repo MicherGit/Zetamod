@@ -29,7 +29,7 @@ public class ZetaModInitializer implements ModInitializer {
 	public static final Integer MOD_MINOR = 3;
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
-	public static final Integer MOD_DEV_V = 1;
+	public static final Integer MOD_DEV_V = 2;
 	public static final byte V_TYPE = 0;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = new Error("Something broke!");
@@ -60,7 +60,7 @@ public class ZetaModInitializer implements ModInitializer {
 			log(LV, "pre release " + MOD_DEV_V);
 		} else if (V_TYPE == 3) {
 			log(LV, "release candidate  " + MOD_DEV_V);
-		} else {
+		} else if (V_TYPE >= 4) {
 			throw error;
 		}
 
@@ -86,6 +86,7 @@ public class ZetaModInitializer implements ModInitializer {
 		log(Level.INFO, "DONE!");
 	}
 
+	public void initDimensions() {}
 	public static void log(Level level, String message){
 		LOGGER.log(level, "["+MOD_NAME+"] " + message);
 	}
