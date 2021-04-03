@@ -6,6 +6,7 @@ import static net.minecraft.server.command.CommandManager.literal;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
+import com.zeta.zetamod.features.dimensions.generator.LushNetherGenerator;
 import net.minecraft.block.Blocks;
 import net.minecraft.command.CommandException;
 import net.minecraft.entity.Entity;
@@ -47,6 +48,8 @@ public class LushNether implements ModInitializer {
 
     @Override
     public void onInitialize() {
+
+        Registry.register(Registry.CHUNK_GENERATOR, new Identifier("zetamod", "lush_nether"), LushNetherGenerator.CODEC);
 
         WORLD_KEY = RegistryKey.of(Registry.DIMENSION, new Identifier("zetamod", "lush_nether"));
 
