@@ -1,11 +1,11 @@
 {
   "type": "zetamod:lush_nether_type",
   "generator": {
-    "seed": "2720447118822700791",
+    "seed": "0",
     "type": "minecraft:noise",
     "biome_source": {
       "type": "minecraft:fixed",
-      "seed": "2720447118822700791",
+      "seed": "0",
       "biome": "minecraft:lush_caves"
     },
     "settings": "minecraft:caves"
