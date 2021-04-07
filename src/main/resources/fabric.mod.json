@@ -20,7 +20,6 @@
   "entrypoints": {
     "main": [
       "com.zeta.zetamod.main.Main",
-      "com.zeta.zetamod.features.dimensions.LushNether",
       "com.zeta.zetamod.features.items.CrashItemInitializer"
     ]
   },
