@@ -1,6 +1,6 @@
 package com.zeta.zetamod.features;
 
-import com.zeta.zetamod.main.ZetaModInitializer;
+import com.zeta.zetamod.main.Main;
 import net.minecraft.util.math.MathHelper;
 import org.apache.logging.log4j.Level;
 
@@ -11,7 +11,7 @@ public class FarLandsManager {
         if(farlands) {
             if (!FARLANDS_INTIALIZED) {
                 FARLANDS_INTIALIZED = !FARLANDS_INTIALIZED;
-                ZetaModInitializer.log(Level.INFO, "FarLands intialized!");
+                Main.log(Level.INFO, "FarLands intialized!");
             }
             return d;
         }

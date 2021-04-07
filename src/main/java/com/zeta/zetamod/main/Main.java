@@ -19,17 +19,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
 
-public class ZetaModInitializer implements ModInitializer {
+public class Main implements ModInitializer {
 
 	public static Logger LOGGER = LogManager.getLogger();
 
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
-	public static final Integer MOD_MAJOR = 1;
-	public static final Integer MOD_MINOR = 0;
+	public static final Integer MOD_MAJOR = 0;
+	public static final Integer MOD_MINOR = 50;
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
-	public static Integer MOD_DEV_V = 7;
+	public static Integer MOD_DEV_V = 8;
 	public static final byte V_TYPE = 1;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = new Error("Something broke!");
@@ -78,7 +78,7 @@ public class ZetaModInitializer implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hyperconcern_block"), new BlockItem(HYPERCONCERN_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
 
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"concerned_tater"), CONCERNED_TATER);
-		//ZetaModInitializer.log(Level.INFO, "Patching Farlands!");
+		//Main.log(Level.INFO, "Patching Farlands!");
 
 		System.out.println("Adding a very concern easter egg");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY, 1.5E-3D);
