@@ -1,6 +1,6 @@
 package com.zeta.zetamod.features.biomes;
 
-import com.zeta.zetamod.features.ZetaModInitializer;
+import com.zeta.zetamod.main.ZetaModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.block.Blocks;

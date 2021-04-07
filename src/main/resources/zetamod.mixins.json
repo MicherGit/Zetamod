@@ -4,9 +4,10 @@
   "package": "com.zeta.zetamod.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "FarLandsMixins"
   ],
   "client": [
-    "FarLandsMixins"
+
   ],
   "injectors": {
     "defaultRequire": 1

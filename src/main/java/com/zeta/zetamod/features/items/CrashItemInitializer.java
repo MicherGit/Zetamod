@@ -1,6 +1,6 @@
 package com.zeta.zetamod.features.items;
 
-import com.zeta.zetamod.features.ZetaModInitializer;
+import com.zeta.zetamod.main.ZetaModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ItemGroup;
