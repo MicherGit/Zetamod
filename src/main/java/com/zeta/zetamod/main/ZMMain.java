@@ -1,4 +1,4 @@
-package com.zeta.zetamod.features;
+package com.zeta.zetamod.main;
 
 import com.zeta.zetamod.features.biomes.BiomesInitializer;
 import com.zeta.zetamod.features.items.ConcernedTater;
@@ -19,17 +19,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
 
-public class ZetaModInitializer implements ModInitializer {
+public class ZMMain implements ModInitializer {
 
 	public static Logger LOGGER = LogManager.getLogger();
 
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 0;
-	public static final Integer MOD_MINOR = 2;
-	public static final Integer MOD_BF = 2;
+	public static final Integer MOD_MINOR = 50;
+	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = false;
-	public static final Integer MOD_DEV_V = 0;
+	public static Integer MOD_DEV_V = 0;
 	public static final byte V_TYPE = 0;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = new Error("Something broke!");
@@ -47,8 +47,11 @@ public class ZetaModInitializer implements ModInitializer {
 		// Proceed with mild caution.
 		log(Level.INFO, "Initializing");
 		//log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
-		log(LV, "Mod version is " + MOD_VERSION);
+		//String PHASE = " beta ";
+        String PHASE = " alpha ";
+		log(LV, "Mod version is " + PHASE + MOD_VERSION);
 		log(LV, "Development release is " + MOD_DEV);
+		MOD_DEV_V = 2;
 		if(V_TYPE == 0) {
 			MOD_DEV = false;
 		} else {
@@ -60,10 +63,10 @@ public class ZetaModInitializer implements ModInitializer {
 			log(LV, "pre release " + MOD_DEV_V);
 		} else if (V_TYPE == 3) {
 			log(LV, "release candidate  " + MOD_DEV_V);
-		} else {
+		} else if (V_TYPE >= 4) {
 			throw error;
 		}
-
+		log(Level.INFO, "Loading!");
 		System.out.println("Hello Fabric world!");
 		log(Level.INFO, "Adding biomes");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
@@ -75,7 +78,7 @@ public class ZetaModInitializer implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hyperconcern_block"), new BlockItem(HYPERCONCERN_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
 
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"concerned_tater"), CONCERNED_TATER);
-		//ZetaModInitializer.log(Level.INFO, "Patching Farlands!");
+		//ZMMain.log(Level.INFO, "Patching Farlands!");
 
 		System.out.println("Adding a very concern easter egg");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY, 1.5E-3D);
@@ -86,6 +89,7 @@ public class ZetaModInitializer implements ModInitializer {
 		log(Level.INFO, "DONE!");
 	}
 
+	public void initDimensions() {}
 	public static void log(Level level, String message){
 		LOGGER.log(level, "["+MOD_NAME+"] " + message);
 	}
