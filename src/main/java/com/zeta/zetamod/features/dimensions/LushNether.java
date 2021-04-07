@@ -6,7 +6,7 @@ import static net.minecraft.server.command.CommandManager.literal;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
-import com.zeta.zetamod.features.dimensions.generator.LushNetherGenerator;
+//import LushNetherChunkGenerator;
 import net.minecraft.block.Blocks;
 import net.minecraft.command.CommandException;
 import net.minecraft.entity.Entity;
@@ -28,7 +28,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.minecraft.world.gen.surfacebuilder.NetherSurfaceBuilder;
 
 public class LushNether implements ModInitializer {
     private static final RegistryKey<DimensionOptions> DIMENSION_KEY = RegistryKey.of(
@@ -49,7 +48,7 @@ public class LushNether implements ModInitializer {
     @Override
     public void onInitialize() {
 
-        Registry.register(Registry.CHUNK_GENERATOR, new Identifier("zetamod", "lush_nether"), LushNetherGenerator.CODEC);
+        //Registry.register(Registry.CHUNK_GENERATOR, new Identifier("zetamod", "lush_nether"), );
 
         WORLD_KEY = RegistryKey.of(Registry.DIMENSION, new Identifier("zetamod", "lush_nether"));
 

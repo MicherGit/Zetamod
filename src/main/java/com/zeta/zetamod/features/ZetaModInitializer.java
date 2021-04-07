@@ -29,7 +29,7 @@ public class ZetaModInitializer implements ModInitializer {
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
-	public static Integer MOD_DEV_V = 4;
+	public static Integer MOD_DEV_V = 6;
 	public static final byte V_TYPE = 1;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = new Error("Something broke!");
