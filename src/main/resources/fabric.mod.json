@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.zeta.zetamod.main.Main",
+      "com.zeta.zetamod.main.ZMMain",
       "com.zeta.zetamod.features.items.CrashItemInitializer"
     ]
   },

@@ -1,6 +1,6 @@
 package com.zeta.zetamod.features.biomes;
 
-import com.zeta.zetamod.main.Main;
+import com.zeta.zetamod.main.ZMMain;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.block.Blocks;
@@ -21,8 +21,8 @@ import org.apache.logging.log4j.Level;
 public class ConcerningBiome {
     private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CONCERNING_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
             .withConfig(new TernarySurfaceConfig(
-                    Main.CONCERN_BLOCK.getDefaultState(),
-                    Main.HYPERCONCERN_BLOCK.getDefaultState(),
+                    ZMMain.CONCERN_BLOCK.getDefaultState(),
+                    ZMMain.HYPERCONCERN_BLOCK.getDefaultState(),
                     Blocks.OBSIDIAN.getDefaultState()));
 
     private static final Biome CONCERNINGS = createConcernings();
@@ -67,23 +67,23 @@ public class ConcerningBiome {
                 .build();
     }
 
-    private static final String MOD_ID = Main.MOD_ID;
+    private static final String MOD_ID = ZMMain.MOD_ID;
     public static final RegistryKey<Biome> CONCERNING_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "concerning"));
 
     public static void register() {
-        Main.log(Level.INFO, "Adding biomes");
+        ZMMain.log(Level.INFO, "Adding biomes");
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "concerning"), CONCERNING_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, CONCERNING_KEY.getValue(), CONCERNINGS);
         boolean addToWorldgenBoolean = true;
         if (addToWorldgenBoolean) {
             addToWorldgen();
         }
-        Main.log(Level.INFO,
+        ZMMain.log(Level.INFO,
                 "Initialized easter egg biome, hehe."
                         //"Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
         );
     }
-    public static double conc = Main.concerning_weight;
+    public static double conc = ZMMain.concerning_weight;
     public static void addToWorldgen() {
         OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.TEMPERATE, conc);
         OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
