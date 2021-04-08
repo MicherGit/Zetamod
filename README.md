@@ -11,3 +11,6 @@ A multi-functional 1.17 mod that does a lot of things.
 ~~Massochism~~
 ### Requires Minecraft version 21w10a or later (until v1.0.0-alpha). 
 ### Versions 1.0.0 alpha and newer will require 21w13a or later.
+
+### Warning: This branch is for an experimental development version. Please go back unless you know what your doing or are told to by me.
+### Current WIP Version: v0.50.1 alpha
