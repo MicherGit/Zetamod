@@ -1,11 +1,13 @@
 {
+  "type": "minecraft:overworld_caves",
   "generator": {
-    "type": "zetamod:lush_nether",
-    "custom_bool": true,
+    "type": "minecraft:noise",
+    "seed": -908244592,
     "biome_source": {
       "type": "minecraft:fixed",
-      "biome": "minecraft:plains"
-    }
-  },
-  "type": "zetamod:lush_nether_type"
+      "seed": -908244592,
+      "biome": "minecraft:lush_caves"
+    },
+    "settings": "minecraft:caves"
+  }
 }
