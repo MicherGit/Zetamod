@@ -3,7 +3,13 @@ package com.zeta.zetamod.features.biomes;
 import com.zeta.zetamod.main.ZMMain;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -19,11 +25,14 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import org.apache.logging.log4j.Level;
 
 public class ConcerningBiome {
+
+    public static final Block GIGACONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(8.0f));
+
     private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CONCERNING_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
             .withConfig(new TernarySurfaceConfig(
                     ZMMain.CONCERN_BLOCK.getDefaultState(),
                     ZMMain.HYPERCONCERN_BLOCK.getDefaultState(),
-                    Blocks.OBSIDIAN.getDefaultState()));
+                    GIGACONCERN_BLOCK.getDefaultState()));
 
     private static final Biome CONCERNINGS = createConcernings();
 
@@ -82,6 +91,9 @@ public class ConcerningBiome {
                 "Initialized easter egg biome, hehe."
                         //"Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
         );
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "gigaconcern_block"), GIGACONCERN_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gigaconcern_block"), new BlockItem(GIGACONCERN_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+
     }
     public static double conc = ZMMain.concerning_weight;
     public static void addToWorldgen() {
