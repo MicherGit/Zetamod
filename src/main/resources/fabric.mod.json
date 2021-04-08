@@ -20,7 +20,8 @@
   "entrypoints": {
     "main": [
       "com.zeta.zetamod.main.ZMMain",
-      "com.zeta.zetamod.features.items.CrashItemInitializer"
+      "com.zeta.zetamod.features.items.CrashItemInitializer",
+      "com.zeta.zetamod.features.dimensions.portals.LushNetherPortalInit"
     ]
   },
   "mixins": [

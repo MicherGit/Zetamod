@@ -29,7 +29,7 @@ public class ZMMain implements ModInitializer {
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = false;
-	public static Integer MOD_DEV_V = 1;
+	public static Integer MOD_DEV_V = 2;
 	public static final byte V_TYPE = 1;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = new Error("Something broke!");
