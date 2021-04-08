@@ -5,7 +5,8 @@ import net.minecraft.util.math.MathHelper;
 import org.apache.logging.log4j.Level;
 
 public class FarLandsManager {
-    public static final boolean farlands() {
+    // This is now mixinable!
+    public static boolean farlands() {
         return true;
     }
     public static Boolean FARLANDS_INTIALIZED = false;

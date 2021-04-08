@@ -2,13 +2,11 @@ package com.zeta.zetamod.main;
 
 import com.zeta.zetamod.features.biomes.BiomesInitializer;
 import com.zeta.zetamod.features.items.ConcernedTater;
-import com.zeta.zetamod.mixins.MinecraftVersionMixin;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.MinecraftVersion;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
@@ -28,11 +26,11 @@ public class ZMMain implements ModInitializer {
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 0;
-	public static final Integer MOD_MINOR = 51;
-	public static final Integer MOD_BF = 0;
+	public static final Integer MOD_MINOR = 50;
+	public static final Integer MOD_BF = 1;
 	public static boolean MOD_DEV = false;
-	public static Integer MOD_DEV_V = 1;
-	public static final byte V_TYPE = 1;
+	public static Integer MOD_DEV_V = 0;
+	public static final byte V_TYPE = 0;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = new Error("Something broke!");
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
@@ -70,14 +68,10 @@ public class ZMMain implements ModInitializer {
 		}
 		log(Level.INFO, "Loading!");
 		System.out.println("Hello Fabric world!");
-		MinecraftVersionMixin test = new MinecraftVersionMixin("");
-		String MINECRAFT_VERSION = test.minecraftversionname;
 		int[] week = {1,2,3,4,5};
-		if(!MINECRAFT_VERSION.startsWith("21w0") || !MINECRAFT_VERSION.startsWith("1.1") || MINECRAFT_VERSION.startsWith("1.17") || MINECRAFT_VERSION.startsWith("1.18") || MINECRAFT_VERSION.startsWith("1.19")) {
-			log(Level.INFO, "Adding biomes");
-			OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
-			OverworldBiomes.addContinentalBiome(BiomeKeys.DRIPSTONE_CAVES, OverworldClimate.COOL, 2D);
-		}
+		log(Level.INFO, "Adding biomes");
+		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
+		OverworldBiomes.addContinentalBiome(BiomeKeys.DRIPSTONE_CAVES, OverworldClimate.COOL, 2D);
 		log(Level.INFO, "Adding concerning items!");
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "concern_block"), CONCERN_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "concern_block"), new BlockItem(CONCERN_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
