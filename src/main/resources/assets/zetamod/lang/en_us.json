@@ -2,6 +2,5 @@
   "block.zetamod.concern_block": ":concern:",
   "block.zetamod.hyperconcern_block": ":hyperconcern:",
   "item.zetamod.concerned_tater": "Concerned Tater",
-  "block.zetamod.gigaconcern_block": ":gigaconcern:",
-  "item.zetamod.crashitem": "Right click me!"
+  "block.zetamod.gigaconcern_block": ":gigaconcern:"
 }
