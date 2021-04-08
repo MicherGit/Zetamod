@@ -6,7 +6,8 @@
   "name": "ZetaMod",
   "description": "A mod that does many things!",
   "authors": [
-    "ZetaTheEliatrope (obviously)"
+    "ZetaTheEliatrope (obviously)",
+    "kyrptonaught (Custom Portals API)"
   ],
   "contact": {
     "homepage": "https://github.com/MicherGit/Zetamod",
@@ -31,7 +32,7 @@
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
-    "minecraft": ">=1.17-alpha.21.10.a"
+    "minecraft": ">=1.17-alpha.21.6.a"
   },
   "suggests": {
     "another-mod": "*"

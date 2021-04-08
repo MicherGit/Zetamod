@@ -29,7 +29,7 @@ public class ZMMain implements ModInitializer {
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = false;
-	public static Integer MOD_DEV_V = 2;
+	public static Integer MOD_DEV_V = 3;
 	public static final byte V_TYPE = 1;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = new Error("Something broke!");
@@ -70,7 +70,7 @@ public class ZMMain implements ModInitializer {
 		System.out.println("Hello Fabric world!");
 		int[] week = {1,2,3,4,5};
 		log(Level.INFO, "Adding biomes");
-		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
+		//OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
 		OverworldBiomes.addContinentalBiome(BiomeKeys.DRIPSTONE_CAVES, OverworldClimate.COOL, 2D);
 		log(Level.INFO, "Adding concerning items!");
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "concern_block"), CONCERN_BLOCK);
