@@ -27,7 +27,8 @@ public class ZMMain implements ModInitializer {
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 0;
 	public static final Integer MOD_MINOR = 50;
-	public static final Integer MOD_BF = 0;
+	public static final Integer MOD_BF = 1;
+	public static final Integer MOD_DEV_PATCH = new Integer("01");
 	public static boolean MOD_DEV = false;
 	public static Integer MOD_DEV_V = 0;
 	public static final byte V_TYPE = 0;
@@ -49,7 +50,16 @@ public class ZMMain implements ModInitializer {
 		//log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
 		//String PHASE = " beta ";
         String PHASE = " alpha ";
-		log(LV, "Mod version is " + PHASE + MOD_VERSION);
+        if(MOD_DEV_PATCH != 0)
+		{
+			if(MOD_DEV_PATCH <= 10) {
+				log(LV, "Mod version is " + PHASE + MOD_VERSION + "_0" + MOD_DEV_PATCH);}
+			else {
+				log(LV, "Mod version is " + PHASE + MOD_VERSION + "_" + MOD_DEV_PATCH);
+			}
+		} else {
+			log(LV, "Mod version is " + PHASE + MOD_VERSION);
+		}
 		log(LV, "Development release is " + MOD_DEV);
 		MOD_DEV_V = 2;
 		if(V_TYPE == 0) {
@@ -68,14 +78,15 @@ public class ZMMain implements ModInitializer {
 		}
 		log(Level.INFO, "Loading!");
 		System.out.println("Hello Fabric world!");
+		int[] week = {1,2,3,4,5};
 		log(Level.INFO, "Adding biomes");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
 		OverworldBiomes.addContinentalBiome(BiomeKeys.DRIPSTONE_CAVES, OverworldClimate.COOL, 2D);
 		log(Level.INFO, "Adding concerning items!");
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "concern_block"), CONCERN_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "concern_block"), new BlockItem(CONCERN_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "concern_block"), new BlockItem(CONCERN_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "hyperconcern_block"), HYPERCONCERN_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hyperconcern_block"), new BlockItem(HYPERCONCERN_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hyperconcern_block"), new BlockItem(HYPERCONCERN_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"concerned_tater"), CONCERNED_TATER);
 		//ZMMain.log(Level.INFO, "Patching Farlands!");
