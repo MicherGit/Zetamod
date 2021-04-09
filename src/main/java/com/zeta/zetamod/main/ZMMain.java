@@ -28,6 +28,7 @@ public class ZMMain implements ModInitializer {
 	public static final Integer MOD_MAJOR = 0;
 	public static final Integer MOD_MINOR = 50;
 	public static final Integer MOD_BF = 1;
+	public static final Integer MOD_DEV_PATCH = new Integer("01");
 	public static boolean MOD_DEV = false;
 	public static Integer MOD_DEV_V = 0;
 	public static final byte V_TYPE = 0;
@@ -49,7 +50,16 @@ public class ZMMain implements ModInitializer {
 		//log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
 		//String PHASE = " beta ";
         String PHASE = " alpha ";
-		log(LV, "Mod version is " + PHASE + MOD_VERSION);
+        if(MOD_DEV_PATCH != 0)
+		{
+			if(MOD_DEV_PATCH <= 10) {
+				log(LV, "Mod version is " + PHASE + MOD_VERSION + "_0" + MOD_DEV_PATCH);}
+			else {
+				log(LV, "Mod version is " + PHASE + MOD_VERSION + "_" + MOD_DEV_PATCH);
+			}
+		} else {
+			log(LV, "Mod version is " + PHASE + MOD_VERSION);
+		}
 		log(LV, "Development release is " + MOD_DEV);
 		MOD_DEV_V = 2;
 		if(V_TYPE == 0) {
