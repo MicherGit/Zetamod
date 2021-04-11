@@ -10,4 +10,8 @@ A multi-functional 1.17 mod that does a lot of things.
 ### Fabric API
 ~~Massochism~~
 ### Requires Minecraft version 21w10a or later (until v1.0.0-alpha). 
-### Versions 1.0.0 alpha and newer will require 21w13a or later.
+### Versions 1.0.0 beta and newer will require 21w14a or later.
+### Zeta's Keymod (1.0.0 pre releases and future dev versions)
+### Fabric Example Mod (1.0.0 dev versions)
+- Download it here https://panel.repsy.io/mvn/zeta/stuff/com/example/fabric-example-mod/1.0.1/fabric-example-mod-1.0.1.jar
+## Bundles Zeta's API v0.0.3 alpha (0.50.1_01+), and v0.1.0 alpha (1.0.0-dv6+)
