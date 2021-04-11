@@ -4,7 +4,16 @@
   "package": "com.zeta.zetamod.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "FarLandsMixins"
+    "FarLandsMixins",
+    "worldborder.MixinEntity",
+    "worldborder.MixinMinecraftServer",
+    "worldborder.MixinNoiseSamplingConfig",
+    "worldborder.MixinPlayerEntity",
+    "worldborder.MixinServerPlayNetworkHandler",
+    "worldborder.MixinWorld",
+    "worldborder.MixinWorldBorder",
+    "worldborder.MixinWorldBorderProperties",
+    "worldborder.MixinAquiferSampler"
   ],
   "client": [
 

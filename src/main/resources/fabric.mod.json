@@ -21,8 +21,7 @@
   "entrypoints": {
     "main": [
       "com.zeta.zetamod.main.ZMMain",
-      "com.zeta.zetamod.features.items.CrashItemInitializer",
-      "com.zeta.zetamod.features.dimensions.portals.LushNetherPortalInit"
+      "com.zeta.zetamod.features.items.CrashItemInitializer"
     ]
   },
   "mixins": [
@@ -32,7 +31,7 @@
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
-    "minecraft": ">=1.17-alpha.21.6.a"
+    "minecraft": ">=1.17-alpha.21.14.a"
   },
   "suggests": {
     "another-mod": "*"

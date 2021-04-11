@@ -17,7 +17,7 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 	maven {
-		url "https://dl.bintray.com/kyrptonaught/customportalapi"
+		url "https://panel.repsy.io/mvn/zeta/stuff/"
 	}
 }
 
@@ -36,6 +36,8 @@ dependencies {
 	// Portal API
 	//modImplementation "net.kyrptonaught:customportalapi:${project.portalapi}"
 	//include "net.kyrptonaught:customportalapi:${project.portalapi}"
+	//modImplementation "supercoder79:farlands-api:0.1.3"
+	//include "supercoder79:farlands-api:0.1.3"
 }
 
 processResources {

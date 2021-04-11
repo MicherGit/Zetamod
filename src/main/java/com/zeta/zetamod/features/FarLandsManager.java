@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Level;
 public class FarLandsManager {
     // This is now mixinable!
     public static boolean farlands() {
-        return true;
+        return false;
     }
     public static Boolean FARLANDS_INTIALIZED = false;
     public static final double maintainPrecisionManageable(double d) {
