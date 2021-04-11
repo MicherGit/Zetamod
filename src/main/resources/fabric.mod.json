@@ -20,8 +20,8 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.zeta.zetamod.main.ZMMain",
-      "com.zeta.zetamod.features.items.CrashItemInitializer"
+      "zetamod.mod.main.ZetaModMain",
+      "zetamod.mod.features.items.CrashItemInitializer"
     ]
   },
   "mixins": [

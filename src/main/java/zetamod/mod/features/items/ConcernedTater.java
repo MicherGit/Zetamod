@@ -1,4 +1,4 @@
-package com.zeta.zetamod.features.items;
+package zetamod.mod.features.items;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

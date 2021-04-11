@@ -1,4 +1,4 @@
-package com.zeta.zetamod.mixins.worldborder;
+package zetamod.mod.mixins.worldborder;
 
 import com.mojang.serialization.Codec;
 import org.spongepowered.asm.mixin.Mixin;

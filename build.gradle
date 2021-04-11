@@ -38,6 +38,7 @@ dependencies {
 	//include "net.kyrptonaught:customportalapi:${project.portalapi}"
 	//modImplementation "supercoder79:farlands-api:0.1.3"
 	//include "supercoder79:farlands-api:0.1.3"
+	modImplementation "com.example:fabric-example-mod:1.0.1"
 }
 
 processResources {

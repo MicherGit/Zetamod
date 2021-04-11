@@ -1,6 +1,6 @@
-package com.zeta.zetamod.mixins;
+package zetamod.mod.mixins;
 
-import com.zeta.zetamod.features.FarLandsManager;
+import zetamod.mod.features.FarLandsManager;
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;

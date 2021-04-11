@@ -1,4 +1,4 @@
-package com.zeta.zetamod.mixins.worldborder;
+package zetamod.mod.mixins.worldborder;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

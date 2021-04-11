@@ -1,7 +1,7 @@
-package com.zeta.zetamod.main;
+package zetamod.mod.main;
 
-import com.zeta.zetamod.features.biomes.BiomesInitializer;
-import com.zeta.zetamod.features.items.ConcernedTater;
+import zetamod.mod.features.biomes.BiomesInitializer;
+import zetamod.mod.features.items.ConcernedTater;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
@@ -19,7 +19,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
 
-public class ZMMain implements ModInitializer {
+public class ZetaModMain implements ModInitializer {
 
 	public static Logger LOGGER = LogManager.getLogger();
 
@@ -29,7 +29,7 @@ public class ZMMain implements ModInitializer {
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = false;
-	public static Integer MOD_DEV_V = 4;
+	public static Integer MOD_DEV_V = 5;
 	public static final byte V_TYPE = 1;
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = new Error("Something broke!");
@@ -79,7 +79,7 @@ public class ZMMain implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hyperconcern_block"), new BlockItem(HYPERCONCERN_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"concerned_tater"), CONCERNED_TATER);
-		//ZMMain.log(Level.INFO, "Patching Farlands!");
+		//ZetaModMain.log(Level.INFO, "Patching Farlands!");
 
 		System.out.println("Adding a very concern easter egg");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY, 1.5E-3D);
