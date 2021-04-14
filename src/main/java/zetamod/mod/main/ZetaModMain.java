@@ -50,7 +50,10 @@ public class ZetaModMain implements ModInitializer {
 		//log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
 		String PHASE = " beta ";
         //String PHASE = " alpha ";
-		log(LV, "Mod version is 1.0.0 snapshot 21w15a for minecraft 21w14a");
+		log(LV, "Mod version is 1.0.0 snapshot " +
+				"21w15" +
+				"b" +
+				" for minecraft 21w14a");
 		//log(LV, "Development release is " + MOD_DEV);
 		//MOD_DEV_V = 2;
 		//if(V_TYPE == 0) {

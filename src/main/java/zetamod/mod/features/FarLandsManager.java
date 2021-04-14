@@ -1,13 +1,17 @@
 package zetamod.mod.features;
 
+import me.zeroeightsix.fiber.exception.FiberException;
+import net.fabricmc.api.ModInitializer;
+import zetamod.mod.main.ConfigManager;
 import zetamod.mod.main.ZetaModMain;
 import net.minecraft.util.math.MathHelper;
 import org.apache.logging.log4j.Level;
 
-public class FarLandsManager {
+public class FarLandsManager implements ModInitializer {
     // This is now mixinable!
     public static boolean farlands() {
-        return false;
+        return
+                getConfig().farLandsEnabled.getValue();
     }
     public static Boolean FARLANDS_INTIALIZED = false;
     public static final double maintainPrecisionManageable(double d) {
@@ -21,6 +25,27 @@ public class FarLandsManager {
         else {
             return d - (double) MathHelper.lfloor(d / 3.3554432E7D + 0.5D) * 3.3554432E7D;
         }
+    }
+    private static ConfigManager CONFIG;
+
+    static {
+        try {
+            CONFIG = new ConfigManager().load();
+        } catch (FiberException e) {
+            e.printStackTrace();
+        }
+    }
+    public static ConfigManager getConfig() {
+        return CONFIG;
+    }
+
+    public static void saveConfig() {
+        CONFIG.save();
+    }
+
+
+    @Override
+    public void onInitialize() {
     }
 
 }

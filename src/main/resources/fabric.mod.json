@@ -21,7 +21,8 @@
   "entrypoints": {
     "main": [
       "zetamod.mod.main.ZetaModMain",
-      "zetamod.mod.features.items.CrashItemInitializer"
+      "zetamod.mod.features.items.CrashItemInitializer",
+      "zetamod.mod.features.FarLandsManager"
     ],
     "client": [
       "zetamod.mod.main.client.ZetaModClient"
