@@ -1,17 +1,17 @@
 {
 	"type": "crafting_shaped",
 	"pattern": [
-		// mess with the patern a bit, just remember, the patern is the shape of your recipe in your crafting bench
+
 		"#"
 	],
 	"key": { 
-		// Replace  the item in between the quotes in line 9 to change what you will use in your recipe, you can add multiple keys if you want
+
 		"#": {
 			"item": "minecraft:seagrass"
 		}
 	},
-	// replace the item between the quotes on line 16 to change the output of your recipe
-	// change the # on line 17 to change the ammount outputed
+
+
 	"result": {
 		"item": "minecraft:grass",
 		"count": 1
