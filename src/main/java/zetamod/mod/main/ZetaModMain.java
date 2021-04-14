@@ -46,26 +46,27 @@ public class ZetaModMain implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		log(Level.INFO, "Initializing");
+		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		//log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
 		String PHASE = " beta ";
         //String PHASE = " alpha ";
-		log(LV, "Mod version is " + PHASE + MOD_VERSION);
-		log(LV, "Development release is " + MOD_DEV);
-		MOD_DEV_V = 2;
-		if(V_TYPE == 0) {
-			MOD_DEV = false;
-		} else {
-			MOD_DEV = true;
-		}
-		if(V_TYPE == 1) {
-			log(LV, "Development build " + MOD_DEV_V);
-		} else if (V_TYPE == 2) {
-			log(LV, "pre release " + MOD_DEV_V);
-		} else if (V_TYPE == 3) {
-			log(LV, "release candidate  " + MOD_DEV_V);
-		} else if (V_TYPE >= 4) {
-			throw error;
-		}
+		log(LV, "Mod version is 1.0.0 snapshot 21w15a for minecraft 21w14a");
+		//log(LV, "Development release is " + MOD_DEV);
+		//MOD_DEV_V = 2;
+		//if(V_TYPE == 0) {
+		//	MOD_DEV = false;
+		//} else {
+		//	MOD_DEV = true;
+		//}
+		//if(V_TYPE == 1) {
+		//	log(LV, "Development build " + MOD_DEV_V);
+		//} else if (V_TYPE == 2) {
+		//	log(LV, "pre release " + MOD_DEV_V);
+		//} else if (V_TYPE == 3) {
+		//	log(LV, "release candidate  " + MOD_DEV_V);
+		//} else if (V_TYPE >= 4) {
+		//	throw error;
+		//}
 		log(Level.INFO, "Loading!");
 		System.out.println("Hello Fabric world!");
 		int[] week = {1,2,3,4,5};
