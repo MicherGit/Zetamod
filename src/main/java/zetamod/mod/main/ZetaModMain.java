@@ -1,6 +1,7 @@
 package zetamod.mod.main;
 
 import zetamod.mod.features.biomes.BiomesInitializer;
+import zetamod.mod.features.errors.compute.ComputeErrorFunction;
 import zetamod.mod.features.items.ConcernedTater;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
@@ -22,7 +23,18 @@ import org.apache.logging.log4j.Level;
 public class ZetaModMain implements ModInitializer {
 
 	public static Logger LOGGER = LogManager.getLogger();
-	// TODO MAJOR: Add API version asap
+	private static String APIVersionGet(String string) {
+		if(string == "1.0.0") {
+			return "0.1.0";
+		} else if (string == "0.50.0") {
+			return "0.0.0";
+		} else if (string.contains("0.50.1")) {
+			return "0.0.1";
+		} else {
+			return "Current mod version doesn't support api";
+		}
+
+	}
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;
@@ -30,9 +42,9 @@ public class ZetaModMain implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = false;
 	public static Integer MOD_DEV_V = 5;
-	public static final byte V_TYPE = 1;
+	public static final byte V_TYPE = Byte.MAX_VALUE ; //beyond you
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
-	public static final Error error = new Error("Something broke!");
+	public static final Error error = ComputeErrorFunction.thrownError;
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ItemGroup.MISC));
@@ -50,26 +62,28 @@ public class ZetaModMain implements ModInitializer {
 		//log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
 		String PHASE = " beta ";
         //String PHASE = " alpha ";
-		log(LV, "Mod version is 1.0.0 snapshot " +
-				"21w15" +
-				"g" +
-				" for minecraft 21w14a");
-		//log(LV, "Development release is " + MOD_DEV);
-		//MOD_DEV_V = 2;
-		//if(V_TYPE == 0) {
-		//	MOD_DEV = false;
-		//} else {
-		//	MOD_DEV = true;
-		//}
-		//if(V_TYPE == 1) {
-		//	log(LV, "Development build " + MOD_DEV_V);
-		//} else if (V_TYPE == 2) {
-		//	log(LV, "pre release " + MOD_DEV_V);
-		//} else if (V_TYPE == 3) {
-		//	log(LV, "release candidate  " + MOD_DEV_V);
-		//} else if (V_TYPE >= 4) {
-		//	throw error;
-		//}
+
+		log(LV, "Development release is " + MOD_DEV);
+		MOD_DEV_V = 2;
+		String SNAPSHOT = "21w15h";
+		if(V_TYPE == 0) {
+			MOD_DEV = false;
+		} else {
+			MOD_DEV = true;
+		}
+		if(V_TYPE == 1) {
+			log(LV, "Development build " + MOD_DEV_V);
+		} else if (V_TYPE == 2) {
+			log(LV, "pre release " + MOD_DEV_V);
+		} else if (V_TYPE == 3) {
+			log(LV, "release candidate  " + MOD_DEV_V);
+		} else if (V_TYPE >= 4) {
+			throw error;
+		} else if (V_TYPE == Byte.MAX_VALUE) {
+			log(LV, "Snapshotting is currently enabled.");
+			log(LV, "Mod version is 1.0.0 snapshot " + SNAPSHOT +
+					" for minecraft 21w14a");
+		}
 		log(Level.INFO, "Loading!");
 		System.out.println("Hello Fabric world!");
 		int[] week = {1,2,3,4,5};
