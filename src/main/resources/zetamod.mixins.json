@@ -9,7 +9,6 @@
     "worldborder.MixinAquiferSampler",
     "worldborder.MixinEntity",
     "worldborder.MixinMinecraftServer",
-    "worldborder.MixinNoiseSamplingConfig",
     "worldborder.MixinPlayerEntity",
     "worldborder.MixinServerPlayNetworkHandler",
     "worldborder.MixinWorld",

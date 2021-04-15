@@ -50,8 +50,8 @@ dependencies {
 	//modImplementation "supercoder79:farlands-api:0.1.3"
 	//include "supercoder79:farlands-api:0.1.3"
 	//modImplementation "com.example:fabric-example-mod:1.0.1"
-	modImplementation("me.shedaniel.cloth:config-2:${project.cloth_version}") { transitive = false }
-	include "me.shedaniel.cloth:config-2:${project.cloth_version}"
+	//modImplementation("me.shedaniel.cloth:config-2:${project.cloth_version}") { transitive = false }
+	//include "me.shedaniel.cloth:config-2:${project.cloth_version}"
 }
 
 processResources {
