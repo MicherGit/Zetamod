@@ -44,7 +44,7 @@ public class ZetaModMain implements ModInitializer {
 	public static Integer MOD_DEV_V = 5;
 	public static final byte V_TYPE = Byte.MAX_VALUE ; //beyond you
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
-	public static final Error error = ComputeErrorFunction.thrownError;
+	public static final Error error = ComputeErrorFunction.computeHandler();
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ItemGroup.MISC));
@@ -77,7 +77,7 @@ public class ZetaModMain implements ModInitializer {
 			log(LV, "pre release " + MOD_DEV_V);
 		} else if (V_TYPE == 3) {
 			log(LV, "release candidate  " + MOD_DEV_V);
-		} else if (V_TYPE >= 4) {
+		} else if (V_TYPE >= 4 && V_TYPE != Byte.MAX_VALUE) {
 			throw error;
 		} else if (V_TYPE == Byte.MAX_VALUE) {
 			log(LV, "Snapshotting is currently enabled.");

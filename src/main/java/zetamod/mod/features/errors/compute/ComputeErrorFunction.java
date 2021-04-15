@@ -23,22 +23,22 @@ public class ComputeErrorFunction {
         if(i <= 1){
             return (int) (2147483647/171.103);
         }
-        if(i <= 10) {
+        if(i <= 5) {
             return 2;
         }
         else { return 1;}
     }
 
-    public static Error thrownError;
-    public static void computeHandler() {
+
+    public static Error computeHandler() {
         ComputeErrorFunction computeErrorFunction = new ComputeErrorFunction();
         int computedError = computeErrorFunction.handleError();
         if (computedError == 1) {
-            thrownError = computeErrorFunction.error1;
+            return computeErrorFunction.error1;
         } else if (computedError == 2) {
-            thrownError = computeErrorFunction.error2;
+            return computeErrorFunction.error2;
         } else {
-            thrownError = computeErrorFunction.error3e;
+            return computeErrorFunction.error3e;
         }
     }
 }
