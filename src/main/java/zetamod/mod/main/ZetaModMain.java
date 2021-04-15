@@ -22,7 +22,7 @@ import org.apache.logging.log4j.Level;
 public class ZetaModMain implements ModInitializer {
 
 	public static Logger LOGGER = LogManager.getLogger();
-
+	// TODO MAJOR: Add API version asap
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;
