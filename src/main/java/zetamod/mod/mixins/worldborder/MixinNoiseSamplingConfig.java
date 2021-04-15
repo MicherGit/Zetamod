@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 import net.minecraft.world.gen.chunk.NoiseSamplingConfig;
 
-@SuppressWarnings("all")
+@SuppressWarnings("UnresolvedMixinReference")
 @Mixin(NoiseSamplingConfig.class)
 public class MixinNoiseSamplingConfig {
     // Ignore this cursed monstrosity
