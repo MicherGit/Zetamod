@@ -16,4 +16,11 @@ public class MixinServerPlayNetworkHandler {
 	private static boolean validateVehicleMove(double d, double e, double f, float g, float h) {
 		return false;
 	}
+
+	/*
+	 * Original
+	 *     private static boolean validateVehicleMove(double d, double e, double f, float g, float h) {
+	 *         return Double.isNaN(d) || Double.isNaN(e) || Double.isNaN(f) || !Floats.isFinite(h) || !Floats.isFinite(g);
+	 *     }
+	 */
 }

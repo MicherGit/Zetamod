@@ -17,7 +17,8 @@ public class ConfigManager  {
     /*
      * Copied from https://github.com/geniiii/FarLands/blob/master/src/main/java/site/geni/farlands/config/Config.java
      */
-    private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(), "ZetaMod.json5");
+    private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(),
+            "ZetaMod.txt");
 
     final private ConfigNode root = new ConfigNode();
 
@@ -51,15 +52,26 @@ public class ConfigManager  {
             .withDefaultValue(684.412D)
             .withParent(world)
             .build();
+    public ConfigValue<Double> coordinateScaleMultiplier = ConfigValue.builder(Double.class)
+            .withName("coordinateScaleMulti")
+            .withComment("Coordinate scale multiplyer so you don't have to mess with the one above.")
+            .withDefaultValue(1.0D)
+            .withParent(world)
+            .build();
     public ConfigValue<Double> heightScale = ConfigValue.builder(Double.class)
             .withName("heightScale")
             .withComment("The world's height scale.")
             .withDefaultValue(684.412D)
             .withParent(world)
             .build();
+    public ConfigValue<Double> heightScaleMultiplier = ConfigValue.builder(Double.class)
+            .withName("heightScaleMulti")
+            .withComment("Height scale multiplyer so you don't have to mess with the one above.")
+            .withDefaultValue(1.0D)
+            .withParent(world)
+            .build();
     public ConfigValue<
-            Boolean
-            > cursed = ConfigValue.builder(Boolean.class)
+            Boolean> cursed = ConfigValue.builder(Boolean.class)
             .withName("curse")
             .withComment("Make the mod even more cursed than it is. (Note, also does nothing)")
             .withDefaultValue(false)

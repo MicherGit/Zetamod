@@ -18,7 +18,8 @@ public class NoiseMixin {
             method = "sampleNoiseColumn"
     )
     private static double setCoordinateScale(double original) {
-        return GeneralManager.getConfig().coordinateScale.getValue();
+        return GeneralManager.getConfig().coordinateScale.getValue() *
+                GeneralManager.getConfig().coordinateScaleMultiplier.getValue();
     }
     @ModifyConstant(
             constant = @Constant(
@@ -28,7 +29,8 @@ public class NoiseMixin {
             method = "sampleNoiseColumn"
     )
     private static double setHeightScale(double original) {
-        return GeneralManager.getConfig().coordinateScale.getValue();
+        return GeneralManager.getConfig().coordinateScale.getValue()
+                * GeneralManager.getConfig().heightScaleMultiplier.getValue();
     }
 
 }
