@@ -7,9 +7,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 import net.minecraft.world.gen.chunk.NoiseSamplingConfig;
 
+@SuppressWarnings("all")
 @Mixin(NoiseSamplingConfig.class)
 public class MixinNoiseSamplingConfig {
-    @SuppressWarnings("UnresolvedMixinReference")
     // Ignore this cursed monstrosity
     @Redirect(method = "<clinit>", at = @At(target = "Lcom/mojang/serialization/Codec;doubleRange(DD)Lcom/mojang/serialization/Codec;", value = "INVOKE"))
     private static Codec<Double> fixRange(double min, double max) {

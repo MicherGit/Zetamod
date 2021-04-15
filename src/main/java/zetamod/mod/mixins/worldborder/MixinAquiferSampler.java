@@ -23,7 +23,8 @@ public class MixinAquiferSampler {
 	@Shadow @Final private int[] waterLevels;
 
 	/**
-	 * @author
+	 * @author fuck you
+	 * @reason E
 	 */
 	@Overwrite
 	private int index(int x, int y, int z) {

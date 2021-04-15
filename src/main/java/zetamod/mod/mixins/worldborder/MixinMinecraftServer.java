@@ -9,6 +9,7 @@ import net.minecraft.server.MinecraftServer;
 public class MixinMinecraftServer {
 	/**
 	 * @author SuperCoder79
+	 * @reason SHUT UP SHUT UP SHUT UP!!! JUST STFU WHY WON'T YA, WHY DO I HAVE TO GIVE A FREAKING REASON!?!?! -Zeta
 	 */
 	@Overwrite
 	public int getMaxWorldBorderRadius() {

@@ -117,7 +117,8 @@ public class NoiseMixinOld {
     }
 
     /**
-     * @author
+     * @author please, leave me alone!
+     * @reason EEEEEEEE
      */
     @Overwrite
     public void sampleNoiseColumn(double[] buffer, int x, int z, GenerationShapeConfig config, int seaLevel, int minY, int noiseSizeY) {
