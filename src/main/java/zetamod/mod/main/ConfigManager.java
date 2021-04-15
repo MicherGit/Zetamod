@@ -36,10 +36,11 @@ public class ConfigManager  {
             .withDefaultValue(farlandsDefaultValue())
             .withParent(general)
             .build();
-    private boolean expandWB = false;
+    private boolean expandWB = true;
     public ConfigValue<Boolean> worldBorderExpanded = ConfigValue.builder(Boolean.class)
             .withName("worldBorderExpanded")
-            .withComment("Should the worldborder be expanded? (Note, currently does nothing")
+            .withComment("Should the worldborder be expanded? (Note, currently does nothing" +
+                    ")")
             .withDefaultValue(expandWB)
             .withParent(general)
             .build();
@@ -60,7 +61,7 @@ public class ConfigManager  {
             Boolean
             > cursed = ConfigValue.builder(Boolean.class)
             .withName("curse")
-            .withComment("Make the mod even more cursed than it is.")
+            .withComment("Make the mod even more cursed than it is. (Note, also does nothing)")
             .withDefaultValue(false)
             .withParent(general)
             .build();
