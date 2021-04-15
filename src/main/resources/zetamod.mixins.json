@@ -5,18 +5,18 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "FarLandsMixins",
+    "NoiseMixin",
+    "worldborder.MixinAquiferSampler",
     "worldborder.MixinEntity",
     "worldborder.MixinMinecraftServer",
+    "worldborder.MixinNoiseSamplingConfig",
     "worldborder.MixinPlayerEntity",
     "worldborder.MixinServerPlayNetworkHandler",
     "worldborder.MixinWorld",
     "worldborder.MixinWorldBorder",
-    "worldborder.MixinWorldBorderProperties",
-    "worldborder.MixinAquiferSampler",
-    "NoiseMixin"
+    "worldborder.MixinWorldBorderProperties"
   ],
   "client": [
-
   ],
   "injectors": {
     "defaultRequire": 1
