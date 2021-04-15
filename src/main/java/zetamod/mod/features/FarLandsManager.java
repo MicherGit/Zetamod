@@ -26,7 +26,7 @@ public class FarLandsManager implements ModInitializer {
             return d - (double) MathHelper.lfloor(d / 3.3554432E7D + 0.5D) * 3.3554432E7D;
         }
     }
-    private static ConfigManager CONFIG;
+    public static ConfigManager CONFIG;
 
     static {
         try {

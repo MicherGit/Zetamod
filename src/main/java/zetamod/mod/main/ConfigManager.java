@@ -6,6 +6,8 @@ import me.zeroeightsix.fiber.tree.ConfigNode;
 import me.zeroeightsix.fiber.tree.ConfigValue;
 import me.zeroeightsix.fiber.tree.Node;
 import net.fabricmc.loader.api.FabricLoader;
+import net.java.games.input.Event;
+import zetamod.mod.features.FarLandsManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,13 +22,31 @@ public class ConfigManager  {
     final private ConfigNode root = new ConfigNode();
 
     private Node general = root.fork("general");
+    private Event configValue;
+
+    // Still @Overwrite-able!
+
+    public static boolean farlandsDefaultValue() {
+        return false;
+    }
 
     public ConfigValue<Boolean> farLandsEnabled = ConfigValue.builder(Boolean.class)
             .withName("farLandsEnabled")
             .withComment("Whether or not the Far Lands should generate.")
-            .withDefaultValue(true)
+            .withDefaultValue(farlandsDefaultValue())
             .withParent(general)
             .build();
+    private boolean expandWB = false;
+    public ConfigValue<Boolean> worldBorderExpanded = ConfigValue.builder(Boolean.class).
+            withName("worldBorderExpanded")
+            .withComment("Should the worldborder be expanded? (Note, currently does nothing").withDefaultValue(
+                    expandWB
+            ).withParent(general).build();
+
+    public static ConfigManager getConfig() {
+        return FarLandsManager.CONFIG;
+    }
+
     public ConfigManager() throws FiberException {}
 
 
