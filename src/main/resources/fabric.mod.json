@@ -20,12 +20,12 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "zetamod.mod.main.ZetaModMain",
+      "zetamod.mod.ZetaModMain",
       "zetamod.mod.features.items.CrashItemInitializer",
       "zetamod.mod.managers.GeneralManager"
     ],
     "client": [
-      "zetamod.mod.main.client.ZetaModClient"
+      "zetamod.mod.client.ZetaModClient"
     ]
   },
   "mixins": [

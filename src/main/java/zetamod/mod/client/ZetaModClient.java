@@ -1,4 +1,4 @@
-package zetamod.mod.main.client;
+package zetamod.mod.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;

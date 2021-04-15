@@ -1,4 +1,4 @@
-package zetamod.mod.main;
+package zetamod.mod;
 
 import zetamod.mod.features.biomes.BiomesInitializer;
 import zetamod.mod.features.errors.compute.ComputeErrorFunction;
@@ -19,6 +19,7 @@ import net.minecraft.world.biome.BiomeKeys;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
+import zetamod.mod.features.register.RegisterItems;
 
 public class ZetaModMain implements ModInitializer {
 
@@ -65,7 +66,7 @@ public class ZetaModMain implements ModInitializer {
 
 		log(LV, "Development release is " + MOD_DEV);
 		MOD_DEV_V = 2;
-		String SNAPSHOT = "21w15h";
+		String SNAPSHOT = "21w15i";
 		if(V_TYPE == 0) {
 			MOD_DEV = false;
 		} else {
@@ -107,7 +108,9 @@ public class ZetaModMain implements ModInitializer {
 
 
 		BiomesInitializer.initializeBiomes();
-
+		log(Level.INFO, "Registering extra items...");
+		RegisterItems items = new RegisterItems();
+		items.registerItems();
 		log(Level.INFO, "DONE!");
 	}
 

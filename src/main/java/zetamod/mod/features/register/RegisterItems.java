@@ -1,5 +1,10 @@
 package zetamod.mod.features.register;
 
 public class RegisterItems {
-    /* TODO, don't make this fucking useless */
+    public RegisterItems(){}
+    public void registerItems() {
+        // Register keystone item
+        RegisterKeystone keystone = new RegisterKeystone();
+        keystone.registerItem();
+    }
 }

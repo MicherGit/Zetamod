@@ -2,7 +2,7 @@ package zetamod.mod.managers;
 
 import me.zeroeightsix.fiber.exception.FiberException;
 import net.fabricmc.api.ModInitializer;
-import zetamod.mod.main.ZetaModMain;
+import zetamod.mod.ZetaModMain;
 import net.minecraft.util.math.MathHelper;
 import org.apache.logging.log4j.Level;
 
