@@ -7,7 +7,7 @@ import me.zeroeightsix.fiber.tree.ConfigValue;
 import me.zeroeightsix.fiber.tree.Node;
 import net.fabricmc.loader.api.FabricLoader;
 import net.java.games.input.Event;
-import zetamod.mod.features.FarLandsManager;
+import zetamod.mod.features.GeneralManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,14 +37,28 @@ public class ConfigManager  {
             .withParent(general)
             .build();
     private boolean expandWB = false;
-    public ConfigValue<Boolean> worldBorderExpanded = ConfigValue.builder(Boolean.class).
-            withName("worldBorderExpanded")
-            .withComment("Should the worldborder be expanded? (Note, currently does nothing").withDefaultValue(
-                    expandWB
-            ).withParent(general).build();
+    public ConfigValue<Boolean> worldBorderExpanded = ConfigValue.builder(Boolean.class)
+            .withName("worldBorderExpanded")
+            .withComment("Should the worldborder be expanded? (Note, currently does nothing")
+            .withDefaultValue(expandWB)
+            .withParent(general)
+            .build();
+    private Node world = root.fork("world");
+    public ConfigValue<Double> coordinateScale = ConfigValue.builder(Double.class)
+            .withName("coordinateScale")
+            .withComment("The world's coordinate scale.")
+            .withDefaultValue(684.412D)
+            .withParent(world)
+            .build();
+    public ConfigValue<Double> heightScale = ConfigValue.builder(Double.class)
+            .withName("heightScale")
+            .withComment("The world's height scale.")
+            .withDefaultValue(684.412D)
+            .withParent(world)
+            .build();
 
     public static ConfigManager getConfig() {
-        return FarLandsManager.CONFIG;
+        return GeneralManager.CONFIG;
     }
 
     public ConfigManager() throws FiberException {}

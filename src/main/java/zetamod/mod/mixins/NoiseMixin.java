@@ -1,0 +1,34 @@
+package zetamod.mod.mixins;
+
+import net.minecraft.world.gen.NoiseColumnSampler;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import zetamod.mod.features.GeneralManager;
+import zetamod.mod.features.NoiseScaleManager;
+
+@Mixin(NoiseColumnSampler.class)
+public class NoiseMixin {
+    private static final double cs = 684.412d;
+    @ModifyConstant(
+            constant = @Constant(
+                    doubleValue = cs,
+                    ordinal = 0
+            ),
+            method = "sampleNoiseColumn"
+    )
+    private static double setCoordinateScale(double original) {
+        return GeneralManager.getConfig().coordinateScale.getValue();
+    }
+    @ModifyConstant(
+            constant = @Constant(
+                    doubleValue = cs,
+                    ordinal = 1
+            ),
+            method = "sampleNoiseColumn"
+    )
+    private static double setHeightScale(double original) {
+        return GeneralManager.getConfig().coordinateScale.getValue();
+    }
+
+}

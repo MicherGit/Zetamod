@@ -7,13 +7,13 @@
     "FarLandsMixins",
     "worldborder.MixinEntity",
     "worldborder.MixinMinecraftServer",
-    "worldborder.MixinNoiseSamplingConfig",
     "worldborder.MixinPlayerEntity",
     "worldborder.MixinServerPlayNetworkHandler",
     "worldborder.MixinWorld",
     "worldborder.MixinWorldBorder",
     "worldborder.MixinWorldBorderProperties",
-    "worldborder.MixinAquiferSampler"
+    "worldborder.MixinAquiferSampler",
+    "NoiseMixin"
   ],
   "client": [
 

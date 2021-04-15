@@ -1,6 +1,6 @@
 package zetamod.mod.mixins;
 
-import zetamod.mod.features.FarLandsManager;
+import zetamod.mod.features.GeneralManager;
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -14,6 +14,6 @@ public class FarLandsMixins {
 	@Overwrite
 	public static double maintainPrecision(double d) {
 
-		return FarLandsManager.maintainPrecisionManageable(d);
+		return GeneralManager.maintainPrecisionManageable(d);
 	}
 }

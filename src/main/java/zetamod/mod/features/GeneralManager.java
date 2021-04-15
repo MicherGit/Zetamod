@@ -7,7 +7,7 @@ import zetamod.mod.main.ZetaModMain;
 import net.minecraft.util.math.MathHelper;
 import org.apache.logging.log4j.Level;
 
-public class FarLandsManager implements ModInitializer {
+public class GeneralManager implements ModInitializer {
     // This is now mixinable!
     public static boolean farlands() {
         return
