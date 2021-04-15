@@ -22,7 +22,7 @@
     "main": [
       "zetamod.mod.main.ZetaModMain",
       "zetamod.mod.features.items.CrashItemInitializer",
-      "zetamod.mod.features.GeneralManager"
+      "zetamod.mod.managers.GeneralManager"
     ],
     "client": [
       "zetamod.mod.main.client.ZetaModClient"

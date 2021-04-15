@@ -1,4 +1,4 @@
-package zetamod.mod.main;
+package zetamod.mod.managers;
 
 import me.zeroeightsix.fiber.JanksonSettings;
 import me.zeroeightsix.fiber.exception.FiberException;
@@ -7,7 +7,6 @@ import me.zeroeightsix.fiber.tree.ConfigValue;
 import me.zeroeightsix.fiber.tree.Node;
 import net.fabricmc.loader.api.FabricLoader;
 import net.java.games.input.Event;
-import zetamod.mod.features.GeneralManager;
 
 import java.io.File;
 import java.io.IOException;

@@ -4,8 +4,7 @@ import net.minecraft.world.gen.NoiseColumnSampler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import zetamod.mod.features.GeneralManager;
-import zetamod.mod.features.NoiseScaleManager;
+import zetamod.mod.managers.GeneralManager;
 
 @Mixin(NoiseColumnSampler.class)
 public class NoiseMixin {

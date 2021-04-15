@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
-import zetamod.mod.features.NoiseScaleManager;
+import zetamod.mod.managers.NoiseScaleManager;
 
 @Mixin(NoiseColumnSampler.class)
 public class NoiseMixinOld {
