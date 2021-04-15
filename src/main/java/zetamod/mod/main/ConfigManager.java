@@ -56,7 +56,14 @@ public class ConfigManager  {
             .withDefaultValue(684.412D)
             .withParent(world)
             .build();
-
+    public ConfigValue<
+            Boolean
+            > cursed = ConfigValue.builder(Boolean.class)
+            .withName("curse")
+            .withComment("Make the mod even more cursed than it is.")
+            .withDefaultValue(false)
+            .withParent(general)
+            .build();
     public static ConfigManager getConfig() {
         return GeneralManager.CONFIG;
     }
