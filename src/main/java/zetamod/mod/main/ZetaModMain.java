@@ -81,7 +81,10 @@ public class ZetaModMain implements ModInitializer {
 			throw error;
 		} else if (V_TYPE == Byte.MAX_VALUE) {
 			log(LV, "Snapshotting is currently enabled.");
-			log(LV, "Mod version is 1.0.0 snapshot " + SNAPSHOT +
+			log(LV, "Mod version is" +
+					MOD_VERSION +
+					" snapshot " + SNAPSHOT
+					+
 					" for minecraft 21w14a");
 		}
 		log(Level.INFO, "Loading!");
