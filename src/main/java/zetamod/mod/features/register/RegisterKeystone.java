@@ -6,7 +6,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import zetamod.mod.features.items.KeystoneItem;
 import zetamod.mod.ZetaModMain;
-ff
+
 import java.util.Locale;
 
 public class RegisterKeystone {
