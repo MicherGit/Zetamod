@@ -66,7 +66,7 @@ public class ZetaModMain implements ModInitializer {
 
 		log(LV, "Development release is " + MOD_DEV);
 		MOD_DEV_V = 2;
-		String SNAPSHOT = "21w15i";
+		String SNAPSHOT = "21w15j";
 		if(V_TYPE == 0) {
 			MOD_DEV = false;
 		} else {
@@ -89,8 +89,6 @@ public class ZetaModMain implements ModInitializer {
 					" for minecraft 21w14a");
 		}
 		log(Level.INFO, "Loading!");
-		System.out.println("Hello Fabric world!");
-		int[] week = {1,2,3,4,5};
 		log(Level.INFO, "Adding biomes");
 		//OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
 		OverworldBiomes.addContinentalBiome(BiomeKeys.DRIPSTONE_CAVES, OverworldClimate.COOL, 2D);
