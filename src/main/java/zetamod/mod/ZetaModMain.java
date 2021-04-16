@@ -23,7 +23,7 @@ import zetamod.mod.features.register.RegisterItems;
 
 public class ZetaModMain implements ModInitializer {
 
-	public static Logger LOGGER = LogManager.getLogger();
+	private static Logger LOGGER = LogManager.getLogger();
 	private static String APIVersionGet(String string) {
 		if(string == "1.0.0") {
 			return "0.1.0";
@@ -41,8 +41,8 @@ public class ZetaModMain implements ModInitializer {
 	public static final Integer MOD_MAJOR = 1;
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
-	public static boolean MOD_DEV = false;
-	public static Integer MOD_DEV_V = 5;
+	public static boolean MOD_DEV = true;
+	public static Integer MOD_DEV_V = 27;
 	public static final byte V_TYPE = Byte.MAX_VALUE ; //beyond you
 	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
 	public static final Error error = ComputeErrorFunction.computeHandler();
@@ -60,35 +60,9 @@ public class ZetaModMain implements ModInitializer {
 		// Proceed with mild caution.
 		log(Level.INFO, "Initializing");
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
-		//log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
-		String PHASE = " beta ";
-        //String PHASE = " alpha ";
-
-		log(LV, "Development release is " + MOD_DEV);
-		MOD_DEV_V = 2;
-
-		if(V_TYPE == 0) {
-			MOD_DEV = false;
-		} else {
-			MOD_DEV = true;
-		}
-		if(V_TYPE == 1) {
-			log(LV, "Development build " + MOD_DEV_V);
-		} else if (V_TYPE == 2) {
-			log(LV, "pre release " + MOD_DEV_V);
-		} else if (V_TYPE == 3) {
-			log(LV, "release candidate  " + MOD_DEV_V);
-		} else if (V_TYPE >= 4 && V_TYPE != Byte.MAX_VALUE) {
-			throw error;
-		} else if (V_TYPE == Byte.MAX_VALUE) {
-			String SNAPSHOT = "21w15k";
-			log(LV, "Snapshotting is currently enabled.");
-			log(LV, "Mod version is" +
-					MOD_VERSION +
-					" snapshot " + SNAPSHOT
-					+
-					" for minecraft 21w14a");
-		}
+		if(MOD_DEV) {
+			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
+			log(LV, "Milestone build" + " " + 5);}
 		log(Level.INFO, "Loading!");
 		log(Level.INFO, "Adding biomes");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
