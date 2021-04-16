@@ -111,8 +111,6 @@ public class ZetaModMain implements ModInitializer {
 		items.registerItems();
 		log(Level.INFO, "DONE!");
 	}
-
-	public void initDimensions() {}
 	public static void log(Level level, String message){
 		LOGGER.log(level, "["+MOD_NAME+"] " + message);
 	}
