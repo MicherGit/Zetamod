@@ -66,7 +66,7 @@ public class ZetaModMain implements ModInitializer {
 
 		log(LV, "Development release is " + MOD_DEV);
 		MOD_DEV_V = 2;
-		String SNAPSHOT = "21w15j";
+
 		if(V_TYPE == 0) {
 			MOD_DEV = false;
 		} else {
@@ -81,6 +81,7 @@ public class ZetaModMain implements ModInitializer {
 		} else if (V_TYPE >= 4 && V_TYPE != Byte.MAX_VALUE) {
 			throw error;
 		} else if (V_TYPE == Byte.MAX_VALUE) {
+			String SNAPSHOT = "21w15k";
 			log(LV, "Snapshotting is currently enabled.");
 			log(LV, "Mod version is" +
 					MOD_VERSION +
@@ -90,7 +91,7 @@ public class ZetaModMain implements ModInitializer {
 		}
 		log(Level.INFO, "Loading!");
 		log(Level.INFO, "Adding biomes");
-		//OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
+		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
 		OverworldBiomes.addContinentalBiome(BiomeKeys.DRIPSTONE_CAVES, OverworldClimate.COOL, 2D);
 		log(Level.INFO, "Adding concerning items!");
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "concern_block"), CONCERN_BLOCK);
