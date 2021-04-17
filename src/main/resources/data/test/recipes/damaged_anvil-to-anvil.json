@@ -7,13 +7,13 @@
 	"key": { 
 
 		"#": {
-			"item": "minecraft:seagrass"
+			"item": "minecraft:damaged_anvil"
 		}
 	},
 
 
 	"result": {
-		"item": "minecraft:grass",
+		"item": "minecraft:anvil",
 		"count": 1
 	}
 }

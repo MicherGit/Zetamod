@@ -6,7 +6,8 @@
   "name": "ZetaMod",
   "description": "A mod that does many things!",
   "authors": [
-    "ZetaTheEliatrope (obviously)"
+    "ZetaTheEliatrope (obviously)",
+    "SuperCoder79 (worldborder code from zetamod.mod.mixins.worldborder)"
   ],
   "contact": {
     "homepage": "https://github.com/MicherGit/Zetamod",
@@ -19,8 +20,12 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.zeta.zetamod.main.ZMMain",
-      "com.zeta.zetamod.features.items.CrashItemInitializer"
+      "zetamod.mod.ZetaModMain",
+      "zetamod.mod.features.items.CrashItemInitializer",
+      "zetamod.mod.managers.GeneralManager"
+    ],
+    "client": [
+      "zetamod.mod.client.ZetaModClient"
     ]
   },
   "mixins": [
@@ -28,11 +33,12 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.4",
-    "fabric": "*",
-    "minecraft": ">=1.17-alpha.21.10.a"
+    "fabricloader": ">=0.10.0",
+    "fabric": "0.32.7+1.17",
+    "minecraft": "1.17-alpha.21.14.a"
   },
   "suggests": {
     "another-mod": "*"
-  }
+  },
+  "accessWidener": "zetamod.accesswidener"
 }

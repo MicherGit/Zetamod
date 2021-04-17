@@ -1,13 +1,12 @@
 # Zetamod
 A multi-functional 1.17 mod that does a lot of things.
 
-### Latest Update: [21w13a & 21w14a] Zeta's Mod v0.50.0 alpha The Lush Nether Update release 1
-### Latest Build: [21w13a & 21w14a] Zeta's Mod v0.50.1_01 alpha
-### Stable Build [21w13a & 21w14a] Zeta's Mod v0.50.1_01 alpha
-### Next Version: [21w14a] Zeta's Mod v1.0.0 alpha. The Lush Nether Update release 2
+### Latest Update: [21w14a] Zeta's Mod v1.0.0 beta.
+### Latest Build: [21w14a] Zeta's Mod v1.0.0 beta.
+### Stable Build: [21w14a] Zeta's Mod v1.0.0 beta.
+### Next Version: [21w14a] Zeta's Mod v1.0.0 beta.
 
 # Requirements
 ### Fabric API
 ~~Massochism~~
-### Requires Minecraft version 21w10a or later (until v1.0.0-alpha). 
-### Versions 1.0.0 alpha and newer will require 21w13a or later.
+### Requires Minecraft version 21w14a. WILL NOT WORK IN NEWER VERSIONS!

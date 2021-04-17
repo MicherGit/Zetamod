@@ -1,13 +1,19 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.zeta.zetamod.mixins",
+  "package": "zetamod.mod.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "FarLandsMixins"
-  ],
-  "client": [
-
+    "FarLandsMixins",
+    "NoiseMixin",
+    "worldborder.MixinAquiferSampler",
+    "worldborder.MixinEntity",
+    "worldborder.MixinMinecraftServer",
+    "worldborder.MixinPlayerEntity",
+    "worldborder.MixinServerPlayNetworkHandler",
+    "worldborder.MixinWorld",
+    "worldborder.MixinWorldBorder",
+    "worldborder.MixinWorldBorderProperties"
   ],
   "injectors": {
     "defaultRequire": 1
