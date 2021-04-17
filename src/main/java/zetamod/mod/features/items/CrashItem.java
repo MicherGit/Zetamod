@@ -12,6 +12,11 @@ public class CrashItem extends Item  {
     public CrashItem(Settings settings) {
         super(settings);
     }
+
+    /**
+     * @author ZetaTheEliatrope
+     * @reason Why not?
+     */
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
         ItemStack itemStack = playerEntity.getStackInHand(hand);

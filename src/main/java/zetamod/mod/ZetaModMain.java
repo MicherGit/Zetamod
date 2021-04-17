@@ -42,13 +42,17 @@ public class ZetaModMain implements ModInitializer {
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
-	public static Integer MOD_DEV_V = 27;
+	public static int MOD_DEV_V =
+
+			28
+			;
 	public static final byte V_TYPE = Byte.MAX_VALUE ; //beyond you
-	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
+	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ItemGroup.MISC));
+	public static final Item EXAMPLE_ITEM = Registry.register(Registry.ITEM,new Identifier("mymodid","example_item"), new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 
 	public static final Level LV = Level.INFO;
 
@@ -61,7 +65,7 @@ public class ZetaModMain implements ModInitializer {
 		log(Level.INFO, "Initializing");
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
-			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
+			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V);
 			log(LV, "Milestone build" + " " + 5);}
 		log(Level.INFO, "Loading!");
 		log(Level.INFO, "Adding biomes");
