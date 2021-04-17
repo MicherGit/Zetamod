@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "zetamod:block/void" }
+  }
+}
