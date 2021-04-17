@@ -23,16 +23,16 @@ import zetamod.mod.features.register.RegisterItems;
 
 public class ZetaModMain implements ModInitializer {
 
-	public static Logger LOGGER = LogManager.getLogger();
+	private static Logger LOGGER = LogManager.getLogger();
 	private static String APIVersionGet(String string) {
-		if(string == "1.0.0") {
-			return "0.1.0";
-		} else if (string == "0.50.0") {
+		if(string.contains("1.0.0")) {
+			return "0.0.2_01";
+		} else if (string.contains("0.50.0")) {
 			return "0.0.0";
 		} else if (string.contains("0.50.1")) {
 			return "0.0.1";
 		} else {
-			return "Current mod version doesn't support api";
+			return (String)null + ". Current mod version doesn't support api";
 		}
 
 	}
@@ -42,13 +42,17 @@ public class ZetaModMain implements ModInitializer {
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = false;
-	public static Integer MOD_DEV_V = 5;
+	public static int MOD_DEV_V =
+
+			30
+			;
 	public static final byte V_TYPE = Byte.MAX_VALUE ; //beyond you
-	public static final String MOD_VERSION = Integer.toString(MOD_MAJOR) + "." + Integer.toString(MOD_MINOR) + "." + Integer.toString(MOD_BF);
+	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ItemGroup.MISC));
+	public static final Item EXAMPLE_ITEM = Registry.register(Registry.ITEM,new Identifier("mymodid","example_item"), new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 
 	public static final Level LV = Level.INFO;
 
@@ -60,39 +64,17 @@ public class ZetaModMain implements ModInitializer {
 		// Proceed with mild caution.
 		log(Level.INFO, "Initializing");
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
-		//log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V.toString());
-		String PHASE = " beta ";
-        //String PHASE = " alpha ";
+		if(MOD_DEV) {
+			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V);
+			log(LV, "Milestone build" + " " +
+					7
+			);
 
-		log(LV, "Development release is " + MOD_DEV);
-		MOD_DEV_V = 2;
-		String SNAPSHOT = "21w15i";
-		if(V_TYPE == 0) {
-			MOD_DEV = false;
-		} else {
-			MOD_DEV = true;
-		}
-		if(V_TYPE == 1) {
-			log(LV, "Development build " + MOD_DEV_V);
-		} else if (V_TYPE == 2) {
-			log(LV, "pre release " + MOD_DEV_V);
-		} else if (V_TYPE == 3) {
-			log(LV, "release candidate  " + MOD_DEV_V);
-		} else if (V_TYPE >= 4 && V_TYPE != Byte.MAX_VALUE) {
-			throw error;
-		} else if (V_TYPE == Byte.MAX_VALUE) {
-			log(LV, "Snapshotting is currently enabled.");
-			log(LV, "Mod version is" +
-					MOD_VERSION +
-					" snapshot " + SNAPSHOT
-					+
-					" for minecraft 21w14a");
-		}
+		}log(LV,"API version " + APIVersionGet(MOD_VERSION))
+		;
 		log(Level.INFO, "Loading!");
-		System.out.println("Hello Fabric world!");
-		int[] week = {1,2,3,4,5};
 		log(Level.INFO, "Adding biomes");
-		//OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
+		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
 		OverworldBiomes.addContinentalBiome(BiomeKeys.DRIPSTONE_CAVES, OverworldClimate.COOL, 2D);
 		log(Level.INFO, "Adding concerning items!");
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "concern_block"), CONCERN_BLOCK);
@@ -104,7 +86,8 @@ public class ZetaModMain implements ModInitializer {
 		//ZetaModMain.log(Level.INFO, "Patching Farlands!");
 
 		System.out.println("Adding a very concern easter egg");
-		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY, 1.5E-3D);
+		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY,
+				1.5E-1D);
 
 
 		BiomesInitializer.initializeBiomes();
@@ -113,8 +96,6 @@ public class ZetaModMain implements ModInitializer {
 		items.registerItems();
 		log(Level.INFO, "DONE!");
 	}
-
-	public void initDimensions() {}
 	public static void log(Level level, String message){
 		LOGGER.log(level, "["+MOD_NAME+"] " + message);
 	}

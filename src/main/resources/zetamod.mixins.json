@@ -15,8 +15,6 @@
     "worldborder.MixinWorldBorder",
     "worldborder.MixinWorldBorderProperties"
   ],
-  "client": [
-  ],
   "injectors": {
     "defaultRequire": 1
   }
