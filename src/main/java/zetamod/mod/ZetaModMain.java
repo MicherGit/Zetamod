@@ -40,19 +40,19 @@ public class ZetaModMain implements ModInitializer {
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;
 	public static final Integer MOD_MINOR = 0;
-	public static final Integer MOD_BF = 0;
+	public static final Integer MOD_BF = 1;
 	public static boolean MOD_DEV = false;
 	public static int MOD_DEV_V =
 
-			30
+			0
 			;
-	public static final byte V_TYPE = Byte.MAX_VALUE ; //beyond you
+	public static final byte V_TYPE = 0;
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ItemGroup.MISC));
-	public static final Item EXAMPLE_ITEM = Registry.register(Registry.ITEM,new Identifier("mymodid","example_item"), new Item(new FabricItemSettings().group(ItemGroup.MISC)));
+	//public static final Item EXAMPLE_ITEM = Registry.register(Registry.ITEM,new Identifier("mymodid","example_item"), new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 
 	public static final Level LV = Level.INFO;
 
