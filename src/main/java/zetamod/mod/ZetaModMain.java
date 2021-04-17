@@ -25,8 +25,8 @@ public class ZetaModMain implements ModInitializer {
 
 	private static Logger LOGGER = LogManager.getLogger();
 	private static String APIVersionGet(String string) {
-		if(string == "1.0.0") {
-			return "0.1.0";
+		if(string.contains("1.0.0")) {
+			return "0.0.2_01";
 		} else if (string.contains("0.50.0")) {
 			return "0.0.0";
 		} else if (string.contains("0.50.1")) {
@@ -41,10 +41,10 @@ public class ZetaModMain implements ModInitializer {
 	public static final Integer MOD_MAJOR = 1;
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
-	public static boolean MOD_DEV = true;
+	public static boolean MOD_DEV = false;
 	public static int MOD_DEV_V =
 
-			29
+			30
 			;
 	public static final byte V_TYPE = Byte.MAX_VALUE ; //beyond you
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;

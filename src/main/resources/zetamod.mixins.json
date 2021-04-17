@@ -14,7 +14,6 @@
     "worldborder.MixinWorld",
     "worldborder.MixinWorldBorder",
     "worldborder.MixinWorldBorderProperties"
-  //, "MinecraftVersionMixin"
   ],
   "injectors": {
     "defaultRequire": 1
