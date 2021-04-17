@@ -27,12 +27,12 @@ public class ZetaModMain implements ModInitializer {
 	private static String APIVersionGet(String string) {
 		if(string == "1.0.0") {
 			return "0.1.0";
-		} else if (string == "0.50.0") {
+		} else if (string.contains("0.50.0")) {
 			return "0.0.0";
 		} else if (string.contains("0.50.1")) {
 			return "0.0.1";
 		} else {
-			return "Current mod version doesn't support api";
+			return (String)null + ". Current mod version doesn't support api";
 		}
 
 	}
@@ -44,7 +44,7 @@ public class ZetaModMain implements ModInitializer {
 	public static boolean MOD_DEV = true;
 	public static int MOD_DEV_V =
 
-			28
+			29
 			;
 	public static final byte V_TYPE = Byte.MAX_VALUE ; //beyond you
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
@@ -66,7 +66,12 @@ public class ZetaModMain implements ModInitializer {
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
 			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V);
-			log(LV, "Milestone build" + " " + 5);}
+			log(LV, "Milestone build" + " " +
+					7
+			);
+
+		}log(LV,"API version " + APIVersionGet(MOD_VERSION))
+		;
 		log(Level.INFO, "Loading!");
 		log(Level.INFO, "Adding biomes");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
@@ -81,7 +86,8 @@ public class ZetaModMain implements ModInitializer {
 		//ZetaModMain.log(Level.INFO, "Patching Farlands!");
 
 		System.out.println("Adding a very concern easter egg");
-		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY, 1.5E-3D);
+		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY,
+				1.5E-1D);
 
 
 		BiomesInitializer.initializeBiomes();
