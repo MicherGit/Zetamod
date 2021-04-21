@@ -39,8 +39,8 @@ public class ZetaModMain implements ModInitializer {
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;
-	public static final Integer MOD_MINOR = 0;
-	public static final Integer MOD_BF = 3;
+	public static final Integer MOD_MINOR = 1;
+	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = false;
 	public static int MOD_DEV_V =
 
