@@ -71,6 +71,13 @@ public class ZetaModMain implements ModInitializer {
 	public void onInitialize() {
 		log(Level.INFO, "Initializing");
 		FarLandsCommand farLandsCommand = new FarLandsCommand();
+		try {
+			FileWriter myWriter = new FileWriter(String.valueOf(FabricLoader.getInstance().getConfigDirectory().toPath().resolve(
+					"datapacks")) + "//datapack.zip");
+			//myWriter.write();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
