@@ -43,7 +43,7 @@ public class ObsilandBiome {
         DefaultBiomeFeatures.addLandCarvers(generationSettings);
         DefaultBiomeFeatures.addDefaultLakes(generationSettings);
         DefaultBiomeFeatures.addDungeons(generationSettings);
-        DefaultBiomeFeatures.addMineables(generationSettings, true);
+        DefaultBiomeFeatures.addMineables(generationSettings);
         DefaultBiomeFeatures.addDefaultOres(generationSettings);
         DefaultBiomeFeatures.addDefaultDisks(generationSettings);
         DefaultBiomeFeatures.addSprings(generationSettings);

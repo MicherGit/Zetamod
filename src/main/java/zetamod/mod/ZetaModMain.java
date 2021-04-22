@@ -1,7 +1,6 @@
 package zetamod.mod;
 
 import io.github.cottonmc.clientcommands.CottonClientCommandSource;
-import net.fabricmc.loader.api.FabricLoader;
 import org.lwjgl.system.CallbackI;
 import zetamod.mod.features.biomes.BiomesInitializer;
 import zetamod.mod.features.commands.FarLandsCommand;
@@ -24,10 +23,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
 import zetamod.mod.features.register.RegisterItems;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class ZetaModMain implements ModInitializer {
 
@@ -71,17 +66,10 @@ public class ZetaModMain implements ModInitializer {
 	public void onInitialize() {
 		log(Level.INFO, "Initializing");
 		FarLandsCommand farLandsCommand = new FarLandsCommand();
-		try {
-			FileWriter myWriter = new FileWriter(String.valueOf(FabricLoader.getInstance().getConfigDirectory().toPath().resolve(
-					"datapacks")) + "//datapack.zip");
-			//myWriter.write();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-
+		log(Level.INFO, "Initializing");
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
 			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V);

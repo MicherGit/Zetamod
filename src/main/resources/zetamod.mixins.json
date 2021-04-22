@@ -6,6 +6,7 @@
   "mixins": [
     "FarLandsMixins",
     "NoiseMixin",
+    "worldborder.MixinAquiferSampler",
     "worldborder.MixinEntity",
     "worldborder.MixinMinecraftServer",
     "worldborder.MixinPlayerEntity",
