@@ -26,6 +26,9 @@
     ],
     "client": [
       "zetamod.mod.client.ZetaModClient"
+    ],
+    "cotton-client-commands": [
+      "zetamod.mod.features.commands.FarLandsCommand"
     ]
   },
   "mixins": [

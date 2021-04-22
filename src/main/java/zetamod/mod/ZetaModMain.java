@@ -1,6 +1,9 @@
 package zetamod.mod;
 
+import io.github.cottonmc.clientcommands.CottonClientCommandSource;
+import org.lwjgl.system.CallbackI;
 import zetamod.mod.features.biomes.BiomesInitializer;
+import zetamod.mod.features.commands.FarLandsCommand;
 import zetamod.mod.features.errors.compute.ComputeErrorFunction;
 import zetamod.mod.features.items.ConcernedTater;
 import net.fabricmc.api.ModInitializer;
@@ -61,6 +64,7 @@ public class ZetaModMain implements ModInitializer {
 	public static double concerning_weight = Math.pow(2, -4);
 	@Override
 	public void onInitialize() {
+		FarLandsCommand farLandsCommand = new FarLandsCommand();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
