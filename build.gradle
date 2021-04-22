@@ -44,6 +44,8 @@ dependencies {
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them
 	modImplementation "io.github.cottonmc:cotton-client-commands:1.0.0+1.15.2-SNAPSHOT"
+	include "io.github.cottonmc:cotton-client-commands:1.0.0+1.15.2-SNAPSHOT"
+
 	/*
 		Other apis
 	 */
