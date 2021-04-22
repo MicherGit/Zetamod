@@ -22,7 +22,8 @@
     "main": [
       "zetamod.mod.ZetaModMain",
       "zetamod.mod.features.items.CrashItemInitializer",
-      "zetamod.mod.managers.GeneralManager"
+      "zetamod.mod.managers.GeneralManager",
+      "me.sargunvohra.mcmods.dataloader.DataLoader"
     ],
     "client": [
       "zetamod.mod.client.ZetaModClient"
@@ -37,8 +38,8 @@
 
   "depends": {
     "fabricloader": ">=0.10.0",
-    "fabric": "0.32.7+1.17",
-    "minecraft": "1.17-alpha.21.14.a"
+    "fabric": "*",
+    "minecraft": "*"
   },
   "suggests": {
     "another-mod": "*"

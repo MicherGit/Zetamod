@@ -51,7 +51,7 @@ public class ConcerningBiome {
         DefaultBiomeFeatures.addLandCarvers(generationSettings);
         DefaultBiomeFeatures.addDefaultLakes(generationSettings);
         DefaultBiomeFeatures.addDungeons(generationSettings);
-        DefaultBiomeFeatures.addMineables(generationSettings);
+        DefaultBiomeFeatures.addMineables(generationSettings, true);
         DefaultBiomeFeatures.addDefaultOres(generationSettings);
         DefaultBiomeFeatures.addDefaultDisks(generationSettings);
         DefaultBiomeFeatures.addSprings(generationSettings);
