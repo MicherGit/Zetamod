@@ -5,3 +5,8 @@ accessible class net/minecraft/world/border/WorldBorder$StaticArea
 
 mutable	field	net/minecraft/resource/ResourcePackManager  providers   Ljava/util/Set;
 accessible	field	net/minecraft/resource/ResourcePackManager  providers   Ljava/util/Set;
+
+# For shard farlands
+
+accessible method net/minecraft/util/math/noise/SimplexNoiseSampler dot ([IDDD)D
+accessible field net/minecraft/util/math/noise/SimplexNoiseSampler GRADIENTS [[I
