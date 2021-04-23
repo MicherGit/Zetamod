@@ -22,8 +22,7 @@
     "main": [
       "zetamod.mod.ZetaModMain",
       "zetamod.mod.features.items.CrashItemInitializer",
-      "zetamod.mod.managers.GeneralManager",
-      "me.sargunvohra.mcmods.dataloader.DataLoader"
+      "zetamod.mod.managers.GeneralManager"
     ],
     "client": [
       "zetamod.mod.client.ZetaModClient"

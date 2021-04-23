@@ -26,6 +26,7 @@ import org.apache.logging.log4j.Level;
 import zetamod.mod.features.register.RegisterItems;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -70,14 +71,8 @@ public class ZetaModMain implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		log(Level.INFO, "Initializing");
+		log(Level.INFO, "Mod version 1.1.0 beta");
 		FarLandsCommand farLandsCommand = new FarLandsCommand();
-		try {
-			FileWriter myWriter = new FileWriter(String.valueOf(FabricLoader.getInstance().getConfigDirectory().toPath().resolve(
-					"datapacks")) + "//datapack.zip");
-			//myWriter.write();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
