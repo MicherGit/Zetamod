@@ -9,6 +9,7 @@ import net.minecraft.server.MinecraftServer;
 public class MixinMinecraftServer {
 	/**
 	 * @author SuperCoder79
+	 * @reason a
 	 */
 	@Overwrite
 	public int getMaxWorldBorderRadius() {
