@@ -4,10 +4,10 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.noise.PerlinNoiseSampler;
 import net.minecraft.util.math.noise.SimplexNoiseSampler;
 import org.spongepowered.asm.mixin.*;
+import zetamod.mod.managers.GeneralManager;
 
 @Mixin(PerlinNoiseSampler.class)
 public class Shard {
-    //protected static final int[][] GRADIENTS = new int[][]{{1, 1, 0}, {-1, 1, 0}, {1, -1, 0}, {-1, -1, 0}, {1, 0, 1}, {-1, 0, 1}, {1, 0, -1}, {-1, 0, -1}, {0, 1, 1}, {0, -1, 1}, {0, 1, -1}, {0, -1, -1}, {1, 1, 0}, {0, -1, 1}, {-1, 1, 0}, {0, -1, -1}};
     @Shadow
     public final double originX;
     public final double originY;
@@ -34,9 +34,16 @@ public class Shard {
         int j = MathHelper.floor(g);
         int k = MathHelper.floor(h);
         int l = MathHelper.floor(i);
-        double m = g - (float)j;
-        double n = h - (float)k;
-        double o = i - (float)l;
+        double m,n,o;
+        if (GeneralManager.getConfig().shardFarLands.getValue()) {
+            m = g - (float) j;
+            n = h - (float) k;
+            o = i - (float) l;
+        } else {
+            m = g - (double) j;
+            n = h - (double) k;
+            o = i - (double) l;
+        }
         return this.sampleDerivative(j, k, l, m, n, o, ds);
     }
 
@@ -53,9 +60,17 @@ public class Shard {
         int i = MathHelper.floor(d);
         int j = MathHelper.floor(e);
         int k = MathHelper.floor(f);
-        double g = d - (float)i;
-        double h = e - (float)j;
-        double l = f - (float)k;
+        double g,h,l;
+        if(GeneralManager.getConfig().shardFarLands.getValue()) {
+            g = d - (float) i;
+            h = e - (float) j;
+            l = f - (float) k;
+        } else {
+
+            g = d - (double) i;
+            h = e - (double) j;
+            l = f - (double) k;
+        }
         double p;
         if (yScale != 0.0D) {
             double n;
@@ -78,64 +93,8 @@ public class Shard {
         return 0;
     }
 
-    /**
-     * @author
-     * @reason
-     */
-    @Overwrite
-    private double sampleDerivative(int i, int j, int k, double d, double e, double f, double[] ds) {
-        int l = this.getGradient(i);
-        int m = this.getGradient(i + 1);
-        int n = this.getGradient(l + j);
-        int o = this.getGradient(l + j + 1);
-        int p = this.getGradient(m + j);
-        int q = this.getGradient(m + j + 1);
-        int r = this.getGradient(n + k);
-        int s = this.getGradient(p + k);
-        int t = this.getGradient(o + k);
-        int u = this.getGradient(q + k);
-        int v = this.getGradient(n + k + 1);
-        int w = this.getGradient(p + k + 1);
-        int x = this.getGradient(o + k + 1);
-        int y = this.getGradient(q + k + 1);
-        int[] is = SimplexNoiseSampler.GRADIENTS[r & 15];
-        int[] js = SimplexNoiseSampler.GRADIENTS[s & 15];
-        int[] ks = SimplexNoiseSampler.GRADIENTS[t & 15];
-        int[] ls = SimplexNoiseSampler.GRADIENTS[u & 15];
-        int[] ms = SimplexNoiseSampler.GRADIENTS[v & 15];
-        int[] ns = SimplexNoiseSampler.GRADIENTS[w & 15];
-        int[] os = SimplexNoiseSampler.GRADIENTS[x & 15];
-        int[] ps = SimplexNoiseSampler.GRADIENTS[y & 15];
-        double g = SimplexNoiseSampler.dot(is, d, e, f);
-        double h = SimplexNoiseSampler.dot(js, d - 1.0D, e, f);
-        double z = SimplexNoiseSampler.dot(ks, d, e - 1.0D, f);
-        double aa = SimplexNoiseSampler.dot(ls, d - 1.0D, e - 1.0D, f);
-        double ab = SimplexNoiseSampler.dot(ms, d, e, f - 1.0D);
-        double ac = SimplexNoiseSampler.dot(ns, d - 1.0D, e, f - 1.0D);
-        double ad = SimplexNoiseSampler.dot(os, d, e - 1.0D, f - 1.0D);
-        double ae = SimplexNoiseSampler.dot(ps, d - 1.0D, e - 1.0D, f - 1.0D);
-        double af = MathHelper.perlinFade(d);
-        double ag = MathHelper.perlinFade(e);
-        double ah = MathHelper.perlinFade(f);
-        double ai = MathHelper.lerp3(af, ag, ah, (double)is[0], (double)js[0], (double)ks[0], (double)ls[0], (double)ms[0], (double)ns[0], (double)os[0], (double)ps[0]);
-        double aj = MathHelper.lerp3(af, ag, ah, (double)is[1], (double)js[1], (double)ks[1], (double)ls[1], (double)ms[1], (double)ns[1], (double)os[1], (double)ps[1]);
-        double ak = MathHelper.lerp3(af, ag, ah, (double)is[2], (double)js[2], (double)ks[2], (double)ls[2], (double)ms[2], (double)ns[2], (double)os[2], (double)ps[2]);
-        double al = MathHelper.lerp2(ag, ah, h - g, aa - z, ac - ab, ae - ad);
-        double am = MathHelper.lerp2(ah, af, z - g, ad - ab, aa - h, ae - ac);
-        double an = MathHelper.lerp2(af, ag, ab - g, ac - h, ad - z, ae - aa);
-        double ao = MathHelper.perlinFadeDerivative(d);
-        double ap = MathHelper.perlinFadeDerivative(e);
-        double aq = MathHelper.perlinFadeDerivative(f);
-        double ar = ai + ao * al;
-        double as = aj + ap * am;
-        double at = ak + aq * an;
-        ds[0] += ar;
-        ds[1] += as;
-        ds[2] += at;
-        return MathHelper.lerp3(af, ag, ah, g, h, z, aa, ab, ac, ad, ae);
-    }
     @Shadow
-    private int getGradient(int hash) {
-        return this.permutations[hash & 255] & 255;
+    private double sampleDerivative(int i, int j, int k, double d, double e, double f, double[] ds) {
+        return 0;
     }
 }

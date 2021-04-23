@@ -44,6 +44,14 @@ public class ConfigManager  {
             .withDefaultValue(expandWB)
             .withParent(general)
             .build();
+    public ConfigValue<Boolean> shardFarLands = ConfigValue.builder(Boolean.class)
+            .withName(
+                    "shardFarLands"
+            )
+            .withComment("Should the shard farlands spawn?")
+            .withDefaultValue(true)
+            .withParent(general)
+            .build();
     private Node world = root.fork("world");
     public ConfigValue<Double> coordinateScale = ConfigValue.builder(Double.class)
             .withName("coordinateScale")
