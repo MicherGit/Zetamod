@@ -11,6 +11,7 @@ public class MixinWorld {
 
 	/**
 	 * @author SuperCoder79
+	 * @reason
 	 */
 	@Overwrite
 	private static boolean isValidHorizontally(BlockPos pos) {
@@ -19,6 +20,7 @@ public class MixinWorld {
 
 	/**
 	 * @author SuperCoder79
+	 * @reason
 	 */
 	@Overwrite
 	private static boolean isInvalidVertically(int y) {
