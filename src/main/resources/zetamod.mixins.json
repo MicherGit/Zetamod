@@ -1,19 +1,18 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "zetamod.mod.mixins",
+  "package": "mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "FarLandsMixins",
-    "NoiseMixin",
-    "shard.Shard",
-    "worldborder.MixinEntity",
-    "worldborder.MixinMinecraftServer",
-    "worldborder.MixinPlayerEntity",
-    "worldborder.MixinServerPlayNetworkHandler",
-    "worldborder.MixinWorld",
-    "worldborder.MixinWorldBorder",
-    "worldborder.MixinWorldBorderProperties"
+    "zeta.FarLandsMixins",
+    "zeta.NoiseMixin",
+    "zeta.shard.Shard",
+    "supercoder.MixinEntity",
+    "supercoder.MixinMinecraftServer",
+    "supercoder.MixinPlayerEntity",
+    "supercoder.MixinServerPlayNetworkHandler",
+    "supercoder.MixinWorld",
+    "supercoder.MixinWorldBorderProperties"
   ],
   "injectors": {
     "defaultRequire": 1

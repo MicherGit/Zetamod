@@ -20,15 +20,15 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "zetamod.mod.ZetaModMain",
-      "zetamod.mod.features.items.CrashItemInitializer",
-      "zetamod.mod.managers.GeneralManager"
+      "code.zeta.zetamod.mod.ZetaModMain",
+      "code.zeta.zetamod.mod.features.items.CrashItemInitializer",
+      "code.zeta.zetamod.mod.managers.GeneralManager"
     ],
     "client": [
-      "zetamod.mod.client.ZetaModClient"
+      "code.zeta.zetamod.mod.client.ZetaModClient"
     ],
     "cotton-client-commands": [
-      "zetamod.mod.features.commands.FarLandsCommand"
+      "code.zeta.zetamod.mod.features.commands.FarLandsCommand"
     ]
   },
   "mixins": [
