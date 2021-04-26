@@ -49,8 +49,8 @@ dependencies {
 	/*
 		Other apis
 	 */
-	modImplementation "me.zeroeightsix:fiber:0.8.0-1"
-	include "me.zeroeightsix:fiber:0.8.0-1"
+	modImplementation "me.zeroeightsix:fiber:${project.fiberversion}"
+	include "me.zeroeightsix:fiber:${project.fiberversion}"
 	// Portal API
 	//modImplementation "net.kyrptonaught:customportalapi:${project.portalapi}"
 	//include "net.kyrptonaught:customportalapi:${project.portalapi}"

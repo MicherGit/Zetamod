@@ -1,5 +1,6 @@
 package zeta.zetamod.util.hash;
 
+import org.spongepowered.asm.mixin.Shadow;
 import zeta.zetamod.mod.managers.ConfigManager;
 
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class TrinaryHash {
         return printArray(true);
     }
     public static String[] genRandomHash() {
-        byte largestHashInitialValue = Byte.MAX_VALUE;
+        int largestHashInitialValue = 65536;
         String[] trinaryHashes = new String[largestHashInitialValue];
         int i = 0;
         System.out.println("Mind us while we count to " + largestHashInitialValue);
