@@ -34,7 +34,7 @@ public class FabricDimensionTest implements ModInitializer {
 	// which will always share it's ID with the world that is created from it
 	private static final RegistryKey<DimensionOptions> DIMENSION_KEY = RegistryKey.of(
 			Registry.DIMENSION_KEY,
-			new Identifier("zetamod", "LushNether")
+			new Identifier("zetamod", "lushnether")
 	);
 
 	private static RegistryKey<World> WORLD_KEY = RegistryKey.of(
