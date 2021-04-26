@@ -4,6 +4,7 @@ import code.zeta.zetamod.mod.features.biomes.BiomesInitializer;
 import code.zeta.zetamod.mod.features.commands.FarLandsCommand;
 import code.zeta.zetamod.mod.features.errors.compute.ComputeErrorFunction;
 import code.zeta.zetamod.mod.features.items.ConcernedTater;
+import code.zeta.zetamod.util.hash.TrinaryHash;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
@@ -62,6 +63,7 @@ public class ZetaModMain implements ModInitializer {
 	public static double concerning_weight = Math.pow(2, -4);
 	@Override
 	public void onInitialize() {
+		TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing");
 		log(Level.INFO, "Mod version 1.1.0 beta");
 		FarLandsCommand farLandsCommand = new FarLandsCommand();

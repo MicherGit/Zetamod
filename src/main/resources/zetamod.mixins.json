@@ -7,11 +7,14 @@
     "zeta.FarLandsMixins",
     "zeta.NoiseMixin",
     "zeta.shard.Shard",
+    "supercoder.MixinAquiferSampler",
     "supercoder.MixinEntity",
     "supercoder.MixinMinecraftServer",
+    "supercoder.MixinNoiseSamplingConfig",
     "supercoder.MixinPlayerEntity",
     "supercoder.MixinServerPlayNetworkHandler",
     "supercoder.MixinWorld",
+    "supercoder.MixinWorldBorder",
     "supercoder.MixinWorldBorderProperties"
   ],
   "injectors": {

@@ -21,7 +21,7 @@ public class ConfigManager  {
 
     final private ConfigNode root = new ConfigNode();
 
-    private Node general = root.fork("general");
+    public Node general = root.fork("general");
     private Event configValue;
 
     // Still @Overwrite-able!
@@ -52,6 +52,12 @@ public class ConfigManager  {
             .withDefaultValue(true)
             .withParent(general)
             .build();
+    public ConfigValue<String> hash = ConfigValue.builder(String.class)
+            .withName("hash")
+            .withComment("private hash given out to testers")
+            .withDefaultValue("")
+            .withParent(general)
+            .build();
     private Node world = root.fork("world");
     public ConfigValue<Double> coordinateScale = ConfigValue.builder(Double.class)
             .withName("coordinateScale")
@@ -77,8 +83,7 @@ public class ConfigManager  {
             .withDefaultValue(1.0D)
             .withParent(world)
             .build();
-    public ConfigValue<
-            Boolean> cursed = ConfigValue.builder(Boolean.class)
+    public ConfigValue<Boolean> cursed = ConfigValue.builder(Boolean.class)
             .withName("curse")
             .withComment("Make the mod even more cursed than it is. (Note, also does nothing)")
             .withDefaultValue(false)
