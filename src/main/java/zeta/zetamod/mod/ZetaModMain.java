@@ -63,9 +63,9 @@ public class ZetaModMain implements ModInitializer {
 	public static double concerning_weight = Math.pow(2, -4);
 	@Override
 	public void onInitialize() {
-		TrinaryHash.checkHash();
+		//TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing");
-		log(Level.INFO, "Mod version 1.1.0 beta");
+		log(Level.INFO, "Mod version 1.0.0");
 		FarLandsCommand farLandsCommand = new FarLandsCommand();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.

@@ -6,6 +6,7 @@ import zeta.zetamod.mod.managers.ConfigManager;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class TrinaryHash {
     protected int[] aint;
@@ -43,6 +44,8 @@ public class TrinaryHash {
         return printArray(true);
     }
     public static String[] genRandomHash() {
+        //Scanner sc = new Scanner(System.in);
+        //int largestHashInitialValue = sc.nextInt();
         int largestHashInitialValue = 65536;
         String[] trinaryHashes = new String[largestHashInitialValue];
         int i = 0;

@@ -23,8 +23,7 @@
       "zeta.zetamod.mod.ZetaModMain",
       "zeta.zetamod.mod.features.items.CrashItemInitializer",
       "zeta.zetamod.mod.managers.GeneralManager",
-      "net.kyrptonaught.customportalapi.CustomPortalsMod",
-      "zeta.zetamod.mod.features.dimensions.FabricDimensionTest"
+      "net.kyrptonaught.customportalapi.CustomPortalsMod"
     ],
     "client": [
       "zeta.zetamod.mod.client.ZetaModClient",
