@@ -16,6 +16,14 @@
     "supercoder.MixinWorld",
     "supercoder.MixinWorldBorder",
     "supercoder.MixinWorldBorderProperties"
+    "kryptonaught.AbstractFireMixin"
+    "kryptonaught.BucketMixin"
+    "kryptonaught.EntityMixin"
+    "kryptonaught.PlayerMixin"
+  ],
+  "client": [
+    "kryptonaught.client.ClientPlayerMixin",
+    "kryptonaught.client.InGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

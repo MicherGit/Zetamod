@@ -4,7 +4,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.noise.PerlinNoiseSampler;
 import net.minecraft.util.math.noise.SimplexNoiseSampler;
 import org.spongepowered.asm.mixin.*;
-import code.zeta.zetamod.mod.managers.GeneralManager;
+import zeta.zetamod.mod.managers.GeneralManager;
 
 @Mixin(PerlinNoiseSampler.class)
 public class Shard {

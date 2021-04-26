@@ -20,15 +20,21 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "code.zeta.zetamod.mod.ZetaModMain",
-      "code.zeta.zetamod.mod.features.items.CrashItemInitializer",
-      "code.zeta.zetamod.mod.managers.GeneralManager"
+      "zeta.zetamod.mod.ZetaModMain",
+      "zeta.zetamod.mod.features.items.CrashItemInitializer",
+      "zeta.zetamod.mod.managers.GeneralManager",
+      "net.kyrptonaught.customportalapi.CustomPortalsMod",
+      "zeta.zetamod.mod.features.dimensions.FabricDimensionTest"
     ],
     "client": [
-      "code.zeta.zetamod.mod.client.ZetaModClient"
+      "zeta.zetamod.mod.client.ZetaModClient",
+      "net.kyrptonaught.customportalapi.client.CustomPortalsModClient"
     ],
     "cotton-client-commands": [
-      "code.zeta.zetamod.mod.features.commands.FarLandsCommand"
+      "zeta.zetamod.mod.features.commands.FarLandsCommand"
+    ],
+    "server": [
+      "net.kyrptonaught.customportalapi.networking.NetworkManager"
     ]
   },
   "mixins": [

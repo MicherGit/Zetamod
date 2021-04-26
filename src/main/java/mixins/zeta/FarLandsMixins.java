@@ -1,6 +1,6 @@
 package mixins.zeta;
 
-import code.zeta.zetamod.mod.managers.GeneralManager;
+import zeta.zetamod.mod.managers.GeneralManager;
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
