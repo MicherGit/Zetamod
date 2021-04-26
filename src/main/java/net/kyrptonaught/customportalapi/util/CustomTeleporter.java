@@ -43,7 +43,8 @@ public class CustomTeleporter {
             newEntity.refreshPositionAndAngles(target.position.x, target.position.y, target.position.z, target.yaw, newEntity.pitch);
             newEntity.setVelocity(target.velocity);
             destination.onDimensionChanged(newEntity);
-            entity.kill();
+            //TODO: Bugfixes
+            entity.remove(Entity.RemovalReason.valueOf(""));
         }
     }
 
