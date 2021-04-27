@@ -7,13 +7,13 @@ public class APIVersion {
     }
 
     public String APIVersionGet() {
-        if(string.contains("1.0")) {
+        if(string.startsWith("1.0")) {
             return "0.0.2";
-        } else if (string.contains("1.1.")) {
+        } else if (string.startsWith("1.1.")) {
             return "1.0.0";
-        } else if (string.contains("0.50.0")) {
+        } else if (string.startsWith("0.50.0")) {
             return "0.0.0";
-        } else if (string.contains("0.50.1")) {
+        } else if (string.startsWith("0.50.1")) {
             return "0.0.1";
         } else {
             return null;

@@ -99,7 +99,7 @@ public class Debug {
      * @author
      */
     @Overwrite
-    protected List<String> getLeftText() {
+    public List<String> getLeftText() {
         IntegratedServer integratedServer = this.client.getServer();
         ClientConnection clientConnection = this.client.getNetworkHandler().getConnection();
         float f = clientConnection.getAveragePacketsSent();

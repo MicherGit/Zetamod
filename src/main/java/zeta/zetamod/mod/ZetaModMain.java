@@ -35,10 +35,10 @@ public class ZetaModMain implements ModInitializer {
 	public static boolean MOD_DEV = false;
 	public static int MOD_DEV_V =
 
-			0
+			42
 			;
 	public static final byte V_TYPE = 0;
-	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
+	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	public static final Block VOID = new Block(FabricBlockSettings.of(Material.METAL).strength(0.0f));
 
@@ -55,7 +55,8 @@ public class ZetaModMain implements ModInitializer {
 	public void onInitialize() {
 		//TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing");
-		log(Level.INFO, "Mod version 1.1.0");
+		MOD_VERSION = MOD_VERSION + MOD_DEV_V;
+		log(Level.INFO, "Mod version " + MOD_VERSION);
 		FarLandsCommand farLandsCommand = new FarLandsCommand();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
@@ -65,7 +66,7 @@ public class ZetaModMain implements ModInitializer {
 		if(MOD_DEV) {
 			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V);
 			log(LV, "Milestone build" + " " +
-					7
+					8
 			);
 
 		}log(LV,"API version " + api.APIVersionGet())
