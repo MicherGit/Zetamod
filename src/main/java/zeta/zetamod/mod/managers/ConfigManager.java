@@ -19,7 +19,7 @@ public class ConfigManager  {
      */
     private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(),
             "ZetaMod." +
-                    "cfg");
+                    "json5");
 
     final private ConfigNode root = new ConfigNode();
 
