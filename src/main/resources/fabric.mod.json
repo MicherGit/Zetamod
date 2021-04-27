@@ -21,9 +21,6 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "zetamod.mod.ZetaModMain",
-      "zetamod.mod.features.items.CrashItemInitializer",
-      "zetamod.mod.managers.GeneralManager"
       "zeta.zetamod.mod.ZetaModMain",
       "zeta.zetamod.mod.features.items.CrashItemInitializer",
       "zeta.zetamod.mod.managers.GeneralManager",

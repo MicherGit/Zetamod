@@ -62,7 +62,7 @@ public class ZetaModMain implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		log(Level.INFO, "Initializing");
+
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
 			MOD_VERSION = MOD_VERSION + "." + MOD_DEV_V;
