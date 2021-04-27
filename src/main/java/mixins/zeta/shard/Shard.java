@@ -8,6 +8,7 @@ import zeta.zetamod.mod.managers.GeneralManager;
 
 @Mixin(PerlinNoiseSampler.class)
 public class Shard {
+    protected static final boolean shardFarlands = GeneralManager.getConfig().shardFarLands.getValue();
     @Shadow
     public final double originX;
     public final double originY;
@@ -134,9 +135,16 @@ public class Shard {
         double af = MathHelper.perlinFade(d);
         double ag = MathHelper.perlinFade(e);
         double ah = MathHelper.perlinFade(f);
-        double ai = MathHelper.lerp3(af, ag, ah, (float)is[0], (float)js[0], (float)ks[0], (float)ls[0], (float)ms[0], (float)ns[0], (float)os[0], (float)ps[0]);
-        double aj = MathHelper.lerp3(af, ag, ah, (float)is[1], (float)js[1], (float)ks[1], (float)ls[1], (float)ms[1], (float)ns[1], (float)os[1], (float)ps[1]);
-        double ak = MathHelper.lerp3(af, ag, ah, (float)is[2], (float)js[2], (float)ks[2], (float)ls[2], (float)ms[2], (float)ns[2], (float)os[2], (float)ps[2]);
+        double ai, aj, ak;
+        if (shardFarlands) {
+            ai = MathHelper.lerp3(af, ag, ah, (float) is[0], (float) js[0], (float) ks[0], (float) ls[0], (float) ms[0], (float) ns[0], (float) os[0], (float) ps[0]);
+            aj = MathHelper.lerp3(af, ag, ah, (float) is[1], (float) js[1], (float) ks[1], (float) ls[1], (float) ms[1], (float) ns[1], (float) os[1], (float) ps[1]);
+            ak = MathHelper.lerp3(af, ag, ah, (float) is[2], (float) js[2], (float) ks[2], (float) ls[2], (float) ms[2], (float) ns[2], (float) os[2], (float) ps[2]);
+        } else {
+            ai = MathHelper.lerp3(af, ag, ah, (double)is[0], (double)js[0], (double)ks[0], (double)ls[0], (double)ms[0], (double)ns[0], (double)os[0], (double)ps[0]);
+            aj = MathHelper.lerp3(af, ag, ah, (double)is[1], (double)js[1], (double)ks[1], (double)ls[1], (double)ms[1], (double)ns[1], (double)os[1], (double)ps[1]);
+            ak = MathHelper.lerp3(af, ag, ah, (double)is[2], (double)js[2], (double)ks[2], (double)ls[2], (double)ms[2], (double)ns[2], (double)os[2], (double)ps[2]);
+        }
         double al = MathHelper.lerp2(ag, ah, h - g, aa - z, ac - ab, ae - ad);
         double am = MathHelper.lerp2(ah, af, z - g, ad - ab, aa - h, ae - ac);
         double an = MathHelper.lerp2(af, ag, ab - g, ac - h, ad - z, ae - aa);
