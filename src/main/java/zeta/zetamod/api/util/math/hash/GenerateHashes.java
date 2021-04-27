@@ -1,6 +1,4 @@
-package zeta.zetamod.util.hash;
-
-import net.fabricmc.loader.api.FabricLoader;
+package zeta.zetamod.api.util.math.hash;
 
 import java.io.FileWriter;
 import java.io.IOException;

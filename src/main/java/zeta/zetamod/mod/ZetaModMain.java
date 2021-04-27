@@ -1,10 +1,10 @@
 package zeta.zetamod.mod;
 
+import zeta.zetamod.api.API;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
 import zeta.zetamod.mod.features.commands.FarLandsCommand;
 import zeta.zetamod.mod.features.errors.compute.ComputeErrorFunction;
 import zeta.zetamod.mod.features.items.ConcernedTater;
-import zeta.zetamod.util.hash.TrinaryHash;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
@@ -26,20 +26,6 @@ import zeta.zetamod.mod.features.register.RegisterItems;
 public class ZetaModMain implements ModInitializer {
 
 	private static Logger LOGGER = LogManager.getLogger();
-	private static String APIVersionGet(String string) {
-		if(string.contains("1.0")) {
-			return "0.0.2";
-		} else if (string.contains("1.1.")) {
-			return "1.0.0";
-		} else if (string.contains("0.50.0")) {
-			return "0.0.0";
-		} else if (string.contains("0.50.1")) {
-			return "0.0.1";
-		} else {
-			return (String)null + ". Current mod version doesn't support api";
-		}
-
-	}
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;
@@ -63,6 +49,7 @@ public class ZetaModMain implements ModInitializer {
 	public static final Level LV = Level.INFO;
 
 	public static double concerning_weight = Math.pow(2, -4);
+	public API api = new API(MOD_VERSION);
 	@Override
 	public void onInitialize() {
 		//TrinaryHash.checkHash();
@@ -80,7 +67,7 @@ public class ZetaModMain implements ModInitializer {
 					7
 			);
 
-		}log(LV,"API version " + APIVersionGet(MOD_VERSION))
+		}log(LV,"API version " + api.APIVersionGet())
 		;
 		log(Level.INFO, "Loading!");
 		log(Level.INFO, "Adding biomes");
