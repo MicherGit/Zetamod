@@ -1,6 +1,8 @@
 package zeta.zetamod.mod;
 
+import net.fabricmc.fabric.api.biome.v1.NetherBiomes;
 import zeta.zetamod.api.API;
+import zeta.zetamod.api.util.math.hash.TrinaryHash;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
 import zeta.zetamod.mod.features.commands.FarLandsCommand;
 import zeta.zetamod.mod.features.errors.compute.ComputeErrorFunction;
@@ -31,17 +33,18 @@ public class ZetaModMain implements ModInitializer {
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;
 	public static final Integer MOD_MINOR = 1;
-	public static final Integer MOD_BF = 0;
-	public static boolean MOD_DEV = false;
-	public static int MOD_DEV_V =
-
-			500
+	public static final Integer MOD_BF = 1;
+	public static boolean MOD_DEV = true;
+	public static double MOD_DEV_V =
+			0.2
 			;
 	public static final byte V_TYPE = 0;
-	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF +
-			"_06";
+	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
+			//+
+			//"_06"
+			;
 	public static final Error error = ComputeErrorFunction.computeHandler();
-	public static final Block VOID = new Block(FabricBlockSettings.of(Material.METAL).strength(0.0f));
+	//public static final Block VOID = new Block(FabricBlockSettings.of(Material.METAL).strength(0.0f));
 
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
@@ -54,7 +57,7 @@ public class ZetaModMain implements ModInitializer {
 	public API api = new API(MOD_VERSION);
 	@Override
 	public void onInitialize() {
-		//TrinaryHash.checkHash();
+		TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing");
 
 		log(Level.INFO, "Mod version " + MOD_VERSION);
@@ -81,8 +84,8 @@ public class ZetaModMain implements ModInitializer {
 
 		log(Level.INFO, "Adding concerning items!");
 
-		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "void"), VOID);
-		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "void"), new BlockItem(VOID, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+		//Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "void"), VOID);
+		//Registry.register(Registry.ITEM, new Identifier(MOD_ID, "void"), new BlockItem(VOID, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "concern_block"), CONCERN_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "concern_block"), new BlockItem(CONCERN_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
