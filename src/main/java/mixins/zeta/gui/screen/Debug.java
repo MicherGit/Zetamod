@@ -152,15 +152,20 @@ public class Debug {
             // OVER HERE!!!
             World world = this.getWorld();
             LongSet longSet = world instanceof ServerWorld ? ((ServerWorld)world).getForcedChunks() : LongSets.EMPTY_SET;
-            List<String> list = Lists.newArrayList(
-                    new String[]{
-                            "Minecraft "
-                                    +
-                                    SharedConstants.getGameVersion().
-                                            getName() +
-                                    " + ZetaMod Beta " + Concern.concern +
-                                    " (" + this.client.getGameVersion() + "/ZetaMod " + ZetaModMain.PHASE
-                                    + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString()});
+            List<String> list;
+            if (!ConfigManager.getConfig().enableOneSeventeenBoolean.getValue()) {
+                list = Lists.newArrayList(
+                        new String[]{
+                                "Minecraft "
+                                        +
+                                        SharedConstants.getGameVersion().
+                                                getName() +
+                                        " + ZetaMod Beta " + Concern.concern +
+                                        " (" + this.client.getGameVersion() + "/ZetaMod " + ZetaModMain.PHASE
+                                        + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString()});
+            } else {
+                list = Lists.newArrayList(new String[]{"Minecraft " + "1.17" + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString()});
+            }
             String string8 = this.getServerWorldDebugString();
             if (string8 != null) {
                 list.add(string8);
