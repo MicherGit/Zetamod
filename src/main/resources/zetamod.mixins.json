@@ -4,6 +4,7 @@
   "package": "mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "CONCERNINCARNATE",
     "zeta.FarLandsMixins",
     "zeta.NoiseMixin",
     "zeta.shard.Shard",
