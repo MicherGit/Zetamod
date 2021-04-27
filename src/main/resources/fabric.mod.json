@@ -7,7 +7,8 @@
   "description": "A mod that does many things!",
   "authors": [
     "ZetaTheEliatrope (obviously)",
-    "SuperCoder79 (worldborder code from zetamod.mod.mixins.worldborder)"
+    "SuperCoder79 (worldborder code from zetamod.mod.mixins.worldborder)",
+    "kryptonaught (original custom portal api mod)"
   ],
   "contact": {
     "homepage": "https://github.com/MicherGit/Zetamod",
@@ -44,7 +45,7 @@
   "depends": {
     "fabricloader": ">=0.10.0",
     "fabric": "*",
-    "minecraft": "*"
+    "minecraft": ">=21w16a"
   },
   "suggests": {
     "another-mod": "*"
