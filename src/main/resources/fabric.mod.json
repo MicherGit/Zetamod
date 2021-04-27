@@ -45,7 +45,7 @@
   "depends": {
     "fabricloader": ">=0.10.0",
     "fabric": "*",
-    "minecraft": ">=21w16a"
+    "minecraft": ">=1.17-alpha.21.16.a"
   },
   "suggests": {
     "another-mod": "*"

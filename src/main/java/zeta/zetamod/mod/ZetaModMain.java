@@ -39,7 +39,7 @@ public class ZetaModMain implements ModInitializer {
 			;
 	public static final byte V_TYPE = 0;
 	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF +
-			"_02";
+			"_03";
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	public static final Block VOID = new Block(FabricBlockSettings.of(Material.METAL).strength(0.0f));
 
