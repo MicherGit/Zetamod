@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.6-SNAPSHOT'
+	id 'fabric-loom' version '0.7-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -43,15 +43,14 @@ dependencies {
 	//sinclude "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them
-	modImplementation "io.github.cottonmc:cotton-client-commands:1.0.0+1.15.2-SNAPSHOT"
-	include "io.github.cottonmc:cotton-client-commands:1.0.0+1.15.2-SNAPSHOT"
+	modImplementation "io.github.cottonmc:cotton-client-commands:${project.cotton_version}"
+	include "io.github.cottonmc:cotton-client-commands:${project.cotton_version}"
 
 	/*
 		Other apis
 	 */
-	modImplementation "me.zeroeightsix:fiber:0.8.0-1"
-	include "me.zeroeightsix:fiber:0.8.0-1"
-
+	modImplementation "me.zeroeightsix:fiber:${project.fiberversion}"
+	include "me.zeroeightsix:fiber:${project.fiberversion}"
 	// Portal API
 	//modImplementation "net.kyrptonaught:customportalapi:${project.portalapi}"
 	//include "net.kyrptonaught:customportalapi:${project.portalapi}"

@@ -1,19 +1,30 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "zetamod.mod.mixins",
+  "package": "mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "FarLandsMixins",
-    "NoiseMixin",
-    "worldborder.MixinAquiferSampler",
-    "worldborder.MixinEntity",
-    "worldborder.MixinMinecraftServer",
-    "worldborder.MixinPlayerEntity",
-    "worldborder.MixinServerPlayNetworkHandler",
-    "worldborder.MixinWorld",
-    "worldborder.MixinWorldBorder",
-    "worldborder.MixinWorldBorderProperties"
+    "zeta.gui.screen.CONCERNINCARNATE",
+    "zeta.gui.screen.Debug",
+    "zeta.FarLandsMixins",
+    "zeta.NoiseMixin",
+    "zeta.shard.Shard",
+    "supercoder.MixinEntity",
+    "supercoder.MixinMinecraftServer",
+    "supercoder.MixinNoiseSamplingConfig",
+    "supercoder.MixinPlayerEntity",
+    "supercoder.MixinServerPlayNetworkHandler",
+    "supercoder.MixinWorld",
+    "supercoder.MixinWorldBorder",
+    "supercoder.MixinWorldBorderProperties",
+    "kryptonaught.AbstractFireMixin",
+    "kryptonaught.BucketMixin",
+    "kryptonaught.EntityMixin",
+    "kryptonaught.PlayerMixin"
+  ],
+  "client": [
+    "kryptonaught.client.ClientPlayerMixin",
+    "kryptonaught.client.InGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

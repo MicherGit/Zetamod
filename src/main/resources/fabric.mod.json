@@ -7,7 +7,8 @@
   "description": "A mod that does many things!",
   "authors": [
     "ZetaTheEliatrope (obviously)",
-    "SuperCoder79 (worldborder code from zetamod.mod.mixins.worldborder)"
+    "SuperCoder79 (worldborder code from zetamod.mod.mixins.worldborder)",
+    "kryptonaught (original custom portal api mod)"
   ],
   "contact": {
     "homepage": "https://github.com/MicherGit/Zetamod",
@@ -23,12 +24,21 @@
       "zetamod.mod.ZetaModMain",
       "zetamod.mod.features.items.CrashItemInitializer",
       "zetamod.mod.managers.GeneralManager"
+      "zeta.zetamod.mod.ZetaModMain",
+      "zeta.zetamod.mod.features.items.CrashItemInitializer",
+      "zeta.zetamod.mod.managers.GeneralManager",
+      "net.kyrptonaught.customportalapi.CustomPortalsMod",
+      "zeta.zetamod.mod.features.portals.LushNetherPortal"
     ],
     "client": [
-      "zetamod.mod.client.ZetaModClient"
+      "zeta.zetamod.mod.client.ZetaModClient",
+      "net.kyrptonaught.customportalapi.client.CustomPortalsModClient"
     ],
     "cotton-client-commands": [
-      "zetamod.mod.features.commands.FarLandsCommand"
+      "zeta.zetamod.mod.features.commands.FarLandsCommand"
+    ],
+    "server": [
+      "net.kyrptonaught.customportalapi.networking.NetworkManager"
     ]
   },
   "mixins": [
@@ -37,8 +47,8 @@
 
   "depends": {
     "fabricloader": ">=0.10.0",
-    "fabric": "0.32.7+1.17",
-    "minecraft": "1.17-alpha.21.14.a"
+    "fabric": "*",
+    "minecraft": ">=1.17-alpha.21.16.a"
   },
   "suggests": {
     "another-mod": "*"

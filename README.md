@@ -1,10 +1,10 @@
 # Zetamod Beta
 A multi-functional utility mod for fabric 1.17 snapshots that does a lot of things.
 
-### Latest Update: [21w14a] Zeta's Mod v1.0.0 beta: The Technical Update
-### Latest Build: [21w14a] Zeta's Mod v1.0.4 beta
-### Stable Build: [21w14a] Zeta's Mod v1.0.4 beta
-### Next Version: [21w16a] Zeta's Mod v1.1.0 beta
+### Latest Update: [21w16a] Zeta's Mod v1.1.0 beta: Lush Nether (phase 2)
+### Latest Build: [21w16a] Zeta's Mod v1.1.0_03 beta
+### Stable Build: [21w16a] Zeta's Mod v1.1.0_03 beta
+### Next Version: Zeta's Mod v1.2.0 beta: The Keystone Update
 
 # Requirements
 ### Fabric API
