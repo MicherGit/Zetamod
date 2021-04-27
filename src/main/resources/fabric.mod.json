@@ -23,7 +23,8 @@
       "zeta.zetamod.mod.ZetaModMain",
       "zeta.zetamod.mod.features.items.CrashItemInitializer",
       "zeta.zetamod.mod.managers.GeneralManager",
-      "net.kyrptonaught.customportalapi.CustomPortalsMod"
+      "net.kyrptonaught.customportalapi.CustomPortalsMod",
+      "zeta.zetamod.mod.features.portals.LushNetherPortal"
     ],
     "client": [
       "zeta.zetamod.mod.client.ZetaModClient",
