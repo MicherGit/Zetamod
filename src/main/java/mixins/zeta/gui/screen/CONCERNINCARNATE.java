@@ -126,7 +126,10 @@ public class CONCERNINCARNATE extends Screen{
             } else {
                 string = "Minecraft 1.17";
             }
-            System.out.println("Injecting shit part 1");
+            if (!Concern.stageOne) {
+                System.out.println("Injecting shit part 2");} else {
+                System.out.println("Injecting shit part 1"); Concern.stageOne = !Concern.stageOne;
+            }
             if (this.client.isDemo()) {
                 string = string + " Demo";
             } else {
