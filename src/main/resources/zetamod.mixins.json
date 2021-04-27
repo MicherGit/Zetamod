@@ -4,7 +4,9 @@
   "package": "mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "CONCERNINCARNATE",
+    "zeta.gui.screen.CONCERNINCARNATE",
+    "zeta.gui.screen.CONCERNINCARNATE.DrawableHelperMixin",
+    "zeta.gui.screen.Debug",
     "zeta.FarLandsMixins",
     "zeta.NoiseMixin",
     "zeta.shard.Shard",

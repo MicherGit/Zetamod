@@ -25,7 +25,8 @@ import zeta.zetamod.mod.features.register.RegisterItems;
 
 public class ZetaModMain implements ModInitializer {
 
-	private static Logger LOGGER = LogManager.getLogger();
+    public static final String PHASE = "BETA";
+    private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;

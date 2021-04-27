@@ -1,4 +1,4 @@
-package mixins;
+package mixins.zeta.gui.screen;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -119,6 +119,7 @@ public class CONCERNINCARNATE extends Screen{
             // THIS!!!! AAAAAAAAAA
             String string = "Minecraft " + SharedConstants.getGameVersion().getName()
                     + " + ZetaMod Beta " + Concern.concern;
+            System.out.println("Injecting shit part 1");
             if (this.client.isDemo()) {
                 string = string + " Demo";
             } else {
