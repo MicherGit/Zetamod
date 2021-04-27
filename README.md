@@ -3,8 +3,8 @@ A multi-functional utility mod for fabric 1.17 snapshots that does a lot of thin
 
 ## Warning: This is a private dev version, it needs a special key to launch. Go back unless you have one of these.
 ### Latest Update: [21w16a] Zeta's Mod v1.1.0 beta: Lush Nether (phase 2)
-### Latest Build: [21w16a] Zeta's Mod v1.1.0_03 beta
-### Stable Build: [21w16a] Zeta's Mod v1.1.0_03 beta
+### Latest Build: [21w16a] Zeta's Mod v1.1.0_06 beta
+### Stable Build: [21w16a] Zeta's Mod v1.1.0_06 beta
 ### Next Version: Zeta's Mod v1.2.0 beta: The Keystone Update
 
 # Requirements
