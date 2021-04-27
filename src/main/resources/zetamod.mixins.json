@@ -5,7 +5,6 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "zeta.gui.screen.CONCERNINCARNATE",
-    "zeta.gui.screen.CONCERNINCARNATE.DrawableHelperMixin",
     "zeta.gui.screen.Debug",
     "zeta.FarLandsMixins",
     "zeta.NoiseMixin",
