@@ -8,7 +8,7 @@ import zeta.zetamod.mod.managers.GeneralManager;
 
 @Mixin(PerlinNoiseSampler.class)
 public class Shard {
-    protected static final boolean shardFarlands = GeneralManager.getConfig().shardFarLands.getValue();
+    private static final boolean shardFarlands = GeneralManager.getConfig().shardFarLands.getValue();
     @Shadow
     public final double originX;
     public final double originY;
