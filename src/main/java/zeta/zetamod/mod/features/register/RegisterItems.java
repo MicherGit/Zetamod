@@ -17,9 +17,9 @@ public class RegisterItems {
         // Register keystone item
         RegisterKeystone keystone = new RegisterKeystone();
         keystone.registerItem();
-        VoidBlock_BLOCK = Registry.register(Registry.BLOCK, id("void_block"), new VoidBlock());
-        VoidBlock_ITEM = Registry.register(Registry.ITEM, id("void_block"),
-                new BlockItem(VoidBlock_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+        VoidBlock_BLOCK = Registry.register(Registry.BLOCK, id("void"), new VoidBlock());
+        VoidBlock_ITEM = Registry.register(Registry.ITEM, id("void"),
+                new BlockItem(VoidBlock_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
                 // CODE DEF NOT RIPPED FROM A DUMMY MCREATOR MOD
     }
     protected static final Identifier id(String s) {
