@@ -64,7 +64,7 @@ public class ConfigManager  {
             .build();
     public ConfigValue<Boolean> enableOneSeventeenBoolean = ConfigValue.builder(Boolean.class)
             .withName(String.valueOf("enableOneSeventeenBoolean"))
-            .withComment(("Change title screen to say 1.17 instead of ") + SharedConstants.getGameVersion())
+            .withComment(("Change title screen to say 1.17 instead of ") + String.valueOf(SharedConstants.getGameVersion().getName()))
             .withDefaultValue(false)
             .withParent(hashNode)
             .build();
