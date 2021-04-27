@@ -113,7 +113,7 @@ public class Debug {
 
         BlockPos blockPos = this.client.getCameraEntity().getBlockPos();
         if (this.client.hasReducedDebugInfo()) {
-            return Lists.newArrayList(new String[]{"Minecraft " + SharedConstants.getGameVersion().getName() + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString(), "", String.format("Chunk-relative: %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15)});
+            return Lists.newArrayList(new String[]{"Minecraft + (zetamod easter egg lel gg) " + ZetaModMain.MOD_VERSION + " " + SharedConstants.getGameVersion().getName() + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString(), "", String.format("Chunk-relative: %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15)});
         } else {
             Entity entity = this.client.getCameraEntity();
             Direction direction = entity.getHorizontalFacing();
@@ -150,7 +150,7 @@ public class Debug {
                                     SharedConstants.getGameVersion().
                                             getName() +
                                     " + ZetaMod Beta " + Concern.concern +
-                                    " (" + this.client.getGameVersion() + "/ ZetaMod " + ZetaModMain.PHASE
+                                    " (" + this.client.getGameVersion() + "/ZetaMod " + ZetaModMain.PHASE
                                     + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString()});
             String string8 = this.getServerWorldDebugString();
             if (string8 != null) {

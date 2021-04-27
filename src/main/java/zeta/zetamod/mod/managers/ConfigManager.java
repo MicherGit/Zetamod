@@ -7,6 +7,7 @@ import me.zeroeightsix.fiber.tree.ConfigValue;
 import me.zeroeightsix.fiber.tree.Node;
 import net.fabricmc.loader.api.FabricLoader;
 import net.java.games.input.Event;
+import net.minecraft.SharedConstants;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,6 +46,7 @@ public class ConfigManager  {
             .withDefaultValue(expandWB)
             .withParent(general)
             .build();
+
     public ConfigValue<Boolean> shardFarLands = ConfigValue.builder(Boolean.class)
             .withName(
                     "shardFarLands"
@@ -58,6 +60,12 @@ public class ConfigManager  {
             .withName("hash")
             .withComment("private hash given out to testers")
             .withDefaultValue("")
+            .withParent(hashNode)
+            .build();
+    public ConfigValue<Boolean> enableOneSeventeenBoolean = ConfigValue.builder(Boolean.class)
+            .withName(String.valueOf("enableOneSeventeenBoolean"))
+            .withComment(("Change title screen to say 1.17 instead of ") + SharedConstants.getGameVersion())
+            .withDefaultValue(false)
             .withParent(hashNode)
             .build();
     private Node world = root.fork("world");

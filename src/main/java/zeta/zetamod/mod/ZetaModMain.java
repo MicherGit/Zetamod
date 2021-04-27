@@ -35,7 +35,7 @@ public class ZetaModMain implements ModInitializer {
 	public static boolean MOD_DEV = false;
 	public static int MOD_DEV_V =
 
-			43
+			500
 			;
 	public static final byte V_TYPE = 0;
 	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
@@ -55,7 +55,7 @@ public class ZetaModMain implements ModInitializer {
 	public void onInitialize() {
 		//TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing");
-		MOD_VERSION = MOD_VERSION + "." + MOD_DEV_V;
+
 		log(Level.INFO, "Mod version " + MOD_VERSION);
 		FarLandsCommand farLandsCommand = new FarLandsCommand();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -64,6 +64,7 @@ public class ZetaModMain implements ModInitializer {
 
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
+			MOD_VERSION = MOD_VERSION + "." + MOD_DEV_V;
 			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V);
 			log(LV, "Milestone build" + " " +
 					8
