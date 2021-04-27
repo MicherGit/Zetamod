@@ -22,7 +22,7 @@ public class ConfigManager  {
 
     final private ConfigNode root = new ConfigNode();
 
-    public Node general = root.fork("general");
+    private final Node general = root.fork("general");
     private Event configValue;
 
     // Still @Overwrite-able!
@@ -53,11 +53,12 @@ public class ConfigManager  {
             .withDefaultValue(true)
             .withParent(general)
             .build();
+    private Node hashNode = root.fork("Hash Key");
     public ConfigValue<String> hash = ConfigValue.builder(String.class)
             .withName("hash")
             .withComment("private hash given out to testers")
             .withDefaultValue("")
-            .withParent(general)
+            .withParent(hashNode)
             .build();
     private Node world = root.fork("world");
     public ConfigValue<Double> coordinateScale = ConfigValue.builder(Double.class)
