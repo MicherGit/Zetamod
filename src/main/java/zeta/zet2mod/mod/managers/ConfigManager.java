@@ -55,7 +55,7 @@ public class ConfigManager  {
                     "shardFarLands"
             )
             .withComment("Should the shard farlands spawn?")
-            .withDefaultValue(true)
+            .withDefaultValue(false)
             .withParent(general)
             .build();
     private Node hashNode = root.fork("Hash Key");
