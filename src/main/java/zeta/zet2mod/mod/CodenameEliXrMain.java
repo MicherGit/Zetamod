@@ -29,7 +29,7 @@ public class CodenameEliXrMain implements ModInitializer {
     public static final String PHASE = "release";
     private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zet2mod";
-	public static final String MOD_NAME = "Zet2Mod";
+	public static final String MOD_NAME = "Codename: EliXr";
 	public static final Integer MOD_MAJOR = 2;
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
