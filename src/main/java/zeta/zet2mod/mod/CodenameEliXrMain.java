@@ -1,6 +1,7 @@
 package zeta.zet2mod.mod;
 
 import zeta.zet2mod.api.API;
+import zeta.zet2mod.api.util.math.hash.DecupleHash;
 import zeta.zet2mod.api.util.math.hash.TrinaryHash;
 import zeta.zet2mod.mod.features.biomes.BiomesInitializer;
 import zeta.zet2mod.mod.features.commands.FarLandsCommand;
@@ -58,7 +59,7 @@ public class CodenameEliXrMain implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		log2("Initializing "+MOD_NAME);
-		TrinaryHash.checkHash();
+		DecupleHash.checkHash();
 		//log(Level.INFO, "Initializing");
 
 		log(Level.INFO, "Mod version " + MOD_VERSION);

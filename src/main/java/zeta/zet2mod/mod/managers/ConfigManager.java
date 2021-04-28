@@ -8,6 +8,9 @@ import me.zeroeightsix.fiber.tree.Node;
 import net.fabricmc.loader.api.FabricLoader;
 import net.java.games.input.Event;
 import net.minecraft.SharedConstants;
+import net.minecraft.network.packet.s2c.play.SynchronizeTagsS2CPacket;
+import zeta.zet2mod.mod.CodenameEliXrMain;
+import zeta.zet2mod.mod.client.Zet2ModClient;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +21,7 @@ public class ConfigManager  {
      * Copied from https://github.com/geniiii/FarLands/blob/master/src/main/java/site/geni/farlands/config/Config.java
      */
     private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(),
-            "zet2mod." +
+            CodenameEliXrMain.MOD_NAME + "." +
                     "json5");
 
     final private ConfigNode root = new ConfigNode();
