@@ -34,9 +34,9 @@ public class ZetaModMain implements ModInitializer {
 	public static final Integer MOD_MAJOR = 1;
 	public static final Integer MOD_MINOR = 1;
 	public static final Integer MOD_BF = 1;
-	public static boolean MOD_DEV = true;
+	public static boolean MOD_DEV = false;
 	public static double MOD_DEV_V =
-			0.2
+			502
 			;
 	public static final byte V_TYPE = 0;
 	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
@@ -57,7 +57,7 @@ public class ZetaModMain implements ModInitializer {
 	public API api = new API(MOD_VERSION);
 	@Override
 	public void onInitialize() {
-		TrinaryHash.checkHash();
+		//TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing");
 
 		log(Level.INFO, "Mod version " + MOD_VERSION);
