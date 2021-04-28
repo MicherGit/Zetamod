@@ -15,6 +15,8 @@ public class APIVersion {
             return "0.0.0";
         } else if (string.startsWith("0.50.1")) {
             return "0.0.1";
+        } else if (string.startsWith("1.1.1")) {
+            return "1.0.1";
         } else {
             return null;
         }
