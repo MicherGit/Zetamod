@@ -1,6 +1,6 @@
 package zeta.zet2mod.mod.managers;
 
-import zeta.zet2mod.mod.CodenameEliXrMain;
+import zeta.zet2mod.mod.Zet2ModMain;
 import me.zeroeightsix.fiber.exception.FiberException;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.math.MathHelper;
@@ -39,7 +39,7 @@ public class GeneralManager implements ModInitializer {
             if(farlands()) {
                 if (!FARLANDS_INTIALIZED) {
                     FARLANDS_INTIALIZED = !FARLANDS_INTIALIZED;
-                    CodenameEliXrMain.log(Level.INFO, "FarLands intialized!");
+                    Zet2ModMain.log(Level.INFO, "FarLands intialized!");
                 }
                 return d;
             }

@@ -8,9 +8,6 @@ import me.zeroeightsix.fiber.tree.Node;
 import net.fabricmc.loader.api.FabricLoader;
 import net.java.games.input.Event;
 import net.minecraft.SharedConstants;
-import net.minecraft.network.packet.s2c.play.SynchronizeTagsS2CPacket;
-import zeta.zet2mod.mod.CodenameEliXrMain;
-import zeta.zet2mod.mod.client.Zet2ModClient;
 
 import java.io.File;
 import java.io.IOException;

@@ -25,7 +25,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
 import zeta.zet2mod.mod.features.register.RegisterItems;
 
-public class CodenameEliXrMain implements ModInitializer {
+public class Zet2ModMain implements ModInitializer {
 
     public static final String PHASE = "release";
     private static Logger LOGGER = LogManager.getLogger();
@@ -58,7 +58,7 @@ public class CodenameEliXrMain implements ModInitializer {
 	public API api = new API(MOD_VERSION);
 	@Override
 	public void onInitialize() {
-		log2("Initializing "+MOD_NAME);
+		log2("Initializing ZetaMod 2");
 		DecupleHash.checkHash();
 		//log(Level.INFO, "Initializing");
 
@@ -95,7 +95,7 @@ public class CodenameEliXrMain implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hyperconcern_block"), new BlockItem(HYPERCONCERN_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
 		//Registry.register(Registry.ITEM, new Identifier(MOD_ID,"concerned_tater"), CONCERNED_TATER);
-		//CodenameEliXrMain.log(Level.INFO, "Patching Farlands!");
+		//Zet2ModMain.log(Level.INFO, "Patching Farlands!");
 
 		System.out.println("Adding a very concern easter egg");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY,

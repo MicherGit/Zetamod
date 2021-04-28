@@ -20,11 +20,10 @@ import net.minecraft.util.math.Vec3f;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.system.CallbackI;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
-import zeta.zet2mod.mod.CodenameEliXrMain;
+import zeta.zet2mod.mod.Zet2ModMain;
 import zeta.zet2mod.mod.Concern;
 import zeta.zet2mod.mod.managers.ConfigManager;
 
@@ -123,7 +122,7 @@ public class CONCERNINCARNATE extends Screen{
             String string;
             if(!ConfigManager.getConfig().enableOneSeventeenBoolean.getValue()) {
                 string = "Minecraft " + SharedConstants.getGameVersion().getName()
-                        + " + "+ CodenameEliXrMain.MOD_NAME+" " + Concern.concern;
+                        + " + "+ Zet2ModMain.MOD_NAME+" " + Concern.concern;
             } else {
                 string = "Minecraft 1.17";
             }
