@@ -26,7 +26,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import zeta.zet2mod.mod.Concern;
-import zeta.zet2mod.mod.Zet2ModMain;
+import zeta.zet2mod.mod.CodenameEliXrMain;
 import zeta.zet2mod.mod.managers.ConfigManager;
 
 import java.util.*;
@@ -119,7 +119,7 @@ public class Debug {
         }
         if (this.client.hasReducedDebugInfo()) {
             if (ConfigManager.getConfig().enableOneSeventeenBoolean.getValue()) {
-                return Lists.newArrayList(new String[]{"Minecraft + (zet2mod easter egg lel gg) " + Zet2ModMain.MOD_VERSION + " " + SharedConstants.getGameVersion().getName() + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString(), "", String.format("Chunk-relative: %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15)});
+                return Lists.newArrayList(new String[]{"Minecraft + (zet2mod easter egg lel gg) " + CodenameEliXrMain.MOD_VERSION + " " + SharedConstants.getGameVersion().getName() + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString(), "", String.format("Chunk-relative: %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15)});
             } else {
                 return Lists.newArrayList(new String[]{"Minecraft 1.17" + " (release/" + ClientBrandRetriever.getClientModName() + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString(), "", String.format("Chunk-relative: %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15)});
             }
@@ -161,7 +161,7 @@ public class Debug {
                                         SharedConstants.getGameVersion().
                                                 getName() +
                                         " + Zet2Mod " + Concern.concern +
-                                        " (" + this.client.getGameVersion() + "/zet2mod " + Zet2ModMain.PHASE
+                                        " (" + this.client.getGameVersion() + "/zet2mod " + CodenameEliXrMain.PHASE
                                         + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString()});
             } else {
                 list = Lists.newArrayList(new String[]{"Minecraft " + "1.17" + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString()});

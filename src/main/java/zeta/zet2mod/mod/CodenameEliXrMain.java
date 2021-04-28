@@ -1,7 +1,5 @@
 package zeta.zet2mod.mod;
 
-import net.fabricmc.fabric.api.biome.v1.NetherBiomes;
-import sun.rmi.runtime.Log;
 import zeta.zet2mod.api.API;
 import zeta.zet2mod.api.util.math.hash.TrinaryHash;
 import zeta.zet2mod.mod.features.biomes.BiomesInitializer;
@@ -26,7 +24,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
 import zeta.zet2mod.mod.features.register.RegisterItems;
 
-public class Zet2ModMain implements ModInitializer {
+public class CodenameEliXrMain implements ModInitializer {
 
     public static final String PHASE = "release";
     private static Logger LOGGER = LogManager.getLogger();
@@ -74,7 +72,7 @@ public class Zet2ModMain implements ModInitializer {
 			MOD_VERSION = MOD_VERSION + "." + MOD_DEV_V;
 			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V);
 			log(LV, "Milestone build" + " " +
-					8
+					10
 			);
 
 		}log(LV,"API version " + api.APIVersionGet())
@@ -96,7 +94,7 @@ public class Zet2ModMain implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hyperconcern_block"), new BlockItem(HYPERCONCERN_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"concerned_tater"), CONCERNED_TATER);
-		//Zet2ModMain.log(Level.INFO, "Patching Farlands!");
+		//CodenameEliXrMain.log(Level.INFO, "Patching Farlands!");
 
 		System.out.println("Adding a very concern easter egg");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY,

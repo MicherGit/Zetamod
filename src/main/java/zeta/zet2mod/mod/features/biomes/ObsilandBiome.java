@@ -1,6 +1,6 @@
 package zeta.zet2mod.mod.features.biomes;
 
-import zeta.zet2mod.mod.Zet2ModMain;
+import zeta.zet2mod.mod.CodenameEliXrMain;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.block.Blocks;
@@ -67,18 +67,18 @@ public class ObsilandBiome {
                 .build();
     }
 
-    private static final String MOD_ID = Zet2ModMain.MOD_ID;
+    private static final String MOD_ID = CodenameEliXrMain.MOD_ID;
     public static final RegistryKey<Biome> OBSILAND_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "obsiland"));
 
     public static void register() {
-        Zet2ModMain.log(Level.INFO, "Adding biomes");
+        CodenameEliXrMain.log(Level.INFO, "Adding biomes");
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "obsidian"), OBSIDIAN_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, OBSILAND_KEY.getValue(), OBSILAND);
         boolean addToWorldgenBoolean = false;
         if (addToWorldgenBoolean) {
             addToWorldgen();
         }
-        Zet2ModMain.log(Level.INFO,
+        CodenameEliXrMain.log(Level.INFO,
                 "Initialized Obsiland biome. Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
         );
     }

@@ -1,6 +1,6 @@
 package zeta.zet2mod.mod.features.items;
 
-import zeta.zet2mod.mod.Zet2ModMain;
+import zeta.zet2mod.mod.CodenameEliXrMain;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ItemGroup;
@@ -12,9 +12,9 @@ public class CrashItemInitializer implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Registry.register(Registry.ITEM, new Identifier(Zet2ModMain.MOD_ID,
+        Registry.register(Registry.ITEM, new Identifier(CodenameEliXrMain.MOD_ID,
                 "crashitem"
         ), new CrashItem(new FabricItemSettings().group(ItemGroup.MISC)));
-        Zet2ModMain.log(Level.INFO,"Intialized debug item!");
+        CodenameEliXrMain.log(Level.INFO,"Intialized debug item!");
     }
 }

@@ -1,6 +1,6 @@
 package zeta.zet2mod.mod.features.biomes;
 
-import zeta.zet2mod.mod.Zet2ModMain;
+import zeta.zet2mod.mod.CodenameEliXrMain;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -29,8 +29,8 @@ public class ConcerningBiome {
 
     private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CONCERNING_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
             .withConfig(new TernarySurfaceConfig(
-                    Zet2ModMain.CONCERN_BLOCK.getDefaultState(),
-                    Zet2ModMain.HYPERCONCERN_BLOCK.getDefaultState(),
+                    CodenameEliXrMain.CONCERN_BLOCK.getDefaultState(),
+                    CodenameEliXrMain.HYPERCONCERN_BLOCK.getDefaultState(),
                     GIGACONCERN_BLOCK.getDefaultState()));
 
     private static final Biome CONCERNINGS = createConcernings();
@@ -75,18 +75,18 @@ public class ConcerningBiome {
                 .build();
     }
 
-    private static final String MOD_ID = Zet2ModMain.MOD_ID;
+    private static final String MOD_ID = CodenameEliXrMain.MOD_ID;
     public static final RegistryKey<Biome> CONCERNING_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "concerning"));
 
     public static void register() {
-        Zet2ModMain.log(Level.INFO, "Adding biomes");
+        CodenameEliXrMain.log(Level.INFO, "Adding biomes");
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "concerning"), CONCERNING_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, CONCERNING_KEY.getValue(), CONCERNINGS);
         boolean addToWorldgenBoolean = true;
         if (addToWorldgenBoolean) {
             addToWorldgen();
         }
-        Zet2ModMain.log(Level.INFO,
+        CodenameEliXrMain.log(Level.INFO,
                 "Initialized easter egg biome, hehe."
                         //"Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
         );
@@ -94,7 +94,7 @@ public class ConcerningBiome {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gigaconcern_block"), new BlockItem(GIGACONCERN_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
 
     }
-    public static double conc = Zet2ModMain.concerning_weight;
+    public static double conc = CodenameEliXrMain.concerning_weight;
     public static void addToWorldgen() {
         OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.TEMPERATE, conc);
         OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
