@@ -11,4 +11,4 @@ A multi-functional utility mod for fabric 1.17 snapshots that does a lot of thin
 ~~Massochism~~
 ### Requires Minecraft version 21w14a. (1.0.x)
 ### Requires Minecraft version 21w16a. (1.1.x)
-## Requires Minecraft version 1.16.5 or 21w16a (2.0.x)
+### Requires Minecraft version 1.16.5 or 21w16a (2.0.x)
