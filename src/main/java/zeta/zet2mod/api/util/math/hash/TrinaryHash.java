@@ -47,7 +47,7 @@ public class TrinaryHash {
     public static String[] genRandomHash() {
         //Scanner sc = new Scanner(System.in);
         //int largestHashInitialValue = sc.nextInt();
-        int largestHashInitialValue = 65536;
+        int largestHashInitialValue = 256;
         String[] trinaryHashes = new String[largestHashInitialValue];
         int i = 0;
         System.out.println("Mind us while we count to " + largestHashInitialValue);
@@ -61,8 +61,9 @@ public class TrinaryHash {
         //Scanner sc = new Scanner(System.in);
         //int largestHashInitialValue = sc.nextInt();
         int largestHashInitialValue = Integer.MAX_VALUE;
-        String[] trinaryHashes = new String[largestHashInitialValue];
-        int i = Integer.MAX_VALUE-Short.MAX_VALUE;
+        int i = (int)Math.pow(2,30)-Short.MAX_VALUE;
+        String[] trinaryHashes = new String[i];
+
         //System.out.println("Mind us while we count to " + largestHashInitialValue);
         while (i < largestHashInitialValue) {
             trinaryHashes[i] = new TrinaryHash(i).hash();

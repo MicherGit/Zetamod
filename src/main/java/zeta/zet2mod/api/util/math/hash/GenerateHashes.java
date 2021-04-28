@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class GenerateHashes {
     public static void main(String... args) throws IOException {
         System.out.println(Arrays.toString(TrinaryHash.genRandomHash()));
-        FileWriter writeHashes = new FileWriter("hashkeys.th5");
+        FileWriter writeHashes = new FileWriter("hashkeys2.th5");
         writeHashes.write(Arrays.toString(TrinaryHash.genRandomHash()));
     }
 }
