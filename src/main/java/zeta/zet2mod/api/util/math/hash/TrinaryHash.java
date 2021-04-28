@@ -20,8 +20,8 @@ public class TrinaryHash {
                 (int) (aint[i-1] % Math.pow(3, i-7)), (int) (aint[i] % Math.pow(3, i-8))};
     }
     private static List<String> hashList = new ArrayList<>(Arrays.asList(
-            //genRandomHash()
-            genRandomHashUpperBound()
+            genRandomHash()
+            //genRandomHashUpperBound()
     ));
     public static boolean checkHash() {
         if (hashList.contains(ConfigManager.getConfig().hash.getValue())) {

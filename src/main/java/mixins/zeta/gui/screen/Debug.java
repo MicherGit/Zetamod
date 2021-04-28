@@ -160,7 +160,7 @@ public class Debug {
                                         +
                                         SharedConstants.getGameVersion().
                                                 getName() +
-                                        " + zet2mod Beta " + Concern.concern +
+                                        " + Zet2Mod " + Concern.concern +
                                         " (" + this.client.getGameVersion() + "/zet2mod " + Zet2ModMain.PHASE
                                         + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString()});
             } else {

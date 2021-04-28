@@ -122,7 +122,7 @@ public class CONCERNINCARNATE extends Screen{
             String string;
             if(!ConfigManager.getConfig().enableOneSeventeenBoolean.getValue()) {
                 string = "Minecraft " + SharedConstants.getGameVersion().getName()
-                        + " + zet2mod Beta " + Concern.concern;
+                        + " + Zet2Mod " + Concern.concern;
             } else {
                 string = "Minecraft 1.17";
             }
