@@ -24,8 +24,8 @@ import org.lwjgl.system.CallbackI;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
-import zeta.zetamod.mod.Concern;
-import zeta.zetamod.mod.managers.ConfigManager;
+import zeta.zet2mod.mod.Concern;
+import zeta.zet2mod.mod.managers.ConfigManager;
 
 import java.util.Iterator;
 import java.util.function.BiConsumer;
@@ -122,7 +122,7 @@ public class CONCERNINCARNATE extends Screen{
             String string;
             if(!ConfigManager.getConfig().enableOneSeventeenBoolean.getValue()) {
                 string = "Minecraft " + SharedConstants.getGameVersion().getName()
-                        + " + ZetaMod Beta " + Concern.concern;
+                        + " + zet2mod Beta " + Concern.concern;
             } else {
                 string = "Minecraft 1.17";
             }
