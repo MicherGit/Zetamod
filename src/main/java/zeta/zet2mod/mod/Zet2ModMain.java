@@ -35,9 +35,8 @@ public class Zet2ModMain implements ModInitializer {
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
-	public static double MOD_DEV_V = Double.parseDouble(
-			"200."+
-			"10")
+	public static String MOD_DEV_V = "200." +
+			"20"
 			;
 	public static final byte V_TYPE = 0;
 	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
