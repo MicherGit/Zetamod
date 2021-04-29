@@ -4,7 +4,6 @@
   "package": "mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "MixinEntityAccessor",
     "zeta.gui.screen.CONCERNINCARNATE",
     "zeta.gui.screen.Debug",
     "zeta.FarLandsMixins",
