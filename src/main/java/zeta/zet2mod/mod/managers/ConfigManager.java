@@ -18,7 +18,7 @@ public class ConfigManager  {
      * Copied from https://github.com/geniiii/FarLands/blob/master/src/main/java/site/geni/farlands/config/Config.java
      */
     private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(),
-             "elixr." +
+             "zet2mod." +
                     "json5");
 
     final private ConfigNode root = new ConfigNode();
