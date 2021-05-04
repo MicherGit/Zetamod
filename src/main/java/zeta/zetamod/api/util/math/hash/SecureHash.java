@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class DecupleHash {
+public class SecureHash {
     protected int[] aint;
     private boolean debugmode = true;
-    public DecupleHash(int input) {
+    public SecureHash(int input) {
         this.aint = new int[]{input, (int) (input % 1E8), (int) (input % 1E7), (int) (input%1e6), (int) (input%1e5), (int) (input%1e4), (int) (input%1e3),
                 (int) (input%1e2), (int) (input%1e1)};
         int i = 8;
@@ -79,7 +79,7 @@ public class DecupleHash {
                 .printHexBinary(digest).toUpperCase();
         return myHash;
     }
-    public static String[] genRandomHash() throws NoSuchAlgorithmException {
+    protected static String[] genRandomHash() throws NoSuchAlgorithmException {
         //Scanner sc = new Scanner(System.in);
         //int largestHashInitialValue = sc.nextInt();
         int largestHashInitialValue = 256;
@@ -87,21 +87,7 @@ public class DecupleHash {
         int i = 0;
         System.out.println("Mind us while we count to " + largestHashInitialValue);
         while (i < largestHashInitialValue) {
-            trinaryHashes[i] = new DecupleHash(i).hash();
-            i++;
-        }
-        return trinaryHashes;
-    }
-    public static String[] genRandomHashUpperBound() throws NoSuchAlgorithmException {
-        //Scanner sc = new Scanner(System.in);
-        //int largestHashInitialValue = sc.nextInt();
-        int largestHashInitialValue = Integer.MAX_VALUE;
-        int i = (int)Math.pow(2,30)-Short.MAX_VALUE;
-        String[] trinaryHashes = new String[i];
-
-        //System.out.println("Mind us while we count to " + largestHashInitialValue);
-        while (i < largestHashInitialValue) {
-            trinaryHashes[i] = new DecupleHash(i).hash();
+            trinaryHashes[i] = new SecureHash(i).hash();
             i++;
         }
         return trinaryHashes;

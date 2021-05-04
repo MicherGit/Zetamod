@@ -1,8 +1,7 @@
 package zeta.zetamod.mod;
 
 import zeta.zetamod.api.API;
-import zeta.zetamod.api.util.math.hash.DecupleHash;
-import zeta.zetamod.api.util.math.hash.TrinaryHash;
+import zeta.zetamod.api.util.math.hash.SecureHash;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
 import zeta.zetamod.mod.features.commands.FarLandsCommand;
 import zeta.zetamod.mod.features.errors.compute.ComputeErrorFunction;
@@ -36,7 +35,9 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static String MOD_DEV_V = "200." +
-			"25"
+			"26" +
+			"." +
+			"1"
 			;
 	public static final byte V_TYPE = 0;
 	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
@@ -58,7 +59,7 @@ public class ZetaMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaMod 2");
-		DecupleHash.checkHash();
+		SecureHash.checkHash();
 		//log(Level.INFO, "Initializing");
 
 		log(Level.INFO, "Mod version " + MOD_VERSION);
@@ -93,7 +94,7 @@ public class ZetaMod implements ModInitializer {
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "hyperconcern_block"), HYPERCONCERN_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hyperconcern_block"), new BlockItem(HYPERCONCERN_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
-		//Registry.register(Registry.ITEM, new Identifier(MOD_ID,"concerned_tater"), CONCERNED_TATER);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"concerned_tater"), CONCERNED_TATER);
 		//ZetaMod.log(Level.INFO, "Patching Farlands!");
 
 		System.out.println("Adding a very concern easter egg");

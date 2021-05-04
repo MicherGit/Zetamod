@@ -113,18 +113,8 @@ public class Debug {
         }
 
         BlockPos blockPos = this.client.getCameraEntity().getBlockPos();
-        if (!Concern.stageOne && !Concern.calledTwice) {
-            System.out.println("Injecting shit part 2");
-            Concern.calledTwice = !Concern.calledTwice;
-        } else {
-            System.out.println("Injecting shit part 1"); Concern.stageOne = !Concern.stageOne;
-        }
         if (this.client.hasReducedDebugInfo()) {
-            if (ConfigManager.getConfig().enableOneSeventeenBoolean.getValue()) {
-                return Lists.newArrayList(new String[]{"Minecraft + ("+ ZetaMod.MOD_NAME+" easter egg lel gg) " + ZetaMod.MOD_VERSION + " " + SharedConstants.getGameVersion().getName() + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString(), "", String.format("Chunk-relative: %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15)});
-            } else {
-                return Lists.newArrayList(new String[]{"Minecraft 1.17" + " (release/" + ClientBrandRetriever.getClientModName() + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString(), "", String.format("Chunk-relative: %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15)});
-            }
+            return Lists.newArrayList(new String[]{"Minecraft " + SharedConstants.getGameVersion().getName() + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString(), "", String.format("Chunk-relative: %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15)});
         } else {
             Entity entity = this.client.getCameraEntity();
             Direction direction = entity.getHorizontalFacing();
@@ -151,23 +141,13 @@ public class Debug {
                 this.pos = chunkPos;
                 this.resetChunk();
             }
-            // OVER HERE!!!
+
             World world = this.getWorld();
             LongSet longSet = world instanceof ServerWorld ? ((ServerWorld)world).getForcedChunks() : LongSets.EMPTY_SET;
-            List<String> list;
-            if (!ConfigManager.getConfig().enableOneSeventeenBoolean.getValue()) {
-                list = Lists.newArrayList(
-                        new String[]{
-                                "Minecraft "
-                                        +
-                                        SharedConstants.getGameVersion().
-                                                getName() +
-                                        " + "+ ZetaMod.MOD_NAME+" " + Concern.concern +
-                                        " (" + this.client.getGameVersion() + "/"+ ZetaMod.MOD_NAME+" " + ZetaMod.PHASE
-                                        + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString()});
-            } else {
-                list = Lists.newArrayList(new String[]{"Minecraft " + "1.17" + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString()});
-            }
+            List<String> list = Lists.newArrayList("Minecraft " + SharedConstants.getGameVersion().getName() +
+                    "+ ZetaMod " + ZetaMod.MOD_VERSION +
+                    " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")"
+                    + " ("+ ZetaMod.MOD_VERSION + "/" + ZetaMod.PHASE + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString());
             String string8 = this.getServerWorldDebugString();
             if (string8 != null) {
                 list.add(string8);
@@ -178,7 +158,7 @@ public class Debug {
             list.add(String.format(Locale.ROOT, "XYZ: %.3f / %.5f / %.3f", this.client.getCameraEntity().getX(), this.client.getCameraEntity().getY(), this.client.getCameraEntity().getZ()));
             list.add(String.format("Block: %d %d %d", blockPos.getX(), blockPos.getY(), blockPos.getZ()));
             list.add(String.format("Chunk: %d %d %d in %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15, ChunkSectionPos.getSectionCoord(blockPos.getX()), ChunkSectionPos.getSectionCoord(blockPos.getY()), ChunkSectionPos.getSectionCoord(blockPos.getZ())));
-            list.add(String.format(Locale.ROOT, "Facing: %s (%s) (%.1f / %.1f)", direction, string7, MathHelper.wrapDegrees(entity.yaw), MathHelper.wrapDegrees(entity.pitch)));
+            list.add(String.format(Locale.ROOT, "Facing: %s (%s) (%.1f / %.1f)", direction, string7, MathHelper.wrapDegrees(entity.method_36454()), MathHelper.wrapDegrees(entity.method_36455())));
             WorldChunk worldChunk = this.getClientChunk();
             if (worldChunk.isEmpty()) {
                 list.add("Waiting for chunk...");
@@ -240,7 +220,7 @@ public class Debug {
                 if (info != null) {
                     Object2IntMap<SpawnGroup> object2IntMap = info.getGroupToCount();
                     int m = info.getSpawningChunkCount();
-                    list.add("SC: " + m + ", " + (String) Stream.of(SpawnGroup.values()).map((spawnGroup) -> {
+                    list.add("SC: " + m + ", " + (String)Stream.of(SpawnGroup.values()).map((spawnGroup) -> {
                         return Character.toUpperCase(spawnGroup.getName().charAt(0)) + ": " + object2IntMap.getInt(spawnGroup);
                     }).collect(Collectors.joining(", ")));
                 } else {
@@ -257,6 +237,7 @@ public class Debug {
             return list;
         }
     }
+
     @Shadow
     private WorldChunk getClientChunk() {
         if (this.chunk == null) {
