@@ -1,4 +1,4 @@
-package zeta.zet2mod.mod.managers;
+package zeta.zetamod.mod.managers;
 
 public class NoiseScaleManager {
     public static double coordinateScale() {

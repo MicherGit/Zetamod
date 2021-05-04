@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "zetamod:concerned_tater"
+    }
+  },
+  "result": {
+    "item": "zetamod:concern_block",
+    "count": 1
+  }
+}

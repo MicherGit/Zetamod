@@ -1,41 +1,41 @@
 {
   "schemaVersion": 1,
-  "id": "zet2mod",
+  "id": "zetamod",
   "version": "${version}",
 
-  "name": "Zet2Mod",
+  "name": "ZetaMod",
   "description": "A mod that does many things!",
   "authors": [],
   "contact": {
-    "homepage": "https://github.com/MicherGit/zet2mod",
-    "sources": "https://github.com/MicherGit/zet2mod"
+    "homepage": "https://github.com/MicherGit/zetamod",
+    "sources": "https://github.com/MicherGit/zetamod"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/zet2mod/icon.png",
+  "icon": "assets/zetamod/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "zeta.zet2mod.mod.Zet2ModMain",
-      "zeta.zet2mod.mod.features.items.CrashItemInitializer",
-      "zeta.zet2mod.mod.managers.GeneralManager",
+      "zeta.zetamod.mod.ZetaModMain",
+      "zeta.zetamod.mod.features.items.CrashItemInitializer",
+      "zeta.zetamod.mod.managers.GeneralManager",
       "net.kyrptonaught.customportalapi.CustomPortalsMod",
-      "zeta.zet2mod.mod.features.portals.LushNetherPortal"
+      "zeta.zetamod.mod.features.portals.LushNetherPortal"
     ],
     "client": [
-      "zeta.zet2mod.mod.client.Zet2ModClient",
+      "zeta.zetamod.mod.client.ZetaModClient",
       "net.kyrptonaught.customportalapi.client.CustomPortalsModClient"
     ],
     "cotton-client-commands": [
-      "zeta.zet2mod.mod.features.commands.FarLandsCommand"
+      "zeta.zetamod.mod.features.commands.FarLandsCommand"
     ],
     "server": [
       "net.kyrptonaught.customportalapi.networking.NetworkManager"
     ]
   },
   "mixins": [
-    "zet2mod.mixins.json"
+    "zetamod.mixins.json"
   ],
 
   "depends": {
@@ -46,5 +46,5 @@
   "suggests": {
     "another-mod": "*"
   },
-  "accessWidener": "zet2mod.accesswidener"
+  "accessWidener": "zetamod.accesswidener"
 }

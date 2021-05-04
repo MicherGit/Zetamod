@@ -1,4 +1,4 @@
-package zeta.zet2mod.api;
+package zeta.zetamod.api;
 
 public class API extends APIVersion {
     private String version;

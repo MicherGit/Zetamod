@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "zet2mod:block/gigaconcern_block"
-  }
-}

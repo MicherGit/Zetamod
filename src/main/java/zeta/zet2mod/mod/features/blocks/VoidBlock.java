@@ -1,4 +1,4 @@
-package zeta.zet2mod.mod.features.blocks;
+package zeta.zetamod.mod.features.blocks;
 
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.loot.context.LootContext;

@@ -1,4 +1,4 @@
-package zeta.zet2mod.mod.features.errors.compute;
+package zeta.zetamod.mod.features.errors.compute;
 
 import java.util.Random;
 

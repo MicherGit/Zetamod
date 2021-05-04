@@ -1,10 +1,10 @@
-package zeta.zet2mod.mod.features.commands;
+package zeta.zetamod.mod.features.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import io.github.cottonmc.clientcommands.ArgumentBuilders;
 import io.github.cottonmc.clientcommands.ClientCommandPlugin;
 import io.github.cottonmc.clientcommands.CottonClientCommandSource;
-import zeta.zet2mod.mod.managers.GeneralManager;
+import zeta.zetamod.mod.managers.GeneralManager;
 
 public class FarLandsCommand implements ClientCommandPlugin {
     /**

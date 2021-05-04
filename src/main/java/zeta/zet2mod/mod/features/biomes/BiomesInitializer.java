@@ -1,4 +1,4 @@
-package zeta.zet2mod.mod.features.biomes;
+package zeta.zetamod.mod.features.biomes;
 
 public class BiomesInitializer {
     public static void initializeBiomes() {

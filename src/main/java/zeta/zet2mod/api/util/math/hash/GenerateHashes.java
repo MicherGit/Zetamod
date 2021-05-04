@@ -1,4 +1,4 @@
-package zeta.zet2mod.api.util.math.hash;
+package zeta.zetamod.api.util.math.hash;
 
 import java.io.FileWriter;
 import java.io.IOException;

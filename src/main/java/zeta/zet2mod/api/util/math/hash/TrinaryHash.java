@@ -1,6 +1,6 @@
-package zeta.zet2mod.api.util.math.hash;
+package zeta.zetamod.api.util.math.hash;
 
-import zeta.zet2mod.mod.managers.ConfigManager;
+import zeta.zetamod.mod.managers.ConfigManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
