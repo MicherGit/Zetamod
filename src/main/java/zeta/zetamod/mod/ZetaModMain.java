@@ -1,8 +1,8 @@
 package zeta.zetamod.mod;
 
-import net.fabricmc.fabric.api.biome.v1.NetherBiomes;
+//import net.fabricmc.fabric.api.biome.v1.NetherBiomes;
 import zeta.zetamod.api.API;
-import zeta.zetamod.api.util.math.hash.TrinaryHash;
+//import zeta.zetamod.api.util.math.hash.TrinaryHash;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
 import zeta.zetamod.mod.features.commands.FarLandsCommand;
 import zeta.zetamod.mod.features.errors.compute.ComputeErrorFunction;
