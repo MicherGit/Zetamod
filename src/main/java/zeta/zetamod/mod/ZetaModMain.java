@@ -33,15 +33,15 @@ public class ZetaModMain implements ModInitializer {
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;
 	public static final Integer MOD_MINOR = 1;
-	public static final Integer MOD_BF = 1;
+	public static final Integer MOD_BF = 2;
 	public static boolean MOD_DEV = false;
 	public static double MOD_DEV_V =
-			502
+			503
 			;
 	public static final byte V_TYPE = 0;
 	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
-			+
-			"_02"
+			//+
+			//"_02"
 			;
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	//public static final Block VOID = new Block(FabricBlockSettings.of(Material.METAL).strength(0.0f));
