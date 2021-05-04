@@ -37,7 +37,7 @@ public class ZetaMod implements ModInitializer {
 	public static String MOD_DEV_V = "200." +
 			"26" +
 			"." +
-			"1"
+			"2"
 			;
 	public static final byte V_TYPE = 0;
 	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
