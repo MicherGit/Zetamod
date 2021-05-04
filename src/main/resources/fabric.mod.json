@@ -17,7 +17,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "zeta.zetamod.mod.ZetaModMain",
+      "zeta.zetamod.mod.ZetaMod",
       "zeta.zetamod.mod.features.items.CrashItemInitializer",
       "zeta.zetamod.mod.managers.GeneralManager",
       "net.kyrptonaught.customportalapi.CustomPortalsMod",
