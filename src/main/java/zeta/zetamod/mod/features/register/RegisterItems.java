@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import zeta.zetamod.mod.ZetaModMain;
+import zeta.zetamod.mod.ZetaMod;
 import zeta.zetamod.mod.features.blocks.VoidBlock;
 
 public class RegisterItems {
@@ -23,6 +23,6 @@ public class RegisterItems {
                 // CODE DEF NOT RIPPED FROM A DUMMY MCREATOR MOD
     }
     protected static final Identifier id(String s) {
-        return new Identifier(ZetaModMain.MOD_ID, s);
+        return new Identifier(ZetaMod.MOD_ID, s);
     }
 }

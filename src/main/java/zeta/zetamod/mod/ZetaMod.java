@@ -36,7 +36,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static String MOD_DEV_V = "200." +
-			"21"
+			"23die"
 			;
 	public static final byte V_TYPE = 0;
 	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
@@ -94,7 +94,7 @@ public class ZetaMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hyperconcern_block"), new BlockItem(HYPERCONCERN_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
 		//Registry.register(Registry.ITEM, new Identifier(MOD_ID,"concerned_tater"), CONCERNED_TATER);
-		//ZetaModMain.log(Level.INFO, "Patching Farlands!");
+		//ZetaMod.log(Level.INFO, "Patching Farlands!");
 
 		System.out.println("Adding a very concern easter egg");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY,

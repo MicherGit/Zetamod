@@ -1,9 +1,14 @@
 package zeta.zetamod.mod.features.biomes;
 
-import zeta.zetamod.mod.ZetaModMain;
+import zeta.zetamod.mod.ZetaMod;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
-import net.minecraft.block.Blocks;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Block;
+import net.minecraft.block.Material;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -18,16 +23,19 @@ import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import org.apache.logging.log4j.Level;
 
-public class ObsilandBiome {
-    private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> OBSIDIAN_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
+public class ConcerningBiome {
+
+    public static final Block GIGACONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(8.0f));
+
+    private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CONCERNING_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
             .withConfig(new TernarySurfaceConfig(
-                    Blocks.OBSIDIAN.getDefaultState(),
-                    Blocks.DIRT.getDefaultState(),
-                    Blocks.GRAVEL.getDefaultState()));
+                    ZetaMod.CONCERN_BLOCK.getDefaultState(),
+                    ZetaMod.HYPERCONCERN_BLOCK.getDefaultState(),
+                    GIGACONCERN_BLOCK.getDefaultState()));
 
-    private static final Biome OBSILAND = createObsiland();
+    private static final Biome CONCERNINGS = createConcernings();
 
-    private static Biome createObsiland() {
+    private static Biome createConcernings() {
         // We specify what entities spawn and what features generate in the biome.
         // Aside from some structures, trees, rocks, plants and
         //   custom entities, these are mostly the same for each biome.
@@ -38,7 +46,7 @@ public class ObsilandBiome {
         DefaultBiomeFeatures.addMonsters(spawnSettings, 95, 5, 100);
 
         GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
-        generationSettings.surfaceBuilder(OBSIDIAN_SURFACE_BUILDER);
+        generationSettings.surfaceBuilder(CONCERNING_SURFACE_BUILDER);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(generationSettings);
         DefaultBiomeFeatures.addLandCarvers(generationSettings);
         DefaultBiomeFeatures.addDefaultLakes(generationSettings);
@@ -67,23 +75,28 @@ public class ObsilandBiome {
                 .build();
     }
 
-    private static final String MOD_ID = ZetaModMain.MOD_ID;
-    public static final RegistryKey<Biome> OBSILAND_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "obsiland"));
+    private static final String MOD_ID = ZetaMod.MOD_ID;
+    public static final RegistryKey<Biome> CONCERNING_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "concerning"));
 
     public static void register() {
-        ZetaModMain.log(Level.INFO, "Adding biomes");
-        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "obsidian"), OBSIDIAN_SURFACE_BUILDER);
-        Registry.register(BuiltinRegistries.BIOME, OBSILAND_KEY.getValue(), OBSILAND);
-        boolean addToWorldgenBoolean = false;
+        ZetaMod.log(Level.INFO, "Adding biomes");
+        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "concerning"), CONCERNING_SURFACE_BUILDER);
+        Registry.register(BuiltinRegistries.BIOME, CONCERNING_KEY.getValue(), CONCERNINGS);
+        boolean addToWorldgenBoolean = true;
         if (addToWorldgenBoolean) {
             addToWorldgen();
         }
-        ZetaModMain.log(Level.INFO,
-                "Initialized Obsiland biome. Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
+        ZetaMod.log(Level.INFO,
+                "Initialized easter egg biome, hehe."
+                        //"Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
         );
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "gigaconcern_block"), GIGACONCERN_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gigaconcern_block"), new BlockItem(GIGACONCERN_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+
     }
+    public static double conc = ZetaMod.concerning_weight;
     public static void addToWorldgen() {
-        OverworldBiomes.addContinentalBiome(OBSILAND_KEY, OverworldClimate.TEMPERATE, 2D);
-        OverworldBiomes.addContinentalBiome(OBSILAND_KEY, OverworldClimate.COOL, 2D);
+        OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.TEMPERATE, conc);
+        OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
     }
 }
