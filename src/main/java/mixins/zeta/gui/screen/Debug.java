@@ -26,7 +26,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import zeta.zetamod.mod.Concern;
-import zeta.zetamod.mod.ZetaModMain;
+import zeta.zetamod.mod.ZetaMod;
 import zeta.zetamod.mod.managers.ConfigManager;
 
 import java.util.*;
@@ -121,7 +121,7 @@ public class Debug {
         }
         if (this.client.hasReducedDebugInfo()) {
             if (ConfigManager.getConfig().enableOneSeventeenBoolean.getValue()) {
-                return Lists.newArrayList(new String[]{"Minecraft + ("+ ZetaModMain.MOD_NAME+" easter egg lel gg) " + ZetaModMain.MOD_VERSION + " " + SharedConstants.getGameVersion().getName() + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString(), "", String.format("Chunk-relative: %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15)});
+                return Lists.newArrayList(new String[]{"Minecraft + ("+ ZetaMod.MOD_NAME+" easter egg lel gg) " + ZetaMod.MOD_VERSION + " " + SharedConstants.getGameVersion().getName() + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString(), "", String.format("Chunk-relative: %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15)});
             } else {
                 return Lists.newArrayList(new String[]{"Minecraft 1.17" + " (release/" + ClientBrandRetriever.getClientModName() + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString(), "", String.format("Chunk-relative: %d %d %d", blockPos.getX() & 15, blockPos.getY() & 15, blockPos.getZ() & 15)});
             }
@@ -162,8 +162,8 @@ public class Debug {
                                         +
                                         SharedConstants.getGameVersion().
                                                 getName() +
-                                        " + "+ ZetaModMain.MOD_NAME+" " + Concern.concern +
-                                        " (" + this.client.getGameVersion() + "/"+ ZetaModMain.MOD_NAME+" " + ZetaModMain.PHASE
+                                        " + "+ ZetaMod.MOD_NAME+" " + Concern.concern +
+                                        " (" + this.client.getGameVersion() + "/"+ ZetaMod.MOD_NAME+" " + ZetaMod.PHASE
                                         + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString()});
             } else {
                 list = Lists.newArrayList(new String[]{"Minecraft " + "1.17" + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType()) + ")", this.client.fpsDebugString, string2, this.client.worldRenderer.getChunksDebugString(), this.client.worldRenderer.getEntitiesDebugString(), "P: " + this.client.particleManager.getDebugString() + ". T: " + this.client.world.getRegularEntityCount(), this.client.world.asString()});
