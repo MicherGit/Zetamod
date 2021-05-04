@@ -26,7 +26,7 @@ import zeta.zetamod.mod.features.register.RegisterItems;
 
 public class ZetaMod implements ModInitializer {
 
-    public static final String PHASE = "release";
+    public static final String PHASE = "pre-release";
     private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
@@ -34,10 +34,10 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
-	public static String MOD_DEV_V = "200." +
-			"26" +
-			"." +
-			"2"
+	public static String MOD_DEV_V =
+			"27"
+			//+ "."
+			//+ "2"
 			;
 	public static final byte V_TYPE = 0;
 	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
