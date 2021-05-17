@@ -3,12 +3,7 @@ accessWidener v1 named
 accessible class net/minecraft/world/border/WorldBorder$Area
 accessible class net/minecraft/world/border/WorldBorder$StaticArea
 
-accessible method net/minecraft/client/gui/hud/DebugHud getLeftText ()Ljava/util/List;
-
 # For shard farlands
 
 accessible method net/minecraft/util/math/noise/SimplexNoiseSampler dot ([IDDD)D
 accessible field net/minecraft/util/math/noise/SimplexNoiseSampler GRADIENTS [[I
-
-accessible field net/minecraft/entity/Entity pitch F
-accessible field net/minecraft/entity/Entity yaw F
