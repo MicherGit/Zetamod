@@ -1,9 +1,8 @@
 package zeta.zetamod.mod;
 
 import zeta.zetamod.api.API;
-import zeta.zetamod.api.util.math.hash.TrinaryHash;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
-import zeta.zetamod.mod.features.commands.FarLandsCommand;
+import zeta.zetamod.mod.features.commands.CommandsInitializer;
 import zeta.zetamod.mod.features.errors.compute.ComputeErrorFunction;
 import zeta.zetamod.mod.features.items.ConcernedTater;
 import net.fabricmc.api.ModInitializer;
@@ -26,7 +25,7 @@ import zeta.zetamod.mod.features.register.RegisterItems;
 
 public class ZetaMod implements ModInitializer {
 
-    public static final String PHASE = "pre-release";
+    public static final String PHASE = "development";
     private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
@@ -35,7 +34,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static String MOD_DEV_V =
-			"27"
+			"31"
 			//+ "."
 			//+ "2"
 			;
@@ -63,17 +62,19 @@ public class ZetaMod implements ModInitializer {
 		//log(Level.INFO, "Initializing");
 
 		log(Level.INFO, "Mod version " + MOD_VERSION);
-		FarLandsCommand farLandsCommand = new FarLandsCommand();
+		CommandsInitializer commandsInitializer = new CommandsInitializer();
+		commandsInitializer.initCommands();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-
+		log2("Running on java version " + System.getProperty("java.version"));
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
 			MOD_VERSION = MOD_VERSION + "." + MOD_DEV_V;
 			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V);
 			log(LV, "Milestone build" + " " +
-					10
+					11
+					+ " beta!"
 			);
 
 		}log(LV,"API version " + api.APIVersionGet())

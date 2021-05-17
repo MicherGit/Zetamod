@@ -20,19 +20,12 @@
       "zeta.zetamod.mod.ZetaMod",
       "zeta.zetamod.mod.features.items.CrashItemInitializer",
       "zeta.zetamod.mod.managers.GeneralManager",
-      "net.kyrptonaught.customportalapi.CustomPortalsMod",
       "zeta.zetamod.mod.features.portals.LushNetherPortal"
     ],
     "client": [
-      "zeta.zetamod.mod.client.ZetaModClient",
-      "net.kyrptonaught.customportalapi.client.CustomPortalsModClient"
+      "zeta.zetamod.mod.client.ZetaModClient"
     ],
-    "cotton-client-commands": [
-      "zeta.zetamod.mod.features.commands.FarLandsCommand"
-    ],
-    "server": [
-      "net.kyrptonaught.customportalapi.networking.NetworkManager"
-    ]
+    "server": []
   },
   "mixins": [
     "zetamod.mixins.json"
