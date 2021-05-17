@@ -1,7 +1,7 @@
 package zeta.zetamod.mod;
 
 import zeta.zetamod.api.API;
-import zeta.zetamod.api.util.math.hash.SecureHash;
+import zeta.zetamod.api.util.math.hash.TrinaryHash;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
 import zeta.zetamod.mod.features.commands.FarLandsCommand;
 import zeta.zetamod.mod.features.errors.compute.ComputeErrorFunction;
@@ -59,7 +59,7 @@ public class ZetaMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaMod 2");
-		SecureHash.checkHash();
+		//TrinaryHash.checkHash();
 		//log(Level.INFO, "Initializing");
 
 		log(Level.INFO, "Mod version " + MOD_VERSION);
