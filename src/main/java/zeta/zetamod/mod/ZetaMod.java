@@ -34,7 +34,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static String MOD_DEV_V =
-			"34"
+			"35"
 			//+ "."
 			//+ "2"
 			;
