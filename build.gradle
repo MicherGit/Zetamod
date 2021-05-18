@@ -124,7 +124,8 @@ publishing {
 				password = ""
 			}
 			url "https://panel.repsy.io/mvn/zeta/stuff/"
-			authentication {                            // I was missing this authentication section and that's why read timeout
+			authentication {
+				// I was missing this authentication section and that's why read timeout
 				basic(BasicAuthentication)
 			}
 		}
