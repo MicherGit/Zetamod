@@ -20,7 +20,7 @@ repositories {
 		url "https://panel.repsy.io/mvn/zeta/stuff/"
 	}
 	maven {
-		url "https://panel.repsy.io/mvn/zeta/private/"
+		url "https://panel.repsy.io/mvn/zeta/portals/"
 	}
 	maven {
 		url "https://maven.shedaniel.me/"
