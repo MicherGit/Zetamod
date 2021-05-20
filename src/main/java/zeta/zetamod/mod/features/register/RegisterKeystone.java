@@ -1,7 +1,7 @@
 package zeta.zetamod.mod.features.register;
 
 import net.minecraft.item.Item;
-import zeta.zetamod.mod.ZetaModMain;
+import zeta.zetamod.mod.ZetaMod;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
@@ -14,7 +14,7 @@ public class RegisterKeystone {
     public static Item KEYSTONE;
     public RegisterKeystone() {}
     public void registerItem() {
-        KEYSTONE = Registry.register(Registry.ITEM, new Identifier(ZetaModMain.MOD_ID,
+        KEYSTONE = Registry.register(Registry.ITEM, new Identifier(ZetaMod.MOD_ID,
                 "KEYSTONE".toLowerCase(Locale.ROOT)
         ), new KeystoneItem(new FabricItemSettings().group(ItemGroup.MISC)));
     }

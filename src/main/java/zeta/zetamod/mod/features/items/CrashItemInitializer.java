@@ -1,6 +1,6 @@
 package zeta.zetamod.mod.features.items;
 
-import zeta.zetamod.mod.ZetaModMain;
+import zeta.zetamod.mod.ZetaMod;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ItemGroup;
@@ -12,9 +12,9 @@ public class CrashItemInitializer implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Registry.register(Registry.ITEM, new Identifier(ZetaModMain.MOD_ID,
+        Registry.register(Registry.ITEM, new Identifier(ZetaMod.MOD_ID,
                 "crashitem"
         ), new CrashItem(new FabricItemSettings().group(ItemGroup.MISC)));
-        ZetaModMain.log(Level.INFO,"Intialized debug item!");
+        ZetaMod.log(Level.INFO,"Intialized debug item!");
     }
 }

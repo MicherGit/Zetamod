@@ -41,9 +41,9 @@ public class Shard {
             n = h - (float) k;
             o = i - (float) l;
         } else {
-            m = g - (double) j;
-            n = h - (double) k;
-            o = i - (double) l;
+            m = g - (float) j;
+            n = h - (float) k;
+            o = i - (float) l;
         }
         return this.sampleDerivative(j, k, l, m, n, o, ds);
     }
@@ -68,9 +68,9 @@ public class Shard {
             l = f - (float) k;
         } else {
 
-            g = d - (double) i;
-            h = e - (double) j;
-            l = f - (double) k;
+            g = d - (float) i;
+            h = e - (float) j;
+            l = f - (float) k;
         }
         double p;
         if (yScale != 0.0D) {
@@ -81,7 +81,7 @@ public class Shard {
                 n = h;
             }
 
-            p = (double)MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
+            p = (float)MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
         } else {
             p = 0.0D;
         }
@@ -98,7 +98,8 @@ public class Shard {
         return this.permutations[hash & 255] & 255;
     }
     /**
-     * @author
+     * @author Zeta
+     * @reason Idk if it will work without it.
      */
     @Overwrite
     private double sampleDerivative(int i, int j, int k, double d, double e, double f, double[] ds) {
@@ -141,9 +142,9 @@ public class Shard {
             aj = MathHelper.lerp3(af, ag, ah, (float) is[1], (float) js[1], (float) ks[1], (float) ls[1], (float) ms[1], (float) ns[1], (float) os[1], (float) ps[1]);
             ak = MathHelper.lerp3(af, ag, ah, (float) is[2], (float) js[2], (float) ks[2], (float) ls[2], (float) ms[2], (float) ns[2], (float) os[2], (float) ps[2]);
         } else {
-            ai = MathHelper.lerp3(af, ag, ah, (double)is[0], (double)js[0], (double)ks[0], (double)ls[0], (double)ms[0], (double)ns[0], (double)os[0], (double)ps[0]);
-            aj = MathHelper.lerp3(af, ag, ah, (double)is[1], (double)js[1], (double)ks[1], (double)ls[1], (double)ms[1], (double)ns[1], (double)os[1], (double)ps[1]);
-            ak = MathHelper.lerp3(af, ag, ah, (double)is[2], (double)js[2], (double)ks[2], (double)ls[2], (double)ms[2], (double)ns[2], (double)os[2], (double)ps[2]);
+            ai = MathHelper.lerp3(af, ag, ah, (float)is[0], (float)js[0], (float)ks[0], (float)ls[0], (float)ms[0], (float)ns[0], (float)os[0], (float)ps[0]);
+            aj = MathHelper.lerp3(af, ag, ah, (float)is[1], (float)js[1], (float)ks[1], (float)ls[1], (float)ms[1], (float)ns[1], (float)os[1], (float)ps[1]);
+            ak = MathHelper.lerp3(af, ag, ah, (float)is[2], (float)js[2], (float)ks[2], (float)ls[2], (float)ms[2], (float)ns[2], (float)os[2], (float)ps[2]);
         }
         double al = MathHelper.lerp2(ag, ah, h - g, aa - z, ac - ab, ae - ad);
         double am = MathHelper.lerp2(ah, af, z - g, ad - ab, aa - h, ae - ac);

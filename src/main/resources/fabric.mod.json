@@ -3,16 +3,12 @@
   "id": "zetamod",
   "version": "${version}",
 
-  "name": "ZetaMod Beta",
+  "name": "ZetaMod",
   "description": "A mod that does many things!",
-  "authors": [
-    "ZetaTheEliatrope (obviously)",
-    "SuperCoder79 (worldborder code from zetamod.mod.mixins.worldborder)",
-    "kryptonaught (original custom portal api mod)"
-  ],
+  "authors": [],
   "contact": {
-    "homepage": "https://github.com/MicherGit/Zetamod",
-    "sources": "https://github.com/MicherGit/Zetamod"
+    "homepage": "https://github.com/MicherGit/zetamod",
+    "sources": "https://github.com/MicherGit/zetamod"
   },
 
   "license": "CC0-1.0",
@@ -21,22 +17,15 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "zeta.zetamod.mod.ZetaModMain",
+      "zeta.zetamod.mod.ZetaMod",
       "zeta.zetamod.mod.features.items.CrashItemInitializer",
       "zeta.zetamod.mod.managers.GeneralManager",
-      "net.kyrptonaught.customportalapi.CustomPortalsMod",
       "zeta.zetamod.mod.features.portals.LushNetherPortal"
     ],
     "client": [
-      "zeta.zetamod.mod.client.ZetaModClient",
-      "net.kyrptonaught.customportalapi.client.CustomPortalsModClient"
+      "zeta.zetamod.mod.client.ZetaModClient"
     ],
-    "cotton-client-commands": [
-      "zeta.zetamod.mod.features.commands.FarLandsCommand"
-    ],
-    "server": [
-      "net.kyrptonaught.customportalapi.networking.NetworkManager"
-    ]
+    "server": []
   },
   "mixins": [
     "zetamod.mixins.json"

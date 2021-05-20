@@ -1,6 +1,6 @@
 package zeta.zetamod.mod.features.biomes;
 
-import zeta.zetamod.mod.ZetaModMain;
+import zeta.zetamod.mod.ZetaMod;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -29,8 +29,8 @@ public class ConcerningBiome {
 
     private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CONCERNING_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
             .withConfig(new TernarySurfaceConfig(
-                    ZetaModMain.CONCERN_BLOCK.getDefaultState(),
-                    ZetaModMain.HYPERCONCERN_BLOCK.getDefaultState(),
+                    ZetaMod.CONCERN_BLOCK.getDefaultState(),
+                    ZetaMod.HYPERCONCERN_BLOCK.getDefaultState(),
                     GIGACONCERN_BLOCK.getDefaultState()));
 
     private static final Biome CONCERNINGS = createConcernings();
@@ -75,18 +75,18 @@ public class ConcerningBiome {
                 .build();
     }
 
-    private static final String MOD_ID = ZetaModMain.MOD_ID;
+    private static final String MOD_ID = ZetaMod.MOD_ID;
     public static final RegistryKey<Biome> CONCERNING_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "concerning"));
 
     public static void register() {
-        ZetaModMain.log(Level.INFO, "Adding biomes");
+        ZetaMod.log(Level.INFO, "Adding biomes");
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "concerning"), CONCERNING_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, CONCERNING_KEY.getValue(), CONCERNINGS);
         boolean addToWorldgenBoolean = true;
         if (addToWorldgenBoolean) {
             addToWorldgen();
         }
-        ZetaModMain.log(Level.INFO,
+        ZetaMod.log(Level.INFO,
                 "Initialized easter egg biome, hehe."
                         //"Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
         );
@@ -94,7 +94,7 @@ public class ConcerningBiome {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gigaconcern_block"), new BlockItem(GIGACONCERN_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
 
     }
-    public static double conc = ZetaModMain.concerning_weight;
+    public static double conc = ZetaMod.concerning_weight;
     public static void addToWorldgen() {
         OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.TEMPERATE, conc);
         OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
