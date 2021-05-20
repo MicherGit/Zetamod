@@ -1,9 +1,11 @@
 package zeta.zetamod.mod;
 
+import org.lwjgl.system.CallbackI;
 import zeta.zetamod.api.API;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
 import zeta.zetamod.mod.features.commands.CommandsInitializer;
 import zeta.zetamod.mod.features.errors.compute.ComputeErrorFunction;
+import zeta.zetamod.mod.features.errors.compute.JavaVersionTooOldException;
 import zeta.zetamod.mod.features.items.ConcernedTater;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
@@ -25,7 +27,7 @@ import zeta.zetamod.mod.features.register.RegisterItems;
 
 public class ZetaMod implements ModInitializer {
 
-    public static final String PHASE = "development";
+    public static final String PHASE = "preview";
     private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
@@ -34,7 +36,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static String MOD_DEV_V =
-			"37"
+			"39"
 			//+ "."
 			//+ "2"
 			;
@@ -52,7 +54,9 @@ public class ZetaMod implements ModInitializer {
 	//public static final Item EXAMPLE_ITEM = Registry.register(Registry.ITEM,new Identifier("mymodid","example_item"), new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 
 	public static final Level LV = Level.INFO;
-
+	public static final String JAVA_VERSION = System.getProperty("java.version");
+	public static final String RUNNING_ON_JAVA_VERSION = JAVA_VERSION;
+	public static final String CURRENT_JAVA_VERSION = JAVA_VERSION;
 	public static double concerning_weight = Math.pow(2, -4);
 	public API api = new API(MOD_VERSION);
 	@Override
@@ -67,6 +71,12 @@ public class ZetaMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+		if (Integer.getInteger(CURRENT_JAVA_VERSION) < 16) {
+			String error = "Java version too old!";
+			JavaVersionTooOldException exception = new JavaVersionTooOldException(error);
+			exception.printStackTrace();
+			throw new Error(exception);
+		}
 		log2("Running on java version " + System.getProperty("java.version"));
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
@@ -77,7 +87,11 @@ public class ZetaMod implements ModInitializer {
 					+ " beta!"
 			);
 
-		}log(LV,"API version " + api.APIVersionGet())
+		} else {
+			log2("Mod version is " + MOD_VERSION + " build " + MOD_DEV_V);
+			log2("Milestone 11");
+		}
+		log(LV,"API version " + api.APIVersionGet())
 		;
 		log(Level.INFO, "Loading!");
 		log(Level.INFO, "Adding biomes");
