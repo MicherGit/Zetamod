@@ -27,7 +27,6 @@ public class Shard {
      * @author
      * @reason
      */
-    //Todo: Update this to latest version
     @Overwrite
     public double sampleDerivative(double d, double e, double f, double[] ds) {
         double g = d + this.originX;
