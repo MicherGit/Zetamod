@@ -36,7 +36,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static String MOD_DEV_V =
-			"43"
+			"44"
 			//+ "."
 			//+ "2"
 			;
@@ -54,9 +54,6 @@ public class ZetaMod implements ModInitializer {
 	//public static final Item EXAMPLE_ITEM = Registry.register(Registry.ITEM,new Identifier("mymodid","example_item"), new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 
 	public static final Level LV = Level.INFO;
-	public static final String JAVA_VERSION = System.getProperty("java.version");
-	public static final String RUNNING_ON_JAVA_VERSION = JAVA_VERSION;
-	public static final String CURRENT_JAVA_VERSION = JAVA_VERSION;
 	public static double concerning_weight = Math.pow(2, -4);
 	public API api = new API(MOD_VERSION);
 	@Override
@@ -71,7 +68,7 @@ public class ZetaMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		if (Integer.getInteger(CURRENT_JAVA_VERSION) < 16) {
+		if (!System.getProperty("java.version").contains("16")) {
 			String error = "Java version too old!";
 			JavaVersionTooOldException exception = new JavaVersionTooOldException(error);
 			exception.printStackTrace();
