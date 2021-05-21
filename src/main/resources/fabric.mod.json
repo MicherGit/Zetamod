@@ -28,7 +28,7 @@
     "server": []
   },
   "mixins": [
-    "zetamod.mixins.json5"
+    "zetamod.mixins.json"
   ],
 
   "depends": {

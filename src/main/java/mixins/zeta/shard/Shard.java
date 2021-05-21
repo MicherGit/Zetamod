@@ -8,7 +8,6 @@ import zeta.zetamod.mod.managers.GeneralManager;
 
 @Mixin(PerlinNoiseSampler.class)
 public class Shard {
-    private static final boolean shardFarlands = GeneralManager.getConfig().shardFarLands.getValue();
     @Shadow
     public final double originX;
     public final double originY;
@@ -62,7 +61,7 @@ public class Shard {
         int j = MathHelper.floor(e);
         int k = MathHelper.floor(f);
         double g, h, l;
-        if(shardFarlands) {
+        if(GeneralManager.getConfig().shardFarLands.getValue()) {
             g = d - (float)i;
             h = e - (float)j;
             l = f - (float)k;
@@ -79,7 +78,7 @@ public class Shard {
             } else {
                 n = h;
             }
-            if (shardFarlands) {
+            if (GeneralManager.getConfig().shardFarLands.getValue()) {
                 p = (float) MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
             } else {
                 p = (double) MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
@@ -139,7 +138,7 @@ public class Shard {
         double aa = MathHelper.perlinFade(localY);
         double ab = MathHelper.perlinFade(localZ);
         double ac, ad, ae;
-        if (shardFarlands) {
+        if (GeneralManager.getConfig().shardFarLands.getValue()) {
             ac = MathHelper.lerp3(z, aa, ab, (float)is[0], (float)js[0], (float)ks[0], (float)ls[0], (float)ms[0], (float)ns[0], (float)os[0], (float)ps[0]);
             ad = MathHelper.lerp3(z, aa, ab, (float)is[1], (float)js[1], (float)ks[1], (float)ls[1], (float)ms[1], (float)ns[1], (float)os[1], (float)ps[1]);
             ae = MathHelper.lerp3(z, aa, ab, (float)is[2], (float)js[2], (float)ks[2], (float)ls[2], (float)ms[2], (float)ns[2], (float)os[2], (float)ps[2]);

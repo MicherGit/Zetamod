@@ -9,7 +9,6 @@
     "zeta.shard.Shard",
     "supercoder.MixinEntity",
     "supercoder.MixinMinecraftServer",
-    //"supercoder.MixinNoiseSamplingConfig",
     "supercoder.MixinPlayerEntity",
     "supercoder.MixinServerPlayNetworkHandler",
     "supercoder.MixinWorld",
