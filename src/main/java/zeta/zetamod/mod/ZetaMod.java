@@ -36,7 +36,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static String MOD_DEV_V =
-			"44"
+			"45"
 			//+ "."
 			//+ "2"
 			;
@@ -80,7 +80,7 @@ public class ZetaMod implements ModInitializer {
 			MOD_VERSION = MOD_VERSION + "." + MOD_DEV_V;
 			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V);
 			log(LV, "Milestone build" + " " +
-					11
+					12
 					+ " beta!"
 			);
 

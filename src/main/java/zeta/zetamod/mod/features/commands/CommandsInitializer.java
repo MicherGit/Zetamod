@@ -49,7 +49,7 @@ public class CommandsInitializer {
                                         }
                                 GeneralManager.getConfig().shardFarLands.setValue(!SLC);
                                 return 2;
-                            })
+                            }))
                     .then(literal("get").executes(
                             context -> {
                                 context.getSource().sendFeedback(new LiteralText(
@@ -58,7 +58,7 @@ public class CommandsInitializer {
                                 ), true);
                                 return 0;
                             })
-                    )))
+                    ))
                     .then(
                             literal("setCoordinateScale".toLowerCase()).
                                     executes(
