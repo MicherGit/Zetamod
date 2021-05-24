@@ -37,14 +37,14 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 1;
 	public static boolean MOD_DEV = false;
 	public static String MOD_DEV_V =
-			"246"
+			"247"
 			//+ "."
 			//+ "2"
 			;
 	public static final byte V_TYPE = 0;
 	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
-			//+
-			//"_01"
+			+
+			"_01"
 			;
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	//public static final Block VOID = new Block(FabricBlockSettings.of(Material.METAL).strength(0.0f));
@@ -59,7 +59,7 @@ public class ZetaMod implements ModInitializer {
 	public API api = new API(MOD_VERSION);
 	@Override
 	public void onInitialize() {
-		log2("Initializing ZetaMod 2");
+		log2("Initializing ZetaMod");
 		//TrinaryHash.checkHash();
 		//log(Level.INFO, "Initializing");
 
