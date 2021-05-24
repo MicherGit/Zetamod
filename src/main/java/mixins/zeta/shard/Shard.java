@@ -8,7 +8,6 @@ import zeta.zetamod.mod.managers.GeneralManager;
 
 @Mixin(PerlinNoiseSampler.class)
 public class Shard {
-    private static final boolean shardFarlands = GeneralManager.getConfig().shardFarLands.getValue();
     @Shadow
     public final double originX;
     public final double originY;
@@ -41,9 +40,9 @@ public class Shard {
             n = h - (float) k;
             o = i - (float) l;
         } else {
-            m = g - (float) j;
-            n = h - (float) k;
-            o = i - (float) l;
+            m = g - (double) j;
+            n = h - (double) k;
+            o = i - (double) l;
         }
         return this.sampleDerivative(j, k, l, m, n, o, ds);
     }
@@ -61,16 +60,15 @@ public class Shard {
         int i = MathHelper.floor(d);
         int j = MathHelper.floor(e);
         int k = MathHelper.floor(f);
-        double g,h,l;
+        double g, h, l;
         if(GeneralManager.getConfig().shardFarLands.getValue()) {
-            g = d - (float) i;
-            h = e - (float) j;
-            l = f - (float) k;
+            g = d - (float)i;
+            h = e - (float)j;
+            l = f - (float)k;
         } else {
-
-            g = d - (float) i;
-            h = e - (float) j;
-            l = f - (float) k;
+            g = d - (double) i;
+            h = e - (double) j;
+            l = f - (double) k;
         }
         double p;
         if (yScale != 0.0D) {
@@ -80,8 +78,11 @@ public class Shard {
             } else {
                 n = h;
             }
-
-            p = (float)MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
+            if (GeneralManager.getConfig().shardFarLands.getValue()) {
+                p = (float) MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
+            } else {
+                p = (double) MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
+            }
         } else {
             p = 0.0D;
         }
@@ -102,62 +103,62 @@ public class Shard {
      * @reason Idk if it will work without it.
      */
     @Overwrite
-    private double sampleDerivative(int i, int j, int k, double d, double e, double f, double[] ds) {
-        int l = this.getGradient(i);
-        int m = this.getGradient(i + 1);
-        int n = this.getGradient(l + j);
-        int o = this.getGradient(l + j + 1);
-        int p = this.getGradient(m + j);
-        int q = this.getGradient(m + j + 1);
-        int r = this.getGradient(n + k);
-        int s = this.getGradient(p + k);
-        int t = this.getGradient(o + k);
-        int u = this.getGradient(q + k);
-        int v = this.getGradient(n + k + 1);
-        int w = this.getGradient(p + k + 1);
-        int x = this.getGradient(o + k + 1);
-        int y = this.getGradient(q + k + 1);
-        int[] is = SimplexNoiseSampler.GRADIENTS[r & 15];
-        int[] js = SimplexNoiseSampler.GRADIENTS[s & 15];
-        int[] ks = SimplexNoiseSampler.GRADIENTS[t & 15];
-        int[] ls = SimplexNoiseSampler.GRADIENTS[u & 15];
-        int[] ms = SimplexNoiseSampler.GRADIENTS[v & 15];
-        int[] ns = SimplexNoiseSampler.GRADIENTS[w & 15];
-        int[] os = SimplexNoiseSampler.GRADIENTS[x & 15];
-        int[] ps = SimplexNoiseSampler.GRADIENTS[y & 15];
-        double g = SimplexNoiseSampler.dot(is, d, e, f);
-        double h = SimplexNoiseSampler.dot(js, d - 1.0D, e, f);
-        double z = SimplexNoiseSampler.dot(ks, d, e - 1.0D, f);
-        double aa = SimplexNoiseSampler.dot(ls, d - 1.0D, e - 1.0D, f);
-        double ab = SimplexNoiseSampler.dot(ms, d, e, f - 1.0D);
-        double ac = SimplexNoiseSampler.dot(ns, d - 1.0D, e, f - 1.0D);
-        double ad = SimplexNoiseSampler.dot(os, d, e - 1.0D, f - 1.0D);
-        double ae = SimplexNoiseSampler.dot(ps, d - 1.0D, e - 1.0D, f - 1.0D);
-        double af = MathHelper.perlinFade(d);
-        double ag = MathHelper.perlinFade(e);
-        double ah = MathHelper.perlinFade(f);
-        double ai, aj, ak;
-        if (shardFarlands) {
-            ai = MathHelper.lerp3(af, ag, ah, (float) is[0], (float) js[0], (float) ks[0], (float) ls[0], (float) ms[0], (float) ns[0], (float) os[0], (float) ps[0]);
-            aj = MathHelper.lerp3(af, ag, ah, (float) is[1], (float) js[1], (float) ks[1], (float) ls[1], (float) ms[1], (float) ns[1], (float) os[1], (float) ps[1]);
-            ak = MathHelper.lerp3(af, ag, ah, (float) is[2], (float) js[2], (float) ks[2], (float) ls[2], (float) ms[2], (float) ns[2], (float) os[2], (float) ps[2]);
+    private double sampleDerivative(int sectionX, int sectionY, int sectionZ, double localX, double localY, double localZ, double[] ds) {
+        int i = this.getGradient(sectionX);
+        int j = this.getGradient(sectionX + 1);
+        int k = this.getGradient(i + sectionY);
+        int l = this.getGradient(i + sectionY + 1);
+        int m = this.getGradient(j + sectionY);
+        int n = this.getGradient(j + sectionY + 1);
+        int o = this.getGradient(k + sectionZ);
+        int p = this.getGradient(m + sectionZ);
+        int q = this.getGradient(l + sectionZ);
+        int r = this.getGradient(n + sectionZ);
+        int s = this.getGradient(k + sectionZ + 1);
+        int t = this.getGradient(m + sectionZ + 1);
+        int u = this.getGradient(l + sectionZ + 1);
+        int v = this.getGradient(n + sectionZ + 1);
+        int[] is = SimplexNoiseSampler.GRADIENTS[o & 15];
+        int[] js = SimplexNoiseSampler.GRADIENTS[p & 15];
+        int[] ks = SimplexNoiseSampler.GRADIENTS[q & 15];
+        int[] ls = SimplexNoiseSampler.GRADIENTS[r & 15];
+        int[] ms = SimplexNoiseSampler.GRADIENTS[s & 15];
+        int[] ns = SimplexNoiseSampler.GRADIENTS[t & 15];
+        int[] os = SimplexNoiseSampler.GRADIENTS[u & 15];
+        int[] ps = SimplexNoiseSampler.GRADIENTS[v & 15];
+        double d = SimplexNoiseSampler.dot(is, localX, localY, localZ);
+        double e = SimplexNoiseSampler.dot(js, localX - 1.0D, localY, localZ);
+        double f = SimplexNoiseSampler.dot(ks, localX, localY - 1.0D, localZ);
+        double g = SimplexNoiseSampler.dot(ls, localX - 1.0D, localY - 1.0D, localZ);
+        double h = SimplexNoiseSampler.dot(ms, localX, localY, localZ - 1.0D);
+        double w = SimplexNoiseSampler.dot(ns, localX - 1.0D, localY, localZ - 1.0D);
+        double x = SimplexNoiseSampler.dot(os, localX, localY - 1.0D, localZ - 1.0D);
+        double y = SimplexNoiseSampler.dot(ps, localX - 1.0D, localY - 1.0D, localZ - 1.0D);
+        double z = MathHelper.perlinFade(localX);
+        double aa = MathHelper.perlinFade(localY);
+        double ab = MathHelper.perlinFade(localZ);
+        double ac, ad, ae;
+        if (GeneralManager.getConfig().shardFarLands.getValue()) {
+            ac = MathHelper.lerp3(z, aa, ab, (float)is[0], (float)js[0], (float)ks[0], (float)ls[0], (float)ms[0], (float)ns[0], (float)os[0], (float)ps[0]);
+            ad = MathHelper.lerp3(z, aa, ab, (float)is[1], (float)js[1], (float)ks[1], (float)ls[1], (float)ms[1], (float)ns[1], (float)os[1], (float)ps[1]);
+            ae = MathHelper.lerp3(z, aa, ab, (float)is[2], (float)js[2], (float)ks[2], (float)ls[2], (float)ms[2], (float)ns[2], (float)os[2], (float)ps[2]);
         } else {
-            ai = MathHelper.lerp3(af, ag, ah, (float)is[0], (float)js[0], (float)ks[0], (float)ls[0], (float)ms[0], (float)ns[0], (float)os[0], (float)ps[0]);
-            aj = MathHelper.lerp3(af, ag, ah, (float)is[1], (float)js[1], (float)ks[1], (float)ls[1], (float)ms[1], (float)ns[1], (float)os[1], (float)ps[1]);
-            ak = MathHelper.lerp3(af, ag, ah, (float)is[2], (float)js[2], (float)ks[2], (float)ls[2], (float)ms[2], (float)ns[2], (float)os[2], (float)ps[2]);
+            ac = MathHelper.lerp3(z, aa, ab, (double) is[0], (double) js[0], (double) ks[0], (double) ls[0], (double) ms[0], (double) ns[0], (double) os[0], (double) ps[0]);
+            ad = MathHelper.lerp3(z, aa, ab, (double) is[1], (double) js[1], (double) ks[1], (double) ls[1], (double) ms[1], (double) ns[1], (double) os[1], (double) ps[1]);
+            ae = MathHelper.lerp3(z, aa, ab, (double) is[2], (double) js[2], (double) ks[2], (double) ls[2], (double) ms[2], (double) ns[2], (double) os[2], (double) ps[2]);
         }
-        double al = MathHelper.lerp2(ag, ah, h - g, aa - z, ac - ab, ae - ad);
-        double am = MathHelper.lerp2(ah, af, z - g, ad - ab, aa - h, ae - ac);
-        double an = MathHelper.lerp2(af, ag, ab - g, ac - h, ad - z, ae - aa);
-        double ao = MathHelper.perlinFadeDerivative(d);
-        double ap = MathHelper.perlinFadeDerivative(e);
-        double aq = MathHelper.perlinFadeDerivative(f);
-        double ar = ai + ao * al;
-        double as = aj + ap * am;
-        double at = ak + aq * an;
-        ds[0] += ar;
-        ds[1] += as;
-        ds[2] += at;
-        return MathHelper.lerp3(af, ag, ah, g, h, z, aa, ab, ac, ad, ae);
+        double af = MathHelper.lerp2(aa, ab, e - d, g - f, w - h, y - x);
+        double ag = MathHelper.lerp2(ab, z, f - d, x - h, g - e, y - w);
+        double ah = MathHelper.lerp2(z, aa, h - d, w - e, x - f, y - g);
+        double ai = MathHelper.perlinFadeDerivative(localX);
+        double aj = MathHelper.perlinFadeDerivative(localY);
+        double ak = MathHelper.perlinFadeDerivative(localZ);
+        double al = ac + ai * af;
+        double am = ad + aj * ag;
+        double an = ae + ak * ah;
+        ds[0] += al;
+        ds[1] += am;
+        ds[2] += an;
+        return MathHelper.lerp3(z, aa, ab, d, e, f, g, h, w, x, y);
     }
 }
