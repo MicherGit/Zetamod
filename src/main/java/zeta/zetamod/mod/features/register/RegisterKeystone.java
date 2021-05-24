@@ -1,5 +1,6 @@
 package zeta.zetamod.mod.features.register;
 
+import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
 import zeta.zetamod.mod.ZetaMod;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -10,12 +11,12 @@ import zeta.zetamod.mod.features.items.KeystoneItem;
 
 import java.util.Locale;
 
-public class RegisterKeystone {
-    public static Item KEYSTONE;
-    public RegisterKeystone() {}
-    public void registerItem() {
-        KEYSTONE = Registry.register(Registry.ITEM, new Identifier(ZetaMod.MOD_ID,
-                "KEYSTONE".toLowerCase(Locale.ROOT)
-        ), new KeystoneItem(new FabricItemSettings().group(ItemGroup.MISC)));
+public class RegisterKeystone implements ModInitializer {
+    public static Item KEYSTONE = Registry.register(Registry.ITEM, new Identifier(ZetaMod.MOD_ID,
+            "KEYSTONE".toLowerCase(Locale.ROOT)
+    ), new KeystoneItem(new FabricItemSettings().group(ItemGroup.MISC)));;
+    @Override
+    public void onInitialize() {
+
     }
 }

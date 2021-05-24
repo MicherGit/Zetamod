@@ -1,7 +1,7 @@
 package zeta.zetamod.mod;
 
-import org.lwjgl.system.CallbackI;
 import zeta.zetamod.api.API;
+import zeta.zetamod.api.util.math.hash.TrinaryHash;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
 import zeta.zetamod.mod.features.commands.CommandsInitializer;
 import zeta.zetamod.mod.features.errors.compute.ComputeErrorFunction;
@@ -36,7 +36,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static String MOD_DEV_V =
-			"46"
+			"47"
 			//+ "."
 			//+ "2"
 			;
@@ -59,7 +59,7 @@ public class ZetaMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaMod 2");
-		//TrinaryHash.checkHash();
+		TrinaryHash.checkHash();
 		//log(Level.INFO, "Initializing");
 
 		log(Level.INFO, "Mod version " + MOD_VERSION);
@@ -85,7 +85,7 @@ public class ZetaMod implements ModInitializer {
 			);
 
 		} else {
-			log2("Mod version is " + MOD_VERSION + " build " + MOD_DEV_V);
+			log2("Mod version is " + MOD_VERSION + ' ' + PHASE + " build " + MOD_DEV_V);
 			log2("Milestone 11");
 		}
 		log(LV,"API version " + api.APIVersionGet())
