@@ -1,5 +1,6 @@
 package zeta.zetamod.mod;
 
+import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
 import zeta.zetamod.api.API;
 import zeta.zetamod.api.util.math.hash.TrinaryHash;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
@@ -24,6 +25,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
 import zeta.zetamod.mod.features.register.RegisterItems;
+import zeta.zetamod.mod.managers.ConfigManager;
 
 public class ZetaMod implements ModInitializer {
 
@@ -35,8 +37,8 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
-	public static String MOD_DEV_V =
-			"47"
+	public static int MOD_DEV_V =
+			48
 			//+ "."
 			//+ "2"
 			;
@@ -59,9 +61,12 @@ public class ZetaMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaMod 2");
-		TrinaryHash.checkHash();
+		//TrinaryHash.checkHash();
 		//log(Level.INFO, "Initializing");
-
+		if (ConfigManager.getConfig().enableTechnicalBlocks.getValue()) {
+			TechnicalBlocks technicalBlocks = new TechnicalBlocks();
+			technicalBlocks.initTB();
+		}
 		log(Level.INFO, "Mod version " + MOD_VERSION);
 		CommandsInitializer commandsInitializer = new CommandsInitializer();
 		commandsInitializer.initCommands();

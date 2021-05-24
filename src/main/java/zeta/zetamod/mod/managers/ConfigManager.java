@@ -62,11 +62,11 @@ public class ConfigManager  {
             .withDefaultValue("")
             .withParent(hashNode)
             .build();
-    public ConfigValue<Boolean> enableOneSeventeenBoolean = ConfigValue.builder(Boolean.class)
-            .withName(String.valueOf("enableOneSeventeenBoolean"))
-            .withComment(("Change title screen to say 1.17 instead of ") + String.valueOf(SharedConstants.getGameVersion().getName()))
-            .withDefaultValue(false)
-            .withParent(hashNode)
+    public ConfigValue<Boolean> enableTechnicalBlocks = ConfigValue.builder(Boolean.class)
+            .withName("enableTB")
+            .withComment("Enables Technical Blocks by Draydenspace_FS")
+            .withDefaultValue(true)
+            .withParent(general)
             .build();
     private Node world = root.fork("world");
     public ConfigValue<Double> coordinateScale = ConfigValue.builder(Double.class)

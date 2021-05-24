@@ -1,6 +1,6 @@
 # Zeta's Mod
 A multi-functional utility mod for fabric 1.17 that does a lot of things. Other mods probably do what this mod does better though,so idk why you would download this.
-
+## Technical Blocks addon by Draydenspace_FS on discord
 ### Latest Update: [21w19a] Zeta's Mod v1.2.0 beta: The Commands Update (aka the "Honey I shrunk 2.0" update)
 ### Latest Build: [21w20a] Zeta's Mod v1.2.1 beta
 ### Stable Build: [21w20a] Zeta's Mod v1.2.1 beta

@@ -5,7 +5,10 @@
 
   "name": "ZetaMod",
   "description": "A mod that does many things!",
-  "authors": [],
+  "authors": [
+    "TwelvianZeta",
+    "Draydenspace_FS (Technical Blocks)"
+  ],
   "contact": {
     "homepage": "https://github.com/MicherGit/zetamod",
     "sources": "https://github.com/MicherGit/zetamod"
@@ -23,7 +26,8 @@
       "zeta.zetamod.mod.features.portals.LushNetherPortal"
     ],
     "client": [
-      "zeta.zetamod.mod.client.ZetaModClient"
+      "zeta.zetamod.mod.client.ZetaModClient",
+      "dray.draydenspace.farlandsexplore.technicalblocks.ClientModInit"
     ],
     "server": []
   },

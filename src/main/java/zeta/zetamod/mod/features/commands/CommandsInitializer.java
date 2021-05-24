@@ -2,11 +2,13 @@ package zeta.zetamod.mod.features.commands;
 
 
 import com.mojang.brigadier.arguments.StringArgumentType;
+import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.SharedConstants;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import zeta.zetamod.mod.ZetaMod;
+import zeta.zetamod.mod.managers.ConfigManager;
 import zeta.zetamod.mod.managers.GeneralManager;
 //Static imports
 // getString(ctx, "string")
@@ -29,8 +31,21 @@ public class CommandsInitializer {
              */
             dispatcher.register(literal("zetamod").then(literal("version").executes(
                     context -> {
-                        context.getSource().sendFeedback(new LiteralText("ZetaMod version " + ZetaMod.MOD_VERSION + "\nRunning on Minecraft " + SharedConstants.getGameVersion().getName())
-                                ,true);
+                        if (!ConfigManager.getConfig().enableTechnicalBlocks.getValue()) {
+                            context.getSource().sendFeedback(new LiteralText(
+                                    "ZetaMod version " + ZetaMod.MOD_VERSION + "\n" +
+                                           "Running on Minecraft " +
+                                         SharedConstants.getGameVersion().getName())
+                                    ,true);
+                            } else {
+                            context.getSource().sendFeedback(new LiteralText(
+                                    "ZetaMod version " + ZetaMod.MOD_VERSION + "\n" +
+                                            "Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
+                                            "Running on Minecraft " +
+                                            SharedConstants.getGameVersion().getName())
+                                    ,true);
+                        }
+
                         return 1;
                     }
             )).then(literal("farlands").executes(
