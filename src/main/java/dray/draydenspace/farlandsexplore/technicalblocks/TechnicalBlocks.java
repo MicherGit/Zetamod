@@ -34,6 +34,7 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StrongholdFeature;
 import net.minecraft.world.gen.feature.StructureFeature;
 import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 import zeta.zetamod.mod.ZetaMod;
 
 public class TechnicalBlocks {
@@ -115,10 +116,10 @@ public class TechnicalBlocks {
 	public static final SpawnEggItem DragonSpawnEgg = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dragonspawnegg"), new SpawnEggItem(EntityType.ENDER_DRAGON, 1842204, 14711290, new Item.Settings().group(OTHER_GROUP)));
 	public static final GeneralizedSpawnEggItem LightningSpawnEgg = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lightningspawnegg"), new GeneralizedSpawnEggItem(EntityType.LIGHTNING_BOLT, 16777215, 16777215, new Item.Settings().group(OTHER_GROUP)));;
 
-	public static double tb_version = 0.1;
+	public static String tb_version = ZetaMod.technicalblocks_version;
 
 	public void initTB() {
-		ZetaMod.log(Level.INFO, "Initializing Custom Blocks version " + tb_version + " by Draydenspace_FS");
+		LogManager.getLogger().log(Level.INFO, "Initializing TechnicalBlocks Blocks version " + tb_version + " by Draydenspace_FS");
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution

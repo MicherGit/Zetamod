@@ -13,7 +13,8 @@
     "supercoder.MixinServerPlayNetworkHandler",
     "supercoder.MixinWorld",
     "supercoder.MixinWorldBorder",
-    "supercoder.MixinWorldBorderProperties"
+    "supercoder.MixinWorldBorderProperties",
+    "zeta.SharedConstantsMixin"
   ],
   "client": [
   ],

@@ -27,24 +27,17 @@ public class CommandsInitializer {
     public void initCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
             /**
-             * /
+             * /zetamod
              */
             dispatcher.register(literal("zetamod").then(literal("version").executes(
                     context -> {
-                        if (!ConfigManager.getConfig().enableTechnicalBlocks.getValue()) {
-                            context.getSource().sendFeedback(new LiteralText(
-                                    "ZetaMod version " + ZetaMod.MOD_VERSION + "\n" +
-                                           "Running on Minecraft " +
-                                         SharedConstants.getGameVersion().getName())
-                                    ,true);
-                            } else {
                             context.getSource().sendFeedback(new LiteralText(
                                     "ZetaMod version " + ZetaMod.MOD_VERSION + "\n" +
                                             "Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
                                             "Running on Minecraft " +
-                                            SharedConstants.getGameVersion().getName())
+                                            SharedConstants.getGameVersion().getName() +
+                                            "\nUsing Java version "+System.getProperty("java.version"))
                                     ,true);
-                        }
 
                         return 1;
                     }
@@ -75,14 +68,12 @@ public class CommandsInitializer {
                             })
                     ))
                     .then(
-                            literal("setCoordinateScale".toLowerCase()).
+                            literal("doubleCoordinateScale".toLowerCase()).
                                     executes(
                                     context -> {
-                                        double coorindateScale = GeneralManager.getConfig().coordinateScale.getValue();
-                                        context.getSource().sendError(Text.of("Still wip!"));
-                                        //getConfig().coordinateScale.setValue(StringArgumentType.getString(context, ""))
-                                        //return 1;
-                                        return -1;
+                                        GeneralManager.getConfig().coordinateScale.setValue(GeneralManager.getConfig().coordinateScale.getValue() * 2);
+
+                                        return 2;
                                     }
                             )
                     )
