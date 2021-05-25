@@ -55,6 +55,13 @@ public class ConfigManager  {
             .withDefaultValue(false)
             .withParent(general)
             .build();
+    public ConfigValue<String> fakeVersion = ConfigValue.builder(String.class)
+            .withComment("Which version should we emulate?")
+            .withName("fakeVersion")
+            .withDefaultValue(
+                    SharedConstants.getGameVersion().getName()
+            )
+            .withParent(general).build();
     private Node hashNode = root.fork("Hash Key");
     public ConfigValue<String> hash = ConfigValue.builder(String.class)
             .withName("hash")

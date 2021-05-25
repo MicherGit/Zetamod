@@ -38,7 +38,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static int MOD_DEV_V =
-			50
+			51
 			//+ "."
 			//+ "2"
 			;
@@ -48,6 +48,7 @@ public class ZetaMod implements ModInitializer {
 			//"_01"
 			;
 	public static String technicalblocks_version = "0.1.2";
+
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	//public static final Block VOID = new Block(FabricBlockSettings.of(Material.METAL).strength(0.0f));
 
