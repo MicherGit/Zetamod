@@ -9,12 +9,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import zeta.zetamod.mod.managers.ConfigManager;
 
 @Mixin(SharedConstants.class)
 public class SharedConstantsMixin {
-    @Redirect(method = "<clinit>", at = @At(target = "Lnet/minecraft/SharedConstants;VERSION_NAME:Ljava/lang/String;", value = "INVOKE"))
-    private static String fixVersion(String version) {
-        return ConfigManager.getConfig().fakeVersion.getValue();
-    }
+    /*@Mutable
+    @Shadow @Final @Deprecated public static String VERSION_NAME;
+
+    @Inject(method = "<clinit>", at = @At("INVOKE"))
+    private static void handleConstructor(CallbackInfo ci) {
+        //VERSION_NAME = "1.17";
+    }*/
 }
