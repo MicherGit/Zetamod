@@ -1,16 +1,15 @@
-package zeta.zetamod.mod.features.register;
+package zeta.zetamod.mod.features.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ToolItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import zeta.zetamod.mod.ZetaMod;
 import zeta.zetamod.mod.features.blocks.VoidBlock;
-import zeta.zetamod.mod.features.items.materials.tool.KeystoneToolMaterial;
-import zeta.zetamod.mod.features.items.tools.KeystoneTools;
+import zeta.zetamod.mod.features.keystone.KeystoneTools;
+import zeta.zetamod.mod.features.keystone.RegisterKeystone;
 
 public class RegisterItems {
     public RegisterItems(){}

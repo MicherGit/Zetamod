@@ -1,11 +1,7 @@
-package zeta.zetamod.mod.features.items.materials.tool;
+package zeta.zetamod.mod.features.keystone;
 
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
-import zeta.zetamod.mod.ZetaMod;
-import zeta.zetamod.mod.features.items.KeystoneItem;
-import zeta.zetamod.mod.features.register.RegisterKeystone;
 
 public class KeystoneToolMaterial implements ToolMaterial {
     public int durability = 1920;

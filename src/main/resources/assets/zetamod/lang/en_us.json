@@ -2,5 +2,7 @@
   "block.zetamod.concern_block": ":concern:",
   "block.zetamod.hyperconcern_block": ":hyperconcern:",
   "item.zetamod.concerned_tater": "Concerned Tater",
-  "block.zetamod.gigaconcern_block": ":gigaconcern:"
+  "block.zetamod.gigaconcern_block": ":gigaconcern:",
+  "item.zetamod.keystone": "Keystone",
+  "block.zetamod.keystone_block": "Keystone Block"
 }

@@ -1,7 +1,7 @@
-package zeta.zetamod.mod.features.items.tools;
+package zeta.zetamod.mod.features.keystone;
 
 import net.minecraft.item.*;
-import zeta.zetamod.mod.features.items.materials.tool.KeystoneToolMaterial;
+import zeta.zetamod.mod.features.keystone.KeystoneToolMaterial;
 import zeta.zetamod.mod.features.items.tools.wideners.AxeItem;
 import zeta.zetamod.mod.features.items.tools.wideners.PickaxeItem;
 import zeta.zetamod.mod.features.items.tools.wideners.TillerItem;

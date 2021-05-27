@@ -2,7 +2,6 @@ package zeta.zetamod.mod;
 
 import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
 import zeta.zetamod.api.API;
-import zeta.zetamod.api.util.math.hash.TrinaryHash;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
 import zeta.zetamod.mod.features.commands.CommandsInitializer;
 import zeta.zetamod.mod.features.errors.compute.ComputeErrorFunction;
@@ -24,8 +23,7 @@ import net.minecraft.world.biome.BiomeKeys;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
-import zeta.zetamod.mod.features.register.RegisterItems;
-import zeta.zetamod.mod.managers.ConfigManager;
+import zeta.zetamod.mod.features.items.RegisterItems;
 
 public class ZetaMod implements ModInitializer {
 
@@ -38,7 +36,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static int MOD_DEV_V =
-			50
+			51
 			//+ "."
 			//+ "2"
 			;

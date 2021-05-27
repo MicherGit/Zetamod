@@ -1,4 +1,4 @@
-package zeta.zetamod.mod.features.items;
+package zeta.zetamod.mod.features.keystone;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
