@@ -4,17 +4,18 @@ import net.fabricmc.api.ModInitializer;
 import net.kyrptonaught.customportalapi.CustomPortalApiRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
+import zeta.zetamod.mod.ZetaMod;
+import zeta.zetamod.mod.features.keystone.RegisterKeystone;
 
-public class LushNetherPortal implements ModInitializer {
+public class PortalInit implements ModInitializer {
     @Override
     public void onInitialize() {
         CustomPortalApiRegistry.addPortal(Blocks.MOSS_BLOCK,
                 new Identifier("zetamod", "lush_nether"),
                 0, 255, 8);
-        /*
-         * TODO: Keystone lights portal
-         * Work so far: CustomPortalApiRegistry.addPortal(Blocks.NETHERITE_BLOCK, PortalIgnitionSource.CustomSource(new Identifier("zetamod", "keystone")), new Identifier("my_mod_id", "my_dimension_id"), 51, 52, 49);
-         */
-    }
+        CustomPortalApiRegistry.addPortal(RegisterKeystone.KEYSTONE_BLOCK,
+                new Identifier(ZetaMod.MOD_ID, "etheral"),
+                127, 127, 0);
 
+    }
 }

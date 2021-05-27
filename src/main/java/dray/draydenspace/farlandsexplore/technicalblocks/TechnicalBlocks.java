@@ -37,7 +37,7 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import zeta.zetamod.mod.ZetaMod;
 
-public class TechnicalBlocks {
+public class TechnicalBlocks implements ModInitializer{
 	public StrongholdFeature.Start strongholdStart;
 	public static final String MOD_ID = "technicalblocks";
 	public MinecraftClient mc = MinecraftClient.getInstance();
@@ -118,7 +118,8 @@ public class TechnicalBlocks {
 
 	public static String tb_version = ZetaMod.technicalblocks_version;
 
-	public void initTB() {
+	@Override
+	public void onInitialize() {
 		LogManager.getLogger().log(Level.INFO, "Initializing TechnicalBlocks Blocks version " + tb_version + " by Draydenspace_FS");
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.

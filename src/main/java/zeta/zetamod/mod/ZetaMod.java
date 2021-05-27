@@ -36,7 +36,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static int MOD_DEV_V =
-			51
+			52
 			//+ "."
 			//+ "2"
 			;
@@ -62,8 +62,6 @@ public class ZetaMod implements ModInitializer {
 		log2("Initializing ZetaMod 2");
 		//TrinaryHash.checkHash();
 		//log(Level.INFO, "Initializing");
-		TechnicalBlocks technicalBlocks = new TechnicalBlocks();
-		technicalBlocks.initTB();
 		log(Level.INFO, "Mod version " + MOD_VERSION);
 		CommandsInitializer commandsInitializer = new CommandsInitializer();
 		commandsInitializer.initCommands();
