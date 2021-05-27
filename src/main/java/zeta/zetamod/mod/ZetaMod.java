@@ -1,6 +1,7 @@
 package zeta.zetamod.mod;
 
 import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
+import net.minecraft.SharedConstants;
 import zeta.zetamod.api.API;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
 import zeta.zetamod.mod.features.commands.CommandsInitializer;
@@ -36,7 +37,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static int MOD_DEV_V =
-			53
+			54
 			//+ "."
 			//+ "2"
 			;
@@ -73,6 +74,12 @@ public class ZetaMod implements ModInitializer {
 			JavaVersionTooOldException exception = new JavaVersionTooOldException(error);
 			exception.printStackTrace();
 			throw new Error(exception);
+		}
+		if (SharedConstants.getGameVersion().getName().equals("21w20a")) {
+			LogManager.getLogger().log(Level.
+							//WARN
+					INFO
+					, "Candle recipes enabled.");
 		}
 		log2("Running on java version " + System.getProperty("java.version"));
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
