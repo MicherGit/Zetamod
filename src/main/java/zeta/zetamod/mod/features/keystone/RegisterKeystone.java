@@ -1,6 +1,5 @@
 package zeta.zetamod.mod.features.keystone;
 
-import jdk.jpackage.internal.Log;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -14,7 +13,6 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import zeta.zetamod.mod.features.keystone.KeystoneItem;
 
 import java.util.Locale;
 
