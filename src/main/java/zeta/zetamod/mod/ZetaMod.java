@@ -39,14 +39,15 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_MAJOR = 2;
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
+	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	public static boolean MOD_DEV = true;
-	public static int MOD_DEV_V =
-			58
+	public static final int MOD_DEV_V =
+			59
 			//+ "."
 			//+ "2"
 			;
 	public static final byte V_TYPE = 0;
-	public static String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
+	public static String MOD_VERSION_D = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
 			//+
 			//"_01"
 			;
@@ -61,7 +62,7 @@ public class ZetaMod implements ModInitializer {
 
 	public static final Level LV = Level.INFO;
 	public static double concerning_weight = Math.pow(2, -4);
-	public API api = new API(MOD_VERSION);
+	public API api = new API(MOD_VERSION_D);
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaMod");
@@ -73,7 +74,7 @@ public class ZetaMod implements ModInitializer {
 			log2("Loading failed!");
 			e.printStackTrace();
 		}
-		log(Level.INFO, "Mod version " + MOD_VERSION);
+		log(Level.INFO, "Mod version " + MOD_VERSION_D);
 		CommandsInitializer commandsInitializer = new CommandsInitializer();
 		commandsInitializer.initCommands();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -94,15 +95,15 @@ public class ZetaMod implements ModInitializer {
 		log2("Running on java version " + System.getProperty("java.version"));
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
-			MOD_VERSION = MOD_VERSION + "." + MOD_DEV_V;
-			log(Level.INFO, "Mod version is " + MOD_VERSION + " development version " + MOD_DEV_V);
+			MOD_VERSION_D = MOD_VERSION_D + "." + MOD_DEV_V;
+			log(Level.INFO, "Mod version is " + MOD_VERSION_D + " development version " + MOD_DEV_V);
 			log(LV, "Milestone build" + " " +
 					12
 					+ " beta!"
 			);
 
 		} else {
-			log2("Mod version is " + MOD_VERSION + ' ' + PHASE + " build " + MOD_DEV_V);
+			log2("Mod version is " + MOD_VERSION_D + ' ' + PHASE + " build " + MOD_DEV_V);
 			log2("Milestone 12");
 		}
 		log(LV,"API version " + api.APIVersionGet());

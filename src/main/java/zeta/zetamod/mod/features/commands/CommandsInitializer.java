@@ -22,6 +22,8 @@ import static net.minecraft.server.command.CommandManager.argument;
 // Import everything
 import static net.minecraft.server.command.CommandManager.*;
 import static zeta.zetamod.mod.managers.GeneralManager.getConfig;
+
+import static zeta.zetamod.api.util.Util.*;
 @SuppressWarnings("ALL")
 public class CommandsInitializer {
     public void initCommands() {
@@ -32,7 +34,7 @@ public class CommandsInitializer {
             dispatcher.register(literal("zetamod").then(literal("version").executes(
                     context -> {
                             context.getSource().sendFeedback(new LiteralText(
-                                    "ZetaMod version " + ZetaMod.MOD_VERSION + "\n" +
+                                    "ZetaMod version " + ZetaMod.MOD_VERSION + SPACE + ZetaMod.PHASE + "\n" +
                                             "Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
                                             "Running on Minecraft " +
                                             SharedConstants.getGameVersion().getName() +
