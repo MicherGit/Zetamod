@@ -15,6 +15,7 @@ import zeta.zetamod.mod.ZetaMod;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -51,15 +52,6 @@ public class ConfigManager  {
             .withDefaultValue(farlandsDefaultValue())
             .withParent(general)
             .build();
-    private boolean expandWB = true;
-    public ConfigValue<Boolean> worldBorderExpanded = ConfigValue.builder(Boolean.class)
-            .withName("worldBorderExpanded")
-            .withComment("Should the worldborder be expanded? (Note, currently does nothing" +
-                    ")")
-            .withDefaultValue(expandWB)
-            .withParent(general)
-            .build();
-
     public ConfigValue<Boolean> shardFarLands = ConfigValue.builder(Boolean.class)
             .withName(
                     "shardFarLands"
@@ -73,18 +65,6 @@ public class ConfigManager  {
             .withName("hash")
             .withComment("private hash given out to testers")
             .withDefaultValue("")
-            .withParent(hashNode)
-            .build();
-    public ConfigValue<Integer> fileHash = ConfigValue.builder(Integer.class)
-            .withComment("hash of config file used for testing")
-            .withName("fileHash")
-            .withDefaultValue(CONFIG_FILE.hashCode())
-            .withParent(hashNode)
-            .build();
-    public ConfigValue<Integer> modVersion = ConfigValue.builder(Integer.class)
-            .withComment("Current mod version (do not change this!!)")
-            .withName("modVersion")
-            .withDefaultValue(ZetaMod.MOD_DEV_V)
             .withParent(hashNode)
             .build();
     public ConfigValue<Double> coordinateScale = ConfigValue.builder(Double.class)
@@ -123,11 +103,11 @@ public class ConfigManager  {
 
     public ConfigManager() throws FiberException, IOException {
         File currentConfigFile = new File(FabricLoader.getInstance().getConfigDirectory(),
-                "zetamod.json5.generated");
+                CONFIG_FILE.getName() + ".tmp");
         currentConfigFile.createNewFile();
         save(currentConfigFile);
         File configFile = new File(FabricLoader.getInstance().getConfigDirectory(),
-                "zetamodupdate");
+                CONFIG_FILE.getName() + ".unmodified");
         //if(CONFIG_FILE.exists()) {
         //    if(currentConfigFile.hashCode() != CONFIG_FILE.hashCode()) {
 
@@ -135,8 +115,13 @@ public class ConfigManager  {
         //        LogManager.getLogger().log(Level.INFO, "Will not delete config file!");
         //    }
         //}
-        if(!configFile.exists()) {
-            copy(CONFIG_FILE, configFile);
+        if(!configFile.exists() && CONFIG_FILE.exists()) {
+            try {
+                copy(CONFIG_FILE, configFile);
+            } catch (NoSuchFileException e) {
+                e.printStackTrace();
+                throw e;
+            }
         }
         if(configFile.hashCode() != currentConfigFile.hashCode()) {
             logger.error("CONFIG FOUND WITH DIFFERENT HASH, DELETING!");
