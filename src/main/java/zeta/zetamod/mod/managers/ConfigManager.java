@@ -8,6 +8,7 @@ import me.zeroeightsix.fiber.tree.Node;
 import net.fabricmc.loader.api.FabricLoader;
 import net.java.games.input.Event;
 import net.minecraft.SharedConstants;
+import zeta.zetamod.mod.ZetaMod;
 
 import java.io.File;
 import java.io.IOException;
@@ -105,7 +106,15 @@ public class ConfigManager  {
         return GeneralManager.CONFIG;
     }
 
-    public ConfigManager() throws FiberException {}
+    public ConfigManager(int configVersion) throws FiberException, IOException {
+        if(this.CONFIG_FILE.exists()) {
+            File currentConfigFile = new File(FabricLoader.getInstance().getConfigDirectory(), "zetamod.json5.generated");
+            currentConfigFile.createNewFile();
+            if(currentConfigFile.hashCode() != CONFIG_FILE.hashCode()) {
+                CONFIG_FILE.delete();
+            }
+        }
+    }
 
 
     public void save() {

@@ -1,6 +1,7 @@
 package zeta.zetamod.mod;
 
 import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
+import me.zeroeightsix.fiber.exception.FiberException;
 import net.minecraft.SharedConstants;
 import zeta.zetamod.api.API;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
@@ -25,6 +26,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
 import zeta.zetamod.mod.features.items.RegisterItems;
+import zeta.zetamod.mod.managers.ConfigManager;
+
+import java.io.IOException;
 
 public class ZetaMod implements ModInitializer {
 
@@ -37,7 +41,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static int MOD_DEV_V =
-			55
+			56
 			//+ "."
 			//+ "2"
 			;
@@ -62,7 +66,13 @@ public class ZetaMod implements ModInitializer {
 	public void onInitialize() {
 		log2("Initializing ZetaMod");
 		//TrinaryHash.checkHash();
-		//log(Level.INFO, "Initializing");
+		log(Level.INFO, "Initializing config");
+		try {
+			ConfigManager configManager = new ConfigManager(MOD_DEV_V);
+		} catch (FiberException | IOException e) {
+			log2("Loading failed!");
+			e.printStackTrace();
+		}
 		log(Level.INFO, "Mod version " + MOD_VERSION);
 		CommandsInitializer commandsInitializer = new CommandsInitializer();
 		commandsInitializer.initCommands();
