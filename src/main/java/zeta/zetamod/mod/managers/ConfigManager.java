@@ -24,6 +24,8 @@ public class ConfigManager  {
     final private ConfigNode root = new ConfigNode();
 
     private final Node general = root.fork("general");
+    private Node world = root.fork("world");
+    private Node gameplay = root.fork("Gameplay");
     private Event configValue;
 
     // Still @Overwrite-able!
@@ -31,7 +33,13 @@ public class ConfigManager  {
     public static boolean farlandsDefaultValue() {
         return false;
     }
-
+    public ConfigValue<Boolean> fixFireballs = ConfigValue.builder(Boolean.class)
+            .withName("capFireballs")
+            .withComment("If set to true, removes the patch done to fix https://bugs.mojang.com/browse/MC-220698" +
+                    "and makes bedrock farms work again")
+            .withDefaultValue(true)
+            .withParent(gameplay)
+            .build();
     public ConfigValue<Boolean> farLandsEnabled = ConfigValue.builder(Boolean.class)
             .withName("farLandsEnabled")
             .withComment("Whether or not the Far Lands should generate.")
@@ -62,7 +70,7 @@ public class ConfigManager  {
             .withDefaultValue("")
             .withParent(hashNode)
             .build();
-    private Node world = root.fork("world");
+
     public ConfigValue<Double> coordinateScale = ConfigValue.builder(Double.class)
             .withName("coordinateScale")
             .withComment("The world's coordinate scale.")

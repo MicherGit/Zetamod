@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import zeta.zetamod.mod.managers.ConfigManager;
 
 @Mixin(FireballEntity.class)
 public class FireballFix extends AbstractFireballEntity {
@@ -35,8 +36,13 @@ public class FireballFix extends AbstractFireballEntity {
      */
     @Overwrite
     public void writeCustomDataToNbt(NbtCompound nbt) {
-        super.writeCustomDataToNbt(nbt);
-        nbt.putInt("ExplosionPower", this.explosionPower);
+        if(ConfigManager.getConfig().fixFireballs.getValue()) {
+            super.writeCustomDataToNbt(nbt);
+            nbt.putInt("ExplosionPower", this.explosionPower);
+        } else {
+            super.writeCustomDataToNbt(nbt);
+            nbt.putByte("ExplosionPower", (byte)this.explosionPower);
+        }
     }
     /**
      * @author Zeta
@@ -44,9 +50,16 @@ public class FireballFix extends AbstractFireballEntity {
      */
     @Overwrite
     public void readCustomDataFromNbt(NbtCompound nbt) {
-        super.readCustomDataFromNbt(nbt);
-        if (nbt.contains("ExplosionPower", 99)) {
-            this.explosionPower = nbt.getInt("ExplosionPower");
+        if(ConfigManager.getConfig().fixFireballs.getValue()) {
+            super.readCustomDataFromNbt(nbt);
+            if (nbt.contains("ExplosionPower", 99)) {
+                this.explosionPower = nbt.getInt("ExplosionPower");
+            }
+        } else {
+            super.readCustomDataFromNbt(nbt);
+            if (nbt.contains("ExplosionPower", 99)) {
+                this.explosionPower = nbt.getByte("ExplosionPower");
+            }
         }
 
     }
