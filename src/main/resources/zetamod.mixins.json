@@ -14,7 +14,8 @@
     "supercoder.MixinWorld",
     "supercoder.MixinWorldBorder",
     "supercoder.MixinWorldBorderProperties",
-    "zeta.SharedConstantsMixin"
+    "zeta.SharedConstantsMixin",
+    "zeta.FireballFix"
   ],
   "client": [
   ],

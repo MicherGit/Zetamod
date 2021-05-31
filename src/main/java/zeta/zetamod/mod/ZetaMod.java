@@ -60,7 +60,7 @@ public class ZetaMod implements ModInitializer {
 	public API api = new API(MOD_VERSION);
 	@Override
 	public void onInitialize() {
-		log2("Initializing ZetaMod 2");
+		log2("Initializing ZetaMod");
 		//TrinaryHash.checkHash();
 		//log(Level.INFO, "Initializing");
 		log(Level.INFO, "Mod version " + MOD_VERSION);
@@ -93,10 +93,9 @@ public class ZetaMod implements ModInitializer {
 
 		} else {
 			log2("Mod version is " + MOD_VERSION + ' ' + PHASE + " build " + MOD_DEV_V);
-			log2("Milestone 11");
+			log2("Milestone 12");
 		}
-		log(LV,"API version " + api.APIVersionGet())
-		;
+		log(LV,"API version " + api.APIVersionGet());
 		log(Level.INFO, "Loading!");
 		log(Level.INFO, "Adding biomes");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
