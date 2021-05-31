@@ -6,13 +6,15 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.math.MathHelper;
 import org.apache.logging.log4j.Level;
 
+import java.io.IOException;
+
 public class GeneralManager implements ModInitializer {
     public static ConfigManager CONFIG;
 
     static {
         try {
-            CONFIG = new ConfigManager().load();
-        } catch (FiberException e) {
+            CONFIG = new ConfigManager().load(ConfigManager.CONFIG_FILE);
+        } catch (FiberException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -21,7 +23,7 @@ public class GeneralManager implements ModInitializer {
     }
 
     public static void saveConfig() {
-        CONFIG.save();
+        CONFIG.save(ConfigManager.CONFIG_FILE);
     }
 
 

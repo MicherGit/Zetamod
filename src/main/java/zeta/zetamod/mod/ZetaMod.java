@@ -41,7 +41,7 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_BF = 0;
 	public static boolean MOD_DEV = true;
 	public static int MOD_DEV_V =
-			56
+			57
 			//+ "."
 			//+ "2"
 			;
@@ -68,7 +68,7 @@ public class ZetaMod implements ModInitializer {
 		//TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing config");
 		try {
-			ConfigManager configManager = new ConfigManager(MOD_DEV_V);
+			ConfigManager configManager = new ConfigManager();
 		} catch (FiberException | IOException e) {
 			log2("Loading failed!");
 			e.printStackTrace();

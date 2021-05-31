@@ -8,17 +8,21 @@ import me.zeroeightsix.fiber.tree.Node;
 import net.fabricmc.loader.api.FabricLoader;
 import net.java.games.input.Event;
 import net.minecraft.SharedConstants;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import zeta.zetamod.mod.ZetaMod;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class ConfigManager  {
     /*
      * Copied from https://github.com/geniiii/FarLands/blob/master/src/main/java/site/geni/farlands/config/Config.java
      */
-    private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(),
+    public static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(),
              "zetamod." +
                     "json5");
 
@@ -71,7 +75,18 @@ public class ConfigManager  {
             .withDefaultValue("")
             .withParent(hashNode)
             .build();
-
+    public ConfigValue<Integer> fileHash = ConfigValue.builder(Integer.class)
+            .withComment("hash of config file used for testing")
+            .withName("fileHash")
+            .withDefaultValue(CONFIG_FILE.hashCode())
+            .withParent(hashNode)
+            .build();
+    public ConfigValue<Integer> modVersion = ConfigValue.builder(Integer.class)
+            .withComment("Current mod version (do not change this!!)")
+            .withName("modVersion")
+            .withDefaultValue(ZetaMod.MOD_DEV_V)
+            .withParent(hashNode)
+            .build();
     public ConfigValue<Double> coordinateScale = ConfigValue.builder(Double.class)
             .withName("coordinateScale")
             .withComment("The world's coordinate scale.")
@@ -106,32 +121,53 @@ public class ConfigManager  {
         return GeneralManager.CONFIG;
     }
 
-    public ConfigManager(int configVersion) throws FiberException, IOException {
-        if(this.CONFIG_FILE.exists()) {
-            File currentConfigFile = new File(FabricLoader.getInstance().getConfigDirectory(), "zetamod.json5.generated");
-            currentConfigFile.createNewFile();
-            if(currentConfigFile.hashCode() != CONFIG_FILE.hashCode()) {
-                CONFIG_FILE.delete();
-            }
+    public ConfigManager() throws FiberException, IOException {
+        File currentConfigFile = new File(FabricLoader.getInstance().getConfigDirectory(),
+                "zetamod.json5.generated");
+        currentConfigFile.createNewFile();
+        save(currentConfigFile);
+        File configFile = new File(FabricLoader.getInstance().getConfigDirectory(),
+                "zetamodupdate");
+        //if(CONFIG_FILE.exists()) {
+        //    if(currentConfigFile.hashCode() != CONFIG_FILE.hashCode()) {
+
+        //    } else {
+        //        LogManager.getLogger().log(Level.INFO, "Will not delete config file!");
+        //    }
+        //}
+        if(!configFile.exists()) {
+            copy(CONFIG_FILE, configFile);
         }
+        if(configFile.hashCode() != currentConfigFile.hashCode()) {
+            logger.error("CONFIG FOUND WITH DIFFERENT HASH, DELETING!");
+            CONFIG_FILE.delete();
+        }
+        currentConfigFile.delete();
+    }
+    public static void copy(File from, File to) throws IOException {
+        Path s = Paths.get(from.getAbsolutePath());
+        Path t = Paths.get(to.getAbsolutePath());
+        Files.copy(s, t);
     }
 
+    private Logger logger = LogManager.getLogger();
 
-    public void save() {
+
+    public void save(File configFile) {
         try {
-            new JanksonSettings().serialize(this.root, Files.newOutputStream(ConfigManager.CONFIG_FILE.toPath()), false);
+            new JanksonSettings().serialize(this.root, Files.newOutputStream(configFile.toPath()), false);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public ConfigManager load() {
-        if (!CONFIG_FILE.exists()) {
-            this.save();
+    public ConfigManager load(File configFile) {
+        if (!configFile.exists()) {
+            this.save(configFile);
         }
 
         try {
-            new JanksonSettings().deserialize(this.root, Files.newInputStream(ConfigManager.CONFIG_FILE.toPath()));
+            new JanksonSettings().deserialize(this.root, Files.newInputStream(configFile.toPath()));
         } catch (IOException | FiberException e) {
             e.printStackTrace();
         }
