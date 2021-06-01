@@ -32,7 +32,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("ALL")
 public class GeneralizedSpawnEggItem extends Item {
    private static final Map<EntityType<? extends Entity>, GeneralizedSpawnEggItem> SPAWN_EGGS = Maps.newIdentityHashMap();
    private final int primaryColor;
