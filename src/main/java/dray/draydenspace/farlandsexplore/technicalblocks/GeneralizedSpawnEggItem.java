@@ -113,10 +113,10 @@ public class GeneralizedSpawnEggItem extends Item {
 
    @Nullable
    public static GeneralizedSpawnEggItem forEntity(@Nullable EntityType<?> type) {
-      return SPAWN_EGGS.get(type);
+      return (GeneralizedSpawnEggItem)SPAWN_EGGS.get(type);
    }
 
-   public static Iterable getAll() {
+   public static Iterable<GeneralizedSpawnEggItem> getAll() {
       return Iterables.unmodifiableIterable((Iterable)SPAWN_EGGS.values());
    }
 
