@@ -1,10 +1,10 @@
 # Zeta's Mod
 A multi-functional utility mod for fabric 1.17 that does a lot of things. Other mods probably do what this mod does better though,so idk why you would download this.
 ## Technical Blocks by Draydenspace_FS on discord
-### Latest Update: [21w19a] Zeta's Mod v1.2.0 beta: The Commands Update (aka the "Honey I shrunk 2.0" update)
-### Latest Build: [21w20a] Zeta's Mod v1.2.1 beta
-### Stable Build: [21w20a] Zeta's Mod v1.2.1 beta
-### Next Version: [1.17] Zeta's Mod v2.0.0: The Keystone Update
+### Latest Update: [1.17] Zeta's Mod 2.0.0: The Keystone Update
+### Latest Build: [1.17] Zeta's Mod 2.0.0 beta
+### Stable Build: [1.17] Zeta's Mod 2.0.0 beta
+### Next Version: [1.17] Zeta's Mod 2.0.0: The Keystone Update
 
 # Requirements
 ## Developer Key of security level 1 needed for private dev releases
