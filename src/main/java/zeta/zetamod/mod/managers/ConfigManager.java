@@ -11,6 +11,7 @@ import net.minecraft.SharedConstants;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import zeta.zetamod.api.util.Util;
 import zeta.zetamod.mod.ZetaMod;
 
 import java.io.*;
@@ -25,14 +26,14 @@ public class ConfigManager  {
      */
     public static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(),
              "zetamod." +
-                    "json5");
+                    "json5"
+    );
 
     final private ConfigNode root = new ConfigNode();
 
     private final Node general = root.fork("general");
     private Node world = root.fork("world");
     private Node gameplay = root.fork("Gameplay");
-    private Event configValue;
 
     // Still @Overwrite-able!
 
@@ -41,21 +42,22 @@ public class ConfigManager  {
     }
     public ConfigValue<Boolean> fixFireballs = ConfigValue.builder(Boolean.class)
             .withName("capFireballs")
-            .withComment("If set to true, removes the patch done to fix https://bugs.mojang.com/browse/MC-220698" +
+            .withComment("If set to true, removes the patch done " +
+                    "to fix " +
+                    "https://bugs.mojang.com/browse/MC-220698" +
                     "and makes bedrock farms work again")
             .withDefaultValue(true)
             .withParent(gameplay)
             .build();
     public ConfigValue<Boolean> farLandsEnabled = ConfigValue.builder(Boolean.class)
             .withName("farLandsEnabled")
-            .withComment("Whether or not the Far Lands should generate.")
+            .withComment("Whether or not the " +
+                    "Far Lands should generate.")
             .withDefaultValue(farlandsDefaultValue())
             .withParent(general)
             .build();
     public ConfigValue<Boolean> shardFarLands = ConfigValue.builder(Boolean.class)
-            .withName(
-                    "shardFarLands"
-            )
+            .withName("shardFarLands")
             .withComment("Should the shard farlands spawn?")
             .withDefaultValue(false)
             .withParent(general)
@@ -75,7 +77,9 @@ public class ConfigManager  {
             .build();
     public ConfigValue<Double> coordinateScaleMultiplier = ConfigValue.builder(Double.class)
             .withName("coordinateScaleMulti")
-            .withComment("Coordinate scale multiplyer so you don't have to mess with the one above.")
+            .withComment("Coordinate scale " +
+                    "multiplyer so you don't have to mess with" +
+                    " the one above.")
             .withDefaultValue(1.0D)
             .withParent(world)
             .build();
@@ -87,27 +91,34 @@ public class ConfigManager  {
             .build();
     public ConfigValue<Double> heightScaleMultiplier = ConfigValue.builder(Double.class)
             .withName("heightScaleMulti")
-            .withComment("Height scale multiplyer so you don't have to mess with the one above.")
+            .withComment("Height scale multiplyer" +
+                    " so you don't have to mess with the one " +
+                    "above.")
             .withDefaultValue(1.0D)
             .withParent(world)
             .build();
-    public ConfigValue<Boolean> cursed = ConfigValue.builder(Boolean.class)
-            .withName("curse")
-            .withComment("Make the mod even more cursed than it is. (Note, also does nothing)")
-            .withDefaultValue(false)
-            .withParent(general)
+    public ConfigValue<Integer> configVersion = ConfigValue.builder(Integer.class)
+            .withName("configVersion")
+            .withComment("DO NOT CHANGE OR CONFIG FILE WILL BE RESET!")
+            .withDefaultValue(
+                    //Currently set to mod dev build,
+                    // change to MOD_VERSION for mod version
+                    ZetaMod.MOD_DEV_V
+            )
+            .withParent(hashNode)
             .build();
     public static ConfigManager getConfig() {
         return GeneralManager.CONFIG;
     }
-
-    public ConfigManager() throws FiberException, IOException {
-        File currentConfigFile = new File(FabricLoader.getInstance().getConfigDirectory(),
+    /*
+    private ConfigManager() throws FiberException, IOException {
+        File currentConfigFile = new File(FabricLoader.getInstance().getGameDir().toFile(),
                 CONFIG_FILE.getName() + ".tmp");
         currentConfigFile.createNewFile();
         save(currentConfigFile);
         File configFile = new File(FabricLoader.getInstance().getConfigDirectory(),
-                CONFIG_FILE.getName() + ".unmodified");
+                CONFIG_FILE.getName() + ".tmp");
+        configFile.createNewFile();
         //if(CONFIG_FILE.exists()) {
         //    if(currentConfigFile.hashCode() != CONFIG_FILE.hashCode()) {
 
@@ -115,7 +126,7 @@ public class ConfigManager  {
         //        LogManager.getLogger().log(Level.INFO, "Will not delete config file!");
         //    }
         //}
-        if(!configFile.exists() && CONFIG_FILE.exists()) {
+        if((!configFile.exists()) && CONFIG_FILE.exists()) {
             try {
                 copy(CONFIG_FILE, configFile);
             } catch (NoSuchFileException e) {
@@ -123,11 +134,19 @@ public class ConfigManager  {
                 throw e;
             }
         }
-        if(configFile.hashCode() != currentConfigFile.hashCode()) {
+        if(!Util.hash(configFile).equals(Util.hash(currentConfigFile))) {
             logger.error("CONFIG FOUND WITH DIFFERENT HASH, DELETING!");
             CONFIG_FILE.delete();
+             //configFile.delete();
         }
-        currentConfigFile.delete();
+         //currentConfigFile.delete();
+    }
+     */
+    public ConfigManager() throws FiberException {
+        if(configVersion.getDefaultValue() != ZetaMod.MOD_DEV_V) {
+            logger.warn("Older config detected, deleting!");
+            CONFIG_FILE.delete();
+        }
     }
     public static void copy(File from, File to) throws IOException {
         Path s = Paths.get(from.getAbsolutePath());
@@ -138,21 +157,21 @@ public class ConfigManager  {
     private Logger logger = LogManager.getLogger();
 
 
-    public void save(File configFile) {
+    public void save() {
         try {
-            new JanksonSettings().serialize(this.root, Files.newOutputStream(configFile.toPath()), false);
+            new JanksonSettings().serialize(this.root, Files.newOutputStream(CONFIG_FILE.toPath()), false);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public ConfigManager load(File configFile) {
-        if (!configFile.exists()) {
-            this.save(configFile);
+    public ConfigManager load() {
+        if (!CONFIG_FILE.exists()) {
+            this.save();
         }
 
         try {
-            new JanksonSettings().deserialize(this.root, Files.newInputStream(configFile.toPath()));
+            new JanksonSettings().deserialize(this.root, Files.newInputStream(CONFIG_FILE.toPath()));
         } catch (IOException | FiberException e) {
             e.printStackTrace();
         }

@@ -2,6 +2,8 @@ package zeta.zetamod.mod;
 
 import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
 import me.zeroeightsix.fiber.exception.FiberException;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.SharedConstants;
 import zeta.zetamod.api.API;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
@@ -32,7 +34,7 @@ import java.io.IOException;
 
 public class ZetaMod implements ModInitializer {
 
-    public static final String PHASE = "preview";
+    public static final String PHASE = "prerelease";
     private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
@@ -42,7 +44,7 @@ public class ZetaMod implements ModInitializer {
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	public static boolean MOD_DEV = true;
 	public static final int MOD_DEV_V =
-			59
+			60
 			//+ "."
 			//+ "2"
 			;
@@ -62,15 +64,16 @@ public class ZetaMod implements ModInitializer {
 
 	public static final Level LV = Level.INFO;
 	public static double concerning_weight = Math.pow(2, -4);
-	public API api = new API(MOD_VERSION_D);
+	//public API api = new API(MOD_VERSION_D);
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaMod");
+		//log2("Loading on ")
 		//TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing config");
 		try {
 			ConfigManager configManager = new ConfigManager();
-		} catch (FiberException | IOException e) {
+		} catch (FiberException e) {
 			log2("Loading failed!");
 			e.printStackTrace();
 		}
@@ -106,12 +109,12 @@ public class ZetaMod implements ModInitializer {
 			log2("Mod version is " + MOD_VERSION_D + ' ' + PHASE + " build " + MOD_DEV_V);
 			log2("Milestone 12");
 		}
-		log(LV,"API version " + api.APIVersionGet());
+		//log(LV,"API version " + api.APIVersionGet());
 		log(Level.INFO, "Loading!");
 		log(Level.INFO, "Adding biomes");
-		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 2D);
-		OverworldBiomes.addContinentalBiome(BiomeKeys.DRIPSTONE_CAVES, OverworldClimate.COOL, 2D);
-		OverworldBiomes.addContinentalBiome(BiomeKeys.NETHER_WASTES, OverworldClimate.DRY, 0.25D);
+		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 0.25D);
+		OverworldBiomes.addContinentalBiome(BiomeKeys.DRIPSTONE_CAVES, OverworldClimate.COOL, 0.25D);
+		OverworldBiomes.addContinentalBiome(BiomeKeys.NETHER_WASTES, OverworldClimate.DRY, 0.0625D);
 
 		log(Level.INFO, "Adding concerning items!");
 
@@ -126,16 +129,16 @@ public class ZetaMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"concerned_tater"), CONCERNED_TATER);
 		//ZetaMod.log(Level.INFO, "Patching Farlands!");
 
-		System.out.println("Adding a very concern easter egg");
+		//log2("Adding a very concern easter egg");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.THE_VOID, OverworldClimate.DRY,
-				1.5E-1D);
+				0.5D);
 
 
 		BiomesInitializer.initializeBiomes();
 		log(Level.INFO, "Registering extra items...");
 		RegisterItems items = new RegisterItems();
 		items.registerItems();
-		log(Level.INFO, "DONE!");
+		//log(Level.INFO, "DONE!");
 	}
 	public static void log(Level level, String message){
 		LOGGER.log(level, "["+MOD_NAME+"] " + message);

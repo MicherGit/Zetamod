@@ -16,7 +16,7 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.Locale;
 
-public class RegisterKeystone implements ModInitializer {
+public class Keystone implements ModInitializer {
     public static Item KEYSTONE = Registry.register(Registry.ITEM, new Identifier(ZetaMod.MOD_ID,
             "KEYSTONE".toLowerCase(Locale.ROOT)
     ), new KeystoneItem(new FabricItemSettings().group(ItemGroup.MISC)));
@@ -25,7 +25,9 @@ public class RegisterKeystone implements ModInitializer {
     public void onInitialize() {
         LogManager.getLogger().log(Level.INFO, "Adding keystone items");
         Registry.register(Registry.BLOCK, new Identifier(ZetaMod.MOD_ID, "keystone_block"), KEYSTONE_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(ZetaMod.MOD_ID, "keystone_block"), new BlockItem(KEYSTONE_BLOCK, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ZetaMod.MOD_ID, "keystone_block"), new BlockItem(KEYSTONE_BLOCK,
+                new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
+        KeystoneArmor.register();
     }
     private void log(String message) {
         LogManager.getLogger().log(Level.INFO, message);

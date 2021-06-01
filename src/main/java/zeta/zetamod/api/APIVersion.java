@@ -1,5 +1,6 @@
 package zeta.zetamod.api;
 
+@Deprecated
 public class APIVersion {
     private String string;
     public APIVersion(String version) {

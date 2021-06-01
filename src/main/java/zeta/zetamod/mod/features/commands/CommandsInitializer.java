@@ -69,6 +69,12 @@ public class CommandsInitializer {
                                 return 0;
                             })
                     ))
+                    .then(literal("toggleOpFireballs").executes(
+                            context -> {
+                                getConfig().fixFireballs.setValue(!getConfig().fixFireballs.getValue());
+                                return 7;
+                            }
+                    ))
                     .then(
                             literal("doubleCoordinateScale".toLowerCase()).
                                     executes(

@@ -13,8 +13,8 @@ public class GeneralManager implements ModInitializer {
 
     static {
         try {
-            CONFIG = new ConfigManager().load(ConfigManager.CONFIG_FILE);
-        } catch (FiberException | IOException e) {
+            CONFIG = new ConfigManager().load();
+        } catch (FiberException e) {
             e.printStackTrace();
         }
     }
@@ -23,7 +23,7 @@ public class GeneralManager implements ModInitializer {
     }
 
     public static void saveConfig() {
-        CONFIG.save(ConfigManager.CONFIG_FILE);
+        CONFIG.save();
     }
 
 

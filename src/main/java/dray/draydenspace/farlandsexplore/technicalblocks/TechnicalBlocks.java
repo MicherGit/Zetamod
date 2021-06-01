@@ -2,6 +2,7 @@ package dray.draydenspace.farlandsexplore.technicalblocks;
 
 import java.util.Random;
 
+import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -37,7 +38,7 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import zeta.zetamod.mod.ZetaMod;
 
-public class TechnicalBlocks implements ModInitializer{
+public class TechnicalBlocks implements ClientModInitializer {
 	public StrongholdFeature.Start strongholdStart;
 	public static final String MOD_ID = "technicalblocks";
 	public MinecraftClient mc = MinecraftClient.getInstance();
@@ -119,7 +120,7 @@ public class TechnicalBlocks implements ModInitializer{
 	public static String tb_version = ZetaMod.technicalblocks_version;
 
 	@Override
-	public void onInitialize() {
+	public void onInitializeClient() {
 		LogManager.getLogger().log(Level.INFO, "Initializing TechnicalBlocks Blocks version " + tb_version + " by Draydenspace_FS");
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
