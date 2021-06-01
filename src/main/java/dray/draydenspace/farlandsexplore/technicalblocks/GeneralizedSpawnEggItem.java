@@ -32,6 +32,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
+@SuppressWarnings("ALL")
 public class GeneralizedSpawnEggItem extends Item {
    private static final Map<EntityType<? extends Entity>, GeneralizedSpawnEggItem> SPAWN_EGGS = Maps.newIdentityHashMap();
    private final int primaryColor;
@@ -113,10 +114,10 @@ public class GeneralizedSpawnEggItem extends Item {
 
    @Nullable
    public static GeneralizedSpawnEggItem forEntity(@Nullable EntityType<?> type) {
-      return (GeneralizedSpawnEggItem)SPAWN_EGGS.get(type);
+      return SPAWN_EGGS.get(type);
    }
 
-   public static Iterable<GeneralizedSpawnEggItem> getAll() {
+   public static Iterable getAll() {
       return Iterables.unmodifiableIterable((Iterable)SPAWN_EGGS.values());
    }
 
