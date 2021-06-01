@@ -44,7 +44,7 @@ public class ZetaMod implements ModInitializer {
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	public static boolean MOD_DEV = true;
 	public static final int MOD_DEV_V =
-			60
+			61
 			//+ "."
 			//+ "2"
 			;
@@ -107,7 +107,7 @@ public class ZetaMod implements ModInitializer {
 
 		} else {
 			log2("Mod version is " + MOD_VERSION_D + ' ' + PHASE + " build " + MOD_DEV_V);
-			log2("Milestone 12");
+			log2("Milestone 12 beta!");
 		}
 		//log(LV,"API version " + api.APIVersionGet());
 		log(Level.INFO, "Loading!");
