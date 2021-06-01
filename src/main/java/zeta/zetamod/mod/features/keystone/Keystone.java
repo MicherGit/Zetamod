@@ -29,7 +29,4 @@ public class Keystone implements ModInitializer {
                 new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
         KeystoneArmor.register();
     }
-    private void log(String message) {
-        LogManager.getLogger().log(Level.INFO, message);
-    }
 }
