@@ -17,7 +17,6 @@
     "zeta.SharedConstantsMixin",
     "zeta.FireballFix",
     "supercoder.beta.MixinAquafierSampler"
-    , "supercoder.beta.MixinNoiseSamplingConfig"
   ],
   "client": [
   ],
