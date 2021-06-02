@@ -22,7 +22,8 @@ public class MixinAquafierSampler {
     @Shadow @Final private AquiferSampler.Impl.FluidLevel[] waterLevels;
 
     /**
-     * @author
+     * @author Zeta n supercoder
+     * @reason fricc u
      */
     @Overwrite
     private int index(int x, int y, int z) {

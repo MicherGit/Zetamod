@@ -116,7 +116,7 @@ public class GeneralizedSpawnEggItem extends Item {
       return (GeneralizedSpawnEggItem)SPAWN_EGGS.get(type);
    }
 
-   public static Iterable<GeneralizedSpawnEggItem> getAll() {
+   public static Iterable getAll() {
       return Iterables.unmodifiableIterable((Iterable)SPAWN_EGGS.values());
    }
 
