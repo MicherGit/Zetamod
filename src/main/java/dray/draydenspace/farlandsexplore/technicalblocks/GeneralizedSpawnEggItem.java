@@ -132,23 +132,17 @@ public class GeneralizedSpawnEggItem extends Item {
    }
 
    public Optional<MobEntity> spawnBaby(PlayerEntity user, MobEntity entity, EntityType<? extends MobEntity> entityType, ServerWorld world, Vec3d pos, ItemStack stack) {
-      if (!this.isOfSameEntityType(stack.getTag(), entityType)) {
-         return Optional.empty();
-      } else {
+      if (this.isOfSameEntityType(stack.getTag(), entityType)) {
          MobEntity mobEntity2;
          if (entity instanceof PassiveEntity) {
-            mobEntity2 = ((PassiveEntity)entity).createChild(world, (PassiveEntity)entity);
+            mobEntity2 = ((PassiveEntity) entity).createChild(world, (PassiveEntity) entity);
          } else {
             mobEntity2 = entityType.create(world);
          }
 
-         if (mobEntity2 == null) {
-            return Optional.empty();
-         } else {
+         if (mobEntity2 != null) {
             mobEntity2.setBaby(true);
-            if (!mobEntity2.isBaby()) {
-               return Optional.empty();
-            } else {
+            if (mobEntity2.isBaby()) {
                mobEntity2.refreshPositionAndAngles(pos.getX(), pos.getY(), pos.getZ(), 0.0F, 0.0F);
                world.spawnEntityAndPassengers(mobEntity2);
                if (stack.hasCustomName()) {
@@ -159,9 +153,9 @@ public class GeneralizedSpawnEggItem extends Item {
                   stack.decrement(1);
                }
 
-               return Optional.empty();
             }
          }
       }
+      return Optional.empty();
    }
 }
