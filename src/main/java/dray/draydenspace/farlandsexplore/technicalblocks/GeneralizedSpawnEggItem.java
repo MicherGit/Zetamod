@@ -74,17 +74,16 @@ public class GeneralizedSpawnEggItem extends Item {
 
    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
       ItemStack itemStack = user.getStackInHand(hand);
-      HitResult hitResult = raycast(world, user, RaycastContext.FluidHandling.SOURCE_ONLY);
+      BlockHitResult hitResult = raycast(world, user, RaycastContext.FluidHandling.SOURCE_ONLY);
       if (hitResult.getType() != HitResult.Type.BLOCK) {
          return TypedActionResult.pass(itemStack);
       } else if (!(world instanceof ServerWorld)) {
          return TypedActionResult.success(itemStack);
       } else {
-         BlockHitResult blockHitResult = (BlockHitResult)hitResult;
-         BlockPos blockPos = blockHitResult.getBlockPos();
+         BlockPos blockPos = hitResult.getBlockPos();
          if (!(world.getBlockState(blockPos).getBlock() instanceof FluidBlock)) {
             return TypedActionResult.pass(itemStack);
-         } else if (world.canPlayerModifyAt(user, blockPos) && user.canPlaceOn(blockPos, blockHitResult.getSide(), itemStack)) {
+         } else if (world.canPlayerModifyAt(user, blockPos) && user.canPlaceOn(blockPos, hitResult.getSide(), itemStack)) {
             EntityType<?> entityType = this.getEntityType(itemStack.getTag());
             if (entityType.spawnFromItemStack((ServerWorld)world, itemStack, user, blockPos, SpawnReason.SPAWN_EGG, false, false) == null) {
                return TypedActionResult.pass(itemStack);
@@ -113,9 +112,10 @@ public class GeneralizedSpawnEggItem extends Item {
 
    @Nullable
    public static GeneralizedSpawnEggItem forEntity(@Nullable EntityType<?> type) {
-      return (GeneralizedSpawnEggItem)SPAWN_EGGS.get(type);
+      return SPAWN_EGGS.get(type);
    }
 
+   @SuppressWarnings("rawtypes")
    public static Iterable getAll() {
       return Iterables.unmodifiableIterable((Iterable)SPAWN_EGGS.values());
    }
@@ -124,7 +124,7 @@ public class GeneralizedSpawnEggItem extends Item {
       if (nbt != null && nbt.contains("EntityTag", 10)) {
          NbtCompound nbtCompound = nbt.getCompound("EntityTag");
          if (nbtCompound.contains("id", 8)) {
-            return (EntityType)EntityType.get(nbtCompound.getString("id")).orElse(this.type);
+            return EntityType.get(nbtCompound.getString("id")).orElse(this.type);
          }
       }
 
@@ -135,24 +135,24 @@ public class GeneralizedSpawnEggItem extends Item {
       if (!this.isOfSameEntityType(stack.getTag(), entityType)) {
          return Optional.empty();
       } else {
-         Object mobEntity2;
+         MobEntity mobEntity2;
          if (entity instanceof PassiveEntity) {
             mobEntity2 = ((PassiveEntity)entity).createChild(world, (PassiveEntity)entity);
          } else {
-            mobEntity2 = (MobEntity)entityType.create(world);
+            mobEntity2 = entityType.create(world);
          }
 
          if (mobEntity2 == null) {
             return Optional.empty();
          } else {
-            ((MobEntity)mobEntity2).setBaby(true);
-            if (!((MobEntity)mobEntity2).isBaby()) {
+            mobEntity2.setBaby(true);
+            if (!mobEntity2.isBaby()) {
                return Optional.empty();
             } else {
-               ((MobEntity)mobEntity2).refreshPositionAndAngles(pos.getX(), pos.getY(), pos.getZ(), 0.0F, 0.0F);
-               world.spawnEntityAndPassengers((Entity)mobEntity2);
+               mobEntity2.refreshPositionAndAngles(pos.getX(), pos.getY(), pos.getZ(), 0.0F, 0.0F);
+               world.spawnEntityAndPassengers(mobEntity2);
                if (stack.hasCustomName()) {
-                  ((MobEntity)mobEntity2).setCustomName(stack.getName());
+                  mobEntity2.setCustomName(stack.getName());
                }
 
                if (!user.getAbilities().creativeMode) {
