@@ -44,7 +44,7 @@ public class ZetaMod implements ModInitializer {
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	public static boolean MOD_DEV = true;
 	public static final int MOD_DEV_V =
-			613
+			614
 			//+ "."
 			//+ "2"
 			;
@@ -71,6 +71,7 @@ public class ZetaMod implements ModInitializer {
 		//log2("Loading on ")
 		//TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing config");
+		log(Level.INFO, "Loading on minecraft version " + SharedConstants.getGameVersion().getName());
 		try {
 			ConfigManager configManager = new ConfigManager();
 		} catch (FiberException e) {
@@ -99,14 +100,14 @@ public class ZetaMod implements ModInitializer {
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
 			MOD_VERSION_D = MOD_VERSION_D + "." + MOD_DEV_V;
-			log(Level.INFO, "Mod version is " + MOD_VERSION_D + " development version " + MOD_DEV_V);
+			log(Level.INFO, "Mod build is " + MOD_VERSION_D + " development version " + MOD_DEV_V);
 			log(LV, "Milestone build" + " " +
 					12
 					+ " beta!"
 			);
 
 		} else {
-			log2("Mod version is " + MOD_VERSION_D + ' ' + PHASE + " build " + MOD_DEV_V);
+			log2("Mod build is " + MOD_VERSION_D + ' ' + PHASE + " build " + MOD_DEV_V);
 			log2("Milestone 12 beta!");
 		}
 		//log(LV,"API version " + api.APIVersionGet());

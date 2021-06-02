@@ -82,8 +82,7 @@ public class ConcerningBiome {
         ZetaMod.log(Level.INFO, "Adding biomes");
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "concerning"), CONCERNING_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, CONCERNING_KEY.getValue(), CONCERNINGS);
-        boolean addToWorldgenBoolean = true;
-        if (addToWorldgenBoolean) {
+        if (addToWorldgenBoolean()) {
             addToWorldgen();
         }
         ZetaMod.log(Level.INFO,
@@ -97,6 +96,9 @@ public class ConcerningBiome {
     public static double conc = ZetaMod.concerning_weight;
     public static void addToWorldgen() {
         OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.TEMPERATE, conc);
-        OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
+        //OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
+    }
+    public static boolean addToWorldgenBoolean() {
+        return true;
     }
 }

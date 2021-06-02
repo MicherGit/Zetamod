@@ -16,7 +16,7 @@ public class RegisterItems {
     public static BlockItem VoidBlock_ITEM;
     public void registerItems() {
         // Register keystone item
-        Keystone keystone = new Keystone();
+        //Keystone keystone = new Keystone();
         VoidBlock_BLOCK = Registry.register(Registry.BLOCK, id("void"), new VoidBlock());
         VoidBlock_ITEM = Registry.register(Registry.ITEM, id("void"),
                 new BlockItem(VoidBlock_BLOCK, new Item.Settings().group(ItemGroup.MISC)));

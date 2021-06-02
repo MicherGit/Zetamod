@@ -115,7 +115,6 @@ public class GeneralizedSpawnEggItem extends Item {
       return SPAWN_EGGS.get(type);
    }
 
-   @SuppressWarnings("rawtypes")
    public static Iterable getAll() {
       return Iterables.unmodifiableIterable((Iterable)SPAWN_EGGS.values());
    }

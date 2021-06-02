@@ -18,7 +18,7 @@ import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import org.apache.logging.log4j.Level;
 
-public class ObsilandBiome {
+public class ObsidianBiome {
     private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> OBSIDIAN_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
             .withConfig(new TernarySurfaceConfig(
                     Blocks.OBSIDIAN.getDefaultState(),
@@ -74,16 +74,18 @@ public class ObsilandBiome {
         ZetaMod.log(Level.INFO, "Adding biomes");
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "obsidian"), OBSIDIAN_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, OBSILAND_KEY.getValue(), OBSILAND);
-        boolean addToWorldgenBoolean = false;
-        if (addToWorldgenBoolean) {
+        if (addToWorldgenBoolean()) {
             addToWorldgen();
         }
         ZetaMod.log(Level.INFO,
-                "Initialized Obsiland biome. Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
+                "Initialized Obsidian biome."
         );
     }
     public static void addToWorldgen() {
-        OverworldBiomes.addContinentalBiome(OBSILAND_KEY, OverworldClimate.TEMPERATE, 2D);
-        OverworldBiomes.addContinentalBiome(OBSILAND_KEY, OverworldClimate.COOL, 2D);
+        //OverworldBiomes.addContinentalBiome(OBSILAND_KEY, OverworldClimate.TEMPERATE, 0.0625);
+        OverworldBiomes.addContinentalBiome(OBSILAND_KEY, OverworldClimate.COOL, 0.0625D);
+    }
+    public static boolean addToWorldgenBoolean() {
+        return true;
     }
 }
