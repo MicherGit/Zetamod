@@ -148,11 +148,7 @@ public class ConfigManager  {
             CONFIG_FILE.delete();
         }
     }
-    public static void copy(File from, File to) throws IOException {
-        Path s = Paths.get(from.getAbsolutePath());
-        Path t = Paths.get(to.getAbsolutePath());
-        Files.copy(s, t);
-    }
+
 
     private Logger logger = LogManager.getLogger();
 

@@ -4,16 +4,22 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
-public class Util
-extends AbstractUtility
-//implements AbstractUtility
+public class Util extends AbstractUtility
 {
     public static String SPACE = " ";
-    static class FileUtil {}
+    public static String returnSpace() {return SPACE;}
+    public static class FileUtil {
+        public static void copy(File from, File to) throws IOException {
+            Path s = Paths.get(from.getAbsolutePath());
+            Path t = Paths.get(to.getAbsolutePath());
+            Files.copy(s, t);
+        }
+    }
     public static String concatArray(int[] array) {
         //String[] stringArray = ;
         //List<String> stringList = Arrays.asList();
