@@ -115,8 +115,8 @@ public class GeneralizedSpawnEggItem extends Item {
       return SPAWN_EGGS.get(type);
    }
 
-   public static Iterable getAll() {
-      return Iterables.unmodifiableIterable((Iterable)SPAWN_EGGS.values());
+   public static Iterable<GeneralizedSpawnEggItem> getAll() {
+      return Iterables.unmodifiableIterable(SPAWN_EGGS.values());
    }
 
    public EntityType<?> getEntityType(@Nullable NbtCompound nbt) {
