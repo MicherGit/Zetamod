@@ -13,10 +13,10 @@ import zeta.zetamod.mod.features.keystone.mats.KeystoneArmorMaterial;
 
 public class KeystoneArmor {
     public static final ArmorMaterial CUSTOM_ARMOR_MATERIAL = new KeystoneArmorMaterial();
-    public static final Item KEYSTONE_HELMET = new ArmorItem(CUSTOM_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
-    public static final Item KEYSTONE_CHESTPLATE = new ArmorItem(CUSTOM_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
-    public static final Item KEYSTONE_LEGGINGS = new ArmorItem(CUSTOM_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().group(ItemGroup.COMBAT));
-    public static final Item KEYSTONE_BOOTS = new ArmorItem(CUSTOM_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item KEYSTONE_HELMET = new ArmorItem(CUSTOM_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(zeta.zetamod.mod.ZetaMod.ZETAMOD_ITEMS));
+    public static final Item KEYSTONE_CHESTPLATE = new ArmorItem(CUSTOM_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(zeta.zetamod.mod.ZetaMod.ZETAMOD_ITEMS));
+    public static final Item KEYSTONE_LEGGINGS = new ArmorItem(CUSTOM_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().group(zeta.zetamod.mod.ZetaMod.ZETAMOD_ITEMS));
+    public static final Item KEYSTONE_BOOTS = new ArmorItem(CUSTOM_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().group(zeta.zetamod.mod.ZetaMod.ZETAMOD_ITEMS));
 
     public static void register() {
         //Registry.register(Registry.ITEM, new Identifier(ZetaMod.MOD_ID, KEYSTONE"), KEYSTONE);

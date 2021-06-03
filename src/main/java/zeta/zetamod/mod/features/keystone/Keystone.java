@@ -19,7 +19,7 @@ import java.util.Locale;
 public class Keystone implements ModInitializer {
     public static Item KEYSTONE = Registry.register(Registry.ITEM, new Identifier(ZetaMod.MOD_ID,
             "KEYSTONE".toLowerCase(Locale.ROOT)
-    ), new KeystoneItem(new FabricItemSettings().group(ItemGroup.MISC)));
+    ), new KeystoneItem(new FabricItemSettings().group(zeta.zetamod.mod.ZetaMod.ZETAMOD_ITEMS)));
     public static Block KEYSTONE_BLOCK = new Block(FabricBlockSettings.of(Material.AMETHYST).strength(9.0f));
     @Override
     public void onInitialize() {
