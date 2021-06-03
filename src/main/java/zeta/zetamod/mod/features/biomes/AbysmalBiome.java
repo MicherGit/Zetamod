@@ -24,7 +24,7 @@ import org.apache.logging.log4j.Level;
 import zeta.zetamod.mod.ZetaMod;
 
 public class AbysmalBiome {
-    private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CONCERNING_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
+    private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> ABYSMAL_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
             .withConfig(new TernarySurfaceConfig(
                     Blocks.AIR.getDefaultState(),
                     Blocks.CAVE_AIR.getDefaultState(),
@@ -43,7 +43,8 @@ public class AbysmalBiome {
         DefaultBiomeFeatures.addMonsters(spawnSettings, 95, 5, 100);
 
         GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
-        generationSettings.surfaceBuilder(CONCERNING_SURFACE_BUILDER);
+        generationSettings.surfaceBuilder(
+                ABYSMAL_SURFACE_BUILDER);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(generationSettings);
         DefaultBiomeFeatures.addLandCarvers(generationSettings);
         DefaultBiomeFeatures.addDefaultLakes(generationSettings);
@@ -77,7 +78,7 @@ public class AbysmalBiome {
 
     public static void register() {
         ZetaMod.log(Level.INFO, "Adding biomes");
-        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "concerning"), CONCERNING_SURFACE_BUILDER);
+        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "concerning"), ABYSMAL_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, ABYSMAL_KEY.getValue(), ABYSMAL);
         if (addToWorldgenBoolean()) {
             addToWorldgen();
