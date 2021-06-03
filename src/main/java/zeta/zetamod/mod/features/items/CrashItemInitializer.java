@@ -14,7 +14,7 @@ public class CrashItemInitializer implements ModInitializer {
     public void onInitialize() {
         Registry.register(Registry.ITEM, new Identifier(ZetaMod.MOD_ID,
                 "crashitem"
-        ), new CrashItem(new FabricItemSettings().group(ItemGroup.MISC)));
+        ), new CrashItem(new FabricItemSettings().group(ZetaMod.ZETAMOD_ITEMS)));
         ZetaMod.log(Level.INFO,"Intialized debug item!");
     }
 }

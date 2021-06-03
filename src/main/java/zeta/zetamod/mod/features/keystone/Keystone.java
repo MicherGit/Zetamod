@@ -26,7 +26,7 @@ public class Keystone implements ModInitializer {
         LogManager.getLogger().log(Level.INFO, "Adding keystone items");
         Registry.register(Registry.BLOCK, new Identifier(ZetaMod.MOD_ID, "keystone_block"), KEYSTONE_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(ZetaMod.MOD_ID, "keystone_block"), new BlockItem(KEYSTONE_BLOCK,
-                new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
+                new FabricItemSettings().group(ZetaMod.ZETAMOD_ITEMS)));
         KeystoneArmor.register();
         KeystoneTools.register();
     }

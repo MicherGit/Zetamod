@@ -3,8 +3,10 @@ package zeta.zetamod.mod;
 import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
 import me.zeroeightsix.fiber.exception.FiberException;
 import net.fabricmc.api.EnvType;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.SharedConstants;
+import net.minecraft.item.ItemStack;
 import zeta.zetamod.api.API;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
 import zeta.zetamod.mod.features.commands.CommandsInitializer;
@@ -44,7 +46,7 @@ public class ZetaMod implements ModInitializer {
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	public static boolean MOD_DEV = true;
 	public static final int MOD_DEV_V =
-			614
+			615
 			//+ "."
 			//+ "2"
 			;
@@ -65,6 +67,12 @@ public class ZetaMod implements ModInitializer {
 	public static final Level LV = Level.INFO;
 	public static double concerning_weight = Math.pow(2, -4);
 	//public API api = new API(MOD_VERSION_D);
+
+	public static final ItemGroup ZETAMOD_ITEMS = FabricItemGroupBuilder.create(
+			new Identifier(MOD_ID,"zetamod_group")).icon(
+			() -> new ItemStack(CONCERN_BLOCK)).
+			build();
+
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaMod");
