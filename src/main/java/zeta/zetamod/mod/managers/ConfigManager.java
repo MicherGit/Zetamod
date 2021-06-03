@@ -97,16 +97,6 @@ public class ConfigManager  {
             .withDefaultValue(1.0D)
             .withParent(world)
             .build();
-    public ConfigValue<Integer> configVersion = ConfigValue.builder(Integer.class)
-            .withName("configVersion")
-            .withComment("DO NOT CHANGE OR CONFIG FILE WILL BE RESET!")
-            .withDefaultValue(
-                    //Currently set to mod dev build,
-                    // change to MOD_VERSION for mod version
-                    ZetaMod.MOD_DEV_V
-            )
-            .withParent(hashNode)
-            .build();
     public static ConfigManager getConfig() {
         return GeneralManager.CONFIG;
     }
@@ -142,12 +132,7 @@ public class ConfigManager  {
          //currentConfigFile.delete();
     }
      */
-    public ConfigManager() throws FiberException {
-        if(configVersion.getDefaultValue() != ZetaMod.MOD_DEV_V) {
-            logger.warn("Older config detected, deleting!");
-            CONFIG_FILE.delete();
-        }
-    }
+    public ConfigManager() throws FiberException {}
 
 
     private Logger logger = LogManager.getLogger();
