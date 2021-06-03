@@ -78,7 +78,7 @@ public class AbysmalBiome {
 
     public static void register() {
         ZetaMod.log(Level.INFO, "Adding biomes");
-        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "concerning"), ABYSMAL_SURFACE_BUILDER);
+        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "abysmal"), ABYSMAL_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, ABYSMAL_KEY.getValue(), ABYSMAL);
         if (addToWorldgenBoolean()) {
             addToWorldgen();
