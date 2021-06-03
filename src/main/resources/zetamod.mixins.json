@@ -14,7 +14,6 @@
     "supercoder.MixinWorld",
     "supercoder.MixinWorldBorder",
     "supercoder.MixinWorldBorderProperties",
-    "zeta.SharedConstantsMixin",
     "zeta.FireballFix",
     "supercoder.beta.MixinAquafierSampler"
   ],

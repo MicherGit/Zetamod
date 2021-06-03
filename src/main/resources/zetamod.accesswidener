@@ -10,4 +10,3 @@ accessible field net/minecraft/util/math/noise/SimplexNoiseSampler GRADIENTS [[I
 
 accessible class net/minecraft/world/gen/chunk/AquiferSampler$Impl$FluidLevel
 accessible class net/minecraft/world/gen/chunk/AquiferSampler$Impl
-
