@@ -5,6 +5,6 @@ public class BiomesInitializer {
         // Register Biomes
         ObsidianBiome.register();
         ConcerningBiome.register();
-        AbysmalBiome.register();
+        HellscapeMountainsBiome.register();
     }
 }

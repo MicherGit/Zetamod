@@ -16,6 +16,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
@@ -23,16 +25,12 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import org.apache.logging.log4j.Level;
 import zeta.zetamod.mod.ZetaMod;
 
-public class AbysmalBiome {
-    private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> ABYSMAL_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
-            .withConfig(new TernarySurfaceConfig(
-                    Blocks.AIR.getDefaultState(),
-                    Blocks.CAVE_AIR.getDefaultState(),
-                    Blocks.VOID_AIR.getDefaultState()));
+public class HellscapeMountainsBiome {
+    private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> HELLSCAPE_MOUNTAINS_SURFACE_BUILDER = SurfaceBuilder.NOPE.withConfig(new TernarySurfaceConfig(Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState()));
 
-    private static final Biome ABYSMAL = theAbyss();
+    private static final Biome HELLSCAPE_MOUNTAINS = empty();
 
-    private static Biome theAbyss() {
+    private static Biome empty() {
         // We specify what entities spawn and what features generate in the biome.
         // Aside from some structures, trees, rocks, plants and
         //   custom entities, these are mostly the same for each biome.
@@ -44,42 +42,36 @@ public class AbysmalBiome {
 
         GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
         generationSettings.surfaceBuilder(
-                ABYSMAL_SURFACE_BUILDER);
-        DefaultBiomeFeatures.addDefaultUndergroundStructures(generationSettings);
-        DefaultBiomeFeatures.addLandCarvers(generationSettings);
-        DefaultBiomeFeatures.addDefaultLakes(generationSettings);
-        DefaultBiomeFeatures.addDungeons(generationSettings);
-        DefaultBiomeFeatures.addMineables(generationSettings, true);
-        DefaultBiomeFeatures.addDefaultOres(generationSettings);
-        DefaultBiomeFeatures.addDefaultDisks(generationSettings);
-        DefaultBiomeFeatures.addSprings(generationSettings);
-        DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
+                HELLSCAPE_MOUNTAINS_SURFACE_BUILDER);
 
         return (new Biome.Builder())
-                .precipitation(Biome.Precipitation.RAIN)
+                .precipitation(Biome.Precipitation.NONE)
                 .category(Biome.Category.NONE)
-                .depth(0.125F)
-                .scale(0.05F)
-                .temperature(0.8F)
-                .downfall(0.4F)
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(0x3f76e4)
-                        .waterFogColor(0x050533)
-                        .fogColor(0xc0d8ff)
-                        .skyColor(0x77adff)
-                        .build())
+                .depth(Float.MIN_VALUE)
+                .scale(0)
+                .temperature(Float.POSITIVE_INFINITY)
+                .downfall(0.0f)
+
+                .effects(
+                        (new BiomeEffects.Builder())
+                        .waterColor(0)
+                        .waterFogColor(0)
+                        .fogColor(0)
+                        .skyColor(0)
+                        .build()
+                )
                 .spawnSettings(spawnSettings.build())
                 .generationSettings(generationSettings.build())
                 .build();
     }
 
     private static final String MOD_ID = ZetaMod.MOD_ID;
-    public static final RegistryKey<Biome> ABYSMAL_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "abysmal"));
+    public static final RegistryKey<Biome> HELLSCAPE_MOUNTAINS_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "hellscape_mountains"));
 
     public static void register() {
-        ZetaMod.log(Level.INFO, "Adding biomes");
-        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "abysmal"), ABYSMAL_SURFACE_BUILDER);
-        Registry.register(BuiltinRegistries.BIOME, ABYSMAL_KEY.getValue(), ABYSMAL);
+        ZetaMod.log(Level.INFO, "Adding hell");
+        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "hellscape_mountains"), HELLSCAPE_MOUNTAINS_SURFACE_BUILDER);
+        Registry.register(BuiltinRegistries.BIOME, HELLSCAPE_MOUNTAINS_KEY.getValue(), HELLSCAPE_MOUNTAINS);
         if (addToWorldgenBoolean()) {
             addToWorldgen();
         }
@@ -91,7 +83,7 @@ public class AbysmalBiome {
     }
 
     public static void addToWorldgen() {
-        OverworldBiomes.addContinentalBiome(ABYSMAL_KEY, OverworldClimate.TEMPERATE, 0.0625D);
+        OverworldBiomes.addContinentalBiome(HELLSCAPE_MOUNTAINS_KEY, OverworldClimate.SNOWY, 0.0625D);
         //OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
     }
     public static boolean addToWorldgenBoolean() {

@@ -20,6 +20,11 @@ public class Util extends AbstractUtility
             Files.copy(s, t);
         }
     }
+    public static class MathUtil {
+        public static float float_pow(float x, float y) {
+            return (float)Math.pow(x,y);
+        }
+    }
     public static String concatArray(int[] array) {
         //String[] stringArray = ;
         //List<String> stringList = Arrays.asList();
