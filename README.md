@@ -4,7 +4,7 @@ A multi-functional utility mod for fabric 1.17 that does a lot of things. Other 
 ### Latest Update: [1.17] Zeta's Mod 1.0.0: The Keystone Update
 ### Latest Build: [1.17] Zeta's Mod 1.0.0
 ### Stable Build: [1.17] Zeta's Mod 1.0.0
-### Next Version: [1.17] Zeta's Mod 1.1.0: The Keystone Update
+### Next Version: [1.17] Zeta's Mod 1.1.0: The Keystone Update Part 2
 
 # Requirements
 ## Developer Key of security level 1 needed for private dev releases

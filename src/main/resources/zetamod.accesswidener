@@ -7,6 +7,8 @@ accessible class net/minecraft/world/border/WorldBorder$StaticArea
 
 accessible method net/minecraft/util/math/noise/SimplexNoiseSampler dot ([IDDD)D
 accessible field net/minecraft/util/math/noise/SimplexNoiseSampler GRADIENTS [[I
+accessible method net/minecraft/util/math/noise/PerlinNoiseSampler sample (IIIDDDD)D
+accessible method net/minecraft/util/math/noise/PerlinNoiseSampler sampleDerivative (IIIDDD[D)D
 
 accessible class net/minecraft/world/gen/chunk/AquiferSampler$Impl$FluidLevel
 accessible class net/minecraft/world/gen/chunk/AquiferSampler$Impl
