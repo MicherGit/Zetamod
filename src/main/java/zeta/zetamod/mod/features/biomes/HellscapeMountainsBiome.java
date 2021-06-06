@@ -87,6 +87,6 @@ public class HellscapeMountainsBiome {
         //OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
     }
     public static boolean addToWorldgenBoolean() {
-        return true;
+        return false;
     }
 }

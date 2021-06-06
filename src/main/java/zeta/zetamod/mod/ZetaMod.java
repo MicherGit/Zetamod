@@ -3,6 +3,7 @@ package zeta.zetamod.mod;
 import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
 import me.zeroeightsix.fiber.exception.FiberException;
 import net.fabricmc.api.EnvType;
+import net.fabricmc.fabric.api.biome.v1.TheEndBiomes;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.SharedConstants;
@@ -46,7 +47,7 @@ public class ZetaMod implements ModInitializer {
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	public static boolean MOD_DEV = true;
 	public static final int MOD_DEV_V =
-			6187
+			6197
 			//+ "."
 			//+ "2"
 			;
@@ -123,7 +124,10 @@ public class ZetaMod implements ModInitializer {
 		log(Level.INFO, "Adding biomes");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 0.25D);
 		OverworldBiomes.addContinentalBiome(BiomeKeys.DRIPSTONE_CAVES, OverworldClimate.COOL, 0.25D);
-		OverworldBiomes.addContinentalBiome(BiomeKeys.NETHER_WASTES, OverworldClimate.DRY, 0.0625D);
+		//OverworldBiomes.addContinentalBiome(BiomeKeys.NETHER_WASTES, OverworldClimate.DRY, 0.0625D);
+		//TheEndBiomes.addHighlandsBiome(BiomeKeys.LUSH_CAVES, 0.0625d);
+		TheEndBiomes.addMainIslandBiome(BiomeKeys.LUSH_CAVES, 0.0625d);
+		TheEndBiomes.addSmallIslandsBiome(BiomeKeys.LUSH_CAVES, 0.25d);
 
 		log(Level.INFO, "Adding concerning items!");
 
