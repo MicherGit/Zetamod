@@ -37,7 +37,7 @@ import java.io.IOException;
 
 public class ZetaMod implements ModInitializer {
 
-    public static final String PHASE = "prerelease";
+    public static final String PHASE = "release";
     private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
@@ -45,12 +45,15 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
-	public static boolean MOD_DEV = true;
+	public static boolean MOD_DEV = false;
 	public static final int MOD_DEV_V =
-			61971
+			198
 			//+ "."
 			//+ "2"
 			;
+	public static int getModVersion() {
+		return Integer.parseInt(MOD_VERSION);
+	}
 	public static final byte V_TYPE = 0;
 	public static String MOD_VERSION_D = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
 			//+
@@ -67,7 +70,7 @@ public class ZetaMod implements ModInitializer {
 
 	public static final Level LV = Level.INFO;
 	public static double concerning_weight = Math.pow(2, -4);
-	//public API api = new API(MOD_VERSION_D);
+	public API api = new API(MOD_VERSION_D);
 
 	public static final ItemGroup ZETAMOD_ITEMS = FabricItemGroupBuilder.create(
 			new Identifier(MOD_ID,"zetamod_group")).icon(
@@ -77,7 +80,7 @@ public class ZetaMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaMod");
-		//log2("Loading on ")
+
 		//TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing config");
 		log(Level.INFO, "Loading on minecraft version " + SharedConstants.getGameVersion().getName());
@@ -109,17 +112,17 @@ public class ZetaMod implements ModInitializer {
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
 			MOD_VERSION_D = MOD_VERSION_D + "." + MOD_DEV_V;
-			log(Level.INFO, "Mod build is " + MOD_VERSION_D + " development version " + MOD_DEV_V);
+			log(Level.INFO, "Mod build is " + MOD_VERSION + " development version " + MOD_DEV_V);
 			log(LV, "Milestone build" + " " +
 					12
 					+ " beta!"
 			);
 
 		} else {
-			log2("Mod build is " + MOD_VERSION_D + ' ' + PHASE + " build " + MOD_DEV_V);
+			log2("Mod build is " + MOD_VERSION + ' ' + PHASE + " build " + MOD_DEV_V);
 			log2("Milestone 12 beta!");
 		}
-		//log(LV,"API version " + api.APIVersionGet());
+		log(LV,"API version " + api.APIVersionGet());
 		log(Level.INFO, "Loading!");
 		log(Level.INFO, "Adding biomes");
 		OverworldBiomes.addContinentalBiome(BiomeKeys.LUSH_CAVES, OverworldClimate.TEMPERATE, 0.25D);
