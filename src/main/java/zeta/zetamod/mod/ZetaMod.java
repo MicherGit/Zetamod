@@ -31,6 +31,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
 import zeta.zetamod.mod.features.items.RegisterItems;
+import zeta.zetamod.mod.features.keystone.mats.KeystoneArmorMaterial;
 import zeta.zetamod.mod.managers.ConfigManager;
 
 import java.io.IOException;
@@ -47,7 +48,7 @@ public class ZetaMod implements ModInitializer {
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	public static boolean MOD_DEV = false;
 	public static final int MOD_DEV_V =
-			198
+			199
 			//+ "."
 			//+ "2"
 			;
@@ -76,7 +77,7 @@ public class ZetaMod implements ModInitializer {
 			new Identifier(MOD_ID,"zetamod_group")).icon(
 			() -> new ItemStack(CONCERN_BLOCK)).
 			build();
-
+	public static final Block TATER_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(5.0f));
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaMod");
@@ -97,16 +98,10 @@ public class ZetaMod implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		if (!System.getProperty("java.version").contains("16")) {
-			String error = "Java version too old!";
+			String error = "Java version too old or too new!";
 			JavaVersionTooOldException exception = new JavaVersionTooOldException(error);
 			exception.printStackTrace();
 			throw new Error(exception);
-		}
-		if (SharedConstants.getGameVersion().getName().equals("21w20a")) {
-			LogManager.getLogger().log(Level.
-							//WARN
-					INFO
-					, "Candle recipes enabled.");
 		}
 		log2("Running on java version " + System.getProperty("java.version"));
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
@@ -124,6 +119,11 @@ public class ZetaMod implements ModInitializer {
 					//"beta" +
 					"!");
 		}
+		log2("I really need to remember to do this stuff");
+
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "tater_block"), TATER_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "tater_block"), new BlockItem(TATER_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+
 		log(LV,"API version " + api.APIVersionGet());
 		log(Level.INFO, "Loading!");
 		log(Level.INFO, "Adding biomes");
@@ -135,10 +135,6 @@ public class ZetaMod implements ModInitializer {
 		TheEndBiomes.addSmallIslandsBiome(BiomeKeys.LUSH_CAVES, 0.25d);
 
 		log(Level.INFO, "Adding concerning items!");
-
-		//Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "void"), VOID);
-		//Registry.register(Registry.ITEM, new Identifier(MOD_ID, "void"), new BlockItem(VOID, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "concern_block"), CONCERN_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "concern_block"), new BlockItem(CONCERN_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "hyperconcern_block"), HYPERCONCERN_BLOCK);
