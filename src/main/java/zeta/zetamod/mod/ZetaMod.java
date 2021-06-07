@@ -120,7 +120,9 @@ public class ZetaMod implements ModInitializer {
 
 		} else {
 			log2("Mod build is " + MOD_VERSION + ' ' + PHASE + " build " + MOD_DEV_V);
-			log2("Milestone 12 beta!");
+			log2("Milestone 12 " +
+					//"beta" +
+					"!");
 		}
 		log(LV,"API version " + api.APIVersionGet());
 		log(Level.INFO, "Loading!");
