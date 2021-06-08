@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "zetamod:block/keystone_block" }
+  }
+}

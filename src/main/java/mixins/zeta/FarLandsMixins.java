@@ -5,7 +5,7 @@ import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
-@Mixin(OctavePerlinNoiseSampler.class)
+@Mixin(value = OctavePerlinNoiseSampler.class, priority = Integer.MAX_VALUE)
 public class FarLandsMixins {
 	/**
 	 * @author ZetaTheEliatrope

@@ -5,7 +5,10 @@
 
   "name": "ZetaMod",
   "description": "A mod that does many things!",
-  "authors": [],
+  "authors": [
+    "TwelvianZeta",
+    "Draydenspace_FS (Technical Blocks)"
+  ],
   "contact": {
     "homepage": "https://github.com/MicherGit/zetamod",
     "sources": "https://github.com/MicherGit/zetamod"
@@ -20,10 +23,15 @@
       "zeta.zetamod.mod.ZetaMod",
       "zeta.zetamod.mod.features.items.CrashItemInitializer",
       "zeta.zetamod.mod.managers.GeneralManager",
-      "zeta.zetamod.mod.features.portals.LushNetherPortal"
+      "zeta.zetamod.mod.features.portals.PortalInit",
+      "zeta.zetamod.mod.features.keystone.Keystone",
+      "zeta.zetamod.mod.features.commands.StartWorld"
+
     ],
     "client": [
-      "zeta.zetamod.mod.client.ZetaModClient"
+      "zeta.zetamod.mod.client.ZetaModClient",
+      "dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks",
+      "dray.draydenspace.farlandsexplore.technicalblocks.ClientModInit"
     ],
     "server": []
   },
@@ -34,7 +42,8 @@
   "depends": {
     "fabricloader": ">=0.10.0",
     "fabric": "*",
-    "minecraft": "*"
+    "minecraft": ">=1.17-rc.2",
+    "customportalapi": ">=0.0.1-beta35-1.17"
   },
   "suggests": {
     "another-mod": "*"

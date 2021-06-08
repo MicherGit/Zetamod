@@ -2,11 +2,13 @@ package zeta.zetamod.mod.features.commands;
 
 
 import com.mojang.brigadier.arguments.StringArgumentType;
+import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.SharedConstants;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import zeta.zetamod.mod.ZetaMod;
+import zeta.zetamod.mod.managers.ConfigManager;
 import zeta.zetamod.mod.managers.GeneralManager;
 //Static imports
 // getString(ctx, "string")
@@ -20,18 +22,26 @@ import static net.minecraft.server.command.CommandManager.argument;
 // Import everything
 import static net.minecraft.server.command.CommandManager.*;
 import static zeta.zetamod.mod.managers.GeneralManager.getConfig;
+
+import static zeta.zetamod.api.util.Util.*;
 @SuppressWarnings("ALL")
 public class CommandsInitializer {
     public void initCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
             /**
-             * /
+             * /zetamod
              */
             dispatcher.register(literal("zetamod").then(literal("version").executes(
                     context -> {
-                        context.getSource().sendFeedback(new LiteralText("ZetaMod version " + ZetaMod.MOD_VERSION + "\nRunning on Minecraft " + SharedConstants.getGameVersion().getName())
-                                ,true);
-                        return 1;
+                            context.getSource().sendFeedback(new LiteralText(
+                                    "ZetaMod version " + ZetaMod.MOD_VERSION + SPACE + "build" + SPACE + ZetaMod.MOD_DEV_V + SPACE + ZetaMod.PHASE + "\n" +
+                                            "Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
+                                            "Running on Minecraft " +
+                                            SharedConstants.getGameVersion().getName() +
+                                            "\nUsing Java version "+System.getProperty("java.version"))
+                                    ,true);
+
+                            return 1;
                     }
             )).then(literal("farlands").executes(
                     context -> {
@@ -59,15 +69,19 @@ public class CommandsInitializer {
                                 return 0;
                             })
                     ))
+                    .then(literal("toggleOpFireballs").executes(
+                            context -> {
+                                getConfig().fixFireballs.setValue(!getConfig().fixFireballs.getValue());
+                                return 7;
+                            }
+                    ))
                     .then(
-                            literal("setCoordinateScale".toLowerCase()).
+                            literal("doubleCoordinateScale".toLowerCase()).
                                     executes(
                                     context -> {
-                                        double coorindateScale = GeneralManager.getConfig().coordinateScale.getValue();
-                                        context.getSource().sendError(Text.of("Still wip!"));
-                                        //getConfig().coordinateScale.setValue(StringArgumentType.getString(context, ""))
-                                        //return 1;
-                                        return -1;
+                                        GeneralManager.getConfig().coordinateScale.setValue(GeneralManager.getConfig().coordinateScale.getValue() * 2);
+
+                                        return 2;
                                     }
                             )
                     )

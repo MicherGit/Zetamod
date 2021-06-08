@@ -6,6 +6,8 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.math.MathHelper;
 import org.apache.logging.log4j.Level;
 
+import java.io.IOException;
+
 public class GeneralManager implements ModInitializer {
     public static ConfigManager CONFIG;
 

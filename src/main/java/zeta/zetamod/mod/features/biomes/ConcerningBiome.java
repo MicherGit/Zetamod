@@ -82,8 +82,7 @@ public class ConcerningBiome {
         ZetaMod.log(Level.INFO, "Adding biomes");
         Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier(MOD_ID, "concerning"), CONCERNING_SURFACE_BUILDER);
         Registry.register(BuiltinRegistries.BIOME, CONCERNING_KEY.getValue(), CONCERNINGS);
-        boolean addToWorldgenBoolean = true;
-        if (addToWorldgenBoolean) {
+        if (addToWorldgenBoolean()) {
             addToWorldgen();
         }
         ZetaMod.log(Level.INFO,
@@ -91,12 +90,15 @@ public class ConcerningBiome {
                         //"Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
         );
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "gigaconcern_block"), GIGACONCERN_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gigaconcern_block"), new BlockItem(GIGACONCERN_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gigaconcern_block"), new BlockItem(GIGACONCERN_BLOCK, new Item.Settings().group(zeta.zetamod.mod.ZetaMod.ZETAMOD_ITEMS)));
 
     }
     public static double conc = ZetaMod.concerning_weight;
     public static void addToWorldgen() {
         OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.TEMPERATE, conc);
-        OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
+        //OverworldBiomes.addContinentalBiome(CONCERNING_KEY, OverworldClimate.COOL, conc);
+    }
+    public static boolean addToWorldgenBoolean() {
+        return true;
     }
 }
