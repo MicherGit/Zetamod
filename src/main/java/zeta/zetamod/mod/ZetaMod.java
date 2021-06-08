@@ -45,17 +45,20 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_MAJOR = 1;
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 0;
-	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
+	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
+			+ "_01"
+			;
 	public static boolean MOD_DEV = false;
 	public static final int MOD_DEV_V =
-			199
+			200
 			//+ "."
 			//+ "2"
 			;
-	public static int getModVersion() {
-		return Integer.parseInt(MOD_VERSION);
+	public static String getModVersion() {
+		return MOD_VERSION;
 	}
 	public static final byte V_TYPE = 0;
+	@Deprecated
 	public static String MOD_VERSION_D = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
 			//+
 			//"_01"

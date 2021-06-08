@@ -36,8 +36,8 @@ public abstract class MixinWorldBorderCommand {
     private static SimpleCommandExceptionType SET_FAILED_SMALL_EXCEPTION;
 
     @Inject(method = "<clinit>", at = @At("HEAD"))
-    private void handleConstructor(CallbackInfo ci) {
-        SET_FAILED_BIG_EXCEPTION = new SimpleCommandExceptionType(new TranslatableText("commands.worldborder.set.failed.big", new Object[]{4294967294D}));
+    private static void handleConstructor(CallbackInfo ci) {
+        SET_FAILED_BIG_EXCEPTION = new SimpleCommandExceptionType(new TranslatableText("commands.worldborder.set.failed.big", 4294967294D));
     }
     /**
      * @author Zeta
@@ -71,6 +71,7 @@ public abstract class MixinWorldBorderCommand {
     }
     /**
      * @author
+     * @reason
      */
     @Overwrite
     private static int executeSet(ServerCommandSource source, double distance, long time) throws CommandSyntaxException {

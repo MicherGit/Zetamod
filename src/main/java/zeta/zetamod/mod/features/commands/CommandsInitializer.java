@@ -34,7 +34,7 @@ public class CommandsInitializer {
             dispatcher.register(literal("zetamod").then(literal("version").executes(
                     context -> {
                             context.getSource().sendFeedback(new LiteralText(
-                                    "ZetaMod version " + ZetaMod.MOD_VERSION_D + SPACE + "build" + SPACE + ZetaMod.MOD_DEV_V + SPACE + ZetaMod.PHASE + "\n" +
+                                    "ZetaMod version " + ZetaMod.MOD_VERSION + SPACE + "build" + SPACE + ZetaMod.MOD_DEV_V + SPACE + ZetaMod.PHASE + "\n" +
                                             "Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
                                             "Running on Minecraft " +
                                             SharedConstants.getGameVersion().getName() +
