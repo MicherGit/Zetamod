@@ -1,5 +1,6 @@
 package mixins.worldborder.supercoder;
 
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -13,17 +14,19 @@ public class MixinWorld {
 	 * @author SuperCoder79
 	 * @reason
 	 */
-	@Overwrite
-	private static boolean isValidHorizontally(BlockPos pos) {
+	@Overwrite @Final
+	public static boolean isValidHorizontally(BlockPos pos) {
 		return pos.getX() >= Integer.MIN_VALUE && pos.getZ() >= Integer.MIN_VALUE && pos.getX() < Integer.MAX_VALUE && pos.getZ() < Integer.MAX_VALUE;
 	}
+
+
 
 	/**
 	 * @author SuperCoder79
 	 * @reason
 	 */
-	@Overwrite
-	private static boolean isInvalidVertically(int y) {
+	@Overwrite @Final
+	public static boolean isInvalidVertically(int y) {
 		return y < Integer.MIN_VALUE || y >= Integer.MAX_VALUE;
 	}
 }
