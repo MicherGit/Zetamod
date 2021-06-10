@@ -19,7 +19,7 @@ accessible method net/minecraft/server/command/WorldBorderCommand executeCenter 
 accessible method net/minecraft/server/command/WorldBorderCommand executeCenter (Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/util/math/Vec2f;)I
 accessible method net/minecraft/server/command/WorldBorderCommand executeGet (Lnet/minecraft/server/command/ServerCommandSource;)I
 accessible method net/minecraft/server/command/WorldBorderCommand executeWarningDistance (Lnet/minecraft/server/command/ServerCommandSource;I)I
-accessible method net/minecraft/server/command/WorldBordepusrCommand executeWarningTime (Lnet/minecraft/server/command/ServerCommandSource;I)I
+accessible method net/minecraft/server/command/WorldBorderCommand executeWarningTime (Lnet/minecraft/server/command/ServerCommandSource;I)I
 
 # Mutables
 mutable field net/minecraft/util/collection/LinkedBlockPosHashSet$Storage STARTING_OFFSET I
