@@ -39,19 +39,19 @@ import java.util.Date;
 
 public class ZetaMod implements ModInitializer {
 
-    public static final String PHASE = "release";
+    public static final String PHASE = "build";
     private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zetamod";
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;
-	public static final Integer MOD_MINOR = 0;
-	public static final Integer MOD_BF = 1;
+	public static final Integer MOD_MINOR = 1;
+	public static final Integer MOD_BF = 0;
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
 			//+ "_01"
 			;
 	public static boolean MOD_DEV = false;
 	public static final int MOD_DEV_V =
-			209
+			300
 			//+ "."
 			//+ "2"
 			;
@@ -64,7 +64,7 @@ public class ZetaMod implements ModInitializer {
 			//+
 			//"_01"
 			;
-	public static String technicalblocks_version = "1.0.0";
+	public static String technicalblocks_version = "1.0.1";
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	//public static final Block VOID = new Block(FabricBlockSettings.of(Material.METAL).strength(0.0f));
 
