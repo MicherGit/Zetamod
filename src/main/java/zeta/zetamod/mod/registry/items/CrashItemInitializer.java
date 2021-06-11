@@ -1,4 +1,4 @@
-package zeta.zetamod.mod.features.items;
+package zeta.zetamod.mod.registry.items;
 
 import zeta.zetamod.mod.ZetaMod;
 import net.fabricmc.api.ModInitializer;
@@ -7,6 +7,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.Level;
+import zeta.zetamod.mod.features.items.CrashItem;
 
 public class CrashItemInitializer implements ModInitializer {
 

@@ -10,6 +10,8 @@ public class APIVersion {
     public String APIVersionGet() {
         if(string.startsWith("1.0")) {
             return "0.0.1";
+        } else if (string.startsWith("1.1")) {
+            return "1.0.0";
         } else {
             return null;
         }

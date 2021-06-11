@@ -1,11 +1,8 @@
 package zeta.zetamod.mod;
 
-import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
 import me.zeroeightsix.fiber.exception.FiberException;
-import net.fabricmc.api.EnvType;
 import net.fabricmc.fabric.api.biome.v1.TheEndBiomes;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.SharedConstants;
 import net.minecraft.item.ItemStack;
 import zeta.zetamod.api.API;
@@ -30,11 +27,9 @@ import net.minecraft.world.biome.BiomeKeys;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
-import zeta.zetamod.mod.features.items.RegisterItems;
-import zeta.zetamod.mod.features.keystone.mats.KeystoneArmorMaterial;
+import zeta.zetamod.mod.registry.items.RegisterItems;
 import zeta.zetamod.mod.managers.ConfigManager;
 
-import java.io.IOException;
 import java.util.Date;
 
 public class ZetaMod implements ModInitializer {

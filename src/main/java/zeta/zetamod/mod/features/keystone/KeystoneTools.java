@@ -7,7 +7,7 @@ import zeta.zetamod.mod.features.items.tools.wideners.AxeItem;
 import zeta.zetamod.mod.features.items.tools.wideners.PickaxeItem;
 import zeta.zetamod.mod.features.items.tools.wideners.TillerItem;
 
-import static zeta.zetamod.mod.features.items.RegisterItems.keystoneTool;
+import static zeta.zetamod.mod.registry.items.RegisterItems.keystoneTool;
 
 public class KeystoneTools {
     public KeystoneTools() {

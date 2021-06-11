@@ -1,4 +1,4 @@
-package zeta.zetamod.mod.features.portals;
+package zeta.zetamod.mod.registry.portals;
 
 import net.fabricmc.api.ModInitializer;
 import net.kyrptonaught.customportalapi.CustomPortalApiRegistry;
@@ -6,7 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import zeta.zetamod.mod.ZetaMod;
 import zeta.zetamod.mod.features.biomes.ConcerningBiome;
-import zeta.zetamod.mod.features.items.RegisterItems;
+import zeta.zetamod.mod.registry.items.RegisterItems;
 import zeta.zetamod.mod.features.keystone.Keystone;
 
 public class PortalInit implements ModInitializer {

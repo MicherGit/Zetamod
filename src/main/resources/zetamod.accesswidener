@@ -30,3 +30,8 @@ mutable field net/minecraft/server/command/WorldBorderCommand SET_FAILED_BIG_EXC
 
 accessible method net/minecraft/world/World isInvalidVertically (I)Z
 accessible method net/minecraft/world/World isValidHorizontally (Lnet/minecraft/util/math/BlockPos;)Z
+
+accessible field net/minecraft/entity/Entity pitch F
+accessible field net/minecraft/entity/Entity yaw F
+accessible method net/minecraft/client/render/entity/EntityRenderer getBlockLight (Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/BlockPos;)I
+accessible field net/minecraft/client/render/entity/EntityRenderDispatcher textRenderer Lnet/minecraft/client/font/TextRenderer;
