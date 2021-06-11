@@ -42,7 +42,7 @@
   "depends": {
     "fabricloader": ">=0.10.0",
     "fabric": "*",
-    "minecraft": ">=1.17-rc.2",
+    "minecraft": ">=1.17",
     "customportalapi": ">=0.0.1-beta35-1.17"
   },
   "suggests": {

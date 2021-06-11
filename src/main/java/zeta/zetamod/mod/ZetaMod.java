@@ -35,6 +35,7 @@ import zeta.zetamod.mod.features.keystone.mats.KeystoneArmorMaterial;
 import zeta.zetamod.mod.managers.ConfigManager;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class ZetaMod implements ModInitializer {
 
@@ -44,13 +45,13 @@ public class ZetaMod implements ModInitializer {
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;
 	public static final Integer MOD_MINOR = 0;
-	public static final Integer MOD_BF = 0;
+	public static final Integer MOD_BF = 1;
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
-			+ "_01"
+			//+ "_01"
 			;
 	public static boolean MOD_DEV = false;
 	public static final int MOD_DEV_V =
-			200
+			209
 			//+ "."
 			//+ "2"
 			;
@@ -84,6 +85,14 @@ public class ZetaMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaMod");
+		Date runDate = new Date();
+		if ((runDate.getTime() >= Date.UTC(2021,6, 18, 0,0,0))
+		&& (runDate.getTime() <= Date.UTC(2021, 9, 07, 0, 0, 0))) {
+			LogManager.getLogger().log(Level.WARN, "Period of unsupport!" +
+					"\nAny bugs found will likely not be fixed unless high priority" +
+					" due to this mod only having one dev (me)" +
+					" and because I probably won't have enough time to fix everything.");
+		}
 
 		//TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing config");
@@ -123,7 +132,7 @@ public class ZetaMod implements ModInitializer {
 					"!");
 		}
 		log2("I really need to remember to do this stuff");
-
+		//TODO: MAKE LOOT TABLE!
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "tater_block"), TATER_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "tater_block"), new BlockItem(TATER_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
