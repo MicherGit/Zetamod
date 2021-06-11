@@ -132,7 +132,6 @@ public class ZetaMod implements ModInitializer {
 					"!");
 		}
 		log2("I really need to remember to do this stuff");
-		//TODO: MAKE LOOT TABLE!
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "tater_block"), TATER_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "tater_block"), new BlockItem(TATER_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
