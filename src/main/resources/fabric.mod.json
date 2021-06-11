@@ -23,7 +23,7 @@
       "zeta.zetamod.mod.ZetaMod",
       "zeta.zetamod.mod.registry.items.CrashItemInitializer",
       "zeta.zetamod.mod.managers.GeneralManager",
-      "zeta.zetamod.mod.features.portals.PortalInit",
+      "zeta.zetamod.mod.registry.portals.PortalInit",
       "zeta.zetamod.mod.features.keystone.Keystone",
       "zeta.zetamod.mod.features.commands.StartWorld"
 

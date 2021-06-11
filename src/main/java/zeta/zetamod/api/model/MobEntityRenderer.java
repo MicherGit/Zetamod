@@ -19,11 +19,10 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Matrix4f;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
-import zeta.zetamod.mod.features.entities.cubeentity.testing.CubeEntityModel;
 
 @Environment(EnvType.CLIENT)
 public abstract class MobEntityRenderer<T extends MobEntity, M extends EntityModel<T>> extends LivingEntityRenderer<T, M> {
-    public MobEntityRenderer(EntityRendererFactory.Context entityRenderDispatcher, CubeEntityModel entityModel, float f) {
+    public MobEntityRenderer(EntityRenderDispatcherGetText entityRenderDispatcher, M entityModel, float f) {
         super(entityRenderDispatcher, entityModel, f);
     }
 

@@ -10,7 +10,7 @@ import zeta.zetamod.mod.ZetaMod;
 
 public class CubeEntityRenderer extends MobEntityRenderer<CubeEntity, CubeEntityModel> {
     public CubeEntityRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-        super(entityRenderDispatcher, new CubeEntityModel(), 0.5f);
+        super((EntityRenderDispatcherGetText) entityRenderDispatcher, new CubeEntityModel(), 0.5f);
     }
 
     @Override
