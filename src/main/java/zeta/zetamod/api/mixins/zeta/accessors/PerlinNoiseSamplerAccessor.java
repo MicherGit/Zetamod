@@ -1,8 +1,7 @@
-package mixins.zeta.accessors;
+package zeta.zetamod.api.mixins.zeta.accessors;
 
 import net.minecraft.util.math.noise.PerlinNoiseSampler;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(PerlinNoiseSampler.class)

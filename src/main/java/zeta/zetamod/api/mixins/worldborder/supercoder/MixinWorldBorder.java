@@ -1,4 +1,4 @@
-package mixins.worldborder.supercoder;
+package zeta.zetamod.api.mixins.worldborder.supercoder;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

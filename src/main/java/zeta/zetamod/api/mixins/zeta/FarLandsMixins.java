@@ -1,4 +1,4 @@
-package mixins.zeta;
+package zeta.zetamod.api.mixins.zeta;
 
 import zeta.zetamod.mod.managers.GeneralManager;
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;

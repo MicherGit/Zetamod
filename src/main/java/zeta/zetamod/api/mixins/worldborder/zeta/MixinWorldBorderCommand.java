@@ -1,4 +1,4 @@
-package mixins.worldborder.zeta;
+package zeta.zetamod.api.mixins.worldborder.zeta;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.DoubleArgumentType;

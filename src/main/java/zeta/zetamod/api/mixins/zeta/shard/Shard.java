@@ -1,10 +1,9 @@
-package mixins.zeta.shard;
+package zeta.zetamod.api.mixins.zeta.shard;
 
-import mixins.zeta.accessors.PerlinNoiseSamplerAccessor;
+import zeta.zetamod.api.mixins.zeta.accessors.PerlinNoiseSamplerAccessor;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.noise.PerlinNoiseSampler;
-import net.minecraft.util.math.noise.SimplexNoiseSampler;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.spongepowered.asm.mixin.*;

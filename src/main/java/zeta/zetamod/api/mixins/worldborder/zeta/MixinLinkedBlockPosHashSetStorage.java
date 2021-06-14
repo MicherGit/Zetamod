@@ -1,4 +1,4 @@
-package mixins.worldborder.zeta;
+package zeta.zetamod.api.mixins.worldborder.zeta;
 
 import net.minecraft.util.collection.LinkedBlockPosHashSet;
 import net.minecraft.util.math.MathHelper;

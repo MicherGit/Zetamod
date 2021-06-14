@@ -1,4 +1,4 @@
-package mixins.worldborder.supercoder.beta;
+package zeta.zetamod.api.mixins.worldborder.supercoder.beta;
 
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.gen.chunk.AquiferSampler;

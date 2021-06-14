@@ -49,10 +49,10 @@ public class ZetaMod implements ModInitializer {
 
 	//public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
 			//+ "_01"
-	public static final String MOD_VERSION = "1.0.2";
+	public static final String MOD_VERSION = "1.0.3";
 	public static boolean MOD_DEV = false;
 	public static final int MOD_DEV_V =
-			219
+			225
 			//+ "."
 			//+ "2"
 			;
@@ -110,12 +110,15 @@ public class ZetaMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		if (!System.getProperty("java.version").contains("16")) {
-			String error = "Java version too old or too new!";
-			JavaVersionTooOldException exception = new JavaVersionTooOldException(error);
-			exception.printStackTrace();
-			throw new Error(exception);
-		}
+		/*
+		Do not uncomment!
+		 */
+		//if (!System.getProperty("java.version").contains("16")) {
+		//	String error = "Java version too old or too new!";
+		//	JavaVersionTooOldException exception = new JavaVersionTooOldException(error);
+		//	exception.printStackTrace();
+		//	throw new Error(exception);
+		//}
 		log2("Running on java version " + System.getProperty("java.version"));
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
