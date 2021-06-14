@@ -17,13 +17,12 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 	maven {
-		url "https://panel.repsy.io/mvn/zeta/stuff/"
-	}
-	maven {
-		url "https://panel.repsy.io/mvn/zeta/portals/"
-	}
-	maven {
 		url "https://maven.shedaniel.me/"
+	}
+	maven {
+		name = "Portals"
+		url = "http://maven.kyrptonaught.dev"
+		allowInsecureProtocol = true
 	}
 	//maven {
 	//	name "CottonMC"
