@@ -46,12 +46,13 @@ public class ZetaMod implements ModInitializer {
 	public static final Integer MOD_MAJOR = 1;
 	public static final Integer MOD_MINOR = 0;
 	public static final Integer MOD_BF = 1;
-	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
+
+	//public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
 			//+ "_01"
-			;
+	public static final String MOD_VERSION = "1.0.2";
 	public static boolean MOD_DEV = false;
 	public static final int MOD_DEV_V =
-			209
+			219
 			//+ "."
 			//+ "2"
 			;
@@ -70,7 +71,7 @@ public class ZetaMod implements ModInitializer {
 
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
-	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(zeta.zetamod.mod.ZetaMod.ZETAMOD_ITEMS));
+	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ZetaMod.ZETAMOD_ITEMS));
 	//public static final Item EXAMPLE_ITEM = Registry.register(Registry.ITEM,new Identifier("mymodid","example_item"), new Item(new FabricItemSettings().group(zeta.zetamod.mod.ZetaMod.ZETAMOD_ITEMS)));
 
 	public static final Level LV = Level.INFO;

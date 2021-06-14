@@ -1,13 +1,18 @@
 package mixins.zeta.shard;
 
+import mixins.zeta.accessors.PerlinNoiseSamplerAccessor;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.noise.PerlinNoiseSampler;
 import net.minecraft.util.math.noise.SimplexNoiseSampler;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 import org.spongepowered.asm.mixin.*;
 import zeta.zetamod.mod.managers.GeneralManager;
 
 @Mixin(PerlinNoiseSampler.class)
 public abstract class Shard {
+    private boolean logged = false;
     @Shadow
     public final double originX;
     public final double originY;
@@ -22,8 +27,6 @@ public abstract class Shard {
         this.originZ = originZ;
         this.permutations = permutations;
     }
-    @Shadow
-    public abstract double sample(int sectionX, int sectionY, int sectionZ, double localX, double localY, double localZ, double fadeLocalX);
     /**
      * @author
      */
@@ -61,7 +64,7 @@ public abstract class Shard {
             p = 0.0D;
         }
 
-        return this.sample(i, j, k, g, h - p, l, h);
+        return ((PerlinNoiseSamplerAccessor)this).sample(i, j, k, g, h - p, l, h);
     }
 
     /**
@@ -84,6 +87,9 @@ public abstract class Shard {
             g = d - (float)i;
             h = e - (float)j;
             l = f - (float)k;
+            if (FabricLoader.getInstance().isModLoaded("lithium") && !this.logged) {
+                LogManager.getLogger().log(Level.ERROR, "LITHIUM DETECTED! Shattered farlands may not be present!");
+            }
         }
         return this.sampleDerivative(i, j, k, g, h, l, ds);
     }
