@@ -28,14 +28,15 @@ import java.util.Locale;
 @Mixin(WorldBorderCommand.class)
 public abstract class MixinWorldBorderCommand {
     @Shadow
-    private static SimpleCommandExceptionType SET_FAILED_BIG_EXCEPTION;
+    public static SimpleCommandExceptionType SET_FAILED_BIG_EXCEPTION;
 
     @Shadow
     @Final
     private static SimpleCommandExceptionType SET_FAILED_NO_CHANGE_EXCEPTION;
+    @Shadow@Final
     private static SimpleCommandExceptionType SET_FAILED_SMALL_EXCEPTION;
 
-    @Inject(method = "<clinit>", at = @At("HEAD"))
+    @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void handleConstructor(CallbackInfo ci) {
         SET_FAILED_BIG_EXCEPTION = new SimpleCommandExceptionType(new TranslatableText("commands.worldborder.set.failed.big", 4294967294D));
     }
