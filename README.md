@@ -15,6 +15,6 @@ A multi-functional utility mod for fabric 1.17 that does a lot of things. Other 
 ### Requires Minecraft version 1.17 or newer! (RELEASE 1.x)
 Warning: The mood will be build on 1.17 unti 1.1 releases, and I won't really be able to update the mod often starting soon, so for best comptibilty, use 1.17, however there is nothing preventing this mod from being used on 1.17.1 if that releases before I am able to update to 1.1.
 
-There are known mod incompatibilities, check out [ZM-009](https://github.com/TwelvianZeta/zetamod/issues/9) for any updates.
+There are known mod incompatibilities, check out [ZM-9](https://github.com/TwelvianZeta/zetamod/issues/9) for any updates.
 
 Downloads have moved to curseforge! Check us out at https://curseforge.com/minecraft/mc-mods/zetamod !
