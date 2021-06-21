@@ -45,14 +45,13 @@ public class ZetaMod implements ModInitializer {
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;
 	public static final Integer MOD_MINOR = 0;
-	public static final Integer MOD_BF = 1;
-
-	//public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
-			//+ "_01"
-	public static final String MOD_VERSION = "1.0.6";
+	public static final Integer MOD_BF
+			= 6;
+	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
+	//public static final String MOD_VERSION = "1.0.6";
 	public static boolean MOD_DEV = false;
 	public static final int MOD_DEV_V =
-			229
+			230
 			//+ "."
 			//+ "2"
 			;
@@ -65,6 +64,7 @@ public class ZetaMod implements ModInitializer {
 			//+
 			//"_01"
 			;
+
 	public static String technicalblocks_version = "1.0.0";
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	//public static final Block VOID = new Block(FabricBlockSettings.of(Material.METAL).strength(0.0f));
@@ -87,6 +87,7 @@ public class ZetaMod implements ModInitializer {
 	public void onInitialize() {
 		log2("Initializing ZetaMod");
 		Date runDate = new Date();
+
 		if ((runDate.getTime() >= Date.UTC(2021,6, 18, 0,0,0))
 		&& (runDate.getTime() <= Date.UTC(2021, 9, 07, 0, 0, 0))) {
 			LogManager.getLogger().log(Level.WARN, "Period of unsupport!" +
@@ -135,7 +136,7 @@ public class ZetaMod implements ModInitializer {
 					//"beta" +
 					"!");
 		}
-		log2("I really need to remember to do this stuff");
+		log2("I really need to remember to do this stuff (Adding easter eggs)");
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "tater_block"), TATER_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "tater_block"), new BlockItem(TATER_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
