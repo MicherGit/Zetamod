@@ -1,14 +1,17 @@
 package zeta.zetamod.api.mixins.zeta.shard;
 
+import zeta.zetamod.api.mixins.zeta.accessors.PerlinNoiseSamplerAccessor;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.noise.PerlinNoiseSampler;
-import net.minecraft.util.math.noise.SimplexNoiseSampler;
-import net.minecraft.world.gen.WorldGenRandom;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 import org.spongepowered.asm.mixin.*;
 import zeta.zetamod.mod.managers.GeneralManager;
 
-@Mixin(value = PerlinNoiseSampler.class, priority = 10000)
+@Mixin(value = PerlinNoiseSampler.class, priority = 999)
 public abstract class Shard {
+    private boolean logged = false;
     @Shadow
     public final double originX;
     public final double originY;
@@ -23,26 +26,6 @@ public abstract class Shard {
         this.originZ = originZ;
         this.permutations = permutations;
     }
-
-    public Shard(WorldGenRandom random) {
-        this.originX = random.nextDouble() * 256.0D;
-        this.originY = random.nextDouble() * 256.0D;
-        this.originZ = random.nextDouble() * 256.0D;
-        this.permutations = new byte[256];
-
-        int j;
-        for(j = 0; j < 256; ++j) {
-            this.permutations[j] = (byte)j;
-        }
-
-        for(j = 0; j < 256; ++j) {
-            int k = random.nextInt(256 - j);
-            byte b = this.permutations[j];
-            this.permutations[j] = this.permutations[j + k];
-            this.permutations[j + k] = b;
-        }
-
-    }
     /**
      * @author
      */
@@ -56,14 +39,14 @@ public abstract class Shard {
         int j = MathHelper.floor(e);
         int k = MathHelper.floor(f);
         double g,h,l;
-        if(GeneralManager.getConfig().shardFarLands.getValue()) {
-            g = d - (float)i;
-            h = e - (float)j;
-            l = f - (float)k;
-        } else {
+        if (!GeneralManager.getConfig().shardFarLands.getValue()) {
             g = d - (double)i;
             h = e - (double)j;
             l = f - (double)k;
+        } else {
+            g = d - (float)i;
+            h = e - (float)j;
+            l = f - (float)k;
         }
 
         double p;
@@ -74,50 +57,14 @@ public abstract class Shard {
             } else {
                 n = h;
             }
-            if (!GeneralManager.getConfig().shardFarLands.getValue()) {
-                p = (double) MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
-            } else {
-                p = (float) MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
-            }
+
+            p = (double)MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
         } else {
             p = 0.0D;
         }
 
-        return this.sample(i, j, k, g, h - p, l, h);
+        return ((PerlinNoiseSamplerAccessor)this).sample(i, j, k, g, h - p, l, h);
     }
-    @Shadow
-    private int getGradient(int hash) {
-        return this.permutations[hash & 255] & 255;
-    }
-    @Shadow
-    private static double grad(int hash, double x, double y, double z) {
-        return SimplexNoiseSampler.dot(SimplexNoiseSampler.GRADIENTS[hash & 15], x, y, z);
-    }
-    /**
-     * @author
-     */
-    @Overwrite
-    private double sample(int sectionX, int sectionY, int sectionZ, double localX, double localY, double localZ, double fadeLocalX) {
-        int i = this.getGradient(sectionX);
-        int j = this.getGradient(sectionX + 1);
-        int k = this.getGradient(i + sectionY);
-        int l = this.getGradient(i + sectionY + 1);
-        int m = this.getGradient(j + sectionY);
-        int n = this.getGradient(j + sectionY + 1);
-        double d = grad(this.getGradient(k + sectionZ), localX, localY, localZ);
-        double e = grad(this.getGradient(m + sectionZ), localX - 1.0D, localY, localZ);
-        double f = grad(this.getGradient(l + sectionZ), localX, localY - 1.0D, localZ);
-        double g = grad(this.getGradient(n + sectionZ), localX - 1.0D, localY - 1.0D, localZ);
-        double h = grad(this.getGradient(k + sectionZ + 1), localX, localY, localZ - 1.0D);
-        double o = grad(this.getGradient(m + sectionZ + 1), localX - 1.0D, localY, localZ - 1.0D);
-        double p = grad(this.getGradient(l + sectionZ + 1), localX, localY - 1.0D, localZ - 1.0D);
-        double q = grad(this.getGradient(n + sectionZ + 1), localX - 1.0D, localY - 1.0D, localZ - 1.0D);
-        double r = MathHelper.perlinFade(localX);
-        double s = MathHelper.perlinFade(fadeLocalX);
-        double t = MathHelper.perlinFade(localZ);
-        return MathHelper.lerp3(r, s, t, d, e, f, g, h, o, p, q);
-    }
-
 
     /**
      * @author
@@ -136,9 +83,12 @@ public abstract class Shard {
             h = e - (double) j;
             l = f - (double) k;
         } else {
-            g = d - (float) i;
-            h = e - (float) j;
-            l = f - (float) k;
+            g = d - (float)i;
+            h = e - (float)j;
+            l = f - (float)k;
+            if (FabricLoader.getInstance().isModLoaded("lithium") && !this.logged) {
+                LogManager.getLogger().log(Level.ERROR, "LITHIUM DETECTED! Shattered farlands may not be present!");
+            }
         }
         return this.sampleDerivative(i, j, k, g, h, l, ds);
     }
