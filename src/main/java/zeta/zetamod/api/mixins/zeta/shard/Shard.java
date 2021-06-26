@@ -63,7 +63,7 @@ public abstract class Shard {
             p = 0.0D;
         }
 
-        return ((PerlinNoiseSamplerAccessor)this).sample(i, j, k, g, h - p, l, h);
+        return ((PerlinNoiseSamplerAccessor)this).invokeSample(i, j, k, g, h - p, l, h);
     }
 
     /**

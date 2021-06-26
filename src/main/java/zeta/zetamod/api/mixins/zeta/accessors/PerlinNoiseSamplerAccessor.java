@@ -7,5 +7,5 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(value = PerlinNoiseSampler.class, priority = 999)
 public interface PerlinNoiseSamplerAccessor {
     @Invoker("sample")
-    double sample(int sectionX, int sectionY, int sectionZ, double localX, double localY, double localZ, double fadeLocalX);
+    double invokeSample(int sectionX, int sectionY, int sectionZ, double localX, double localY, double localZ, double fadeLocalX);
 }
