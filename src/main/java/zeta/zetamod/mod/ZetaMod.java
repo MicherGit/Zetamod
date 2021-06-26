@@ -60,12 +60,13 @@ public class ZetaMod implements ModInitializer {
 			//"_01"
 			;
 	public static String technicalblocks_version = "1.0.1";
+	public static String technicalblocks_version = "1.0.0";
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	//public static final Block VOID = new Block(FabricBlockSettings.of(Material.METAL).strength(0.0f));
 
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
-	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(zeta.zetamod.mod.ZetaMod.ZETAMOD_ITEMS));
+	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ZetaMod.ZETAMOD_ITEMS));
 	//public static final Item EXAMPLE_ITEM = Registry.register(Registry.ITEM,new Identifier("mymodid","example_item"), new Item(new FabricItemSettings().group(zeta.zetamod.mod.ZetaMod.ZETAMOD_ITEMS)));
 
 	public static final Level LV = Level.INFO;
@@ -81,6 +82,7 @@ public class ZetaMod implements ModInitializer {
 	public void onInitialize() {
 		log2("Initializing ZetaMod");
 		Date runDate = new Date();
+
 		if ((runDate.getTime() >= Date.UTC(2021,6, 18, 0,0,0))
 		&& (runDate.getTime() <= Date.UTC(2021, 9, 07, 0, 0, 0))) {
 			LogManager.getLogger().log(Level.WARN, "Period of unsupport!" +
@@ -104,12 +106,15 @@ public class ZetaMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		if (!System.getProperty("java.version").contains("16")) {
-			String error = "Java version too old or too new!";
-			JavaVersionTooOldException exception = new JavaVersionTooOldException(error);
-			exception.printStackTrace();
-			throw new Error(exception);
-		}
+		/*
+		Do not uncomment!
+		 */
+		//if (!System.getProperty("java.version").contains("16")) {
+		//	String error = "Java version too old or too new!";
+		//	JavaVersionTooOldException exception = new JavaVersionTooOldException(error);
+		//	exception.printStackTrace();
+		//	throw new Error(exception);
+		//}
 		log2("Running on java version " + System.getProperty("java.version"));
 		log(Level.INFO,"Credit to SuperCoder79 for letting me use the worldborder expansion code");
 		if(MOD_DEV) {
@@ -126,7 +131,7 @@ public class ZetaMod implements ModInitializer {
 					//"beta" +
 					"!");
 		}
-		log2("I really need to remember to do this stuff");
+		log2("I really need to remember to do this stuff (Adding easter eggs)");
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "tater_block"), TATER_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "tater_block"), new BlockItem(TATER_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 

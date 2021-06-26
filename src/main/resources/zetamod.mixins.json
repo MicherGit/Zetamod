@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "mixins",
+  "package": "zeta.zetamod.api.mixins",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "zeta.FarLandsMixins",
@@ -17,7 +17,8 @@
     "zeta.FireballFix",
     "worldborder.supercoder.beta.MixinAquafierSampler",
     "worldborder.zeta.MixinLinkedBlockPosHashSetStorage",
-    "worldborder.zeta.MixinWorldBorderCommand"
+    "worldborder.zeta.MixinWorldBorderCommand",
+    "zeta.accessors.PerlinNoiseSamplerAccessor"
   ],
   "client": [
   ],

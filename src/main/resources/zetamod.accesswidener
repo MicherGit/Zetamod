@@ -7,7 +7,6 @@ accessible class net/minecraft/world/border/WorldBorder$StaticArea
 
 accessible method net/minecraft/util/math/noise/SimplexNoiseSampler dot ([IDDD)D
 accessible field net/minecraft/util/math/noise/SimplexNoiseSampler GRADIENTS [[I
-accessible method net/minecraft/util/math/noise/PerlinNoiseSampler sample (IIIDDDD)D
 accessible method net/minecraft/util/math/noise/PerlinNoiseSampler sampleDerivative (IIIDDD[D)D
 
 accessible class net/minecraft/world/gen/chunk/AquiferSampler$Impl$FluidLevel
@@ -20,6 +19,7 @@ accessible method net/minecraft/server/command/WorldBorderCommand executeCenter 
 accessible method net/minecraft/server/command/WorldBorderCommand executeGet (Lnet/minecraft/server/command/ServerCommandSource;)I
 accessible method net/minecraft/server/command/WorldBorderCommand executeWarningDistance (Lnet/minecraft/server/command/ServerCommandSource;I)I
 accessible method net/minecraft/server/command/WorldBorderCommand executeWarningTime (Lnet/minecraft/server/command/ServerCommandSource;I)I
+accessible field net/minecraft/server/command/WorldBorderCommand SET_FAILED_BIG_EXCEPTION Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
 
 # Mutables
 mutable field net/minecraft/util/collection/LinkedBlockPosHashSet$Storage STARTING_OFFSET I

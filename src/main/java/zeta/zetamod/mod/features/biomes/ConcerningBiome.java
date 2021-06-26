@@ -90,7 +90,7 @@ public class ConcerningBiome {
                         //"Thanks to https://misode.github.io/ for the custom dimension creator I used to make the Lush Nether."
         );
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "gigaconcern_block"), GIGACONCERN_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gigaconcern_block"), new BlockItem(GIGACONCERN_BLOCK, new Item.Settings().group(zeta.zetamod.mod.ZetaMod.ZETAMOD_ITEMS)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gigaconcern_block"), new BlockItem(GIGACONCERN_BLOCK, new Item.Settings().group(ZetaMod.ZETAMOD_ITEMS)));
 
     }
     public static double conc = ZetaMod.concerning_weight;

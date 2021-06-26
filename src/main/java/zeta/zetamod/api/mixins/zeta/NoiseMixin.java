@@ -1,4 +1,4 @@
-package mixins.zeta;
+package zeta.zetamod.api.mixins.zeta;
 
 import net.minecraft.world.gen.NoiseColumnSampler;
 import org.spongepowered.asm.mixin.Mixin;
