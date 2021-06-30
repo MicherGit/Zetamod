@@ -43,8 +43,6 @@ public class CommandsManager {
                     "Running on Minecraft " +
                     SharedConstants.getGameVersion().getName() +
                     "\nUsing Java version "+System.getProperty("java.version");
-    public static String version3 =
-            "["+SharedConstants.getGameVersion().getName()+"] ZetaMod v" + ZetaMod.MOD_VERSION;
 
     public void initCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
@@ -54,7 +52,12 @@ public class CommandsManager {
             dispatcher.register(literal("zetamod").then(literal("version").executes(
                     context -> {
                         if(!MOD_DEV) {
-                            context.getSource().sendFeedback(new LiteralText(version3),true);
+                            context.getSource().sendFeedback(new LiteralText(
+                                    "[ZetaMod] ZetaMod v" + ZetaMod.MOD_VERSION
+                            ),true);
+                            context.getSource().sendFeedback(new LiteralText(
+                                    "[Minecraft] Running on version " + SharedConstants.getGameVersion().getName()), true
+                            );
                             context.getSource().sendFeedback(new LiteralText(
                                     "[Java] Using Java version " + System.getProperty("java.version")), true
                             );
