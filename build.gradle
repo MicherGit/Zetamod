@@ -24,6 +24,7 @@ repositories {
 		url = "http://maven.kyrptonaught.dev"
 		allowInsecureProtocol = true
 	}
+	mavenLocal()
 	//maven {
 	//	name "CottonMC"
 	//	url "https://server.bbkr.space:8081/artifactory/libs-snapshot"
@@ -52,6 +53,8 @@ dependencies {
 	/*
 		Other apis
 	 */
+	modImplementation "com.rdvdev2:disable-custom-worlds-advice:1.3"
+	include "com.rdvdev2:disable-custom-worlds-advice:1.3"
 	modImplementation "me.zeroeightsix:fiber:${project.fiberversion}"
 	include "me.zeroeightsix:fiber:${project.fiberversion}"
 	// Portal API
