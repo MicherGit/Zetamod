@@ -54,9 +54,10 @@ public class CommandsManager {
             dispatcher.register(literal("zetamod").then(literal("version").executes(
                     context -> {
                         if(!MOD_DEV) {
+                            context.getSource().sendFeedback(new LiteralText(version3),true);
                             context.getSource().sendFeedback(new LiteralText(
-                                            version3)
-                                    ,true);
+                                    "[Java] Using Java version " + System.getProperty("java.version")), true
+                            );
                         } else {
                             context.getSource().sendFeedback(new LiteralText(
                                             version2)
