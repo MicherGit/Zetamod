@@ -2,7 +2,6 @@ package zeta.zetamod.mod.features.commands;
 
 
 import com.mojang.brigadier.arguments.StringArgumentType;
-import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.SharedConstants;
 import net.minecraft.text.LiteralText;
@@ -32,7 +31,7 @@ public class CommandsInitializer {
             "ZetaMod version " + ZetaMod.MOD_VERSION +
                     SPACE + "build" + SPACE + MOD_DEV_V + SPACE + ZetaMod.PHASE +
                     "\n" +
-                    "Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
+                    //"Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
                     "Running on Minecraft " +
                     SharedConstants.getGameVersion().getName() +
                     "\nUsing Java version "+System.getProperty("java.version");
@@ -40,7 +39,7 @@ public class CommandsInitializer {
             "ZetaMod version " + ZetaMod.MOD_VERSION +
                     SPACE + "build" + SPACE + MOD_DEV_V + SPACE + ZetaMod.PHASE +
                     "\n" +
-                    "Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
+                    //"Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
                     "Running on Minecraft " +
                     SharedConstants.getGameVersion().getName() +
                     "\nUsing Java version "+System.getProperty("java.version");

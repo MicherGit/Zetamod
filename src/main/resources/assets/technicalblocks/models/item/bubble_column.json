@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "technicalblocks:item/bubble_column_upwards"
-  }
-}
