@@ -25,6 +25,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Locale;
 
+import static net.minecraft.server.command.WorldBorderCommand.*;
+
 @Mixin(WorldBorderCommand.class)
 public abstract class MixinWorldBorderCommand {
     @Shadow
@@ -99,33 +101,5 @@ public abstract class MixinWorldBorderCommand {
 
             return (int)(distance - d);
         }
-    }
-    @Shadow @Final
-    public static int executeBuffer(ServerCommandSource source, float distance) throws CommandSyntaxException {
-        return WorldBorderCommand.executeBuffer(source, distance);
-    }
-    @Shadow @Final
-    public static int executeGet(ServerCommandSource source) {
-        return WorldBorderCommand.executeGet(source);
-    }
-
-    @Shadow @Final
-    public static int executeCenter(ServerCommandSource source, Vec2f pos) throws CommandSyntaxException {
-        return WorldBorderCommand.executeCenter(source, pos);
-    }
-
-    @Shadow @Final
-    public static int executeDamage(ServerCommandSource source, float damagePerBlock) throws CommandSyntaxException {
-        return WorldBorderCommand.executeDamage(source, damagePerBlock);
-    }
-
-    @Shadow @Final
-    public static int executeWarningDistance(ServerCommandSource source, int distance) throws CommandSyntaxException {
-        return WorldBorderCommand.executeWarningDistance(source,distance);
-    }
-
-    @Shadow @Final
-    public static int executeWarningTime(ServerCommandSource source, int time) throws CommandSyntaxException {
-        return WorldBorderCommand.executeWarningTime(source,time);
     }
 }

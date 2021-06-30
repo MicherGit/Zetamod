@@ -1,4 +1,4 @@
-package zeta.zetamod.mod.features.commands;
+package zeta.zetamod.mod.managers;
 
 
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -26,7 +26,7 @@ import static zeta.zetamod.mod.managers.GeneralManager.getConfig;
 
 import static zeta.zetamod.api.util.Util.*;
 @SuppressWarnings("ALL")
-public class CommandsInitializer {
+public class CommandsManager {
     public static String version1 =
             "ZetaMod version " + ZetaMod.MOD_VERSION +
                     SPACE + "build" + SPACE + MOD_DEV_V + SPACE + ZetaMod.PHASE +
@@ -43,6 +43,9 @@ public class CommandsInitializer {
                     "Running on Minecraft " +
                     SharedConstants.getGameVersion().getName() +
                     "\nUsing Java version "+System.getProperty("java.version");
+    public static String version3 =
+            "["+SharedConstants.getGameVersion().getName()+"] ZetaMod v" + ZetaMod.MOD_VERSION;
+
     public void initCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
             /**
@@ -52,7 +55,7 @@ public class CommandsInitializer {
                     context -> {
                         if(!MOD_DEV) {
                             context.getSource().sendFeedback(new LiteralText(
-                                            version1)
+                                            version3)
                                     ,true);
                         } else {
                             context.getSource().sendFeedback(new LiteralText(
@@ -62,7 +65,11 @@ public class CommandsInitializer {
 
                             return 1;
                     }
-            )).then(literal("farlands").executes(
+            ).then(literal("debug").executes(context -> {
+                context.getSource().sendFeedback(new LiteralText(version1),true);
+                        return 2;
+                    })
+                    )).then(literal("farlands").executes(
                     context -> {
                         boolean FLC = GeneralManager.getConfig().farLandsEnabled.getValue();
                         context.getSource().sendFeedback(new LiteralText("FarLands " + getEnabledOrDisabled(!FLC)), true);

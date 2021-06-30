@@ -97,6 +97,12 @@ public class ConfigManager  {
             .withDefaultValue(1.0D)
             .withParent(world)
             .build();
+    public ConfigValue<Boolean> worldborderExpansion = ConfigValue.builder(Boolean.class)
+            .withName("expandWorldBorder")
+            .withComment("Will be the config value to expand worldborder in 1.1")
+            .withDefaultValue(true)
+            .withParent(world)
+            .build();
     public static ConfigManager getConfig() {
         return GeneralManager.CONFIG;
     }
