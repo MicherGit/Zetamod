@@ -14,7 +14,7 @@ public class PortalInit implements ModInitializer {
     public void onInitialize() {
         CustomPortalApiRegistry.addPortal(Blocks.MOSS_BLOCK,
                 new Identifier(ZetaMod.MOD_ID, "lush_nether"),
-                0, 255, 8);
+                0, 64, 8);
         CustomPortalApiRegistry.addPortal(Keystone.KEYSTONE_BLOCK,
                 new Identifier(ZetaMod.MOD_ID, "etheral"),
                 127, 127, 0);

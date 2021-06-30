@@ -4,8 +4,8 @@ A multi-functional utility mod for fabric 1.17 that does a lot of things. Other 
 ## Now out of beta!
 ## Technical Blocks by Draydenspace_FS on discord
 ### Latest Update: [1.17] Zeta's Mod 1.0.0: The Keystone Update
-### Latest Build: [1.17] Zeta's Mod 1.0.8
-### Stable Build: [1.17] Zeta's Mod 1.0.8
+### Latest Build: [1.17/1.17.1] Zeta's Mod 1.0.9
+### Stable Build: [1.17/1.17.1] Zeta's Mod 1.0.9
 ### Next Version: [1.17] Zeta's Mod 1.1: The Memes and Miscellaneous Improvements Update
 ### Next Major Version: [1.18] Zeta's Mod 2.0.0: The Keystone Update Part 2
 

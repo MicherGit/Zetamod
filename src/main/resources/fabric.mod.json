@@ -29,9 +29,7 @@
 
     ],
     "client": [
-      "zeta.zetamod.mod.client.ZetaModClient",
-      "dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks",
-      "dray.draydenspace.farlandsexplore.technicalblocks.ClientModInit"
+      "zeta.zetamod.mod.client.ZetaModClient"
     ],
     "server": []
   },
