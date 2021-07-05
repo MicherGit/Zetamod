@@ -31,7 +31,7 @@ repositories {
 }
 
 minecraft {
-	accessWidener = file('src/main/resources/zetamod.accesswidener')
+	accessWidener = file('src/main/resources/zetaforged.accesswidener')
 }
 
 dependencies {

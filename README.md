@@ -1,4 +1,4 @@
-# Zeta's Mod
+# ZetaForged
 A multi-functional utility mod for fabric 1.17 that does a lot of things. Other mods probably do what this mod does better though,so idk why you would download this.
 
 ## Now out of beta!
@@ -6,7 +6,7 @@ A multi-functional utility mod for fabric 1.17 that does a lot of things. Other 
 ### Latest Update: [1.17] Zeta's Mod 1.0.0: The Keystone Update
 ### Latest Build: [1.17/1.17.1] Zeta's Mod 1.0.12
 ### Stable Build: [1.17/1.17.1] Zeta's Mod 1.0.12
-### Next Version: [1.17] Zeta's Mod 1.1: The Memes and Miscellaneous Improvements Update
+### Next Version: [1.17.1] Zeta's Mod 1.1: The Memes and Miscellaneous Improvements Update
 ### Next Major Version: [1.18] Zeta's Mod 2.0.0: The Keystone Update Part 2
 
 # Requirements

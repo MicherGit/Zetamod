@@ -1,41 +1,41 @@
 {
   "schemaVersion": 1,
-  "id": "zetamod",
+  "id": "zetaforged",
   "version": "${version}",
 
-  "name": "ZetaMod",
+  "name": "ZetaForged",
   "description": "A mod that does many things!",
   "authors": [
     "TwelvianZeta",
     "Draydenspace_FS (Technical Blocks)"
   ],
   "contact": {
-    "homepage": "https://github.com/MicherGit/zetamod",
-    "sources": "https://github.com/MicherGit/zetamod"
+    "homepage": "https://github.com/MicherGit/zetaforged",
+    "sources": "https://github.com/MicherGit/zetaforged"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/zetamod/icon.png",
+  "icon": "assets/zetaforged/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "zeta.zetamod.mod.ZetaMod",
-      "zeta.zetamod.mod.registry.items.CrashItemInitializer",
-      "zeta.zetamod.mod.managers.GeneralManager",
-      "zeta.zetamod.mod.registry.portals.PortalInit",
-      "zeta.zetamod.mod.features.keystone.Keystone",
-      "zeta.zetamod.mod.features.commands.StartWorld",
-      "zeta.zetamod.mod.features.entities.temp.register.entities.EntityTesting"
+      "zeta.zetaforged.mod.ZetaForged",
+      "zeta.zetaforged.mod.registry.items.CrashItemInitializer",
+      "zeta.zetaforged.mod.managers.GeneralManager",
+      "zeta.zetaforged.mod.registry.portals.PortalInit",
+      "zeta.zetaforged.mod.features.keystone.Keystone",
+      "zeta.zetaforged.mod.features.commands.StartWorld",
+      "zeta.zetaforged.mod.features.entities.temp.register.entities.EntityTesting"
 
     ],
     "client": [
-      "zeta.zetamod.mod.client.ZetaModClient"
+      "zeta.zetaforged.mod.client.ZetaForgedClient"
     ],
     "server": []
   },
   "mixins": [
-    "zetamod.mixins.json"
+    "zetaforged.mixins.json"
   ],
 
   "depends": {
@@ -48,5 +48,5 @@
   "suggests": {
     "another-mod": "*"
   },
-  "accessWidener": "zetamod.accesswidener"
+  "accessWidener": "zetaforged.accesswidener"
 }
