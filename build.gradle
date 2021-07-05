@@ -32,7 +32,10 @@ repositories {
 		name "TerraformersMC"
 		url "https://maven.terraformersmc.com/releases/"
 	}
-	mavenLocal()
+	maven {
+		name = "RepsyMaven"
+		url = "https://repo.repsy.io/mvn/zeta/stuff"
+	}
 }
 
 minecraft {
