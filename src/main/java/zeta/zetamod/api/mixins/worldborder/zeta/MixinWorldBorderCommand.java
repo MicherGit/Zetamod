@@ -25,6 +25,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Locale;
 
+import static net.minecraft.server.command.WorldBorderCommand.*;
+
 @Mixin(WorldBorderCommand.class)
 public abstract class MixinWorldBorderCommand {
     @Shadow
@@ -48,6 +50,7 @@ public abstract class MixinWorldBorderCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder) CommandManager.literal("worldborder").requires((source) -> {
             return source.hasPermissionLevel(2);
+//TODO: Change these back and remove static import
         })).then(CommandManager.literal("add").then(((RequiredArgumentBuilder)CommandManager.argument("distance", DoubleArgumentType.doubleArg(-4294967294D, 4294967294D)).executes((context) -> {
             return executeSet((ServerCommandSource)context.getSource(), ((ServerCommandSource)context.getSource()).getWorld().getWorldBorder().getSize() + DoubleArgumentType.getDouble(context, "distance"), 0L);
         })).then(CommandManager.argument("time", IntegerArgumentType.integer(0)).executes((context) -> {
@@ -99,33 +102,5 @@ public abstract class MixinWorldBorderCommand {
 
             return (int)(distance - d);
         }
-    }
-    @Shadow @Final
-    public static int executeBuffer(ServerCommandSource source, float distance) throws CommandSyntaxException {
-        return WorldBorderCommand.executeBuffer(source, distance);
-    }
-    @Shadow @Final
-    public static int executeGet(ServerCommandSource source) {
-        return WorldBorderCommand.executeGet(source);
-    }
-
-    @Shadow @Final
-    public static int executeCenter(ServerCommandSource source, Vec2f pos) throws CommandSyntaxException {
-        return WorldBorderCommand.executeCenter(source, pos);
-    }
-
-    @Shadow @Final
-    public static int executeDamage(ServerCommandSource source, float damagePerBlock) throws CommandSyntaxException {
-        return WorldBorderCommand.executeDamage(source, damagePerBlock);
-    }
-
-    @Shadow @Final
-    public static int executeWarningDistance(ServerCommandSource source, int distance) throws CommandSyntaxException {
-        return WorldBorderCommand.executeWarningDistance(source,distance);
-    }
-
-    @Shadow @Final
-    public static int executeWarningTime(ServerCommandSource source, int time) throws CommandSyntaxException {
-        return WorldBorderCommand.executeWarningTime(source,time);
     }
 }

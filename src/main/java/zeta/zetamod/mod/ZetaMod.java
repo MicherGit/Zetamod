@@ -7,9 +7,8 @@ import net.minecraft.SharedConstants;
 import net.minecraft.item.ItemStack;
 import zeta.zetamod.api.API;
 import zeta.zetamod.mod.features.biomes.BiomesInitializer;
-import zeta.zetamod.mod.features.commands.CommandsInitializer;
+import zeta.zetamod.mod.managers.CommandsManager;
 import zeta.zetamod.mod.features.errors.compute.ComputeErrorFunction;
-import zeta.zetamod.mod.features.errors.compute.JavaVersionTooOldException;
 import zeta.zetamod.mod.features.items.ConcernedTater;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
@@ -27,10 +26,8 @@ import net.minecraft.world.biome.BiomeKeys;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
-import zeta.zetamod.mod.registry.items.RegisterItems;
+import zeta.zetamod.mod.features.items.RegisterItems;
 import zeta.zetamod.mod.managers.ConfigManager;
-
-import java.util.Date;
 
 public class ZetaMod implements ModInitializer {
 
@@ -40,13 +37,13 @@ public class ZetaMod implements ModInitializer {
 	public static final String MOD_NAME = "ZetaMod";
 	public static final Integer MOD_MAJOR = 1;
 	public static final Integer MOD_MINOR = 1;
-	public static final Integer MOD_BF = 0;
-	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF
-			//+ "_01"
-			;
+	public static final Integer MOD_BF
+			= 0;
+	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
+	//public static final String MOD_VERSION = "1.0.6";
 	public static boolean MOD_DEV = false;
 	public static final int MOD_DEV_V =
-			300
+			301
 			//+ "."
 			//+ "2"
 			;
@@ -59,8 +56,6 @@ public class ZetaMod implements ModInitializer {
 			//+
 			//"_01"
 			;
-	public static String technicalblocks_version = "1.0.1";
-	public static String technicalblocks_version = "1.0.0";
 	public static final Error error = ComputeErrorFunction.computeHandler();
 	//public static final Block VOID = new Block(FabricBlockSettings.of(Material.METAL).strength(0.0f));
 
@@ -81,15 +76,6 @@ public class ZetaMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaMod");
-		Date runDate = new Date();
-
-		if ((runDate.getTime() >= Date.UTC(2021,6, 18, 0,0,0))
-		&& (runDate.getTime() <= Date.UTC(2021, 9, 07, 0, 0, 0))) {
-			LogManager.getLogger().log(Level.WARN, "Period of unsupport!" +
-					"\nAny bugs found will likely not be fixed unless high priority" +
-					" due to this mod only having one dev (me)" +
-					" and because I probably won't have enough time to fix everything.");
-		}
 
 		//TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing config");
@@ -101,11 +87,12 @@ public class ZetaMod implements ModInitializer {
 			e.printStackTrace();
 		}
 		log(Level.INFO, "Mod version " + MOD_VERSION_D);
-		CommandsInitializer commandsInitializer = new CommandsInitializer();
+		CommandsManager commandsInitializer = new CommandsManager();
 		commandsInitializer.initCommands();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+
 		/*
 		Do not uncomment!
 		 */
@@ -127,8 +114,8 @@ public class ZetaMod implements ModInitializer {
 
 		} else {
 			log2("Mod build is " + MOD_VERSION + ' ' + PHASE + " build " + MOD_DEV_V);
-			log2("Milestone 12 " +
-					//"beta" +
+			log2("Milestone 12" +
+					//" beta" +
 					"!");
 		}
 		log2("I really need to remember to do this stuff (Adding easter eggs)");

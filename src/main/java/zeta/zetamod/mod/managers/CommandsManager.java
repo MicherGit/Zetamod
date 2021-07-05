@@ -1,8 +1,7 @@
-package zeta.zetamod.mod.features.commands;
+package zeta.zetamod.mod.managers;
 
 
 import com.mojang.brigadier.arguments.StringArgumentType;
-import dray.draydenspace.farlandsexplore.technicalblocks.TechnicalBlocks;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.SharedConstants;
 import net.minecraft.text.LiteralText;
@@ -27,12 +26,12 @@ import static zeta.zetamod.mod.managers.GeneralManager.getConfig;
 
 import static zeta.zetamod.api.util.Util.*;
 @SuppressWarnings("ALL")
-public class CommandsInitializer {
+public class CommandsManager {
     public static String version1 =
             "ZetaMod version " + ZetaMod.MOD_VERSION +
                     SPACE + "build" + SPACE + MOD_DEV_V + SPACE + ZetaMod.PHASE +
                     "\n" +
-                    "Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
+                    //"Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
                     "Running on Minecraft " +
                     SharedConstants.getGameVersion().getName() +
                     "\nUsing Java version "+System.getProperty("java.version");
@@ -40,10 +39,11 @@ public class CommandsInitializer {
             "ZetaMod version " + ZetaMod.MOD_VERSION +
                     SPACE + "build" + SPACE + MOD_DEV_V + SPACE + ZetaMod.PHASE +
                     "\n" +
-                    "Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
+                    //"Technical Blocks version " + TechnicalBlocks.tb_version + "\n" +
                     "Running on Minecraft " +
                     SharedConstants.getGameVersion().getName() +
                     "\nUsing Java version "+System.getProperty("java.version");
+
     public void initCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
             /**
@@ -53,8 +53,14 @@ public class CommandsInitializer {
                     context -> {
                         if(!MOD_DEV) {
                             context.getSource().sendFeedback(new LiteralText(
-                                            version1)
-                                    ,true);
+                                    "[ZetaMod] ZetaMod v" + ZetaMod.MOD_VERSION
+                            ),true);
+                            context.getSource().sendFeedback(new LiteralText(
+                                    "[Minecraft] Running on version " + SharedConstants.getGameVersion().getName()), true
+                            );
+                            context.getSource().sendFeedback(new LiteralText(
+                                    "[Java] Using Java version " + System.getProperty("java.version")), true
+                            );
                         } else {
                             context.getSource().sendFeedback(new LiteralText(
                                             version2)
@@ -63,7 +69,11 @@ public class CommandsInitializer {
 
                             return 1;
                     }
-            )).then(literal("farlands").executes(
+            ).then(literal("debug").executes(context -> {
+                context.getSource().sendFeedback(new LiteralText(version1),true);
+                        return 2;
+                    })
+                    )).then(literal("farlands").executes(
                     context -> {
                         boolean FLC = GeneralManager.getConfig().farLandsEnabled.getValue();
                         context.getSource().sendFeedback(new LiteralText("FarLands " + getEnabledOrDisabled(!FLC)), true);
