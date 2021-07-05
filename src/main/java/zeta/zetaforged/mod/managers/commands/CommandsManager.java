@@ -39,16 +39,28 @@ public class CommandsManager {
                     SharedConstants.getGameVersion().getName() +
                     "\nUsing Java version "+System.getProperty("java.version");
 
-    public static int zfVersion(CommandContext<ServerCommandSource> context) {
-        context.getSource().sendFeedback(new LiteralText(
-                "[ZetaForged] ZetaForged v" + ZetaForged.MOD_VERSION
-        ),true);
-        context.getSource().sendFeedback(new LiteralText(
-                "[Minecraft] Running on version " + SharedConstants.getGameVersion().getName()), true
-        );
-        context.getSource().sendFeedback(new LiteralText(
-                "[Java] Using Java version " + System.getProperty("java.version")), true
-        );
+    public static int zfVersion(CommandContext<ServerCommandSource> context, boolean development) {
+        if(development) {
+            context.getSource().sendFeedback(new LiteralText(
+                    "[ZetaForged] ZetaForged v" + ZetaForged.MOD_VERSION + " build " + MOD_DEV_V
+            ), true);
+            context.getSource().sendFeedback(new LiteralText(
+                    "[Minecraft] Running on version " + SharedConstants.getGameVersion().getName()), true
+            );
+            context.getSource().sendFeedback(new LiteralText(
+                    "[Java] Using Java version " + System.getProperty("java.version")), true
+            );
+        } else {
+            context.getSource().sendFeedback(new LiteralText(
+                    "[ZetaForged] ZetaForged v" + ZetaForged.MOD_VERSION
+            ), true);
+            context.getSource().sendFeedback(new LiteralText(
+                    "[Minecraft] Running on version " + SharedConstants.getGameVersion().getName()), true
+            );
+            context.getSource().sendFeedback(new LiteralText(
+                    "[Java] Using Java version " + System.getProperty("java.version")), true
+            );
+        }
         return 1;
     }
     public void initCommands() {
@@ -58,7 +70,7 @@ public class CommandsManager {
              */
             dispatcher.register(literal("zetaforged").then(literal("version").executes(
                     context -> {
-                            return zfVersion(context);
+                            return zfVersion(context, MOD_DEV);
                     }
             ).then(literal("debug").executes(context -> {
                 context.getSource().sendFeedback(new LiteralText(version1),true);
