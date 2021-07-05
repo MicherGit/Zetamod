@@ -25,6 +25,6 @@ public class ShitassRegister implements ModInitializer {
     @Override
     public void onInitialize() {
         FabricDefaultAttributeRegistry.register(SHITASS, ShitassEntity.createMobAttributes());
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID), SHITASS_SPAWN_EGG);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "shitass"), SHITASS_SPAWN_EGG);
     }
 }
