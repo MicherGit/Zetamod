@@ -17,7 +17,7 @@ public class RegisterItems {
         //Keystone keystone = new Keystone();
         VoidBlock_BLOCK = Registry.register(Registry.BLOCK, id("void"), new VoidBlock());
         VoidBlock_ITEM = Registry.register(Registry.ITEM, id("void"),
-                new BlockItem(VoidBlock_BLOCK, new Item.Settings().group(ZetaForged.ZETAMOD_ITEMS)));
+                new BlockItem(VoidBlock_BLOCK, new Item.Settings().group(ZetaForged.ZETAFORGED_ITEMS)));
                 // CODE DEF NOT RIPPED FROM A DUMMY MCREATOR MOD
 
 

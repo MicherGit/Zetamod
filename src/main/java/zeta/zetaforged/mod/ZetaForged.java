@@ -61,14 +61,14 @@ public class ZetaForged implements ModInitializer {
 
 	public static final Block CONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 	public static final Block HYPERCONCERN_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
-	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ZetaForged.ZETAMOD_ITEMS));
-	//public static final Item EXAMPLE_ITEM = Registry.register(Registry.ITEM,new Identifier("mymodid","example_item"), new Item(new FabricItemSettings().group(zeta.zetaforged.mod.ZetaForged.ZETAMOD_ITEMS)));
+	public static final ConcernedTater CONCERNED_TATER = new ConcernedTater(new FabricItemSettings().group(ZetaForged.ZETAFORGED_ITEMS));
+	//public static final Item EXAMPLE_ITEM = Registry.register(Registry.ITEM,new Identifier("mymodid","example_item"), new Item(new FabricItemSettings().group(zeta.zetaforged.mod.ZetaForged.ZETAFORGED_ITEMS)));
 
 	public static final Level LV = Level.INFO;
 	public static double concerning_weight = Math.pow(2, -4);
 	public API api = new API(MOD_VERSION_D);
 
-	public static final ItemGroup ZETAMOD_ITEMS = FabricItemGroupBuilder.create(
+	public static final ItemGroup ZETAFORGED_ITEMS = FabricItemGroupBuilder.create(
 			new Identifier(MOD_ID,"zetamod_group")).icon(
 			() -> new ItemStack(CONCERN_BLOCK)).
 			build();

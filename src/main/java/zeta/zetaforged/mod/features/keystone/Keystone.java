@@ -18,14 +18,14 @@ import java.util.Locale;
 public class Keystone implements ModInitializer {
     public static Item KEYSTONE = Registry.register(Registry.ITEM, new Identifier(ZetaForged.MOD_ID,
             "KEYSTONE".toLowerCase(Locale.ROOT)
-    ), new KeystoneItem(new FabricItemSettings().group(ZetaForged.ZETAMOD_ITEMS)));
+    ), new KeystoneItem(new FabricItemSettings().group(ZetaForged.ZETAFORGED_ITEMS)));
     public static Block KEYSTONE_BLOCK = new Block(FabricBlockSettings.of(Material.AMETHYST).strength(9.0f));
     @Override
     public void onInitialize() {
         LogManager.getLogger().log(Level.INFO, "Adding keystone items");
         Registry.register(Registry.BLOCK, new Identifier(ZetaForged.MOD_ID, "keystone_block"), KEYSTONE_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(ZetaForged.MOD_ID, "keystone_block"), new BlockItem(KEYSTONE_BLOCK,
-                new FabricItemSettings().group(ZetaForged.ZETAMOD_ITEMS)));
+                new FabricItemSettings().group(ZetaForged.ZETAFORGED_ITEMS)));
         KeystoneArmor.register();
         KeystoneTools.register();
     }

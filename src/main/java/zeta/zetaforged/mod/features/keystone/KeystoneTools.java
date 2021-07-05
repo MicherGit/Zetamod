@@ -21,9 +21,9 @@ public class KeystoneTools {
         Registry.register(Registry.ITEM, keystoneTool("axe"), KeystoneTools.KEYSTONE_AXE);
         Registry.register(Registry.ITEM, keystoneTool("tiller"), KeystoneTools.KEYSTONE_TILLER);
     }
-    public static ToolItem KEYSTONE_SHOVEL = new ShovelItem(new KeystoneToolMaterial(), 1.5F, -3.0F, new Item.Settings().group(ZetaForged.ZETAMOD_ITEMS));
-    public static ToolItem KEYSTONE_BLADE = new SwordItem(new KeystoneToolMaterial(), 3, -2.4F, new Item.Settings().group(ZetaForged.ZETAMOD_ITEMS));
-    public static ToolItem KEYSTONE_PICKAXE = new PickaxeItem(new KeystoneToolMaterial(), 1, -2.8F, new Item.Settings().group(ZetaForged.ZETAMOD_ITEMS));
-    public static ToolItem KEYSTONE_AXE = new AxeItem(new KeystoneToolMaterial(), 7.0F, -3.2F, new Item.Settings().group(ZetaForged.ZETAMOD_ITEMS));
-    public static ToolItem KEYSTONE_TILLER = new TillerItem(new KeystoneToolMaterial(), 7, -3.2F, new Item.Settings().group(ZetaForged.ZETAMOD_ITEMS));
+    public static ToolItem KEYSTONE_SHOVEL = new ShovelItem(new KeystoneToolMaterial(), 1.5F, -3.0F, new Item.Settings().group(ZetaForged.ZETAFORGED_ITEMS));
+    public static ToolItem KEYSTONE_BLADE = new SwordItem(new KeystoneToolMaterial(), 3, -2.4F, new Item.Settings().group(ZetaForged.ZETAFORGED_ITEMS));
+    public static ToolItem KEYSTONE_PICKAXE = new PickaxeItem(new KeystoneToolMaterial(), 1, -2.8F, new Item.Settings().group(ZetaForged.ZETAFORGED_ITEMS));
+    public static ToolItem KEYSTONE_AXE = new AxeItem(new KeystoneToolMaterial(), 7.0F, -3.2F, new Item.Settings().group(ZetaForged.ZETAFORGED_ITEMS));
+    public static ToolItem KEYSTONE_TILLER = new TillerItem(new KeystoneToolMaterial(), 7, -3.2F, new Item.Settings().group(ZetaForged.ZETAFORGED_ITEMS));
 }

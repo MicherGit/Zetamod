@@ -1,8 +1,10 @@
 package zeta.zetaforged.mod.managers.commands;
 
 
+import com.mojang.brigadier.context.CommandContext;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.SharedConstants;
+import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.LiteralText;
 import zeta.zetaforged.mod.ZetaForged;
 import zeta.zetaforged.mod.managers.GeneralManager;
@@ -37,6 +39,18 @@ public class CommandsManager {
                     SharedConstants.getGameVersion().getName() +
                     "\nUsing Java version "+System.getProperty("java.version");
 
+    public static int zfVersion(CommandContext<ServerCommandSource> context) {
+        context.getSource().sendFeedback(new LiteralText(
+                "[ZetaForged] ZetaForged v" + ZetaForged.MOD_VERSION
+        ),true);
+        context.getSource().sendFeedback(new LiteralText(
+                "[Minecraft] Running on version " + SharedConstants.getGameVersion().getName()), true
+        );
+        context.getSource().sendFeedback(new LiteralText(
+                "[Java] Using Java version " + System.getProperty("java.version")), true
+        );
+        return 1;
+    }
     public void initCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
             /**
@@ -44,23 +58,7 @@ public class CommandsManager {
              */
             dispatcher.register(literal("zetaforged").then(literal("version").executes(
                     context -> {
-                        if(!MOD_DEV) {
-                            context.getSource().sendFeedback(new LiteralText(
-                                    "[ZetaForged] ZetaForged v" + ZetaForged.MOD_VERSION
-                            ),true);
-                            context.getSource().sendFeedback(new LiteralText(
-                                    "[Minecraft] Running on version " + SharedConstants.getGameVersion().getName()), true
-                            );
-                            context.getSource().sendFeedback(new LiteralText(
-                                    "[Java] Using Java version " + System.getProperty("java.version")), true
-                            );
-                        } else {
-                            context.getSource().sendFeedback(new LiteralText(
-                                            version2)
-                                    ,true);
-                        }
-
-                            return 1;
+                            return zfVersion(context);
                     }
             ).then(literal("debug").executes(context -> {
                 context.getSource().sendFeedback(new LiteralText(version1),true);
