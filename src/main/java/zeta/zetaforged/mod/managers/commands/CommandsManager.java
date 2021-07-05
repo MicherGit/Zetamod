@@ -1,10 +1,11 @@
-package zeta.zetaforged.mod.managers;
+package zeta.zetaforged.mod.managers.commands;
 
 
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.SharedConstants;
 import net.minecraft.text.LiteralText;
 import zeta.zetaforged.mod.ZetaForged;
+import zeta.zetaforged.mod.managers.GeneralManager;
 //Static imports
 // getString(ctx, "string")
 // word()

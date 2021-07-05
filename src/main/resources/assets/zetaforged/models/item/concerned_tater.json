@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "zetamod:item/concerned_tater"
+    "layer0": "zetaforged:item/concerned_tater"
   }
 }

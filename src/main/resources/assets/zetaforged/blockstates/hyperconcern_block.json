@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "zetamod:block/hyperconcern_block" }
+    "": { "model": "zetaforged:block/hyperconcern_block" }
   }
 }

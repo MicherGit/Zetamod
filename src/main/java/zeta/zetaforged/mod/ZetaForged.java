@@ -7,7 +7,7 @@ import net.minecraft.SharedConstants;
 import net.minecraft.item.ItemStack;
 import zeta.zetaforged.api.API;
 import zeta.zetaforged.mod.features.biomes.BiomesInitializer;
-import zeta.zetaforged.mod.managers.CommandsManager;
+import zeta.zetaforged.mod.managers.commands.CommandsManager;
 import zeta.zetaforged.mod.features.errors.compute.ComputeErrorFunction;
 import zeta.zetaforged.mod.features.items.ConcernedTater;
 import net.fabricmc.api.ModInitializer;
@@ -31,7 +31,7 @@ import zeta.zetaforged.mod.managers.ConfigManager;
 
 public class ZetaForged implements ModInitializer {
 
-    public static final String PHASE = "build";
+    public static final String PHASE = "prerelease";
     private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zetaforged";
 	public static final String MOD_NAME = "ZetaForged";

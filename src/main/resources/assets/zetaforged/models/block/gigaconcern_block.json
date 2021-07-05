@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "zetamod:block/gigaconcern_block"
+    "all": "zetaforged:block/gigaconcern_block"
   }
 }

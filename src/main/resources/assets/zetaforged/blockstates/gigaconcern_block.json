@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "zetamod:block/gigaconcern_block" }
+    "": { "model": "zetaforged:block/gigaconcern_block" }
   }
 }

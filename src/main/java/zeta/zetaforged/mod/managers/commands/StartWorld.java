@@ -1,4 +1,4 @@
-package zeta.zetaforged.mod.features.commands;
+package zeta.zetaforged.mod.managers.commands;
 
 import net.fabricmc.api.ModInitializer;
 

@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "zetamod:block/keystone_block" }
+    "": { "model": "zetaforged:block/keystone_block" }
   }
 }
