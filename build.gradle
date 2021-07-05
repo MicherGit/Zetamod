@@ -24,11 +24,10 @@ repositories {
 		url = "http://maven.kyrptonaught.dev"
 		allowInsecureProtocol = true
 	}
-	mavenLocal()
-	//maven {
-	//	name "CottonMC"
-	//	url "https://server.bbkr.space:8081/artifactory/libs-snapshot"
-	//}
+	maven {
+		name = "RepsyMaven"
+		url = "https://repo.repsy.io/mvn/zeta/stuff"
+	}
 }
 
 minecraft {
