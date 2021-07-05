@@ -50,6 +50,7 @@ public abstract class MixinWorldBorderCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder) CommandManager.literal("worldborder").requires((source) -> {
             return source.hasPermissionLevel(2);
+//TODO: Change these back and remove static import
         })).then(CommandManager.literal("add").then(((RequiredArgumentBuilder)CommandManager.argument("distance", DoubleArgumentType.doubleArg(-4294967294D, 4294967294D)).executes((context) -> {
             return executeSet((ServerCommandSource)context.getSource(), ((ServerCommandSource)context.getSource()).getWorld().getWorldBorder().getSize() + DoubleArgumentType.getDouble(context, "distance"), 0L);
         })).then(CommandManager.argument("time", IntegerArgumentType.integer(0)).executes((context) -> {
