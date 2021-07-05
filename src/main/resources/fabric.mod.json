@@ -25,7 +25,6 @@
       "zeta.zetaforged.mod.managers.GeneralManager",
       "zeta.zetaforged.mod.registry.portals.PortalInit",
       "zeta.zetaforged.mod.features.keystone.Keystone",
-      "zeta.zetaforged.mod.features.commands.StartWorld",
       "zeta.zetaforged.mod.features.entities.shitass.ShitassRegister"
 
     ],
