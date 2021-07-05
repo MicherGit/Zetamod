@@ -3,15 +3,21 @@ package zeta.zetamod.mod.features.entities.temp.register.entities;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import zeta.zetamod.api.oldfabric.registry.EntityRendererRegistry;
-import zeta.zetamod.mod.features.entities.cubeentity.testing.CubeEntityRenderer;
+import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.client.render.entity.EntityRendererFactory;
+import zeta.zetamod.mod.features.entities.shitass.ShitassEntity;
+import zeta.zetamod.mod.features.entities.shitass.ShitassEntityRenderer;
 
 @Environment(EnvType.CLIENT)
 public class EntityTestingClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.INSTANCE.register(EntityTesting.CUBE, (dispatcher, context) -> {
-            return new CubeEntityRenderer(dispatcher);
+        EntityRendererRegistry.INSTANCE.register(EntityTesting.SHITASS, new EntityRendererFactory<ShitassEntity>() {
+            @Override
+            public EntityRenderer<ShitassEntity> create(Context ctx) {
+                return new ShitassEntityRenderer(ctx);
+            }
         });
     }
 

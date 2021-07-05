@@ -9,17 +9,17 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import zeta.zetamod.mod.ZetaMod;
-import zeta.zetamod.mod.features.entities.cubeentity.testing.CubeEntity;
+import zeta.zetamod.mod.features.entities.shitass.ShitassEntity;
 
 public class EntityTesting implements ModInitializer {
-    public static final EntityType<CubeEntity> CUBE = Registry.register(
+    public static final EntityType<ShitassEntity> SHITASS = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(ZetaMod.MOD_ID, "cube"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CubeEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ShitassEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build()
     );
     @Override
     public void onInitialize() {
 
-        FabricDefaultAttributeRegistry.register(CUBE, CubeEntity.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(SHITASS, ShitassEntity.createMobAttributes());
     }
 }

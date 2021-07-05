@@ -25,7 +25,8 @@
       "zeta.zetamod.mod.managers.GeneralManager",
       "zeta.zetamod.mod.registry.portals.PortalInit",
       "zeta.zetamod.mod.features.keystone.Keystone",
-      "zeta.zetamod.mod.features.commands.StartWorld"
+      "zeta.zetamod.mod.features.commands.StartWorld",
+      "zeta.zetamod.mod.features.entities.temp.register.entities.EntityTesting"
 
     ],
     "client": [
