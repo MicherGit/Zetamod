@@ -14,8 +14,8 @@ import zeta.zetaforged.mod.features.entities.shitass.ShitassEntity;
 public class ShitassRegister implements ModInitializer {
     public static final EntityType<ShitassEntity> SHITASS = Registry.register(
             Registry.ENTITY_TYPE,
-            new Identifier(ZetaForged.MOD_ID, "cube"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ShitassEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build()
+            new Identifier(ZetaForged.MOD_ID, "shitass"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ShitassEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build()
     );
     @Override
     public void onInitialize() {
