@@ -41,7 +41,7 @@ public class ZetaForged implements ModInitializer {
 			= 0;
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	//public static final String MOD_VERSION = "1.0.6";
-	public static boolean MOD_DEV = false;
+	public static boolean MOD_DEV = true;
 	public static final int MOD_DEV_V =
 			301
 			//+ "."

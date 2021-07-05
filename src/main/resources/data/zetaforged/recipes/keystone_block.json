@@ -7,11 +7,11 @@
   ],
   "key": {
     "s": {
-      "item": "zetamod:keystone"
+      "item": "zetaforged:keystone"
     }
   },
   "result": {
-    "item": "zetamod:keystone_block",
+    "item": "zetaforged:keystone_block",
     "count": 1
   }
 }

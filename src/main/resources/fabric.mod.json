@@ -26,11 +26,12 @@
       "zeta.zetaforged.mod.registry.portals.PortalInit",
       "zeta.zetaforged.mod.features.keystone.Keystone",
       "zeta.zetaforged.mod.features.commands.StartWorld",
-      "zeta.zetaforged.mod.features.entities.temp.register.entities.EntityTesting"
+      "zeta.zetaforged.mod.features.entities.shitass.ShitassRegister"
 
     ],
     "client": [
-      "zeta.zetaforged.mod.client.ZetaForgedClient"
+      "zeta.zetaforged.mod.client.ZetaForgedClient",
+      "zeta.zetaforged.mod.features.entities.shitass.ShitassEntityRenderRegister"
     ],
     "server": []
   },

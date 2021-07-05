@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "zetamod:tater_block",
+              "name": "zetaforged:tater_block",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
@@ -29,7 +29,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "zetamod:concerned_tater",
+              "name": "zetaforged:concerned_tater",
               "functions": [
                 {
                   "function": "minecraft:set_count",

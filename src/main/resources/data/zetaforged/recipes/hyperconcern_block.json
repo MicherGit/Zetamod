@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "zetamod:concern_block"
+      "item": "zetaforged:concern_block"
     },
     {
       "item": "minecraft:iron_ingot"
     }
   ],
   "result": {
-    "item": "zetamod:hyperconcern_block",
+    "item": "zetaforged:hyperconcern_block",
     "count": 1
   }
 }

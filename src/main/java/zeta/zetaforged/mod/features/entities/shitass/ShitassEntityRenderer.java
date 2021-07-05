@@ -2,6 +2,7 @@ package zeta.zetaforged.mod.features.entities.shitass;
 
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.util.Identifier;
 import zeta.zetaforged.mod.ZetaForged;
 
@@ -9,7 +10,7 @@ public class ShitassEntityRenderer extends MobEntityRenderer<ShitassEntity, Shit
 
 
     public ShitassEntityRenderer(EntityRendererFactory.Context context) {
-        super(context, new ShitassEntityModel(), 0.5);
+        super(context, new ShitassEntityModel(context.getPart(EntityModelLayers.PLAYER), false), 0.5f);
     }
 
     @Override

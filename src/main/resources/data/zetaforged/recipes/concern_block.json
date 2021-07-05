@@ -7,11 +7,11 @@
   ],
   "key": {
     "#": {
-      "item": "zetamod:concerned_tater"
+      "item": "zetaforged:concerned_tater"
     }
   },
   "result": {
-    "item": "zetamod:concern_block",
+    "item": "zetaforged:concern_block",
     "count": 1
   }
 }

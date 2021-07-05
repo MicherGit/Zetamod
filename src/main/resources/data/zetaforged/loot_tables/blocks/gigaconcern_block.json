@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zetamod:gigaconcern_block"
+          "name": "zetaforged:gigaconcern_block"
         }
       ],
       "conditions": [

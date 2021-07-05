@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zetamod:hyperconcern_block"
+          "name": "zetaforged:hyperconcern_block"
         }
       ],
       "conditions": [
