@@ -41,9 +41,11 @@ public class ZetaForged implements ModInitializer {
 			= 0;
 	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	//public static final String MOD_VERSION = "1.0.6";
+	//public static String MOD_VERSION = "${version}";
 	public static boolean MOD_DEV = true;
-	public static final int MOD_DEV_V =
-			301
+	public static final String MOD_DEV_V =
+			//"21w27a";
+			"301"
 			//+ "."
 			//+ "2"
 			;
@@ -86,7 +88,7 @@ public class ZetaForged implements ModInitializer {
 			log2("Loading failed!");
 			e.printStackTrace();
 		}
-		log(Level.INFO, "Mod version " + MOD_VERSION_D);
+		log(Level.INFO, "Mod version " + MOD_VERSION);
 		CommandsManager commandsInitializer = new CommandsManager();
 		commandsInitializer.initCommands();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
