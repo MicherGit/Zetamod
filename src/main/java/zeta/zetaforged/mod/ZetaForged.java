@@ -3,6 +3,7 @@ package zeta.zetaforged.mod;
 import me.zeroeightsix.fiber.exception.FiberException;
 import net.fabricmc.fabric.api.biome.v1.TheEndBiomes;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.SharedConstants;
 import net.minecraft.item.ItemStack;
 import zeta.zetaforged.api.API;
@@ -39,16 +40,12 @@ public class ZetaForged implements ModInitializer {
 	public static final Integer MOD_MINOR = 1;
 	public static final Integer MOD_BF
 			= 0;
-	public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
+	//public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	//public static final String MOD_VERSION = "1.0.6";
-	//public static String MOD_VERSION = "${version}";
+	public static String MOD_VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion().toString()
+			+ " snapshot 21w28a";
 	public static boolean MOD_DEV = true;
-	public static final String MOD_DEV_V =
-			//"21w27a";
-			"301"
-			//+ "."
-			//+ "2"
-			;
+	public static final int MOD_DEV_V = 302;
 	public static String getModVersion() {
 		return MOD_VERSION;
 	}
