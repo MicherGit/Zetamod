@@ -32,7 +32,7 @@ import zeta.zetaforged.mod.managers.ConfigManager;
 
 public class ZetaForged implements ModInitializer {
 
-    public static final String PHASE = "prerelease";
+    public static final String PHASE = "snapshot";
     private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zetaforged";
 	public static final String MOD_NAME = "ZetaForged";
@@ -43,7 +43,7 @@ public class ZetaForged implements ModInitializer {
 	//public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	//public static final String MOD_VERSION = "1.0.6";
 	public static String MOD_VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion().toString()
-			+ " snapshot 21w28a";
+			+ " snapshot 21w28b";
 	public static boolean MOD_DEV = true;
 	public static final int MOD_DEV_V = 302;
 	public static String getModVersion() {
@@ -72,6 +72,24 @@ public class ZetaForged implements ModInitializer {
 			() -> new ItemStack(CONCERN_BLOCK)).
 			build();
 	public static final Block TATER_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(5.0f));
+	public static void loadConfig() {
+		try {
+			ConfigManager configManager = new ConfigManager();
+		} catch (FiberException fiberException) {
+			for (int i = 0; i <= 4; i++) {
+				try {
+					ConfigManager configManager = new ConfigManager();
+				} catch (FiberException e) {
+					try {
+						ConfigManager configManager = new ConfigManager();
+					} catch (FiberException crash) {
+						log2("Loading failed!");
+						crash.printStackTrace();
+					}
+				}
+			}
+		}
+	}
 	@Override
 	public void onInitialize() {
 		log2("Initializing ZetaForged");
@@ -79,19 +97,14 @@ public class ZetaForged implements ModInitializer {
 		//TrinaryHash.checkHash();
 		log(Level.INFO, "Initializing config");
 		log(Level.INFO, "Loading on minecraft version " + SharedConstants.getGameVersion().getName());
-		try {
-			ConfigManager configManager = new ConfigManager();
-		} catch (FiberException e) {
-			log2("Loading failed!");
-			e.printStackTrace();
-		}
+
 		log(Level.INFO, "Mod version " + MOD_VERSION);
 		CommandsManager commandsInitializer = new CommandsManager();
 		commandsInitializer.initCommands();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-
+		loadConfig();
 		/*
 		Do not uncomment!
 		 */
