@@ -41,7 +41,7 @@
   "depends": {
     "fabricloader": ">=0.10.0",
     "fabric": "*",
-    "minecraft": ">=1.17.1",
+    "minecraft": ">=1.17.1 <1.18-alpha.x.x.x",
     "customportalapi": ">=0.0.1-beta32-1.17",
     "java": ">=16"
   },
