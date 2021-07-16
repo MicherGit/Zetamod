@@ -29,7 +29,7 @@ import zeta.zetaforged.mod.managers.ConfigManager;
 
 public class ZetaForged implements ModInitializer {
 
-    public static final String PHASE = "snapshot";
+    public static final String PHASE = "earlyaccess";
     private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zetaforged";
 	public static final String MOD_NAME = "ZetaForged";

@@ -18,7 +18,8 @@
     "worldborder.supercoder.beta.MixinAquafierSampler",
     "worldborder.zeta.MixinLinkedBlockPosHashSetStorage",
     "worldborder.zeta.MixinWorldBorderCommand",
-    "zeta.accessors.PerlinNoiseSamplerAccessor"
+    "zeta.accessors.PerlinNoiseSamplerAccessor",
+    "worldborder.zeta.MixinWorldView"
   ],
   "client": [
   ],
