@@ -18,3 +18,4 @@ The mod is now built on 1.17.1 pre-releases as of 1.0.9.
 There are known mod incompatibilities, check out [ZM-9](https://github.com/TwelvianZeta/zetamod/issues/9) (seems to be fixed) for any updates.
 
 Downloads have moved to curseforge! Check us out at https://curseforge.com/minecraft/mc-mods/zetamod !
+We are now also on modrinth, check us out at https://modrinth.com/mod/zetaforged !
