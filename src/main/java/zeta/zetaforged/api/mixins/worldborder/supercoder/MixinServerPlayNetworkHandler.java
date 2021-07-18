@@ -2,6 +2,7 @@ package zeta.zetaforged.api.mixins.worldborder.supercoder;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 
