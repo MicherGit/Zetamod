@@ -15,4 +15,13 @@ public class MixinServerPlayNetworkHandler {
 	private static boolean validateVehicleMove(double d, double e, double f, float g, float h) {
 		return false;
 	}
+        @Inject(method = "clampHorizontal", at = @At("RETURN"), cancellable = true)
+        private static void clampHorizontal(double d, CallbackInfoReturnable<Double> cir) {
+            cir.setReturnValue(d);
+        }
+
+        @Inject(method = "clampVertical", at = @At("RETURN"), cancellable = true)
+        private static void clampVertical(double d, CallbackInfoReturnable<Double> cir) {
+            cir.setReturnValue(d);
+        }
 }
