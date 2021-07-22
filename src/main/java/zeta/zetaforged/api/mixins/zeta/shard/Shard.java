@@ -1,98 +1,90 @@
 package zeta.zetaforged.api.mixins.zeta.shard;
 
-import zeta.zetaforged.api.mixins.zeta.accessors.PerlinNoiseSamplerAccessor;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.noise.PerlinNoiseSampler;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
-import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import zeta.zetaforged.mod.managers.GeneralManager;
 
 @Mixin(value = PerlinNoiseSampler.class, priority = 999)
 public abstract class Shard {
     private boolean logged = false;
-    @Shadow
-    public final double originX;
-    public final double originY;
-    public final double originZ;
 
     @Shadow
-    private final byte[] permutations;
+    @Final
+    public double originX;
+    @Shadow
+    @Final
+    public double originY;
+    @Shadow
+    @Final
+    public double originZ;
 
-    public Shard(double originX, double originY, double originZ, byte[] permutations) {
-        this.originX = originX;
-        this.originY = originY;
-        this.originZ = originZ;
-        this.permutations = permutations;
-    }
-    /**
-     * @author
-     */
-    @Overwrite
-    @Deprecated
-    public double sample(double x, double y, double z, double yScale, double yMax) {
-        double d = x + this.originX;
-        double e = y + this.originY;
-        double f = z + this.originZ;
-        int i = MathHelper.floor(d);
-        int j = MathHelper.floor(e);
-        int k = MathHelper.floor(f);
-        double g,h,l;
-        if (!GeneralManager.getConfig().shardFarLands.getValue()) {
-            g = d - (double)i;
-            h = e - (double)j;
-            l = f - (double)k;
-        } else {
-            g = d - (float)i;
-            h = e - (float)j;
-            l = f - (float)k;
-        }
+    @Inject(method = "sample(DDDDD)D", at = @At("RETURN"), cancellable = true)
+    public void sample(double x, double y, double z, double yScale, double yMax, CallbackInfoReturnable<Double> cir) {
+        if (GeneralManager.getConfig().shardFarLands.getValue()) {
+            double d = x + originX;
+            double e = y + originY;
+            double f = z + originZ;
+            int i = MathHelper.floor(d);
+            int j = MathHelper.floor(e);
+            int k = MathHelper.floor(f);
+            double g, h, l;
+            g = d - (float) i;
+            h = e - (float) j;
+            l = f - (float) k;
 
-        double p;
-        if (yScale != 0.0D) {
-            double n;
-            if (yMax >= 0.0D && yMax < h) {
-                n = yMax;
+            double p;
+            if (yScale != 0.0D) {
+                double n;
+                if (yMax >= 0.0D && yMax < h) {
+                    n = yMax;
+                } else {
+                    n = h;
+                }
+
+                p = (double) MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
             } else {
-                n = h;
+                p = 0.0D;
             }
 
-            p = (double)MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
-        } else {
-            p = 0.0D;
+            cir.setReturnValue(sample(i, j, k, g, h - p, l, h));
         }
-
-        return ((PerlinNoiseSamplerAccessor)this).invokeSample(i, j, k, g, h - p, l, h);
     }
 
-    /**
-     * @author
-     */
-    @Overwrite
-    public double sampleDerivative(double x, double y, double z, double[] ds) {
-        double d = x + this.originX;
-        double e = y + this.originY;
-        double f = z + this.originZ;
-        int i = MathHelper.floor(d);
-        int j = MathHelper.floor(e);
-        int k = MathHelper.floor(f);
-        double g,h,l;
-        if (!GeneralManager.getConfig().shardFarLands.getValue()) {
-            g = d - (double) i;
-            h = e - (double) j;
-            l = f - (double) k;
-        } else {
-            g = d - (float)i;
-            h = e - (float)j;
-            l = f - (float)k;
+    @Inject(method = "sampleDerivative(DDD[D)D", at = @At("RETURN"), cancellable = true)
+    public void sampleDerivative(double x, double y, double z, double[] ds, CallbackInfoReturnable<Double> cir) {
+        if (GeneralManager.getConfig().shardFarLands.getValue()) {
+            double d = x + originX;
+            double e = y + originY;
+            double f = z + originZ;
+            int i = MathHelper.floor(d);
+            int j = MathHelper.floor(e);
+            int k = MathHelper.floor(f);
+            double g, h, l;
+            g = d - (float) i;
+            h = e - (float) j;
+            l = f - (float) k;
             if (FabricLoader.getInstance().isModLoaded("lithium") && !this.logged) {
                 LogManager.getLogger().log(Level.ERROR, "LITHIUM DETECTED! Shattered farlands may not be present!");
             }
+            cir.setReturnValue(sampleDerivative(i, j, k, g, h, l, ds));
         }
-        return this.sampleDerivative(i, j, k, g, h, l, ds);
     }
+
     @Shadow
-    @Final
-    public abstract double sampleDerivative(int sectionX, int sectionY, int sectionZ, double localX, double localY, double localZ, double[] ds);
+    private double sampleDerivative(int sectionX, int sectionY, int sectionZ, double localX, double localY, double localZ, double[] ds) {
+        throw new AssertionError();
+    }
+
+    @Shadow
+    private double sample(int sectionX, int sectionY, int sectionZ, double localX, double localY, double localZ, double fadeLocalX) {
+        throw new AssertionError();
+    }
 }
