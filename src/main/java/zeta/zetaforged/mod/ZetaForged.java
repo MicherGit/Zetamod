@@ -33,17 +33,15 @@ public class ZetaForged implements ModInitializer {
     private static Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "zetaforged";
 	public static final String MOD_NAME = "ZetaForged";
-	public static final Integer MOD_MAJOR = 1;
-	public static final Integer MOD_MINOR = 1;
-	public static final Integer MOD_BF
-			= 0;
+	@Deprecated
+	public static final Integer MOD_MAJOR = 2; public static final Integer MOD_MINOR = 0; public static final Integer MOD_BF  = 0;
 	//public static final String MOD_VERSION = MOD_MAJOR + "." + MOD_MINOR + "." + MOD_BF;
 	//public static final String MOD_VERSION = "1.0.6";
 	public static String MOD_VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion().toString()
 			//+ " snapshot 21w28b"
 			;
 	public static boolean MOD_DEV = true;
-	public static final int MOD_DEV_V = 251;
+	public static final int MOD_DEV_V = 250;
 	public static String getModVersion() {
 		return MOD_VERSION;
 	}

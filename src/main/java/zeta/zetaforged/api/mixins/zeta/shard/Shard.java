@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import zeta.zetaforged.mod.managers.GeneralManager;
 
 @Mixin(value = PerlinNoiseSampler.class, priority = 999)
@@ -28,54 +29,56 @@ public abstract class Shard {
 
     @Inject(method = "sample(DDDDD)D", at = @At("RETURN"), cancellable = true)
     public void sample(double x, double y, double z, double yScale, double yMax, CallbackInfoReturnable<Double> cir) {
+        double d = x + originX;
+        double e = y + originY;
+        double f = z + originZ;
+        int i = MathHelper.floor(d);
+        int j = MathHelper.floor(e);
+        int k = MathHelper.floor(f);
+        double g, h, l;
         if (GeneralManager.getConfig().shardFarLands.getValue()) {
-            double d = x + originX;
-            double e = y + originY;
-            double f = z + originZ;
-            int i = MathHelper.floor(d);
-            int j = MathHelper.floor(e);
-            int k = MathHelper.floor(f);
-            double g, h, l;
             g = d - (float) i;
             h = e - (float) j;
             l = f - (float) k;
-
-            double p;
-            if (yScale != 0.0D) {
-                double n;
-                if (yMax >= 0.0D && yMax < h) {
-                    n = yMax;
-                } else {
-                    n = h;
-                }
-
-                p = (double) MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
-            } else {
-                p = 0.0D;
-            }
-
-            cir.setReturnValue(sample(i, j, k, g, h - p, l, h));
+        } else {
+            g = d - (double) i;
+            h = e - (double) j;
+            l = f - (double) k;
         }
+        double p;
+        if (yScale != 0.0D) {
+            double n;
+            if (yMax >= 0.0D && yMax < h) {
+                n = yMax;
+            } else {
+                n = h;
+            }
+            p = (double) MathHelper.floor(n / yScale + 1.0000000116860974E-7D) * yScale;
+        } else {
+            p = 0.0D;
+        }
+        cir.setReturnValue(sample(i, j, k, g, h - p, l, h));
     }
 
     @Inject(method = "sampleDerivative(DDD[D)D", at = @At("RETURN"), cancellable = true)
     public void sampleDerivative(double x, double y, double z, double[] ds, CallbackInfoReturnable<Double> cir) {
+        double d = x + originX;
+        double e = y + originY;
+        double f = z + originZ;
+        int i = MathHelper.floor(d);
+        int j = MathHelper.floor(e);
+        int k = MathHelper.floor(f);
+        double g, h, l;
         if (GeneralManager.getConfig().shardFarLands.getValue()) {
-            double d = x + originX;
-            double e = y + originY;
-            double f = z + originZ;
-            int i = MathHelper.floor(d);
-            int j = MathHelper.floor(e);
-            int k = MathHelper.floor(f);
-            double g, h, l;
             g = d - (float) i;
             h = e - (float) j;
             l = f - (float) k;
-            if (FabricLoader.getInstance().isModLoaded("lithium") && !this.logged) {
-                LogManager.getLogger().log(Level.ERROR, "LITHIUM DETECTED! Shattered farlands may not be present!");
-            }
-            cir.setReturnValue(sampleDerivative(i, j, k, g, h, l, ds));
+        } else {
+            g = d - (double) i;
+            h = e - (double) j;
+            l = f - (double) k;
         }
+        cir.setReturnValue(sampleDerivative(i, j, k, g, h, l, ds));
     }
 
     @Shadow
