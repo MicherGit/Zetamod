@@ -43,7 +43,7 @@ public class ZetaForged implements ModInitializer {
 			//+ " snapshot 21w28b"
 			;
 	public static boolean MOD_DEV = true;
-	public static final int MOD_DEV_V = 1000;
+	public static final int MOD_DEV_V = 251;
 	public static String getModVersion() {
 		return MOD_VERSION;
 	}
