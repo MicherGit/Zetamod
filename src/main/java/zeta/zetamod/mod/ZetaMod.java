@@ -43,7 +43,7 @@ public class ZetaMod implements ModInitializer {
 	//public static final String MOD_VERSION = "1.0.6";
 	public static boolean MOD_DEV = false;
 	public static final int MOD_DEV_V =
-			245
+			246
 			//+ "."
 			//+ "2"
 			;
