@@ -3,8 +3,8 @@ Formerly known as ZetaMod. A multi-functional utility mod for fabric 1.17 that d
 
 ## Now out of beta!
 ### Latest Update: [1.17] Zeta's Mod 1.0.0: The Keystone Update
-### Latest Build: [1.17/1.17.1] Zeta's Mod 1.0.13
-### Stable Build: [1.17/1.17.1] Zeta's Mod 1.0.13
+### Latest Build: [1.17/1.17.1] Zeta's Mod 1.0.14
+### Stable Build: [1.17/1.17.1] Zeta's Mod 1.0.14
 ### Next Version: [1.17.1] ZetaForged 1.1: The Nukes and Taters Update
 ### Next Major Version: [1.18] ZetaForged 2.0.0: The Keystone Update Part 2
 
