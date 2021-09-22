@@ -137,7 +137,7 @@ public class ZetaForged implements ModInitializer {
 
 		log(LV,"API version " + api.APIVersionGet());
 		log(Level.INFO, "Loading!");
-		log(Level.INFO, "Adding biomes");
+		//log(Level.INFO, "Adding biomes");
 		log(Level.INFO, "Adding concerning items!");
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "concern_block"), CONCERN_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "concern_block"), new BlockItem(CONCERN_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
